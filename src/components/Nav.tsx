@@ -7,16 +7,8 @@ export default function Nav({title}: {title: string}) {
 			<div className='flex flex-col'>
 				<Link
 					className='text-xl font-bold no-underline'
-					href='https://github.com/rubriclab/create-rubric-app'
-					target='_blank'>
+					href='/'>
 					{title}
-				</Link>
-
-				<Link
-					href='https://rubriclabs.com/blog/cra'
-					target='_blank'
-					className='text-secondary no-underline'>
-					learn more
 				</Link>
 			</div>
 			<div>

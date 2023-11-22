@@ -1,10 +1,10 @@
 import {Metadata} from 'next'
 
 export const META = {
-	desc: 'Bootstrapped with create-rubric-app',
+	desc: 'A partnership between Graphite x Rubric.',
 	siteURL: 'http://localhost:3000',
-	title: 'My Cool Agent',
-	twitter: '@rubriclabs'
+	title: 'Graphite Wrapped',
+	twitter: '@withgraphite'
 }
 
 export const DEFAULT_META: Metadata = {
