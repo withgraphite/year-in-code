@@ -12,6 +12,7 @@
     "prisma": "^5.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sonner": "^1.2.3",
     "sqlite3": "^5.1.6"
   },
   "description": "This project was bootstrapped with create-rubric-app",

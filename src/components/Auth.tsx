@@ -4,6 +4,7 @@ import {
 	createClientComponentClient
 } from '@supabase/auth-helpers-nextjs'
 import {useRouter} from 'next/navigation'
+import {toast} from 'sonner'
 
 // Handle Login & Logout
 export default function Auth({session}: {session: Session}) {
@@ -19,12 +20,14 @@ export default function Auth({session}: {session: Session}) {
 				scopes: 'repo:status read:user'
 			}
 		})
+		if (error) toast.error(error.message)
 	}
 
 	// Logout
 	async function handleLogout() {
 		const {error} = await supabase.auth.signOut()
-		if (!error) router.refresh()
+		if (error) toast.error(error.message)
+		else router.refresh()
 	}
 
 	return (

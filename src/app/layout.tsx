@@ -1,4 +1,5 @@
 import {Plus_Jakarta_Sans} from 'next/font/google'
+import {Toaster} from 'sonner'
 import Providers from '~/app/providers'
 import BackgroundGrid from '~/components/BackgroundGrid'
 import Nav from '~/components/Nav'
@@ -28,6 +29,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				<Providers>
 					<BackgroundGrid className='fixed h-full w-full opacity-30 dark:opacity-40' />
 					<Nav title={'Graphite Wrapped'} />
+					<Toaster />
 					<div className='z-10 flex w-full max-w-3xl items-center justify-center'>
 						{children}
 					</div>
