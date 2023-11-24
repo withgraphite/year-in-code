@@ -31,9 +31,7 @@ export default function Auth({session}: {session: Session}) {
 	}
 
 	return (
-		<button
-			className='mb-2 rounded-md bg-stone-700 px-4 py-2 text-white'
-			onClick={session ? handleLogout : handleLogin}>
+		<button onClick={session ? handleLogout : handleLogin}>
 			{session ? 'Sign out' : 'Sign in'}
 		</button>
 	)

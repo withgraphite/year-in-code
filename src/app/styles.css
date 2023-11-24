@@ -19,7 +19,7 @@
 		@apply bg-primary h-6 w-6 shrink-0 appearance-none bg-opacity-60 p-0 checked:bg-green-500;
 	}
 	select {
-		@apply border-primary bg-primary w-full rounded-md px-3 py-2 focus:outline-none appearance-none;
+		@apply border-primary bg-primary w-full appearance-none rounded-md px-3 py-2 focus:outline-none;
 	}
 	button {
 		@apply border-primary hover:bg-secondary bg-primary rounded-md px-4 py-2 transition-colors disabled:cursor-not-allowed;
