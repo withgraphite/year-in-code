@@ -41,3 +41,4 @@ jarvis/
 **/dev.db
 
 **/bun.lockb
+.env*.local
