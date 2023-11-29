@@ -5,14 +5,9 @@ import {ChatPromptTemplate} from 'langchain/prompts'
 import Auth from 'lib/components/Auth'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
-import OpenAI from 'openai'
 import Player from '~/components/Player'
 import env from '~/env.mjs'
 import {getUserStats} from '~/utils/stats'
-
-const openai = new OpenAI({apiKey: env.OPENAI_API_KEY})
-
-export const dynamic = 'force-dynamic'
 
 export default async function Dashboard() {
 	const supabase = createServerComponentClient({cookies})
@@ -20,12 +15,29 @@ export default async function Dashboard() {
 		data: {session}
 	} = await supabase.auth.getSession()
 
+	console.log(session)
+
 	if (!session) redirect('/')
+
+	// GitHub provider token is null if a user revisits the page after the token has expired
+	// Supabase does not plan on adding support for this anytime soon
+	// Improvement: https://github.com/supabase/gotrue-js/issues/806 manually make request to GitHub
+	// API and reset the provider token
+	if (session.provider_token === null)
+		return (
+			<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
+				<h1>Dashboard</h1>
+				<p>
+					Welcome <b>{session.user.user_metadata.user_name}</b>, you are
+					authenticated.
+				</p>
+				<Auth session={session} />
+			</div>
+		)
 
 	// Get GitHub stats
 	console.log('Fetching stats...')
 	const githubStats = await getUserStats(session.provider_token)
-	console.log('Fetched!')
 
 	// Write Story
 	const chat = new ChatOpenAI({
