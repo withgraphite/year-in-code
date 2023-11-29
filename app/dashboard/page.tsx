@@ -1,10 +1,13 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
+import {LLMChain} from 'langchain/chains'
+import {ChatOpenAI} from 'langchain/chat_models/openai'
+import {ChatPromptTemplate} from 'langchain/prompts'
 import Auth from 'lib/components/Auth'
-import {getUserStats} from 'lib/utils/stats'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
 import OpenAI from 'openai'
 import env from '~/env.mjs'
+import {getUserStats} from '~/utils/stats'
 
 const openai = new OpenAI({apiKey: env.OPENAI_API_KEY})
 
@@ -18,31 +21,38 @@ export default async function Dashboard() {
 
 	if (!session) redirect('/')
 
-	console.log(session)
-
+	// Get GitHub stats
+	console.log('Fetching stats...')
 	const githubStats = await getUserStats(session.provider_token)
+	console.log('Fetched!')
 
 	// Write Story
-
-	console.log('Writing Story')
-
-	const storyData = await openai.chat.completions.create({
-		messages: [
-			{
-				role: 'system',
-				content: `You are Github Video Writer, an AI tool that is responsible for generating a compelling narative story arch based on a user's year in code. It is very important that this video feels personal, motivated by their real activities and highlights what was special about that user's year in code. The goal of this video is to make the end user feel seen, valued and have a nostalgic moment of review. You don't need to touch on everything, rather hone in on and focus on the key elements that made this year special.`
-			},
-			{
-				role: 'user',
-				content: `The metadata for this video is as follows: ${JSON.stringify(
-					githubStats
-				)}`
-			}
-		],
-		model: 'gpt-4-1106-preview'
+	const chat = new ChatOpenAI({
+		temperature: 0,
+		openAIApiKey: env.OPENAI_API_KEY,
+		modelName: 'gpt-4-1106-preview'
 	})
 
-	const story = storyData.choices[0].message.content
+	const chatPrompt = ChatPromptTemplate.fromMessages([
+		[
+			'system',
+			'You are Github Video Writer, an AI tool that is responsible for generating a compelling narative story arch based on a users year in code. It is very important that this video feels personal, motivated by their real activities and highlights what was special about that users year in code. The goal of this video is to make the end user feel seen, valued and have a nostalgic moment of review. You do not need to touch on everything, rather hone in on and focus on the key elements that made this year special.'
+		],
+		['human', 'The GitHub stats for {username} are as follows: {stats}']
+	])
+
+	const storyChain = new LLMChain({
+		prompt: chatPrompt,
+		llm: chat
+	})
+
+	console.log('Writing story... ')
+	const story = await storyChain.call({
+		username: githubStats.username,
+		stats: JSON.stringify(githubStats)
+	})
+
+	console.log('Story \n', story.text)
 
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
@@ -52,7 +62,7 @@ export default async function Dashboard() {
 				authenticated.
 			</p>
 			<Auth session={session} />
-			{story}
+			{story.text}
 		</div>
 	)
 }
