@@ -5,6 +5,8 @@ import {redirect} from 'next/navigation'
 import Auth from '~/components/Auth'
 import {getUserStats} from '~/utils/stats'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Dashboard() {
 	const supabase = createServerComponentClient({cookies})
 	const {

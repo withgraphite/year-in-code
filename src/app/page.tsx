@@ -3,6 +3,8 @@ import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
 import Auth from '~/components/Auth'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Page() {
 	const supabase = createServerComponentClient({cookies})
 	const {
