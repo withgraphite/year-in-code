@@ -46,7 +46,7 @@ export async function getUserStats(token: string): Promise<User | null> {
  * @returns total commits, pulls, reviews, etc
  */
 export async function getHighlights(token: string) {
-	const payload = await request(
+	const payload: any = await request(
 		GITHUB_GRAPHQL_API,
 		USER_HIGHLIGHTS,
 		{
@@ -80,7 +80,7 @@ export async function getHighlights(token: string) {
  * @returns array of languages with name, logo color, etc
  */
 export async function getTopLanguages(token: string): Promise<Language[]> {
-	const payload = await request(
+	const payload: any = await request(
 		GITHUB_GRAPHQL_API,
 		TOP_LANGUAGES,
 		{
@@ -122,7 +122,7 @@ export async function getTopLanguages(token: string): Promise<Language[]> {
  * @returns top 5 repositories with their meta data
  */
 export async function getTopRepsitories(token: string): Promise<Repo[]> {
-	const payload = await request(GITHUB_GRAPHQL_API, TOP_REPOS, undefined, {
+	const payload: any = await request(GITHUB_GRAPHQL_API, TOP_REPOS, undefined, {
 		Authorization: `Bearer ${token}`
 	})
 
@@ -153,7 +153,7 @@ export async function getTopRepsitories(token: string): Promise<Repo[]> {
  * @returns total followers and following, latest 3 followers and following
  */
 export async function getTopFollows(token: string) {
-	const payload = await request(GITHUB_GRAPHQL_API, FOLLOWS, undefined, {
+	const payload: any = await request(GITHUB_GRAPHQL_API, FOLLOWS, undefined, {
 		Authorization: `Bearer ${token}`
 	})
 
@@ -178,7 +178,7 @@ export async function getTopFollows(token: string) {
  * @returns total stars given and received
  */
 export async function getStars(token: string) {
-	const payload = await request(GITHUB_GRAPHQL_API, STARS, undefined, {
+	const payload: any = await request(GITHUB_GRAPHQL_API, STARS, undefined, {
 		Authorization: `Bearer ${token}`
 	})
 
@@ -199,7 +199,7 @@ export async function getStars(token: string) {
  * @returns contribution count for each day of the year
  */
 export async function getContributionHistory(token: string) {
-	const payload = await request(
+	const payload: any = await request(
 		GITHUB_GRAPHQL_API,
 		CONTRIBUTIONS,
 		{
