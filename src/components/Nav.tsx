@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import {ThemeSwitcher} from '~/components/ThemeSwitcher'
 
 export default function Nav({title}: {title: string}) {
 	return (
@@ -10,9 +9,6 @@ export default function Nav({title}: {title: string}) {
 					href='/'>
 					{title}
 				</Link>
-			</div>
-			<div>
-				<ThemeSwitcher />
 			</div>
 		</div>
 	)
