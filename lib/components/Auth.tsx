@@ -17,7 +17,7 @@ export default function Auth({session}: {session: Session}) {
 			provider: 'github',
 			options: {
 				redirectTo: location.origin + '/auth/callback',
-				scopes: 'repo repo:status read:user'
+				scopes: 'repo:status read:user'
 			}
 		})
 		if (error) toast.error(error.message)
