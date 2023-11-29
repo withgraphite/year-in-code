@@ -6,6 +6,7 @@ import Auth from 'lib/components/Auth'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
 import OpenAI from 'openai'
+import Player from '~/components/Player'
 import env from '~/env.mjs'
 import {getUserStats} from '~/utils/stats'
 
@@ -62,7 +63,7 @@ export default async function Dashboard() {
 				authenticated.
 			</p>
 			<Auth session={session} />
-			{story.text}
+			<Player videoProps={{title: story.text}} />
 		</div>
 	)
 }

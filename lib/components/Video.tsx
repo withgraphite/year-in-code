@@ -1,31 +1,23 @@
-'use client'
+import {AbsoluteFill, Sequence, useVideoConfig} from 'remotion'
 
-import {AbsoluteFill, Composition} from 'remotion'
+export default function Video({title}) {
+	const {fps} = useVideoConfig()
 
-export default function Video({frames}: {frames: any[]}) {
+	const transitionStart = 2 * fps
+	const transitionDuration = 1 * fps
+
 	return (
-		<div className='absolute'>
-			{frames.map((frame, i) => (
-				<Composition
-					key={`frame-${i}`}
-					id='wrapped'
-					durationInFrames={30}
-					fps={30}
-					width={1920}
-					height={1080}
-					component={() => (
-						<AbsoluteFill
-							style={{
-								justifyContent: 'center',
-								alignItems: 'center',
-								fontSize: 60,
-								backgroundColor: 'white'
-							}}>
-							{frame}
-						</AbsoluteFill>
-					)}
-				/>
-			))}
-		</div>
+		<AbsoluteFill>
+			<Sequence durationInFrames={transitionStart + transitionDuration}>
+				<div className='absolute flex h-full w-full items-center justify-center bg-black'>
+					<h1 className='text-white'>VIDEO</h1>
+				</div>
+			</Sequence>
+			<Sequence from={transitionStart + transitionDuration / 2}>
+				<div className='absolute flex h-full w-full items-center justify-center bg-black'>
+					<code className='text-xs text-white'>{title}</code>
+				</div>
+			</Sequence>
+		</AbsoluteFill>
 	)
 }
