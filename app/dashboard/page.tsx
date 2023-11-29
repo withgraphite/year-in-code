@@ -15,11 +15,9 @@ export default async function Dashboard() {
 		data: {session}
 	} = await supabase.auth.getSession()
 
-	console.log(session)
-
 	if (!session) redirect('/')
 
-	// GitHub provider token is null if a user revisits the page after the token has expired
+	// GitHub provider_token is null if a user revisits the page after the token has expired
 	// Supabase does not plan on adding support for this anytime soon
 	// Improvement: https://github.com/supabase/gotrue-js/issues/806 manually make request to GitHub
 	// API and reset the provider token
@@ -64,8 +62,6 @@ export default async function Dashboard() {
 		username: githubStats.username,
 		stats: JSON.stringify(githubStats)
 	})
-
-	console.log('Story \n', story.text)
 
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
