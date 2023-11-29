@@ -1,9 +1,9 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 
+import Auth from 'lib/components/Auth'
+import {getUserStats} from 'lib/utils/stats'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
-import Auth from '~/components/Auth'
-import {getUserStats} from '~/utils/stats'
 
 export const dynamic = 'force-dynamic'
 

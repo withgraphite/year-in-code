@@ -1,7 +1,7 @@
+import BackgroundGrid from 'lib/components/BackgroundGrid'
+import Nav from 'lib/components/Nav'
 import {Plus_Jakarta_Sans} from 'next/font/google'
 import {Toaster} from 'sonner'
-import BackgroundGrid from '~/components/BackgroundGrid'
-import Nav from '~/components/Nav'
 import './styles.css'
 
 const font = Plus_Jakarta_Sans({subsets: ['latin']})

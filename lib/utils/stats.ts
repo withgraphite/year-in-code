@@ -1,8 +1,8 @@
 import {request} from 'graphql-request'
-import {DEC2023, JAN2023} from '~/constants/dates'
-import {COMMON_LANGUAGES} from '~/constants/misc'
-import {GITHUB_GRAPHQL_API} from '~/constants/urls'
-import {Language, Repo, User} from '~/types/github'
+import {DEC2023, JAN2023} from 'lib/constants/dates'
+import {COMMON_LANGUAGES} from 'lib/constants/misc'
+import {GITHUB_GRAPHQL_API} from 'lib/constants/urls'
+import {Language, Repo, User} from 'lib/types/github'
 
 import {
 	CONTRIBUTIONS,
