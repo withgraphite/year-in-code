@@ -1,10 +1,19 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
-import {LLMChain, SimpleSequentialChain} from 'langchain/chains'
+import {LLMChain} from 'langchain/chains'
+import {ChatOpenAI} from 'langchain/chat_models/openai'
 import {OpenAI} from 'langchain/llms/openai'
-import {PromptTemplate} from 'langchain/prompts'
+import {JsonOutputFunctionsParser} from 'langchain/output_parsers'
+import {
+	ChatPromptTemplate,
+	HumanMessagePromptTemplate,
+	PromptTemplate,
+	SystemMessagePromptTemplate
+} from 'langchain/prompts'
 import Auth from 'lib/components/Auth'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
+import {z} from 'zod'
+import {zodToJsonSchema} from 'zod-to-json-schema'
 import env from '~/env.mjs'
 import {getUserStats} from '~/utils/stats'
 
@@ -56,28 +65,57 @@ export default async function Dashboard() {
 	})
 
 	const storyChain = new LLMChain({llm, prompt: promptTemplate})
+	console.log('Writing the story...')
+	const story = await storyChain.run(JSON.stringify(githubStats))
 
 	// Chain: Generate video manifest
-	const remotionTemplate = `You are a video editor, who can take a story and convert it into a manifest files containing a list of frames to be used to create a Remotion (https://remotion.dev) video. Given the story, it is your job to write a JSON manifest for the video.
- 								Story:
-								{story}
-								The JSON manifest file for Remotion is:`
-	const remotionPromptTemplate = new PromptTemplate({
-		template: remotionTemplate,
+	const zodSchema = z.object({
+		scenes: z
+			.array(
+				z.object({
+					title: z.string().describe('The title of the scene containing the')
+				})
+			)
+			.describe('An array of scenes in a video')
+	})
+	const llmManifest = new ChatOpenAI({
+		modelName: 'gpt-3.5-turbo-0613',
+		openAIApiKey: env.OPENAI_API_KEY,
+		temperature: 0
+	})
+	const functionCallingModel = llmManifest.bind({
+		functions: [
+			{
+				name: 'output_formatter',
+				description: 'Should always be used to properly format output',
+				parameters: zodToJsonSchema(zodSchema)
+			}
+		],
+		function_call: {name: 'output_formatter'}
+	})
+	const remotionPromptTemplate = new ChatPromptTemplate({
+		promptMessages: [
+			SystemMessagePromptTemplate.fromTemplate(
+				'You are a video editor, who can take a story and convert it into a manifest files containing a list of frames to be used to create a Remotion (https://remotion.dev) video. Given the story, it is your job to create an array of titles where each title is a sentence that would form a series in a video.'
+			),
+			HumanMessagePromptTemplate.fromTemplate('{story}')
+		],
 		inputVariables: ['story']
 	})
-	const remotionChain = new LLMChain({
-		llm: llm,
-		prompt: remotionPromptTemplate
+	const outputParser = new JsonOutputFunctionsParser()
+	const remotionChain = remotionPromptTemplate
+		.pipe(functionCallingModel)
+		.pipe(outputParser)
+
+	console.log('Creating frames...')
+	const remotionResponse = await remotionChain.invoke({
+		story: {story}
 	})
 
-	const overallChain = new SimpleSequentialChain({
-		chains: [storyChain, remotionChain],
-		verbose: true
-	})
+	console.log(JSON.stringify(remotionResponse, null, 2))
 
-	const manifest = await overallChain.run(JSON.stringify(githubStats))
-	console.log(manifest)
+	// const manifest = await overallChain.run(JSON.stringify(githubStats))
+	// console.log(manifest)
 
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
@@ -87,7 +125,8 @@ export default async function Dashboard() {
 				authenticated.
 			</p>
 			<Auth session={session} />
-			{/* <Player videoProps={{title: story.text}} /> */}
+			{JSON.stringify(remotionResponse, null, 2)}
+			{/* <Player videoProps={{title: story?.text as string}} /> */}
 		</div>
 	)
 }
