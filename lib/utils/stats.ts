@@ -18,6 +18,7 @@ import {
  * @returns username, commits, top repos, etc
  */
 export async function getUserStats(token: string): Promise<User | null> {
+	console.log('Fetching stats...')
 	const [highlights, languages, repositories, follows, stars, contributions] =
 		await Promise.all([
 			getHighlights(token),
