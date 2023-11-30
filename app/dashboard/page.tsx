@@ -125,7 +125,10 @@ export default async function Dashboard() {
 				authenticated.
 			</p>
 			<Auth session={session} />
-			{JSON.stringify(remotionResponse, null, 2)}
+			<code className='w-full overflow-auto whitespace-pre'>
+				{JSON.stringify(remotionResponse, null, 2)}
+			</code>
+
 			{/* <Player videoProps={{title: story?.text as string}} /> */}
 		</div>
 	)

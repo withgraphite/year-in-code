@@ -25,7 +25,7 @@
 		@apply border-primary hover:bg-secondary bg-primary rounded-md px-4 py-2 transition-colors disabled:cursor-not-allowed;
 	}
 	code {
-		@apply border-primary rounded-sm bg-neutral-200 bg-opacity-60 p-1 text-sm dark:bg-neutral-800;
+		@apply border-primary rounded-sm bg-neutral-200 bg-opacity-60 p-2 text-sm;
 	}
 	a {
 		@apply underline underline-offset-4 hover:opacity-80;
