@@ -2,6 +2,8 @@ import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import Auth from 'lib/components/Auth'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
+import Player from '~/components/Player'
+import {Scene} from '~/types/scene'
 import generateScenes from '~/utils/scenes'
 import {getUserStats} from '~/utils/stats'
 import generateStory from '~/utils/story'
@@ -33,20 +35,13 @@ export default async function Dashboard() {
 	// Fetch GitHub stats, create story from stats & video scenes from story
 	const stats = await getUserStats(session.provider_token)
 	const story = await generateStory(stats)
-	const scenes = await generateScenes(story)
+	const {scenes} = (await generateScenes(story)) as {scenes: Scene[]}
+
+	console.log(scenes)
 
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
-			<h1>Dashboard</h1>
-			<p>
-				Welcome <b>{session.user.user_metadata.user_name}</b>, you are
-				authenticated.
-			</p>
-			<Auth session={session} />
-			<code className='w-full overflow-auto whitespace-pre'>
-				{JSON.stringify(scenes, null, 2)}
-			</code>
-			{/* <Player videoProps={{title: story?.text as string}} /> */}
+			<Player scenes={scenes} />
 		</div>
 	)
 }
