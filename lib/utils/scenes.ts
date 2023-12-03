@@ -5,23 +5,12 @@ import {
 	HumanMessagePromptTemplate,
 	SystemMessagePromptTemplate
 } from 'langchain/prompts'
-import {z} from 'zod'
 import {zodToJsonSchema} from 'zod-to-json-schema'
 import env from '~/env.mjs'
+import {sceneSchema} from '~/types/scene'
 
 // Generate video scenes using story
 export default async function generateScenes(story: string) {
-	// Create zod schema
-	const zodSchema = z.object({
-		scenes: z
-			.array(
-				z.object({
-					title: z.string().describe('The title of the scene containing the')
-				})
-			)
-			.describe('An array of scenes in a video')
-	})
-
 	// Init LLM
 	const llm = new ChatOpenAI({
 		modelName: 'gpt-3.5-turbo-0613',
@@ -35,7 +24,7 @@ export default async function generateScenes(story: string) {
 			{
 				name: 'output_formatter',
 				description: 'Should always be used to properly format output',
-				parameters: zodToJsonSchema(zodSchema)
+				parameters: zodToJsonSchema(sceneSchema)
 			}
 		],
 		function_call: {name: 'output_formatter'}
