@@ -5,10 +5,11 @@ import {
 } from '@supabase/auth-helpers-nextjs'
 import {useRouter} from 'next/navigation'
 import {toast} from 'sonner'
+import {Database} from '~/types/supabase'
 
 // Handle Login & Logout
 export default function Auth({session}: {session: Session}) {
-	const supabase = createClientComponentClient()
+	const supabase = createClientComponentClient<Database>()
 	const router = useRouter()
 
 	// Login - also handles sign ups

@@ -3,6 +3,7 @@ import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
 import Auth from '~/components/Auth'
 import Player from '~/components/Player'
+import {Database} from '~/types/supabase'
 import {Manifest} from '~/types/video'
 // import generateVideo from '~/utils/generate'
 // import {getUserStats} from '~/utils/stats'
@@ -12,7 +13,7 @@ export default async function Dashboard({
 }: {
 	params: {username: string}
 }) {
-	const supabase = createServerComponentClient({cookies})
+	const supabase = createServerComponentClient<Database>({cookies})
 	const {
 		data: {session}
 	} = await supabase.auth.getSession()
