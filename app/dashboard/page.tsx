@@ -3,8 +3,8 @@ import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
 import Player from '~/components/Player'
 import {Manifest} from '~/types/video'
-import generateVideo from '~/utils/generate'
-import {getUserStats} from '~/utils/stats'
+// import generateVideo from '~/utils/generate'
+// import {getUserStats} from '~/utils/stats'
 
 export default async function Dashboard() {
 	const supabase = createServerComponentClient({cookies})
@@ -24,11 +24,63 @@ export default async function Dashboard() {
 	}
 
 	// Fetch GitHub stats, create story from stats & video scenes from story
-	const stats = await getUserStats(session.provider_token)
+	// const stats = await getUserStats(session.provider_token)
 
-	console.log(stats)
+	// console.log(stats)
 
-	const video = (await generateVideo(stats)) as Manifest
+	// const video = (await generateVideo(stats)) as Manifest
+
+	const video = {
+		scenes: [
+			{
+				text:
+					"Hey DexterStorey, let's rewind and relive your incredible year in code on GitHub!",
+				animation: {type: 'stars', numStars: 5}
+			},
+			{
+				text:
+					"You've pushed boundaries with 471 commits and contributed to 749 activities. That's dedication!"
+			},
+			{
+				text:
+					'Your collaboration game was strong with 46 pull requests and 12 code reviews. Teamwork makes the dream work!'
+			},
+			{
+				text:
+					"You've nurtured 26 repositories, leaving a trail of innovation in your wake."
+			},
+			{
+				text:
+					"HTML, TypeScript, and Svelte were your top languages. You've painted the canvas of the web with your code!",
+				animation: {type: 'languages', languages: ['HTML', 'TypeScript', 'Svelte']}
+			},
+			{
+				text:
+					"Your top repos were 'dashboard', 'rubric', and 'create-rubric-app'. Stars of your GitHub sky!"
+			},
+			{
+				text:
+					"You've connected with the community, following 36 and gaining 20 followers. It's all about connections!"
+			},
+			{
+				text:
+					"You've given 93 stars, spreading appreciation and support for fellow developers' work."
+			},
+			{
+				text:
+					"Let's not forget those intense coding days! Remember January 12th and April 21st? Your contributions lit up the GitHub graph!"
+			},
+			{
+				text:
+					'And who could ignore the epic streak in November? Your passion for code truly shone through!'
+			},
+			{
+				text:
+					"Thank you for a year of code, collaboration, and community. Here's to another year of growth and creativity on GitHub!",
+				animation: {type: 'stars', numStars: 10}
+			}
+		]
+	} as Manifest
 
 	console.log(video.scenes)
 
