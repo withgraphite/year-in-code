@@ -14,6 +14,7 @@ export default function Video({video}: {video: Manifest}) {
 						return (
 							<Stars
 								key={i}
+								from={i * fps * 5}
 								text={text}
 								stars={animation.numStars}
 							/>
@@ -22,6 +23,7 @@ export default function Video({video}: {video: Manifest}) {
 						return (
 							<Languages
 								key={i}
+								from={i * fps * 5}
 								text={text}
 								languages={animation.languages}
 							/>
@@ -33,7 +35,7 @@ export default function Video({video}: {video: Manifest}) {
 								from={i * fps * 5}
 								durationInFrames={fps * 5}>
 								<div className='absolute flex h-full w-full items-center justify-center bg-black'>
-									<code className='text-xs text-white'>{text}</code>
+									<h2 className='mx-48 text-center text-white'>{text}</h2>
 								</div>
 							</Sequence>
 						)

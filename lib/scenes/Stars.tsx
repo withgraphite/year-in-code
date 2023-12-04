@@ -1,10 +1,20 @@
 import {Sequence} from 'remotion'
 
-export default function Stars({text, stars}: {text: string; stars: number}) {
+export default function Stars({
+	text,
+	from,
+	stars
+}: {
+	text: string
+	from: number
+	stars: number
+}) {
 	return (
-		<Sequence durationInFrames={30 * 5}>
+		<Sequence
+			from={from}
+			durationInFrames={30 * 5}>
 			<div className='absolute flex h-full w-full items-center justify-center bg-black'>
-				<code className='text-xs text-white'>{text}</code>
+				<h2 className='mx-48 text-center text-white'>{text}</h2>
 				{new Array(stars).fill(0).map((_, i) => (
 					<div
 						key={i}

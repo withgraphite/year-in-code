@@ -2,18 +2,26 @@ import {Sequence} from 'remotion'
 
 export default function Languages({
 	text,
+	from,
 	languages
 }: {
 	text: string
+	from: number
 	languages: string[]
 }) {
 	return (
-		<Sequence durationInFrames={30 * 5}>
-			<div className='absolute flex h-full w-full items-center justify-center bg-black'>
-				<code className='text-xs text-white'>{text}</code>
-				<div className='flex'>
+		<Sequence
+			from={from}
+			durationInFrames={30 * 5}>
+			<div className='absolute flex h-full w-full flex-col items-center justify-center gap-5 bg-black'>
+				<h2 className='mx-48 text-center text-white'>{text}</h2>
+				<div className='flex gap-5'>
 					{languages.map(language => (
-						<div key={language}>{language}</div>
+						<div
+							className='text-white'
+							key={language}>
+							{language}
+						</div>
 					))}
 				</div>
 			</div>
