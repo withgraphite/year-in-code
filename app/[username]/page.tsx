@@ -1,8 +1,8 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
-import Auth from '~/components/Auth'
 import Player from '~/components/Player'
+import Toolbar from '~/components/Toolbar'
 import {Database} from '~/types/supabase'
 import profileUser from '~/utils/profile'
 
@@ -33,10 +33,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 				<span className='font-bold italic'>Year in Code 2023</span>.
 			</p>
 			<Player video={video} />
-			<div className='flex items-center gap-5'>
-				<button>Download</button>
-				<Auth session={session} />
-			</div>
+			<Toolbar session={session} />
 		</div>
 	)
 }
