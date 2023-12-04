@@ -1,15 +1,15 @@
 'use client'
 
 import {Player as RemotionPlayer} from '@remotion/player'
-import {Scene} from '~/types/scene'
+import {Scenes} from '~/types/scene'
 import Video from './Video'
 
-export default function Player({scenes}: {scenes: Scene[]}) {
+export default function Player({scenes}: {scenes: Scenes}) {
 	return (
 		<div className='mb-[40px] mt-[60px] overflow-hidden'>
 			<RemotionPlayer
 				component={Video}
-				durationInFrames={scenes.length * 30}
+				durationInFrames={scenes.scenes.length * 30 * 3}
 				fps={30}
 				inputProps={{scenes}}
 				compositionHeight={720}
