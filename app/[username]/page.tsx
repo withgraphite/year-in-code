@@ -1,12 +1,17 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
+import Auth from '~/components/Auth'
 import Player from '~/components/Player'
 import {Manifest} from '~/types/video'
 // import generateVideo from '~/utils/generate'
 // import {getUserStats} from '~/utils/stats'
 
-export default async function Dashboard() {
+export default async function Dashboard({
+	params
+}: {
+	params: {username: string}
+}) {
 	const supabase = createServerComponentClient({cookies})
 	const {
 		data: {session}
@@ -25,9 +30,7 @@ export default async function Dashboard() {
 
 	// Fetch GitHub stats, create story from stats & video scenes from story
 	// const stats = await getUserStats(session.provider_token)
-
 	// console.log(stats)
-
 	// const video = (await generateVideo(stats)) as Manifest
 
 	const video = {
@@ -86,9 +89,14 @@ export default async function Dashboard() {
 
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
+			<p>
+				Hi {params.username}, welcome to your{' '}
+				<span className='font-bold italic'>Year in Code 2023</span>.
+			</p>
 			<Player video={video} />
-			<div className='flex'>
-				<p>Download</p>
+			<div className='flex items-center gap-5'>
+				<button>Download</button>
+				<Auth session={session} />
 			</div>
 		</div>
 	)

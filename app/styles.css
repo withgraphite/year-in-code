@@ -22,7 +22,7 @@
 		@apply border-primary bg-primary w-full appearance-none rounded-md px-3 py-2 focus:outline-none;
 	}
 	button {
-		@apply border-primary hover:bg-secondary bg-primary rounded-md px-4 py-2 transition-colors disabled:cursor-not-allowed;
+		@apply border-primary hover:bg-secondary bg-primary rounded-md px-4 py-2 transition-colors disabled:cursor-not-allowed dark:text-white;
 	}
 	code {
 		@apply border-primary rounded-sm bg-neutral-200 bg-opacity-60 p-2 text-sm;
