@@ -9,7 +9,7 @@ export default function Player({video}: {video: Manifest}) {
 		<div className='mb-[40px] mt-[60px] overflow-hidden'>
 			<RemotionPlayer
 				component={Video}
-				durationInFrames={video.scenes.length * 30 * 3}
+				durationInFrames={video.scenes.length * 30 * 5}
 				fps={30}
 				inputProps={{video}}
 				compositionHeight={720}
