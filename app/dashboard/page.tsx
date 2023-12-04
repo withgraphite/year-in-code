@@ -2,10 +2,9 @@ import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
 import Player from '~/components/Player'
-import {Scenes} from '~/types/scene'
-import generateScenes from '~/utils/scenes'
+import {Manifest} from '~/types/video'
+import generateVideo from '~/utils/generate'
 import {getUserStats} from '~/utils/stats'
-import generateStory from '~/utils/story'
 
 export default async function Dashboard() {
 	const supabase = createServerComponentClient({cookies})
@@ -19,22 +18,23 @@ export default async function Dashboard() {
 	// Supabase does not plan on adding support for this anytime soon
 	// Improvement: https://github.com/supabase/gotrue-js/issues/806 manually make request to GitHub
 	// API and reset the provider token
-	if (session.provider_token === null)
-		await supabase.auth.signOut().then(() => redirect('/'))
+	if (session.provider_token === null) {
+		await supabase.auth.signOut()
+		redirect('/')
+	}
 
 	// Fetch GitHub stats, create story from stats & video scenes from story
 	const stats = await getUserStats(session.provider_token)
-	const story = await generateStory(stats)
 
-	console.log(story)
+	console.log(stats)
 
-	const scenes = (await generateScenes(story)) as Scenes
+	const video = (await generateVideo(stats)) as Manifest
 
-	console.log(scenes.scenes)
+	console.log(video.scenes)
 
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
-			<Player scenes={scenes} />
+			<Player video={video} />
 			<div className='flex'>
 				<p>Download</p>
 			</div>

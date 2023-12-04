@@ -7,10 +7,11 @@ import {
 } from 'langchain/prompts'
 import {zodToJsonSchema} from 'zod-to-json-schema'
 import env from '~/env.mjs'
-import {scenesSchema} from '~/types/scene'
+import {User} from '~/types/github'
+import {videoSchema} from '~/types/video'
 
 // Generate video scenes using story
-export default async function generateScenes(story: string) {
+export default async function generateScenes(stats: User) {
 	// Init LLM
 	const llm = new ChatOpenAI({
 		modelName: 'gpt-4-1106-preview',
@@ -22,23 +23,28 @@ export default async function generateScenes(story: string) {
 	const functionCallingModel = llm.bind({
 		functions: [
 			{
-				name: 'output_formatter',
+				name: 'renderVideo',
 				description: 'Should always be used to properly format output',
-				parameters: zodToJsonSchema(scenesSchema)
+				parameters: zodToJsonSchema(videoSchema)
 			}
 		],
-		function_call: {name: 'output_formatter'}
+		function_call: {name: 'renderVideo'}
 	})
 
 	// Prompt template
 	const prompt = new ChatPromptTemplate({
 		promptMessages: [
 			SystemMessagePromptTemplate.fromTemplate(
-				'You are a video editor, who can take a story and convert it into a manifest files containing a list of frames to be used to create a Remotion (https://remotion.dev) video. Given the story, it is your job to create an array of titles where each title is a sentence that would form a series in a video.'
+				`You are Github Video Maker, an AI tool that is responsible for generating a compelling narative video based on a users year in code. 
+				It is very important that this video feels personal, motivated by their real activities and highlights what was special about that users year in code. 
+				The goal of this video is to make the end user feel seen, valued and have a nostalgic moment of review. You do not need to touch on everything, rather 
+				hone in on and focus on the key elements that made this year special.`
 			),
-			HumanMessagePromptTemplate.fromTemplate('{story}')
+			HumanMessagePromptTemplate.fromTemplate(
+				'The GitHub stats are as follows: {stats}'
+			)
 		],
-		inputVariables: ['story']
+		inputVariables: ['stats']
 	})
 	const outputParser = new JsonOutputFunctionsParser()
 
@@ -48,7 +54,7 @@ export default async function generateScenes(story: string) {
 	// Run chain
 	console.log('Creating frames...')
 	const scenes = await chain.invoke({
-		story
+		stats: JSON.stringify(stats)
 	})
 
 	return scenes

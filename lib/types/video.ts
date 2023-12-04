@@ -1,6 +1,6 @@
 import z from 'zod'
 
-export const scenesSchema = z.object({
+export const videoSchema = z.object({
 	scenes: z
 		.array(
 			z.object({
@@ -18,7 +18,19 @@ export const scenesSchema = z.object({
 								type: z.enum(['prs']),
 								pullReqs: z.number()
 							})
-							.describe('Pull request animation')
+							.describe('Pull request animation'),
+						z
+							.object({
+								type: z.enum(['people']),
+								people: z.array(z.string().url())
+							})
+							.describe('The profile photos of people to be displayed'),
+						z
+							.object({
+								type: z.enum(['languages']),
+								languages: z.array(z.string())
+							})
+							.describe('The languages to be displayed')
 					])
 					.optional()
 					.describe('Animation to be used to display alongside the text')
@@ -27,4 +39,4 @@ export const scenesSchema = z.object({
 		.describe('An array of scenes in the video')
 })
 
-export type Scenes = z.infer<typeof scenesSchema>
+export type Manifest = z.infer<typeof videoSchema>

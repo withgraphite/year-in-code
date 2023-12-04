@@ -1,12 +1,12 @@
 import {AbsoluteFill, Sequence, useVideoConfig} from 'remotion'
-import {Scenes} from '~/types/scene'
+import {Manifest} from '~/types/video'
 
-export default function Video({scenes}: {scenes: Scenes}) {
+export default function Video({video}: {video: Manifest}) {
 	const {fps} = useVideoConfig()
 
 	return (
 		<AbsoluteFill>
-			{scenes.scenes.map(({text, animation}, i) => (
+			{video.scenes.map(({text, animation}, i) => (
 				<Sequence
 					key={i}
 					from={i * fps * 3}
