@@ -18,7 +18,7 @@ export interface Database {
         }
         Insert: {
           created_at?: string
-          id: string
+          id?: string
           is_public?: boolean | null
           video_manifest?: Json | null
         }
