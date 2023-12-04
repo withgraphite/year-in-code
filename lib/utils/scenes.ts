@@ -7,13 +7,13 @@ import {
 } from 'langchain/prompts'
 import {zodToJsonSchema} from 'zod-to-json-schema'
 import env from '~/env.mjs'
-import {sceneSchema} from '~/types/scene'
+import {scenesSchema} from '~/types/scene'
 
 // Generate video scenes using story
 export default async function generateScenes(story: string) {
 	// Init LLM
 	const llm = new ChatOpenAI({
-		modelName: 'gpt-3.5-turbo-0613',
+		modelName: 'gpt-4-1106-preview',
 		openAIApiKey: env.OPENAI_API_KEY,
 		temperature: 0
 	})
@@ -24,7 +24,7 @@ export default async function generateScenes(story: string) {
 			{
 				name: 'output_formatter',
 				description: 'Should always be used to properly format output',
-				parameters: zodToJsonSchema(sceneSchema)
+				parameters: zodToJsonSchema(scenesSchema)
 			}
 		],
 		function_call: {name: 'output_formatter'}
@@ -48,7 +48,7 @@ export default async function generateScenes(story: string) {
 	// Run chain
 	console.log('Creating frames...')
 	const scenes = await chain.invoke({
-		story: {story}
+		story
 	})
 
 	return scenes
