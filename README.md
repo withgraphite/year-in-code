@@ -23,4 +23,4 @@ If you make a change to database schema, to update the generated types, run the 
 npx supabase gen types typescript --project-id "$PROJECT_REF" --schema public > lib/types/supabase.ts
 ```
 
-[Learn more here](https://supabase.com/docs/guides/api/rest/generating-types#generating-types-using-supabase-cli).
+The `PROJECT_REF` is accessible via Supabase project URL. [Learn more here](https://supabase.com/docs/guides/api/rest/generating-types#generating-types-using-supabase-cli).
