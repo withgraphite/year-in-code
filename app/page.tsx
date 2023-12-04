@@ -11,7 +11,7 @@ export default async function Page() {
 		data: {session}
 	} = await supabase.auth.getSession()
 
-	if (session) redirect('/dashboard')
+	if (session && session.provider_token) redirect('/dashboard')
 
 	return (
 		<div className='flex min-h-screen w-full flex-col items-center justify-center gap-10 p-5 sm:p-20'>
