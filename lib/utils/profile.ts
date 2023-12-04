@@ -14,7 +14,11 @@ export default async function profileUser(session: Session): Promise<Manifest> {
 	let video: Manifest = {}
 
 	// Check if user profile exists
-	const {data, error} = await supabase.from('profile').select().single()
+	const {data, error} = await supabase
+		.from('profile')
+		.select()
+		.eq('id', session.user.id)
+		.single()
 	if (error) console.error(error.message)
 
 	// First time user

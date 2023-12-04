@@ -11,7 +11,7 @@ export default function Toolbar({session}: {session: Session}) {
 	}
 	return (
 		<div className='flex items-center gap-5'>
-			<button onClick={() => toast.loading('Downloading now...')}>Download</button>
+			<button onClick={() => toast.loading('Downloading')}>Download</button>
 			<button onClick={handleShare}>Share</button>
 			<Auth session={session} />
 		</div>
