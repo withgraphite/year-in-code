@@ -4,20 +4,13 @@ import {redirect} from 'next/navigation'
 import Auth from '~/components/Auth'
 import Player from '~/components/Player'
 import {Database} from '~/types/supabase'
-import {Manifest} from '~/types/video'
-import generateVideo from '~/utils/generate'
-import {getUserStats} from '~/utils/stats'
+import profileUser from '~/utils/profile'
 
-export default async function Dashboard({
-	params
-}: {
-	params: {username: string}
-}) {
+export default async function Profile({params}: {params: {username: string}}) {
 	const supabase = createServerComponentClient<Database>({cookies})
 	const {
 		data: {session}
 	} = await supabase.auth.getSession()
-	let video: Manifest = {}
 
 	if (!session) redirect('/')
 
@@ -30,23 +23,8 @@ export default async function Dashboard({
 		redirect('/')
 	}
 
-	const {data, error} = await supabase.from('profile').select().single()
-	if (error) console.error(error.message)
-
-	// First time user
-	if (!data) {
-		// Fetch GitHub stats, create story from stats & video scenes from story
-		const stats = await getUserStats(session.provider_token)
-		console.log(stats)
-		video = (await generateVideo(stats)) as Manifest
-
-		// Store manifest in database
-		const {error} = await supabase.from('profile').insert({video_manifest: video})
-		if (error) console.error(error.message)
-	} // Returning user
-	else video = data.video_manifest as Manifest
-
-	console.log(video.scenes)
+	// Generate video
+	const video = await profileUser(session)
 
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
