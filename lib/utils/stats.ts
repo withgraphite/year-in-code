@@ -216,5 +216,14 @@ export async function getContributionHistory(token: string) {
 
 	const weeks = payload.viewer.contributionsCollection.contributionCalendar.weeks
 
-	return weeks
+	const filtered = weeks.map(week => {
+		return {
+			...week,
+			contributionDays: week.contributionDays.filter(
+				day => day.contributionCount > 0
+			)
+		}
+	})
+
+	return filtered
 }
