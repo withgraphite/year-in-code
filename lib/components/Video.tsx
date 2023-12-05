@@ -1,4 +1,6 @@
 import {AbsoluteFill, Sequence, useVideoConfig} from 'remotion'
+import Flashback from '~/scenes/Flashback'
+import Intro from '~/scenes/Intro'
 import Languages from '~/scenes/Languages'
 import Stars from '~/scenes/Stars'
 import {Manifest} from '~/types/video'
@@ -10,6 +12,24 @@ export default function Video({video}: {video: Manifest}) {
 		<AbsoluteFill>
 			{video.scenes.map(({text, animation}, i) => {
 				switch (animation?.type) {
+					case 'intro':
+						return (
+							<Intro
+								key={i}
+								from={i * fps * 5}
+								name={animation.name}
+							/>
+						)
+					case 'flashback':
+						return (
+							<Flashback
+								key={i}
+								from={i * fps * 5}
+								dateFrom={animation.dateFrom}
+								dateTo={animation.dateTo}
+								text={text}
+							/>
+						)
 					case 'stars':
 						return (
 							<Stars

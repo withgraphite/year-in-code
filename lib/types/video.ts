@@ -9,6 +9,24 @@ export const videoSchema = z.object({
 					.discriminatedUnion('type', [
 						z
 							.object({
+								type: z.enum(['intro']),
+								name: z.string()
+							})
+							.describe('Shows "Github Wrapped" in space, zooms to user name'),
+						z
+							.object({
+								type: z.enum(['flashback']),
+								dateFrom: z
+									.date()
+									.describe("Date to tick backwards from. Should be today's date"),
+								dateTo: z
+									.date()
+									.describe('Date to tick backwards to, could be first commit date'),
+								text: z.string()
+							})
+							.describe('Ticks backwards from dateFrom to dateTo then shows text'),
+						z
+							.object({
 								type: z.enum(['stars']),
 								numStars: z.number()
 							})
