@@ -2,6 +2,7 @@ import {AbsoluteFill, Sequence, useVideoConfig} from 'remotion'
 import Flashback from '~/scenes/Flashback'
 import Intro from '~/scenes/Intro'
 import Languages from '~/scenes/Languages'
+import People from '~/scenes/People'
 import Stars from '~/scenes/Stars'
 import {Manifest} from '~/types/video'
 
@@ -46,6 +47,15 @@ export default function Video({video}: {video: Manifest}) {
 								from={i * fps * 5}
 								text={text}
 								languages={animation.languages}
+							/>
+						)
+					case 'people':
+						return (
+							<People
+								key={i}
+								from={i * fps * 5}
+								text={text}
+								people={animation.people}
 							/>
 						)
 					default:
