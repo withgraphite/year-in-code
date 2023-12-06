@@ -1,10 +1,28 @@
 import BackgroundGrid from 'lib/components/BackgroundGrid'
 import Nav from 'lib/components/Nav'
-import {Plus_Jakarta_Sans} from 'next/font/google'
+import localFont from 'next/font/local'
 import {Toaster} from 'sonner'
 import './styles.css'
 
-const font = Plus_Jakarta_Sans({subsets: ['latin']})
+// const font = Plus_Jakarta_Sans({subsets: ['latin']})
+
+const font = localFont({
+	src: [
+		{
+			path: '../lib/fonts/MatterSQ-Regular.otf',
+			style: 'normal'
+		},
+		{
+			path: '../lib/fonts/MatterSQ-Light.otf',
+			style: 'light'
+		},
+		{
+			path: '../lib/fonts/MatterSQ-Bold.otf',
+			style: 'bold'
+		}
+	],
+	display: 'swap'
+})
 
 export const metadata = {
 	alternates: {
