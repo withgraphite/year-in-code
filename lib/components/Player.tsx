@@ -6,19 +6,20 @@ import Video from './Video'
 
 export default function Player({video}: {video: Manifest}) {
 	return (
-		<div className='mb-[40px] mt-[60px] overflow-hidden'>
-			<RemotionPlayer
-				component={Video}
-				durationInFrames={video.scenes.length * 30 * 5}
-				fps={30}
-				inputProps={{video}}
-				compositionHeight={720}
-				compositionWidth={1280}
-				className='w-full'
-				controls
-				autoPlay
-				loop
-			/>
-		</div>
+		<RemotionPlayer
+			style={{
+				width: 'calc(100vw - 10rem)',
+				maxHeight: 'calc(100vh - 10rem)'
+			}}
+			component={Video}
+			durationInFrames={video.scenes.length * 30 * 5}
+			fps={30}
+			inputProps={{video}}
+			compositionHeight={720}
+			compositionWidth={1280}
+			className='w-full'
+			controls
+			loop
+		/>
 	)
 }
