@@ -17,7 +17,7 @@ export default async function generateScenes(stats: Stats, session: Session) {
 	const supabase = createServerActionClient({cookies})
 	// Init LLM
 	const llm = new ChatOpenAI({
-		modelName: 'gpt-4-1106-preview',
+		modelName: 'gpt-4',
 		openAIApiKey: env.OPENAI_API_KEY,
 		temperature: 0
 	})
