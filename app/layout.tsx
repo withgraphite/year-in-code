@@ -1,5 +1,4 @@
 import BackgroundGrid from 'lib/components/BackgroundGrid'
-import Nav from 'lib/components/Nav'
 import localFont from 'next/font/local'
 import {Toaster} from 'sonner'
 import './styles.css'
@@ -30,7 +29,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 			<body
 				className={`${font.className} relative flex h-full min-h-screen w-full flex-col items-center`}>
 				<BackgroundGrid className='fixed h-full w-full opacity-30 dark:opacity-40' />
-				<Nav title={'Graphite Wrapped'} />
 				<Toaster />
 				<div className='z-10 flex w-full max-w-3xl items-center justify-center'>
 					{children}

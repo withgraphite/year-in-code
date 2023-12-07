@@ -3,6 +3,7 @@ import {
 	Session,
 	createClientComponentClient
 } from '@supabase/auth-helpers-nextjs'
+import {ArrowRight} from 'lucide-react'
 import {useRouter} from 'next/navigation'
 import {toast} from 'sonner'
 import {Database} from '~/types/supabase'
@@ -32,8 +33,11 @@ export default function Auth({session}: {session: Session}) {
 	}
 
 	return (
-		<button onClick={session ? handleLogout : handleLogin}>
-			{session ? 'Sign out' : 'Sign in'}
+		<button
+			onClick={session ? handleLogout : handleLogin}
+			className='group flex items-center gap-2 text-xl'>
+			{session ? 'Sign out' : 'Get started'}
+			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
 		</button>
 	)
 }
