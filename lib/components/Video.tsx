@@ -16,7 +16,7 @@ export default function Video({video}: {video: Manifest}) {
 	const {fps} = useVideoConfig()
 
 	return (
-		<AbsoluteFill>
+		<AbsoluteFill className='font-mono'>
 			<Audio src={staticFile('/music/Autohacker.mp3')} />
 			{video.scenes.map(({text, animation}, i) => {
 				switch (animation?.type) {

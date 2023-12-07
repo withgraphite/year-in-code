@@ -12,7 +12,7 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 		frame < 30
 			? dateFrom
 			: frame < 90
-			  ? new Date(dateFrom).getTime() - frame * secondsPerFrame
+			  ? new Date(dateFrom).getTime() - (frame - 30) * secondsPerFrame
 			  : dateTo
 
 	return (
@@ -22,7 +22,12 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 				durationInFrames={30 * 5}>
 				<div className='absolute flex h-full w-full flex-col items-center justify-center bg-black'>
 					<h2 className='mx-48 text-center text-white'>
-						{new Date(date).toLocaleDateString()}
+						{/* date as 0x/0x/xxxx where single digit is prefixed with 0 */}
+						{new Date(date).toLocaleDateString('en-US', {
+							year: 'numeric',
+							month: '2-digit',
+							day: '2-digit'
+						})}
 					</h2>
 					<p className='mx-48 text-center text-white'>{text}</p>
 				</div>
