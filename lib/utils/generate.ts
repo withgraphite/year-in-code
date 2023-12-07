@@ -55,6 +55,9 @@ export default async function generateScenes(stats: Stats, session: Session) {
 	// Init chain
 	const chain = prompt.pipe(functionCallingModel).pipe(outputParser)
 
+	// strip out contributions history
+	delete stats.contributionsHistory
+
 	// Run chain
 	console.log('Creating frames...')
 	const scenes = await chain.invoke({
