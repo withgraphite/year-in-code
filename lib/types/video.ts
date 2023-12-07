@@ -46,7 +46,7 @@ export const videoSchema = z.object({
 						z
 							.object({
 								type: z.enum(['languages']),
-								languages: z.array(z.string())
+								languages: z.array(z.string()).describe('name such as html5')
 							})
 							.describe('The languages to be displayed')
 					])
