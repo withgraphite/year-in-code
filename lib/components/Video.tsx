@@ -1,4 +1,10 @@
-import {AbsoluteFill, Sequence, useVideoConfig} from 'remotion'
+import {
+	AbsoluteFill,
+	Audio,
+	Sequence,
+	staticFile,
+	useVideoConfig
+} from 'remotion'
 import Flashback from '~/scenes/Flashback'
 import Intro from '~/scenes/Intro'
 import Languages from '~/scenes/Languages'
@@ -11,6 +17,7 @@ export default function Video({video}: {video: Manifest}) {
 
 	return (
 		<AbsoluteFill>
+			<Audio src={staticFile('/music/Autohacker.mp3')} />
 			{video.scenes.map(({text, animation}, i) => {
 				switch (animation?.type) {
 					case 'intro':
