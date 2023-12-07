@@ -18,11 +18,11 @@ export default async function Page() {
 
 	return (
 		<div className='flex min-h-screen w-full flex-col items-center justify-center gap-10 p-5 sm:p-20'>
-			<div className='flex h-[50vw] w-[50vw] flex-col items-center justify-center gap-5 rounded-full bg-gradient-to-br from-[#5BDCF9]  via-[#2E73FC] to-[#000AFF] p-24 text-center transition-all duration-300'>
+			<div className='flex h-[80vw] w-[80vw] flex-col items-center justify-center gap-5 rounded-full bg-gradient-to-br from-[#5BDCF9]  via-[#2E73FC] to-[#000AFF] p-2 text-center transition-all duration-300 sm:h-[50vw] sm:w-[50vw] sm:p-10 lg:p-24'>
 				{/* from-[#FFE86D] via-[#FF7437] to-[#CC0000] */}
 				<h1 className='text-stone-50'>Year in Code</h1>
-				<p className='text-xl text-stone-100'>
-					Generate your personalized AI-powered video to end 2023.
+				<p className='text-stone-100 sm:text-xl'>
+					Generate a personalized AI-powered video to end 2023.
 				</p>
 				<Auth session={session} />
 			</div>
