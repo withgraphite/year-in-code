@@ -8,7 +8,8 @@ export default async function LeaderBoard() {
 	const {data, error} = await supabase
 		.from('profile')
 		.select('user_name, company, avatar_url, pull_requests_opened')
-		.order('pull_requests_opened', {ascending: true})
+		.order('pull_requests_opened', {ascending: false})
+		.limit(50)
 
 	return (
 		<div className='flex min-h-screen w-full flex-col gap-5'>

@@ -35,7 +35,7 @@ export default async function Loading() {
 		redirect('/')
 	}
 
-	const profile = await getProfile(session)
+	const profile = await getProfile(session.user.user_metadata.user_name)
 	if (
 		profile &&
 		profile.github_stats !== null &&

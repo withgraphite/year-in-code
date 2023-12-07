@@ -29,7 +29,7 @@ export default function Auth({session}: {session: Session}) {
 	async function handleLogout() {
 		const {error} = await supabase.auth.signOut()
 		if (error) toast.error(error.message)
-		else router.refresh()
+		else router.push('/')
 	}
 
 	return (
