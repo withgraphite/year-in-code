@@ -1,10 +1,13 @@
+import {ThreeCanvas} from '@remotion/three'
 import {useMemo} from 'react'
-import {Sequence, useCurrentFrame} from 'remotion'
+import {Sequence, useCurrentFrame, useVideoConfig} from 'remotion'
+import Blob from '~/components/Blob'
 
 export default function Intro({name, from}) {
 	const frame = useCurrentFrame()
+	const {width, height} = useVideoConfig()
 	const starOpacity = Math.min(1, frame / 60)
-	const titleOpacity = frame > 120 ? 0 : Math.min(1, frame / 60 - 1)
+	const titleOpacity = frame > 120 ? 1 : Math.min(1, frame / 60 - 1)
 	const frameScale = frame < 120 ? 1 : Math.min(3, 1 + (frame - 120) / 30)
 
 	const starList = useMemo(
@@ -43,9 +46,20 @@ export default function Intro({name, from}) {
 								}}
 							/>
 						))}
+						<ThreeCanvas
+							orthographic={false}
+							width={width}
+							height={height}
+							// style={{
+							// 	backgroundColor: 'black'
+							// }}
+							camera={{fov: 75, position: [0, 0, 470]}}>
+							<Blob count={frame} />
+						</ThreeCanvas>
 					</div>
 					<div
-						style={{opacity: titleOpacity, display: frame >= 120 ? 'none' : 'block'}}>
+						style={{opacity: titleOpacity}}
+						className='z-10'>
 						<h1 className='text-4xl text-white'>Github Wrapped 2023</h1>
 						<h2 className='text-center text-2xl text-white'>by Graphite</h2>
 					</div>
