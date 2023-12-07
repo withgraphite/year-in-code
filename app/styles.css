@@ -2,6 +2,8 @@
 @tailwind base;
 @tailwind components;
 
+@import url('https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css');
+
 @layer base {
 	h1 {
 		@apply text-3xl font-bold sm:text-5xl;
