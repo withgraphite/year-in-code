@@ -6,6 +6,8 @@ import {Database} from '~/types/supabase'
 import {Manifest} from '~/types/video'
 import {default as getProfile} from '~/utils/profile'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Profile({params}: {params: {username: string}}) {
 	const supabase = createServerComponentClient<Database>({cookies})
 	const {

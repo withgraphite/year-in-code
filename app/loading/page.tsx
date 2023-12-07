@@ -12,6 +12,8 @@ import generateScenes from '~/utils/generate'
 import getProfile from '~/utils/profile'
 import {getStats} from '~/utils/stats'
 
+export const dynamic = 'force-dynamic'
+
 async function VideoRender({stats, session}: {stats: Stats; session: Session}) {
 	const scenes = await generateScenes(stats, session)
 	if (scenes) redirect(`/${session.user.user_metadata.user_name}`)
