@@ -12,6 +12,8 @@ import generateScenes from '~/utils/generate'
 import getProfile from '~/utils/profile'
 import {getStats} from '~/utils/stats'
 
+export const maxDuration = 300
+
 export const dynamic = 'force-dynamic'
 
 async function VideoRender({stats, session}: {stats: Stats; session: Session}) {
