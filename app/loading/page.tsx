@@ -1,13 +1,22 @@
-import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
+import {
+	Session,
+	createServerComponentClient
+} from '@supabase/auth-helpers-nextjs'
 import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
+import {Suspense} from 'react'
 import LoadingComponent from '~/components/Loading'
 import {Stats} from '~/types/github'
 import {Database} from '~/types/supabase'
-import {Manifest} from '~/types/video'
 import generateScenes from '~/utils/generate'
 import getProfile from '~/utils/profile'
 import {getStats} from '~/utils/stats'
+
+async function VideoRender({stats, session}: {stats: Stats; session: Session}) {
+	const scenes = await generateScenes(stats, session)
+	if (scenes) redirect(`/${session.user.user_metadata.user_name}`)
+	return <div></div>
+}
 
 export default async function Loading() {
 	const supabase = createServerComponentClient<Database>({cookies})
@@ -27,20 +36,25 @@ export default async function Loading() {
 	}
 
 	const profile = await getProfile(session)
-	if (profile.github_stats !== null && profile.video_manifest !== null)
+	if (
+		profile &&
+		profile.github_stats !== null &&
+		profile.video_manifest !== null
+	)
 		redirect(`/${session.user.user_metadata.user_name}`)
 
-	const stats = profile
-		? (profile.github_stats as unknown as Stats)
-		: await getStats(session.provider_token)
-	const scenes =
-		!profile || profile.video_manifest === null
-			? await generateScenes(stats, session)
-			: (profile.video_manifest as Manifest)
+	const stats = await getStats(session.provider_token)
+	// video(stats, session)
 
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
 			<LoadingComponent stats={stats} />
+			<Suspense>
+				<VideoRender
+					stats={stats}
+					session={session}
+				/>
+			</Suspense>
 		</div>
 	)
 }

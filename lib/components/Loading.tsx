@@ -33,7 +33,9 @@ export default function Loading({stats}: {stats: Stats}) {
 				animate={{opacity: 1, y: 0}} // Slide and fade in
 				exit={{opacity: 0, y: -50}} // Slide up and fade out
 				transition={{duration: 1}}>
-				<p>{slides[count]}</p>
+				<p className={count === slides.length - 1 ? 'animate-pulse' : ''}>
+					{slides[count]}
+				</p>
 			</motion.div>
 		</AnimatePresence>
 	)
