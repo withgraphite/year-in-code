@@ -48,7 +48,19 @@ export const videoSchema = z.object({
 								type: z.enum(['languages']),
 								languages: z.array(z.string()).describe('name such as html5')
 							})
-							.describe('The languages to be displayed')
+							.describe('The languages to be displayed'),
+						z
+							.object({
+								type: z.enum(['contributions']),
+								text: z.string()
+							})
+							.describe('Displays a contribution graph'),
+						z
+							.object({
+								type: z.enum(['conclusion']),
+								text: z.string()
+							})
+							.describe('Displays a conclusion')
 					])
 					.optional()
 					.describe('Animation to be used to display alongside the text')

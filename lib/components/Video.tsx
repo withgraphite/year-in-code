@@ -5,14 +5,17 @@ import {
 	staticFile,
 	useVideoConfig
 } from 'remotion'
+import Conclusion from '~/scenes/Conclusion'
+import Contributions from '~/scenes/Contributions'
 import Flashback from '~/scenes/Flashback'
 import Intro from '~/scenes/Intro'
 import Languages from '~/scenes/Languages'
 import People from '~/scenes/People'
 import Stars from '~/scenes/Stars'
+import {Stats} from '~/types/github'
 import {Manifest} from '~/types/video'
 
-export default function Video({video}: {video: Manifest}) {
+export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 	const {fps} = useVideoConfig()
 
 	return (
@@ -63,6 +66,23 @@ export default function Video({video}: {video: Manifest}) {
 								from={i * fps * 5}
 								text={text}
 								people={animation.people}
+							/>
+						)
+					case 'contributions':
+						return (
+							<Contributions
+								key={i}
+								from={i * fps * 5}
+								text={text}
+								weeks={stats.contributionsHistory}
+							/>
+						)
+					case 'conclusion':
+						return (
+							<Conclusion
+								key={i}
+								from={i * fps * 5}
+								text={text}
 							/>
 						)
 					default:

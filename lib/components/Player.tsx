@@ -1,10 +1,17 @@
 'use client'
 
 import {Player as RemotionPlayer} from '@remotion/player'
+import {Stats} from '~/types/github'
 import {Manifest} from '~/types/video'
 import Video from './Video'
 
-export default function Player({video}: {video: Manifest}) {
+export default function Player({
+	video,
+	stats
+}: {
+	video: Manifest
+	stats: Stats
+}) {
 	return (
 		<RemotionPlayer
 			style={{
@@ -14,7 +21,7 @@ export default function Player({video}: {video: Manifest}) {
 			component={Video}
 			durationInFrames={video.scenes.length * 30 * 5}
 			fps={30}
-			inputProps={{video}}
+			inputProps={{video, stats}}
 			compositionHeight={720}
 			compositionWidth={1280}
 			className='w-full'
