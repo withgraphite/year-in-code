@@ -20,16 +20,16 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 			<Sequence
 				from={from}
 				durationInFrames={30 * 5}>
-				<div className='absolute flex h-full w-full flex-col items-center justify-center bg-black'>
-					<h2 className='mx-48 text-center text-white'>
+				<div className='absolute flex h-full w-full flex-col items-center justify-center gap-10 bg-black'>
+					<p className='z-10 mx-48 text-center text-white'>{text}</p>
+					<h1 className='z-10 mx-48 text-center text-white'>
 						{/* date as 0x/0x/xxxx where single digit is prefixed with 0 */}
 						{new Date(date).toLocaleDateString('en-US', {
 							year: 'numeric',
 							month: '2-digit',
 							day: '2-digit'
 						})}
-					</h2>
-					<p className='mx-48 text-center text-white'>{text}</p>
+					</h1>
 				</div>
 			</Sequence>
 		</>
