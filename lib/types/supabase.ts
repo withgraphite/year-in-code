@@ -11,27 +11,39 @@ export interface Database {
     Tables: {
       profile: {
         Row: {
+          avatar_url: string | null
+          company: string | null
           created_at: string
+          email: string | null
           github_stats: Json | null
           id: string
           is_public: boolean | null
           pull_requests_opened: number | null
+          user_name: string | null
           video_manifest: Json | null
         }
         Insert: {
+          avatar_url?: string | null
+          company?: string | null
           created_at?: string
+          email?: string | null
           github_stats?: Json | null
           id?: string
           is_public?: boolean | null
           pull_requests_opened?: number | null
+          user_name?: string | null
           video_manifest?: Json | null
         }
         Update: {
+          avatar_url?: string | null
+          company?: string | null
           created_at?: string
+          email?: string | null
           github_stats?: Json | null
           id?: string
           is_public?: boolean | null
           pull_requests_opened?: number | null
+          user_name?: string | null
           video_manifest?: Json | null
         }
         Relationships: [

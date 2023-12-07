@@ -1,8 +1,10 @@
 export interface Stats {
 	username: string
+	email?: string
 	fullName?: string
 	avatarUrl?: string
 	year: number
+	company?: string
 	commits?: number
 	pulls?: number
 	contributions?: number

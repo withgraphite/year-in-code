@@ -44,8 +44,12 @@ export async function getStats(token: string): Promise<Stats | null> {
 
 	// Save to database
 	const {data, error} = await supabase.from('profile').insert({
-		github_stats: userStats,
-		pull_requests_opened: highlights.pulls ?? 0
+		email: highlights.email ?? '',
+		user_name: highlights.username,
+		avatar_url: highlights.avatarUrl ?? '',
+		company: highlights.company ?? '',
+		pull_requests_opened: highlights.pulls ?? 0,
+		github_stats: userStats
 	})
 	if (error) console.error(error.message)
 
@@ -71,10 +75,14 @@ export async function getHighlights(token: string) {
 
 	if (!payload || !payload || !payload.viewer) return null
 
+	console.log(payload.viewer)
+
 	const collection = payload.viewer.contributionsCollection
 	const highlights: Stats = {
 		username: payload.viewer.login,
 		year: 2023,
+		email: payload.viewer.email,
+		company: payload.viewer.company,
 		fullName: payload.viewer.name,
 		avatarUrl: payload.viewer.avatarUrl,
 		commits: collection.totalCommitContributions,

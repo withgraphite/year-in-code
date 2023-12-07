@@ -7,4 +7,8 @@ export interface Profile {
 	video_manifest: Json
 	github_stats: Json
 	pull_requests_opened: number
+	company: string
+	user_name: string
+	avatar_url: string
+	email: string
 }
