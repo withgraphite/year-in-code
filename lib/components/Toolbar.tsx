@@ -24,21 +24,13 @@ export default function Toolbar({session}: {session: Session}) {
 		else toast.loading('Regenerating')
 	}
 
-	const handleRegenerate = async () => {
-		handleDelete()
-		router.push('/')
-	}
 	return (
 		<div className='flex items-center gap-5'>
-			{/* Regenerate video in dev */}
-			{process.env.NODE_ENV === 'development' && (
-				<button
-					className='bg-white text-black hover:bg-stone-100'
-					onClick={handleRegenerate}>
-					Regenerate
-				</button>
-			)}
-			<button onClick={handleShare}>Share</button>
+			<button
+				onClick={handleShare}
+				className='bg-white text-xl text-black'>
+				Share
+			</button>
 			<Auth session={session} />
 		</div>
 	)
