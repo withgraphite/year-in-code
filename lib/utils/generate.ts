@@ -1,3 +1,4 @@
+import {Session, createServerActionClient} from '@supabase/auth-helpers-nextjs'
 import {ChatOpenAI} from 'langchain/chat_models/openai'
 import {JsonOutputFunctionsParser} from 'langchain/output_parsers'
 import {
@@ -5,13 +6,15 @@ import {
 	HumanMessagePromptTemplate,
 	SystemMessagePromptTemplate
 } from 'langchain/prompts'
+import {cookies} from 'next/headers'
 import {zodToJsonSchema} from 'zod-to-json-schema'
 import env from '~/env.mjs'
-import {User} from '~/types/github'
-import {videoSchema} from '~/types/video'
+import {Stats} from '~/types/github'
+import {Manifest, videoSchema} from '~/types/video'
 
 // Generate video scenes using story
-export default async function generateScenes(stats: User) {
+export default async function generateScenes(stats: Stats, session: Session) {
+	const supabase = createServerActionClient({cookies})
 	// Init LLM
 	const llm = new ChatOpenAI({
 		modelName: 'gpt-4-1106-preview',
@@ -58,5 +61,12 @@ export default async function generateScenes(stats: User) {
 		stats: JSON.stringify(stats)
 	})
 
-	return scenes
+	// Save to database
+	const {data, error} = await supabase
+		.from('profile')
+		.update({video_manifest: scenes})
+		.eq('id', session.user.id)
+	if (error) console.error(error.message)
+
+	return scenes as Manifest
 }

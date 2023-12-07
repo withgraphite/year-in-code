@@ -11,17 +11,8 @@ const font = localFont({
 		{
 			path: '../lib/fonts/MatterSQ-Regular.otf',
 			style: 'normal'
-		},
-		{
-			path: '../lib/fonts/MatterSQ-Light.otf',
-			style: 'light'
-		},
-		{
-			path: '../lib/fonts/MatterSQ-Bold.otf',
-			style: 'bold'
 		}
-	],
-	display: 'swap'
+	]
 })
 
 export const metadata = {

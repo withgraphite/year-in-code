@@ -12,18 +12,21 @@ export interface Database {
       profile: {
         Row: {
           created_at: string
+          github_stats: Json | null
           id: string
           is_public: boolean | null
           video_manifest: Json | null
         }
         Insert: {
           created_at?: string
+          github_stats?: Json | null
           id?: string
           is_public?: boolean | null
           video_manifest?: Json | null
         }
         Update: {
           created_at?: string
+          github_stats?: Json | null
           id?: string
           is_public?: boolean | null
           video_manifest?: Json | null

@@ -1,7 +1,8 @@
-export interface User {
+export interface Stats {
 	username: string
 	fullName?: string
 	avatarUrl?: string
+	year: number
 	commits?: number
 	pulls?: number
 	contributions?: number
@@ -56,11 +57,4 @@ export interface contributionDays {
 export interface Week {
 	contributionDays: contributionDays[]
 	firstDay: string
-}
-
-export interface Stat {
-	user: User
-	hidden: any[]
-	setHidden: any
-	showHide?: boolean
 }

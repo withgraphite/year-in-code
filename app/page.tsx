@@ -12,8 +12,7 @@ export default async function Page() {
 		data: {session}
 	} = await supabase.auth.getSession()
 
-	if (session && session.provider_token)
-		redirect(`/${session.user.user_metadata.user_name}`)
+	if (session && session.provider_token) redirect(`/loading`)
 
 	return (
 		<div className='flex min-h-screen w-full flex-col items-center justify-center gap-10 p-5 sm:p-20'>

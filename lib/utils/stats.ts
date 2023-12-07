@@ -2,8 +2,10 @@ import {request} from 'graphql-request'
 import {DEC2023, JAN2023} from 'lib/constants/dates'
 import {COMMON_LANGUAGES} from 'lib/constants/misc'
 import {GITHUB_GRAPHQL_API} from 'lib/constants/urls'
-import {Language, Repo, User} from 'lib/types/github'
+import {Language, Repo, Stats} from 'lib/types/github'
+import {cookies} from 'next/headers'
 
+import {createServerActionClient} from '@supabase/auth-helpers-nextjs'
 import {
 	CONTRIBUTIONS,
 	FOLLOWS,
@@ -17,7 +19,8 @@ import {
  * Gets and serializes all user stats
  * @returns username, commits, top repos, etc
  */
-export async function getUserStats(token: string): Promise<User | null> {
+export async function getStats(token: string): Promise<Stats | null> {
+	const supabase = createServerActionClient({cookies})
 	console.log('Fetching stats...')
 	const [highlights, languages, repositories, follows, stars, contributions] =
 		await Promise.all([
@@ -38,6 +41,12 @@ export async function getUserStats(token: string): Promise<User | null> {
 		stars: stars,
 		contributionsHistory: contributions
 	}
+
+	// Save to database
+	const {data, error} = await supabase
+		.from('profile')
+		.insert({github_stats: userStats})
+	if (error) console.error(error.message)
 
 	return userStats
 }
@@ -62,8 +71,9 @@ export async function getHighlights(token: string) {
 	if (!payload || !payload || !payload.viewer) return null
 
 	const collection = payload.viewer.contributionsCollection
-	const highlights: User = {
+	const highlights: Stats = {
 		username: payload.viewer.login,
+		year: 2023,
 		fullName: payload.viewer.name,
 		avatarUrl: payload.viewer.avatarUrl,
 		commits: collection.totalCommitContributions,
