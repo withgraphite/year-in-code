@@ -43,9 +43,10 @@ export async function getStats(token: string): Promise<Stats | null> {
 	}
 
 	// Save to database
-	const {data, error} = await supabase
-		.from('profile')
-		.insert({github_stats: userStats})
+	const {data, error} = await supabase.from('profile').insert({
+		github_stats: userStats,
+		pull_requests_opened: highlights.pulls ?? 0
+	})
 	if (error) console.error(error.message)
 
 	return userStats

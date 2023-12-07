@@ -6,4 +6,5 @@ export interface Profile {
 	is_public: boolean
 	video_manifest: Json
 	github_stats: Json
+	pull_requests_opened: number
 }

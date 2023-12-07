@@ -15,6 +15,7 @@ export interface Database {
           github_stats: Json | null
           id: string
           is_public: boolean | null
+          pull_requests_opened: number | null
           video_manifest: Json | null
         }
         Insert: {
@@ -22,6 +23,7 @@ export interface Database {
           github_stats?: Json | null
           id?: string
           is_public?: boolean | null
+          pull_requests_opened?: number | null
           video_manifest?: Json | null
         }
         Update: {
@@ -29,6 +31,7 @@ export interface Database {
           github_stats?: Json | null
           id?: string
           is_public?: boolean | null
+          pull_requests_opened?: number | null
           video_manifest?: Json | null
         }
         Relationships: [
