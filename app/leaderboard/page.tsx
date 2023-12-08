@@ -3,6 +3,8 @@ import {cookies} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const dynamic = 'force-dynamic'
+
 export default async function LeaderBoard() {
 	const supabase = createServerComponentClient({cookies})
 	const {data, error} = await supabase
