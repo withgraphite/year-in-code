@@ -2,11 +2,16 @@ import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {cookies} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import SignInButton from '~/components/SignInButton'
 
 export const dynamic = 'force-dynamic'
 
 export default async function LeaderBoard() {
 	const supabase = createServerComponentClient({cookies})
+	const {
+		data: {session}
+	} = await supabase.auth.getSession()
+
 	const {data, error} = await supabase
 		.from('profile')
 		.select('user_name, company, avatar_url, pull_requests_opened')
@@ -16,9 +21,12 @@ export default async function LeaderBoard() {
 
 	return (
 		<div className='justify-starts flex min-h-screen w-full flex-col gap-5 p-5 pt-20'>
-			<div>
-				<h2>Leaderboard</h2>
-				<h3 className='text-stone-500'>Close more pull requests with Graphite.</h3>
+			<div className='flex w-full items-center justify-between'>
+				<div>
+					<h2>Leaderboard</h2>
+					<h3 className='text-stone-500'>Close more pull requests with Graphite.</h3>
+				</div>
+				{!session && <SignInButton />}
 			</div>
 			<div className='group grid w-full gap-3'>
 				<div className='grid w-full grid-cols-6 items-center justify-between border-b font-extrabold text-stone-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
