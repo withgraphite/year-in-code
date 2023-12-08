@@ -21,7 +21,7 @@ export default function SignInButton() {
 	return (
 		<button
 			onClick={handleLogin}
-			className='group flex items-center gap-2 text-xl'>
+			className='group text-xl'>
 			<span>Get started</span>
 			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
 		</button>

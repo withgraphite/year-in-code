@@ -19,7 +19,7 @@ export default function SignOutButton() {
 	return (
 		<button
 			onClick={handleLogout}
-			className='group flex items-center gap-2 text-xl'>
+			className='group text-xl'>
 			<span>Sign out</span>
 			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
 		</button>

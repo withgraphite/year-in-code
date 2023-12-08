@@ -2,13 +2,13 @@
 
 import {createClientComponentClient} from '@supabase/auth-helpers-nextjs'
 import {Session} from '@supabase/supabase-js'
-import {useRouter} from 'next/navigation'
+import {ArrowUpRight} from 'lucide-react'
 import {toast} from 'sonner'
-import Auth from './Auth'
+import SignInButton from './SignInButton'
+import SignOutButton from './SignOutButton'
 
 export default function Toolbar({session}: {session: Session}) {
 	const supabase = createClientComponentClient()
-	const router = useRouter()
 
 	const handleShare = () => {
 		window.navigator.clipboard.writeText(document.location.href)
@@ -26,14 +26,16 @@ export default function Toolbar({session}: {session: Session}) {
 
 	return (
 		<div className='flex items-center gap-5'>
+			{session && <SignOutButton />}
 			{session && (
 				<button
-					onClick={handleShare}
-					className='bg-white text-xl text-black'>
-					Share
+					className='group text-xl'
+					onClick={handleShare}>
+					<span>Share</span>
+					<ArrowUpRight className='transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5' />
 				</button>
 			)}
-			<Auth session={session} />
+			{!session && <SignInButton />}
 		</div>
 	)
 }

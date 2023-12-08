@@ -16,8 +16,8 @@ export default async function Page() {
 
 	if (session && session.provider_token) redirect(`/loading`)
 	return (
-		<div className='flex min-h-screen w-full flex-col items-center justify-center gap-10 p-5 sm:p-20'>
-			<div className='flex h-[80vw] w-[80vw] flex-col items-center justify-center gap-5 rounded-full bg-gradient-to-br from-[#5BDCF9] via-[#2E73FC] to-[#000AFF]  p-2 text-center transition-all duration-300 sm:h-[50vw] sm:w-[50vw] sm:p-10 lg:h-[40vw] lg:w-[40vw] lg:p-24 2xl:h-[20vw] 2xl:w-[20vw]'>
+		<div className='relative flex h-screen w-full flex-col items-center justify-center gap-10 p-5 sm:p-20'>
+			<div className='flex h-[80vw] w-[80vw] flex-col items-center justify-center gap-5 rounded-full bg-gradient-to-br from-[#5BDCF9] via-[#2E73FC] to-[#000AFF]  p-2 text-center transition-all duration-300 sm:h-[50vw] sm:w-[50vw] sm:p-10 lg:h-[35vw] lg:w-[35vw] lg:p-24 2xl:h-[20vw] 2xl:w-[20vw]'>
 				{/* from-[#FFE86D] via-[#FF7437] to-[#CC0000] */}
 				<h1 className='text-stone-50'>Year in Code</h1>
 				<p className='text-stone-100 sm:text-xl'>
@@ -25,7 +25,7 @@ export default async function Page() {
 				</p>
 				<Auth session={session} />
 			</div>
-			<h3 className='flex gap-1'>
+			<h3 className='absolute bottom-5 flex gap-1'>
 				<span className='text-stone-400 dark:text-stone-600'>by</span>
 				<Link
 					href='https://graphite.dev'
