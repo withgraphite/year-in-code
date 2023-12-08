@@ -17,15 +17,30 @@ export default async function Profile({params}: {params: {username: string}}) {
 	const profile = await getProfile(params.username)
 
 	return (
-		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
+		<div className='flex min-h-screen flex-col items-center justify-center gap-5 pt-20'>
+			{/* User exists */}
 			{profile && (
-				<Player
-					video={profile.video_manifest as Manifest}
-					stats={profile.github_stats as unknown as Stats}
-				/>
+				<div className='flex max-w-3xl flex-col items-center justify-center gap-5 px-5'>
+					<div className='flex w-full justify-between'>
+						<h1 className='text-white'>{`${params.username}`}</h1>
+						<Toolbar session={session} />
+					</div>
+					{profile && (
+						<Player
+							video={profile.video_manifest as Manifest}
+							stats={profile.github_stats as unknown as Stats}
+						/>
+					)}
+				</div>
 			)}
-			{!profile && <h2>Oops! User does not exist.</h2>}
-			<Toolbar session={session} />
+
+			{/* User does not exist */}
+			{!profile && (
+				<div>
+					<h2>Oops! User does not exist.</h2>
+					<Toolbar session={session} />
+				</div>
+			)}
 		</div>
 	)
 }
