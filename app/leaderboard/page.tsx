@@ -10,9 +10,10 @@ export default async function LeaderBoard() {
 		.select('user_name, company, avatar_url, pull_requests_opened')
 		.order('pull_requests_opened', {ascending: false})
 		.limit(50)
+	if (error) console.error(error.message)
 
 	return (
-		<div className='flex min-h-screen w-full flex-col gap-5'>
+		<div className='justify-starts flex min-h-screen w-full flex-col gap-5 bg-red-200 p-3 pt-20'>
 			<div>
 				<h2>Leaderboard</h2>
 				<h3 className='text-stone-500'>Close more pull requests with Graphite.</h3>
@@ -38,7 +39,9 @@ export default async function LeaderBoard() {
 									alt={`Profile picture`}
 								/>
 							)}
-							<Link href={`/${item.user_name}`}>
+							<Link
+								href={`/${item.user_name}`}
+								className='no-underline hover:underline hover:underline-offset-4'>
 								<p>{item.user_name}</p>
 							</Link>
 							<p className='text-stone-500 dark:text-stone-600'>{item.company}</p>

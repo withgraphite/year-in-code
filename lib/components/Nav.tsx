@@ -1,14 +1,24 @@
+'use client'
 import Link from 'next/link'
+import {usePathname} from 'next/navigation'
 
 export default function Nav() {
+	const pathname = usePathname()
 	return (
-		<div className='fixed top-0 z-20 flex w-full items-baseline justify-around p-5'>
-			<div className='flex flex-col'>
+		<div className='absolute top-0 z-20 flex w-full items-baseline justify-around'>
+			<div className='flex w-full max-w-3xl items-center justify-between p-3'>
 				<Link
 					className='text-xl font-bold no-underline'
 					href='/'>
-					GitHub Wrapped
+					Year in Code
 				</Link>
+				{pathname !== '/leaderboard' && (
+					<Link
+						className='no-underline'
+						href='/leaderboard'>
+						Leaderboard
+					</Link>
+				)}
 			</div>
 		</div>
 	)

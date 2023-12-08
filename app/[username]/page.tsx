@@ -15,8 +15,6 @@ export default async function Profile({params}: {params: {username: string}}) {
 		data: {session}
 	} = await supabase.auth.getSession()
 	const profile = await getProfile(params.username)
-
-	console.log(profile)
 	return (
 		<div className='flex min-h-screen flex-col items-center justify-center gap-5'>
 			<Player
