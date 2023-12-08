@@ -26,11 +26,13 @@ export default function Toolbar({session}: {session: Session}) {
 
 	return (
 		<div className='flex items-center gap-5'>
-			<button
-				onClick={handleShare}
-				className='bg-white text-xl text-black'>
-				Share
-			</button>
+			{session && (
+				<button
+					onClick={handleShare}
+					className='bg-white text-xl text-black'>
+					Share
+				</button>
+			)}
 			<Auth session={session} />
 		</div>
 	)
