@@ -28,7 +28,7 @@ html {
 		@apply border-primary bg-primary w-full appearance-none rounded-md px-3 py-2 focus:outline-none;
 	}
 	button {
-		@apply flex items-center gap-2 rounded-md border-2 border-black bg-black px-6 py-2 text-white transition-all hover:bg-white hover:text-black disabled:cursor-not-allowed dark:bg-white dark:text-black dark:hover:border-white dark:hover:bg-black dark:hover:text-white;
+		@apply flex items-center gap-2 rounded-md border-2 border-black bg-black px-6 py-2 text-white transition-all hover:bg-white hover:text-black disabled:cursor-not-allowed;
 	}
 	code {
 		@apply border-primary rounded-sm bg-neutral-200 bg-opacity-60 p-2 text-sm;
