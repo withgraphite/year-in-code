@@ -5,7 +5,7 @@
 @import url('https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css');
 
 html {
-	@apply text-stone-800 dark:text-stone-400;
+	@apply text-stone-800;
 }
 
 @layer base {
