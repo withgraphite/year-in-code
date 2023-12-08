@@ -3,6 +3,7 @@ import {ArrowUpRight} from 'lucide-react'
 import {cookies} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import Graphite from '~/components/Graphite'
 import SignInButton from '~/components/SignInButton'
 
 export const dynamic = 'force-dynamic'
@@ -25,7 +26,9 @@ export default async function LeaderBoard() {
 			<div className='flex w-full items-center justify-between'>
 				<div>
 					<h2>Leaderboard</h2>
-					<h3 className='text-stone-500'>Close more pull requests with Graphite.</h3>
+					<h3 className='flex gap-1 text-stone-500'>
+						Close more pull requests with <Graphite />
+					</h3>
 				</div>
 				{!session && <SignInButton />}
 			</div>
