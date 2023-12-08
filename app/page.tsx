@@ -18,7 +18,7 @@ export default async function Page() {
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-10 p-5'>
 			<div className='absolute flex h-screen w-full items-center justify-center overflow-hidden p-5 text-center'>
-				<p className='flex flex-col text-[280px] text-stone-200 md:text-[350px] lg:flex-row lg:gap-[300px] lg:text-[450px]'>
+				<p className='flex flex-col text-[280px] text-stone-200 md:text-[350px] lg:flex-row lg:gap-[300px] lg:text-[450px] 2xl:gap-[550px]'>
 					<p className='flex gap-5 md:gap-10 lg:gap-0'>
 						<span>2</span>
 						<span>0</span>
