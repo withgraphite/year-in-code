@@ -22,7 +22,7 @@ export default async function LeaderBoard() {
 	if (error) console.error(error.message)
 
 	return (
-		<div className='justify-starts flex min-h-screen w-full flex-col gap-5 p-5 pt-20'>
+		<div className='flex h-screen w-full flex-col items-center gap-5 p-5 pt-20'>
 			<div className='flex w-full items-center justify-between'>
 				<div>
 					<h2>Leaderboard</h2>
