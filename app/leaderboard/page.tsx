@@ -1,4 +1,5 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
+import {ArrowUpRight} from 'lucide-react'
 import {cookies} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -28,7 +29,7 @@ export default async function LeaderBoard() {
 				</div>
 				{!session && <SignInButton />}
 			</div>
-			<div className='group grid w-full gap-3'>
+			<div className='grid w-full gap-3'>
 				<div className='grid w-full grid-cols-6 items-center justify-between border-b font-extrabold text-stone-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
 					<p>Rank</p>
 					<p className='col-span-3 col-start-2'>Username</p>
@@ -39,7 +40,7 @@ export default async function LeaderBoard() {
 						key={item.user_name}
 						className='grid w-full grid-cols-6 items-center justify-between'>
 						<span>{i + 1}</span>
-						<div className='col-span-3 col-start-2 flex items-center gap-2'>
+						<div className='group col-span-3 col-start-2 flex items-center gap-2'>
 							{item.avatar_url && (
 								<Image
 									src={item.avatar_url}
@@ -51,10 +52,11 @@ export default async function LeaderBoard() {
 							)}
 							<Link
 								href={`/${item.user_name}`}
-								className='no-underline hover:underline hover:underline-offset-4'>
+								className='no-underline'>
 								<p>{item.user_name}</p>
 							</Link>
 							<p className='text-stone-500 dark:text-stone-600'>{item.company}</p>
+							<ArrowUpRight className='opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
 						</div>
 						<p className='col-span-2 col-start-5 text-right'>
 							{item.pull_requests_opened}
