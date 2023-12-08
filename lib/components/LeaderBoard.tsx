@@ -39,9 +39,9 @@ export default async function LeaderBoard() {
 								/>
 							)}
 							<Link href={`/${item.user_name}`}>
-								<p className='text-stone-800'>{item.user_name}</p>
+								<p>{item.user_name}</p>
 							</Link>
-							<p className='text-stone-500'>{item.company}</p>
+							<p className='text-stone-500 dark:text-stone-600'>{item.company}</p>
 						</div>
 						<p className='col-span-2 col-start-5 text-right'>
 							{item.pull_requests_opened}

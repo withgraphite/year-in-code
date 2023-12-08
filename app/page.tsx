@@ -29,10 +29,10 @@ export default async function Page() {
 					<Auth session={session} />
 				</div>
 				<h3 className='flex gap-1'>
-					<span className='text-stone-400'>by</span>
+					<span className='text-stone-400 dark:text-stone-600'>by</span>
 					<Link
 						href='https://graphite.dev'
-						className='group flex items-center text-stone-800 no-underline'>
+						className='group flex items-center no-underline'>
 						Graphite.dev
 						<ArrowUpRight className='transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5' />
 					</Link>

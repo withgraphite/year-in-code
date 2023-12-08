@@ -4,6 +4,10 @@
 
 @import url('https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css');
 
+html {
+	@apply text-stone-800 dark:text-stone-400;
+}
+
 @layer base {
 	h1 {
 		@apply text-3xl font-bold sm:text-5xl;
@@ -24,7 +28,7 @@
 		@apply border-primary bg-primary w-full appearance-none rounded-md px-3 py-2 focus:outline-none;
 	}
 	button {
-		@apply rounded-md border-2 border-black bg-black px-6 py-2 text-white transition-all hover:bg-white hover:text-black disabled:cursor-not-allowed;
+		@apply rounded-md border-2 border-black bg-black px-6 py-2 text-white transition-all hover:bg-white hover:text-black disabled:cursor-not-allowed dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white;
 	}
 	code {
 		@apply border-primary rounded-sm bg-neutral-200 bg-opacity-60 p-2 text-sm;
