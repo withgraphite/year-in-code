@@ -32,8 +32,8 @@ export default async function LeaderBoard() {
 				</div>
 				{!session && <SignInButton />}
 			</div>
-			<div className='grid w-full gap-3'>
-				<div className='grid w-full grid-cols-6 items-center justify-between border-b font-extrabold text-stone-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
+			<div className='group/table grid w-full gap-3'>
+				<div className='grid w-full grid-cols-6 items-center justify-between border-b font-extrabold text-stone-500 opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
 					<p>Rank</p>
 					<p className='col-span-3 col-start-2'>Username</p>
 					<p className='col-span-2 col-start-5 text-right'>Pull requests opened</p>
@@ -43,7 +43,7 @@ export default async function LeaderBoard() {
 						key={item.user_name}
 						className='grid w-full grid-cols-6 items-center justify-between'>
 						<span>{i + 1}</span>
-						<div className='group col-span-3 col-start-2 flex items-center gap-2'>
+						<div className='group/item col-span-3 col-start-2 flex items-center gap-2'>
 							{item.avatar_url && (
 								<Image
 									src={item.avatar_url}
@@ -59,7 +59,7 @@ export default async function LeaderBoard() {
 								<p>{item.user_name}</p>
 							</Link>
 							<p className='text-stone-500 dark:text-stone-600'>{item.company}</p>
-							<ArrowUpRight className='opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
+							<ArrowUpRight className='opacity-0 transition-opacity duration-300 group-hover/item:opacity-100' />
 						</div>
 						<p className='col-span-2 col-start-5 text-right'>
 							{item.pull_requests_opened}
