@@ -29,10 +29,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 		<html lang='en'>
 			<body
 				className={`${font.className} relative flex h-full min-h-screen w-full flex-col items-center bg-white dark:bg-black`}>
-				<BackgroundGrid className='fixed h-full w-full opacity-30 dark:opacity-40' />
+				<BackgroundGrid className='fixed z-[-1] h-full w-full opacity-30 dark:opacity-40' />
 				<Nav />
 				<Toaster />
-				<div className='z-10 flex w-full max-w-3xl items-center justify-center'>
+				<div className='flex w-full max-w-3xl items-center justify-center'>
 					{children}
 				</div>
 			</body>

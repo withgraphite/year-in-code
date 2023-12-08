@@ -18,7 +18,7 @@ export default async function Page() {
 	return (
 		<div className='relative flex h-screen w-full flex-col items-center justify-center gap-10 p-5 sm:p-20'>
 			{/* Gradient */}
-			<div className='absolute z-[-1] h-screen w-screen'>
+			<div className='absolute z-[-2] h-screen w-screen'>
 				<Image
 					src='/images/background-desktop.jpg'
 					fill
@@ -35,7 +35,7 @@ export default async function Page() {
 				</p>
 				<Auth session={session} />
 			</div>
-			<h3 className='absolute bottom-5 flex gap-1'>
+			<h3 className='absolute bottom-5 flex gap-1 text-stone-200'>
 				<span className='text-stone-400 dark:text-stone-600'>by</span>
 				<Graphite />
 			</h3>

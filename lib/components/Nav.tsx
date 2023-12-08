@@ -5,7 +5,7 @@ import {usePathname} from 'next/navigation'
 export default function Nav() {
 	const pathname = usePathname()
 	return (
-		<div className='absolute top-0 z-20 flex w-full items-baseline justify-around'>
+		<div className='absolute top-0 z-50 flex w-full items-baseline justify-around'>
 			<div
 				className={`flex w-full max-w-3xl items-center ${
 					pathname === '/' ? 'justify-end' : 'justify-between'
