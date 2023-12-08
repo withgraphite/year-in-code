@@ -6,12 +6,17 @@ export default function Nav() {
 	const pathname = usePathname()
 	return (
 		<div className='absolute top-0 z-20 flex w-full items-baseline justify-around'>
-			<div className='flex w-full max-w-3xl items-center justify-between p-3'>
-				<Link
-					className='text-xl font-bold no-underline'
-					href='/'>
-					Year in Code
-				</Link>
+			<div
+				className={`flex w-full max-w-3xl items-center ${
+					pathname === '/' ? 'justify-end' : 'justify-between'
+				}  p-5`}>
+				{pathname !== '/' && (
+					<Link
+						className='text-xl font-bold no-underline'
+						href='/'>
+						Year in Code
+					</Link>
+				)}
 				{pathname !== '/leaderboard' && (
 					<Link
 						className='no-underline'

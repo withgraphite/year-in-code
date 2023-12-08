@@ -13,7 +13,7 @@ export default async function LeaderBoard() {
 	if (error) console.error(error.message)
 
 	return (
-		<div className='justify-starts flex min-h-screen w-full flex-col gap-5 bg-red-200 p-3 pt-20'>
+		<div className='justify-starts flex min-h-screen w-full flex-col gap-5 p-5 pt-20'>
 			<div>
 				<h2>Leaderboard</h2>
 				<h3 className='text-stone-500'>Close more pull requests with Graphite.</h3>
