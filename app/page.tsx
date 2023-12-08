@@ -43,7 +43,7 @@ export default async function Page() {
 					<Auth session={session} />
 				</div>
 			</div>
-			<h3 className='absolute bottom-5 z-10 flex gap-1 text-stone-200'>
+			<h3 className='absolute bottom-2 z-10 flex gap-1 text-stone-200 sm:bottom-5'>
 				<span className='text-stone-400 dark:text-stone-600'>by</span>
 				<Graphite />
 			</h3>
