@@ -45,6 +45,7 @@ export default function Player({
 			compositionHeight={720}
 			compositionWidth={1280}
 			controls
+			className='rounded-md'
 			loop
 		/>
 	)

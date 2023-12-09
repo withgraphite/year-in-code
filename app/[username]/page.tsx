@@ -17,7 +17,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 	const profile = await getProfile(params.username)
 
 	return (
-		<div className='flex min-h-screen w-full flex-col items-center gap-5 p-5 sm:justify-center'>
+		<div className='flex min-h-screen w-full flex-col items-center justify-center gap-5 p-5'>
 			{/* User exists */}
 			{profile && (
 				<div
