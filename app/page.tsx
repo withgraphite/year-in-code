@@ -3,7 +3,6 @@ import {cookies} from 'next/headers'
 import Link from 'next/link'
 import {redirect} from 'next/navigation'
 import Auth from '~/components/Auth'
-import Graphite from '~/components/Graphite'
 import {Database} from '~/types/supabase'
 
 export const dynamic = 'force-dynamic'
@@ -43,10 +42,6 @@ export default async function Page() {
 					<Auth session={session} />
 				</div>
 			</div>
-			<h3 className='absolute bottom-2 z-10 flex gap-1 text-stone-200 sm:bottom-5'>
-				<span className='text-stone-400 dark:text-stone-600'>by</span>
-				<Graphite />
-			</h3>
 		</div>
 	)
 }
