@@ -25,7 +25,7 @@ export default async function LeaderBoard() {
 		<div className='flex h-screen w-full flex-col items-center gap-5 p-5 pt-20'>
 			<div className='flex w-full items-center justify-between'>
 				<div>
-					<h2>Leaderboard</h2>
+					<h1>Leaderboard</h1>
 					<h3 className='flex gap-1 text-stone-500'>
 						Close more pull requests with <Graphite />
 					</h3>
@@ -33,7 +33,7 @@ export default async function LeaderBoard() {
 				{!session && <SignInButton />}
 			</div>
 			<div className='group/table grid w-full gap-3'>
-				<div className='grid w-full grid-cols-6 items-center justify-between border-b border-stone-300 font-extrabold text-stone-500 opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
+				<div className='grid w-full grid-cols-6 items-center justify-between border-b border-stone-300 font-extrabold font-thin text-stone-500 opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
 					<p>Rank</p>
 					<p className='col-span-3 col-start-2'>Username</p>
 					<p className='col-span-2 col-start-5 text-right'>Pull requests opened</p>

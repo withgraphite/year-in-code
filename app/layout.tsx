@@ -6,13 +6,19 @@ import Footer from '~/components/Footer'
 import Nav from '~/components/Nav'
 import './styles.css'
 
-// const font = Plus_Jakarta_Sans({subsets: ['latin']})
-
 const font = localFont({
 	src: [
 		{
-			path: '../lib/fonts/MatterSQ-Regular.otf',
-			style: 'normal'
+			path: '../public/fonts/MatterSQ-Light.otf',
+			weight: '100'
+		},
+		{
+			path: '../public/fonts/MatterSQ-Regular.otf',
+			weight: '400'
+		},
+		{
+			path: '../public/fonts/MatterSQ-Bold.otf',
+			weight: '700'
 		}
 	]
 })

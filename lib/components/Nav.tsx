@@ -12,13 +12,13 @@ export default function Nav() {
 					pathname === '/' ? 'justify-end' : 'justify-between'
 				}  p-5`}>
 				<Link
-					className='text-xl font-bold no-underline'
+					className='text-xl font-semibold no-underline'
 					href='/'>
 					Year in Code
 				</Link>
 				{pathname !== '/leaderboard' && (
 					<Link
-						className='no-underline'
+						className='text-xl no-underline'
 						href='/leaderboard'>
 						Leaderboard
 					</Link>
