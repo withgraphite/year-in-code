@@ -9,8 +9,8 @@ export default function SignOutButton() {
 	const supabase = createClientComponentClient<Database>()
 	const router = useRouter()
 
-	// Logout
-	async function handleLogout() {
+	// Sign out
+	async function handleSignOut() {
 		const {error} = await supabase.auth.signOut()
 		if (error) toast.error(error.message)
 		else router.push('/')
@@ -18,7 +18,7 @@ export default function SignOutButton() {
 
 	return (
 		<button
-			onClick={handleLogout}
+			onClick={handleSignOut}
 			className='group text-lg'>
 			<span>Sign out</span>
 			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />

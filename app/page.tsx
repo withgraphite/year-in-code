@@ -12,8 +12,19 @@ export default async function Page() {
 	const {
 		data: {session}
 	} = await supabase.auth.getSession()
+	if (session) {
+		const {data: profile, error} = await supabase
+			.from('profile')
+			.select('video_manifest')
+			.eq('id', session.user.id)
+			.single()
+		if (error) console.error(error.message)
 
-	if (session && session.provider_token) redirect(`/loading`)
+		if (session && session.provider_token && !profile) redirect(`/loading`)
+		if (session && profile.video_manifest)
+			redirect(`/${session.user.user_metadata.user_name}`)
+	}
+
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-10 p-5'>
 			<div className='absolute flex h-screen w-full items-center justify-center overflow-hidden p-5 text-center'>
