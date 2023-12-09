@@ -5,13 +5,18 @@ import {
 	staticFile,
 	useVideoConfig
 } from 'remotion'
+import AllStats from '~/scenes/AllStats'
 import Conclusion from '~/scenes/Conclusion'
 import Contributions from '~/scenes/Contributions'
 import Flashback from '~/scenes/Flashback'
 import Intro from '~/scenes/Intro'
 import Languages from '~/scenes/Languages'
+import Months from '~/scenes/Months'
+import Number from '~/scenes/Number'
 import People from '~/scenes/People'
+import Repos from '~/scenes/Repos'
 import Stars from '~/scenes/Stars'
+import Times from '~/scenes/Times'
 import {Stats} from '~/types/github'
 import {Manifest} from '~/types/video'
 
@@ -77,6 +82,47 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								weeks={stats.contributionsHistory}
 							/>
 						)
+					case 'repos':
+						return (
+							<Repos
+								key={i}
+								from={i * fps * 5}
+								text={text}
+								repos={animation.repos}
+							/>
+						)
+					case 'times':
+						return (
+							<Times
+								key={i}
+								from={i * fps * 5}
+								text={text}
+							/>
+						)
+					case 'months':
+						return (
+							<Months
+								key={i}
+								from={i * fps * 5}
+								text={text}
+							/>
+						)
+					case 'number':
+						return (
+							<Number
+								key={i}
+								from={i * fps * 5}
+								text={text}
+								number={animation.number}
+							/>
+						)
+					case 'allStats':
+						return (
+							<AllStats
+								key={i}
+								from={i * fps * 5}
+							/>
+						)
 					case 'conclusion':
 						return (
 							<Conclusion
@@ -85,6 +131,7 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								text={text}
 							/>
 						)
+
 					default:
 						return (
 							<Sequence

@@ -57,6 +57,43 @@ export const videoSchema = z.object({
 							.describe('Displays a contribution graph'),
 						z
 							.object({
+								type: z.enum(['months']),
+								text: z.string()
+							})
+							.describe('Displays a chart of monthly contributions'),
+
+						z
+							.object({
+								type: z.enum(['number']),
+								text: z.string(),
+								number: z.number()
+							})
+							.describe(
+								'Displays a large 3D number. Useful for highlighting a specific stat'
+							),
+						z
+							.object({
+								type: z.enum(['repos']),
+								text: z.string(),
+								repos: z.array(z.string())
+							})
+							.describe('Displays a list of repos'),
+
+						z
+							.object({
+								type: z.enum(['times']),
+								text: z.string()
+							})
+							.describe('Displays a list of times of day with average commits'),
+
+						z
+							.object({
+								type: z.enum(['allStats'])
+							})
+							.describe('Displays all stats - useful pre-conclusion'),
+
+						z
+							.object({
 								type: z.enum(['conclusion']),
 								text: z.string()
 							})
