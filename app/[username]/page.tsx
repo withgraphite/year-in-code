@@ -20,7 +20,9 @@ export default async function Profile({params}: {params: {username: string}}) {
 		<div className='flex min-h-screen w-full flex-col items-center gap-5 p-5 sm:justify-center'>
 			{/* User exists */}
 			{profile && (
-				<div className='flex w-full max-w-3xl flex-col justify-center gap-5 pt-20 sm:items-center'>
+				<div
+					id='videoContainer'
+					className='flex w-full max-w-3xl flex-col justify-center gap-5 pt-20 sm:items-center'>
 					<div className='flex w-full flex-col justify-between gap-5 sm:flex-row sm:gap-0'>
 						<h1 className='text-black dark:text-white'>{`${params.username}`}</h1>
 						<Toolbar session={session} />
