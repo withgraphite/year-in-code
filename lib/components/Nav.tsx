@@ -6,7 +6,7 @@ export default function Nav() {
 	const pathname = usePathname()
 	if (pathname === '/') return null
 	return (
-		<nav className='absolute top-0 z-50 flex w-full items-baseline justify-around dark:text-stone-300'>
+		<nav className='absolute top-0 z-50 flex w-full items-baseline justify-around'>
 			<div
 				className={`flex w-full max-w-3xl items-center ${
 					pathname === '/' ? 'justify-end' : 'justify-between'

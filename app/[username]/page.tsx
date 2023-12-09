@@ -24,7 +24,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 					id='videoContainer'
 					className='flex w-full max-w-3xl flex-col justify-center gap-5 sm:items-center'>
 					<div className='flex w-full flex-col justify-between gap-5 sm:flex-row sm:gap-0'>
-						<h1 className='text-black dark:text-white'>{`${params.username}`}</h1>
+						<h1 className='text-black'>{`${params.username}`}</h1>
 						<Toolbar session={session} />
 					</div>
 					{profile && (
@@ -40,11 +40,8 @@ export default async function Profile({params}: {params: {username: string}}) {
 			{!profile && (
 				<div className='flex flex-col items-center justify-center gap-5'>
 					<h2>
-						Oops!{' '}
-						<span className='italic text-black dark:text-white'>
-							{params.username}
-						</span>{' '}
-						does not exist in our database.
+						Oops! <span className='italic text-black'>{params.username}</span> does
+						not exist in our database.
 					</h2>
 					<Toolbar session={session} />
 				</div>
