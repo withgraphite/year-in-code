@@ -23,10 +23,10 @@ export default async function LeaderBoard() {
 
 	return (
 		<div className='flex h-screen w-full flex-col items-center gap-5 p-5 pt-20'>
-			<div className='flex w-full items-center justify-between'>
+			<div className='flex w-full flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0'>
 				<div>
 					<h1>Leaderboard</h1>
-					<h3 className='flex gap-1 text-stone-500'>
+					<h3 className='flex flex-wrap gap-1 text-stone-500'>
 						Close more pull requests with <Graphite />
 					</h3>
 				</div>
@@ -58,7 +58,9 @@ export default async function LeaderBoard() {
 								className='no-underline hover:underline'>
 								<p>{item.user_name}</p>
 							</Link>
-							<p className='text-stone-500 dark:text-stone-600'>{item.company}</p>
+							<p className='hidden text-stone-500 dark:text-stone-600 sm:flex'>
+								{item.company}
+							</p>
 							<Link
 								href={`https://github.com/${item.user_name}`}
 								target='_blank'>
