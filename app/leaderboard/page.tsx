@@ -33,7 +33,7 @@ export default async function LeaderBoard() {
 				{!session && <SignInButton />}
 			</div>
 			<div className='group/table grid w-full gap-3'>
-				<div className='grid w-full grid-cols-6 items-center justify-between border-b font-extrabold text-stone-500 opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
+				<div className='grid w-full grid-cols-6 items-center justify-between border-b border-stone-300 font-extrabold text-stone-500 opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
 					<p>Rank</p>
 					<p className='col-span-3 col-start-2'>Username</p>
 					<p className='col-span-2 col-start-5 text-right'>Pull requests opened</p>
@@ -49,7 +49,7 @@ export default async function LeaderBoard() {
 									src={item.avatar_url}
 									width={30}
 									height={30}
-									className='rounded-full'
+									className='rounded-full transition-transform duration-300 hover:scale-125'
 									alt={`Profile picture`}
 								/>
 							)}
