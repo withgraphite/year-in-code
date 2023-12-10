@@ -3,8 +3,6 @@ import {AnimatePresence, motion} from 'framer-motion'
 import {useEffect, useState} from 'react'
 import {Stats} from '~/types/github'
 
-export const dynamic = 'force-dynamic'
-
 export default function Loading({stats}: {stats: Stats}) {
 	const [count, setCount] = useState(0)
 	const slides = [
