@@ -13,7 +13,7 @@ export default async function Page() {
 		data: {session}
 	} = await supabase.auth.getSession()
 
-	if (session) redirect(`/${session.user.user_metadata.user_name}`)
+	if (session) redirect(`/generate`)
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-10 p-5'>
 			<Year />

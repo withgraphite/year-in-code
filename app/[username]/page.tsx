@@ -1,17 +1,13 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {cookies} from 'next/headers'
-import {redirect} from 'next/navigation'
 import GitHubButton from '~/components/GitHubButton'
 import Player from '~/components/Player'
 import Toolbar from '~/components/Toolbar'
 import {Stats} from '~/types/github'
 import {Database} from '~/types/supabase'
 import {Manifest} from '~/types/video'
-import generateScenes from '~/utils/generate'
 import {default as getProfile} from '~/utils/profile'
-import {getStats} from '~/utils/stats'
 
-export const maxDuration = 300
 export const dynamic = 'force-dynamic'
 
 export default async function Profile({params}: {params: {username: string}}) {
@@ -19,22 +15,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 	const {
 		data: {session}
 	} = await supabase.auth.getSession()
-	let profile = await getProfile(params.username)
-
-	if (session && (!profile || !profile.github_stats || !profile.video_manifest))
-		if (session.provider_token === null) {
-			// GitHub provider_token is null if a user revisits the page after the token has expired
-			// Supabase does not plan on adding support for this anytime soon
-			// Improvement: https://github.com/supabase/gotrue-js/issues/806 manually make request to GitHub
-			// API and reset the provider token
-			await supabase.auth.signOut()
-			redirect('/')
-		} else {
-			const stats = await getStats(session.provider_token)
-			const scenes = await generateScenes(stats, session)
-			profile = await getProfile(params.username)
-		}
-
+	const profile = await getProfile(params.username)
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-5'>
 			{/* User exists */}
@@ -47,7 +28,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 							<h1 className='text-black'>{`${params.username}`}</h1>
 							<GitHubButton
 								username={params.username}
-								className='h-10 w-10'
+								className='h-10 w-10 hover:opacity-100'
 							/>
 						</div>
 						<Toolbar session={session} />

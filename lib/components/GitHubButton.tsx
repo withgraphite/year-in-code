@@ -13,7 +13,7 @@ export default function GitHubButton({
 			href={`https://github.com/${username}`}
 			target='_blank'>
 			<GithubIcon
-				className={`${className} rounded-full p-1.5 transition-all duration-300 hover:bg-black hover:text-white hover:opacity-100`}
+				className={`${className} rounded-full p-1.5 transition-all duration-300 hover:bg-black hover:text-white`}
 			/>
 		</Link>
 	)
