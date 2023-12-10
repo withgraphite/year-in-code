@@ -58,9 +58,8 @@ export default async function generateScenes(stats: Stats, session: Session) {
 	// Init chain
 	const chain = prompt.pipe(functionCallingModel).pipe(outputParser)
 
-	// strip out contributions history
-	// delete stats.contributionsHistory
-	// console.log(stats.contributionsHistory)
+	// Strip out contributions history
+	if (stats.contributionsHistory) delete stats.contributionsHistory
 
 	// Run chain
 	console.log('Creating frames...')
