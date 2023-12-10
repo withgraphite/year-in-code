@@ -13,7 +13,10 @@ export default function SignOutButton() {
 	async function handleSignOut() {
 		const {error} = await supabase.auth.signOut()
 		if (error) toast.error(error.message)
-		else router.push('/')
+		else {
+			router.refresh()
+			router.push('/')
+		}
 	}
 
 	return (
