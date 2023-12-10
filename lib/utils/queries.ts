@@ -191,3 +191,12 @@ export const FOLLOWS = gql`
 		}
 	}
 `
+
+export const USER_LOCATION = gql`
+	query location {
+		viewer {
+			name
+			location
+		}
+	}
+`

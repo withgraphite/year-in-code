@@ -12,7 +12,8 @@ import {
 	STARS,
 	TOP_LANGUAGES,
 	TOP_REPOS,
-	USER_HIGHLIGHTS
+	USER_HIGHLIGHTS,
+	USER_LOCATION
 } from './queries'
 
 /**
@@ -22,15 +23,23 @@ import {
 export async function getStats(token: string): Promise<Stats | null> {
 	const supabase = createServerActionClient({cookies})
 	console.log('Fetching stats...')
-	const [highlights, languages, repositories, follows, stars, contributions] =
-		await Promise.all([
-			getHighlights(token),
-			getTopLanguages(token),
-			getTopRepsitories(token),
-			getTopFollows(token),
-			getStars(token),
-			getContributionHistory(token)
-		])
+	const [
+		highlights,
+		languages,
+		repositories,
+		follows,
+		stars,
+		contributions,
+		location
+	] = await Promise.all([
+		getHighlights(token),
+		getTopLanguages(token),
+		getTopRepsitories(token),
+		getTopFollows(token),
+		getStars(token),
+		getContributionHistory(token),
+		getLocation(token)
+	])
 
 	// Combine objects
 	const userStats = {
@@ -39,7 +48,8 @@ export async function getStats(token: string): Promise<Stats | null> {
 		topRepos: repositories,
 		topFollows: follows,
 		stars: stars,
-		contributionsHistory: contributions
+		contributionsHistory: contributions,
+		location: location
 	}
 
 	// Save to database
@@ -245,4 +255,26 @@ export async function getContributionHistory(token: string) {
 	// })
 
 	return weeks
+}
+
+/**
+ * Get user location
+ * @returns user's location
+ */
+
+export async function getLocation(token: string) {
+	const payload: any = await request(
+		GITHUB_GRAPHQL_API,
+		USER_LOCATION,
+		{},
+		{
+			Authorization: `Bearer ${token}`
+		}
+	)
+
+	if (!payload || !payload || !payload.viewer) return null
+
+	const location = payload.viewer.location
+
+	return location
 }
