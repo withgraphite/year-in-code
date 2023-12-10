@@ -11,6 +11,7 @@ import generateScenes from '~/utils/generate'
 import {default as getProfile} from '~/utils/profile'
 import {getStats} from '~/utils/stats'
 
+export const maxDuration = 300
 export const dynamic = 'force-dynamic'
 
 export default async function Profile({params}: {params: {username: string}}) {
