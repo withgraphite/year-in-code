@@ -27,7 +27,7 @@ export default async function LeaderBoard() {
 				<div>
 					<h1>Leaderboard</h1>
 					<h3 className='flex flex-wrap gap-1 text-stone-500'>
-						Close more pull requests with <Graphite />
+						Close more pull requests with <Graphite className='text-stone-600' />
 					</h3>
 				</div>
 				{!session && <SignInButton />}
