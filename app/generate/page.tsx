@@ -6,6 +6,7 @@ import {Database} from '~/types/supabase'
 import getProfile from '~/utils/profile'
 
 export const dynamic = 'force-dynamic'
+export const maxDuration = 300
 
 export default async function Generate() {
 	const supabase = createServerComponentClient<Database>({cookies})
