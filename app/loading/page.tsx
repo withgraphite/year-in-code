@@ -8,7 +8,7 @@ import getProfile from '~/utils/profile'
 export const dynamic = 'force-dynamic'
 export const maxDuration = 300
 
-export default async function Generate() {
+export default async function Loading() {
 	const supabase = createServerComponentClient<Database>({cookies})
 	const {
 		data: {session}

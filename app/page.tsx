@@ -18,7 +18,7 @@ export default async function Page() {
 		data: {session}
 	} = await supabase.auth.getSession()
 
-	if (session) redirect(`/generate`)
+	if (session) redirect(`/loading`)
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-10 p-5'>
 			<Year />
