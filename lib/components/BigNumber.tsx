@@ -80,7 +80,7 @@ export default function BigNumber({
 						{
 							font,
 							size: 3,
-							height: 0.5,
+							height: 0.2,
 							bevelEnabled: true,
 							bevelThickness: 0.5,
 							bevelSize: 0.1,
