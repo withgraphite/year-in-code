@@ -24,7 +24,7 @@ async function Video({session, stats}: {session: Session; stats: Stats}) {
 	return (
 		<Link
 			href={`/${session.user.user_metadata.user_name}`}
-			className='flex items-center justify-center gap-2 rounded-md border-2 border-black bg-black px-6 py-2 text-white transition-all hover:bg-white hover:text-black'>
+			className='flex items-center justify-center gap-2 rounded-md border-2 border-black bg-black px-6 py-2 text-white no-underline transition-all hover:bg-white hover:text-black'>
 			<span>See video</span>
 			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
 		</Link>
