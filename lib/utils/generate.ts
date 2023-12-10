@@ -43,7 +43,7 @@ export default async function generateScenes(stats: Stats, session: Session) {
 				The goal of this video is to make the end user feel seen, valued and have a nostalgic moment of review. You do not need to touch on everything, rather 
 				hone in on and focus on the key elements that made this year special.
 				Make sure there is a story arch that builds over time, and that the video has a clear beginning, middle and end.
-				Today's date is ${new Date().toLocaleDateString()}.`
+				Today's date (UTC) is ${new Date().toLocaleDateString()}.`
 			),
 			HumanMessagePromptTemplate.fromTemplate(
 				'The GitHub stats are as follows: {stats}'
