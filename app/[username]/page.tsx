@@ -20,7 +20,7 @@ export async function generateMetadata({
 	let ogImage = `https://graphite-wrapped.vercel.app/og?title=${params.username}`
 
 	return {
-		title: params.username,
+		title: `${params.username} | Year in Code | Graphite`,
 		description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
 		openGraph: {
 			title: params.username,
