@@ -66,7 +66,9 @@ export const videoSchema = z.object({
 							.object({
 								type: z.enum(['number']),
 								text: z.string(),
-								number: z.number()
+								number: z.number(),
+								col1: z.string().describe('hex gradient 1'),
+								col2: z.string().describe('hex gradient 2')
 							})
 							.describe(
 								'Displays a large 3D number. Useful for highlighting a specific stat'

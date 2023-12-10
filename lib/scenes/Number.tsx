@@ -5,11 +5,16 @@ import BigNumber from '~/components/BigNumber'
 export default function Number({
 	from,
 	text,
-	number
+	number,
+	gradient
 }: {
 	from: number
 	text: string
 	number: number
+	gradient: {
+		col1: string
+		col2: string
+	}
 }) {
 	const {width, height} = useVideoConfig()
 
@@ -31,6 +36,7 @@ export default function Number({
 						<BigNumber
 							count={frame}
 							number={number}
+							gradient={gradient}
 						/>
 					</ThreeCanvas>
 				</div>

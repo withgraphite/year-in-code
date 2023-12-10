@@ -41,13 +41,18 @@ const GradientShaderMaterial = ({color1, color2}) => {
 
 export default function BigNumber({
 	count,
-	number
+	number,
+	gradient
 }: {
 	count: number
 	number: number
+	gradient: {
+		col1: string
+		col2: string
+	}
 }) {
 	const font = new FontLoader().parse(
-		require('../../public/fonts/Matter SQ_Bold.json')
+		require('../../public/fonts/MatterSQ-Bold.json')
 	)
 	const mesh = useRef<any>()
 
@@ -90,8 +95,8 @@ export default function BigNumber({
 					]}
 				/>
 				<GradientShaderMaterial
-					color1='pink'
-					color2='purple'
+					color1={gradient.col1}
+					color2={gradient.col2}
 				/>
 			</mesh>
 			<EffectComposer>

@@ -114,6 +114,7 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								from={i * fps * 5}
 								text={text}
 								number={animation.number}
+								gradient={{col1: animation.col1, col2: animation.col2}}
 							/>
 						)
 					case 'allStats':
