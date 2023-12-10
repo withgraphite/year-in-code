@@ -4,7 +4,7 @@ import {Sequence, useCurrentFrame, useVideoConfig} from 'remotion'
 import Blob from '~/components/Blob'
 
 export default function Intro({name, from}) {
-	const frame = useCurrentFrame()
+	const frame = useCurrentFrame() - from
 	const {width, height} = useVideoConfig()
 	const starOpacity = Math.min(1, frame / 60)
 	const titleOpacity = frame > 120 ? 1 : Math.min(1, frame / 60 - 1)
