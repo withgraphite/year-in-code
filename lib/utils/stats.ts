@@ -1,3 +1,5 @@
+'use server'
+
 import {request} from 'graphql-request'
 import {DEC2023, JAN2023} from 'lib/constants/dates'
 import {COMMON_LANGUAGES} from 'lib/constants/misc'

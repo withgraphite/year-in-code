@@ -1,3 +1,5 @@
+'use server'
+
 import {Session, createServerActionClient} from '@supabase/auth-helpers-nextjs'
 import {ChatOpenAI} from 'langchain/chat_models/openai'
 import {JsonOutputFunctionsParser} from 'langchain/output_parsers'
@@ -57,7 +59,8 @@ export default async function generateScenes(stats: Stats, session: Session) {
 	const chain = prompt.pipe(functionCallingModel).pipe(outputParser)
 
 	// strip out contributions history
-	delete stats.contributionsHistory
+	// delete stats.contributionsHistory
+	// console.log(stats.contributionsHistory)
 
 	// Run chain
 	console.log('Creating frames...')
