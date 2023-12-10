@@ -22,11 +22,11 @@ async function Stats({stats}: {stats: Stats}) {
 async function Video({session, stats}: {session: Session; stats: Stats}) {
 	const scenes = await generateScenes(stats, session)
 	return (
-		<Link href={`/${session.user.user_metadata.user_name}`}>
-			<button className='group w-fit text-lg lg:w-fit'>
-				<span>See video</span>
-				<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
-			</button>
+		<Link
+			href={`/${session.user.user_metadata.user_name}`}
+			className='flex items-center justify-center gap-2 rounded-md border-2 border-black bg-black px-6 py-2 text-white transition-all hover:bg-white hover:text-black'>
+			<span>See video</span>
+			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
 		</Link>
 	)
 }
