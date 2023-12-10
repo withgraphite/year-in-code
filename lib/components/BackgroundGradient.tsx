@@ -5,7 +5,7 @@ export default function BackgroundGradient() {
 	return (
 		<div className='absolute z-[-2] h-screen w-screen'>
 			<Image
-				src='/images/background-desktop.jpg'
+				src='/images/bg.jpg'
 				fill
 				priority
 				alt='Gradient'

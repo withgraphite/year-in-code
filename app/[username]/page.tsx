@@ -1,4 +1,5 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
+import {Metadata} from 'next'
 import {cookies} from 'next/headers'
 import GitHubButton from '~/components/GitHubButton'
 import Player from '~/components/Player'
@@ -9,6 +10,28 @@ import {Manifest} from '~/types/video'
 import {default as getProfile} from '~/utils/profile'
 
 export const dynamic = 'force-dynamic'
+
+export async function generateMetadata({
+	params
+}: {
+	params: {username: string}
+}): Promise<Metadata | undefined> {
+	if (!params.username) return
+	let ogImage = `https://graphite-wrapped.vercel.app/og?title=${params.username}`
+
+	return {
+		title: params.username,
+		openGraph: {
+			title: params.username,
+			url: `https://graphite-wrapped.vercel.app/${params.username}`,
+			images: [
+				{
+					url: ogImage
+				}
+			]
+		}
+	}
+}
 
 export default async function Profile({params}: {params: {username: string}}) {
 	const supabase = createServerComponentClient<Database>({cookies})
