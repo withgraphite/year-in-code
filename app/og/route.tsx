@@ -2,10 +2,6 @@ import {ImageResponse} from 'next/og'
 import {NextRequest} from 'next/server'
 
 export const runtime = 'edge'
-export const size = {
-	width: 1920,
-	height: 1080
-}
 
 export async function GET(req: NextRequest) {
 	const {searchParams} = req.nextUrl
@@ -14,6 +10,10 @@ export async function GET(req: NextRequest) {
 		new URL('../../public/fonts/MatterSQ-Regular.otf', import.meta.url)
 	).then(res => res.arrayBuffer())
 	const fontData = await font
+	const size = {
+		width: 1920,
+		height: 1080
+	}
 
 	return new ImageResponse(
 		(
