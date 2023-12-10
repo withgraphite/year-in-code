@@ -2,6 +2,10 @@ import {ImageResponse} from 'next/og'
 import {NextRequest} from 'next/server'
 
 export const runtime = 'edge'
+export const size = {
+	width: 1920,
+	height: 1080
+}
 
 export async function GET(req: NextRequest) {
 	const {searchParams} = req.nextUrl
@@ -19,10 +23,21 @@ export async function GET(req: NextRequest) {
 					width: '100%',
 					display: 'flex',
 					flexDirection: 'column',
-					alignItems: 'flex-start',
+					alignItems: 'center',
 					justifyContent: 'center',
-					backgroundImage: 'url(https://graphite-wrapped.vercel.app/images/bg.jpg)'
+					position: 'relative',
+					overflowY: 'hidden',
+					backgroundImage:
+						'url(https://graphite-wrapped.vercel.app/images/og-bg-text.png)'
 				}}>
+				{/* <BackgroundGrid
+					style={{
+						position: 'absolute',
+						width: size.width,
+						height: size.height,
+						zIndex: -1
+					}}
+				/> */}
 				<div
 					style={{
 						marginLeft: 190,
@@ -32,7 +47,7 @@ export async function GET(req: NextRequest) {
 						fontFamily: 'MatterSQ',
 						letterSpacing: '-0.05em',
 						fontStyle: 'normal',
-						color: 'white',
+						color: 'black',
 						lineHeight: '120px',
 						whiteSpace: 'pre-wrap'
 					}}>
@@ -41,8 +56,7 @@ export async function GET(req: NextRequest) {
 			</div>
 		),
 		{
-			width: 1920,
-			height: 1080,
+			...size,
 			fonts: [
 				{
 					name: 'MatterSQ',
