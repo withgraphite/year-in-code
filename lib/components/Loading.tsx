@@ -14,14 +14,15 @@ export default function Loading({stats}: {stats: Stats}) {
 	]
 
 	useEffect(() => {
+		let slidesLength = 5
 		// Start the interval
 		const intervalId = setInterval(() => {
-			if (count < slides.length - 1) setCount(prevCount => prevCount + 1)
+			if (count < slidesLength - 1) setCount(prevCount => prevCount + 1)
 		}, 1.5 * 1000)
 
 		// Clear the interval on component unmount
 		return () => clearInterval(intervalId)
-	}, [slides])
+	}, [count])
 
 	return (
 		<AnimatePresence>
