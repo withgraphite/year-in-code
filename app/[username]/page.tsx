@@ -1,5 +1,7 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
+import {GithubIcon} from 'lucide-react'
 import {cookies} from 'next/headers'
+import Link from 'next/link'
 import Player from '~/components/Player'
 import Toolbar from '~/components/Toolbar'
 import {Stats} from '~/types/github'
@@ -24,7 +26,14 @@ export default async function Profile({params}: {params: {username: string}}) {
 					id='videoContainer'
 					className='flex w-full max-w-3xl flex-col justify-center gap-5 sm:items-center'>
 					<div className='flex w-full flex-col justify-between gap-5 sm:flex-row sm:gap-0'>
-						<h1 className='text-black'>{`${params.username}`}</h1>
+						<div className='flex items-center gap-3'>
+							<h1 className='text-black'>{`${params.username}`}</h1>
+							<Link
+								href={`https://github.com/${params.username}`}
+								target='_blank'>
+								<GithubIcon className='h-10 w-10 rounded-full border-2 border-black p-1.5 transition-colors duration-300 hover:bg-black hover:text-white' />
+							</Link>
+						</div>
 						<Toolbar session={session} />
 					</div>
 					{profile && (

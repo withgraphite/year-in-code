@@ -64,7 +64,7 @@ export default async function LeaderBoard() {
 							<Link
 								href={`https://github.com/${item.user_name}`}
 								target='_blank'>
-								<GithubIcon className='h-[30px] w-[30px] rounded-full p-1 opacity-0 transition-all duration-300 hover:bg-black hover:text-white group-hover/item:opacity-100' />
+								<GithubIcon className='h-[30px] w-[30px] rounded-full border border-black p-1 opacity-0 transition-all duration-300 hover:bg-black hover:text-white group-hover/item:opacity-100' />
 							</Link>
 							{/* <ArrowUpRight className='opacity-0 transition-opacity duration-300 group-hover/item:opacity-100' /> */}
 						</div>
