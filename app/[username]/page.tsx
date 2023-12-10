@@ -20,7 +20,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 	} = await supabase.auth.getSession()
 	let profile = await getProfile(params.username)
 
-	if (session && !profile)
+	if (session && (!profile || !profile.github_stats || !profile.video_manifest))
 		if (session.provider_token === null) {
 			// GitHub provider_token is null if a user revisits the page after the token has expired
 			// Supabase does not plan on adding support for this anytime soon
