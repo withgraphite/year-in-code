@@ -1,8 +1,8 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
-import {GithubIcon} from 'lucide-react'
 import {cookies} from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import GitHubButton from '~/components/GitHubButton'
 import Graphite from '~/components/Graphite'
 import SignInButton from '~/components/SignInButton'
 
@@ -27,7 +27,7 @@ export default async function LeaderBoard() {
 				<div>
 					<h1>Leaderboard</h1>
 					<h3 className='flex flex-wrap gap-1 text-stone-500'>
-						Close more pull requests with <Graphite />
+						Close more pull requests with <Graphite className='text-stone-600' />
 					</h3>
 				</div>
 				{!session && <SignInButton />}
@@ -61,11 +61,10 @@ export default async function LeaderBoard() {
 							<p className='hidden text-stone-500 dark:text-stone-600 sm:flex'>
 								{item.company}
 							</p>
-							<Link
-								href={`https://github.com/${item.user_name}`}
-								target='_blank'>
-								<GithubIcon className='h-[30px] w-[30px] rounded-full p-1 opacity-0 transition-all duration-300 hover:bg-black hover:text-white group-hover/item:opacity-100' />
-							</Link>
+							<GitHubButton
+								username={item.user_name}
+								className='h-[30px] w-[30px] opacity-0 group-hover/item:opacity-100'
+							/>
 							{/* <ArrowUpRight className='opacity-0 transition-opacity duration-300 group-hover/item:opacity-100' /> */}
 						</div>
 						<p className='col-span-2 col-start-5 text-right'>
