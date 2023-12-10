@@ -26,7 +26,13 @@ const getMaxDate = (contributions: number[]) => {
 /**
  * Graph of user contributions since Jan 1
  */
-export default function ContributionGraph({weeks}: {weeks: Week[]}) {
+export default function ContributionGraph({
+	frame,
+	weeks
+}: {
+	frame: number
+	weeks: Week[]
+}) {
 	let contributions = []
 	let colors = {}
 
@@ -56,9 +62,11 @@ export default function ContributionGraph({weeks}: {weeks: Week[]}) {
 	})
 
 	return (
-		<div className='group relative mb-3 flex max-w-4xl flex-col items-start p-5'>
+		<div className='group relative mb-3 flex max-w-6xl flex-col items-start p-5'>
 			<div className='flex w-full flex-col items-baseline text-gray-400 sm:flex-row sm:justify-between'>
-				<div className='mb-4 space-x-1 sm:mb-0'>
+				<div
+					className='mb-4 space-x-1 sm:mb-0'
+					style={{display: frame > 52 ? 'block' : 'none'}}>
 					{maxDate && max > 10 && (
 						<span>
 							Top day: {max} on {maxDate}
@@ -66,23 +74,22 @@ export default function ContributionGraph({weeks}: {weeks: Week[]}) {
 					)}
 				</div>
 			</div>
-			<div className='grid grid-flow-row grid-cols-12 gap-0.5'>
-				{/* Placeholders to account for the year starting on a Friday */}
-				{[...Array(5)].map((_, i) => (
+			{/* Horizontal layout for weeks */}
+			<div className='flex w-full flex-wrap'>
+				{weeks.map((week, i) => (
 					<div
 						key={i}
-						className='h-3 w-3 bg-gray-200/20'
-					/>
+						style={{display: frame > i ? 'block' : 'none'}}
+						className='mr-1 flex flex-col'>
+						{/* Each day is now a row in the week's column */}
+						{week.contributionDays.map((day, j) => (
+							<div
+								key={j}
+								className={`mb-0.5 h-4 w-4 ${colors[day.contributionCount]}`}
+							/>
+						))}
+					</div>
 				))}
-				{/* Weeks */}
-				{weeks.map(week =>
-					week.contributionDays.map((day, j) => (
-						<div
-							key={j}
-							className={`h-3 w-3 ${colors[day.contributionCount]}`}
-						/>
-					))
-				)}
 			</div>
 		</div>
 	)
