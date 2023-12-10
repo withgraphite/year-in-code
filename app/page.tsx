@@ -7,6 +7,11 @@ import {Database} from '~/types/supabase'
 
 export const dynamic = 'force-dynamic'
 
+export const metadata = {
+	title: 'Year in Code | Graphite',
+	description: 'End 2023 with a video for your GitHub stats.'
+}
+
 export default async function Page() {
 	const supabase = createServerComponentClient<Database>({cookies})
 	const {

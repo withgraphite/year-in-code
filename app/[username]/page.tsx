@@ -21,6 +21,7 @@ export async function generateMetadata({
 
 	return {
 		title: params.username,
+		description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
 		openGraph: {
 			title: params.username,
 			url: `https://graphite-wrapped.vercel.app/${params.username}`,

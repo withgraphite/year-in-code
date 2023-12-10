@@ -8,6 +8,11 @@ import SignInButton from '~/components/SignInButton'
 
 export const dynamic = 'force-dynamic'
 
+export const metadata = {
+	title: 'Leaderboard | Year in Code | Graphite',
+	description: 'See who opened the most pull requests in 2023.'
+}
+
 export default async function LeaderBoard() {
 	const supabase = createServerComponentClient({cookies})
 	const {
