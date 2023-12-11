@@ -23,7 +23,7 @@ export default function Toolbar({
 					<SignOutButton />
 					<DeleteButton session={session} />
 					<CopyLinkButton profile={profile} />
-					<LinkedInButton />
+					<LinkedInButton profile={profile} />
 					<TwitterButton profile={profile} />
 				</div>
 			)}
