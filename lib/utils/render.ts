@@ -2,7 +2,7 @@ import {
 	renderMediaOnLambda,
 	speculateFunctionName
 } from '@remotion/lambda/client'
-import {DISK, RAM, REGION, SITE_NAME, TIMEOUT} from '~/lambda/config'
+import {DISK, RAM, REGION, SITE_NAME, TIMEOUT} from 'lambda/config'
 
 export default async function render({id, inputProps, title}) {
 	const result = await renderMediaOnLambda({

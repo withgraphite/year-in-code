@@ -1,6 +1,6 @@
 import {ThreeCanvas} from '@remotion/three'
 import {Sequence, useCurrentFrame, useVideoConfig} from 'remotion'
-import BigNumber from '~/components/BigNumber'
+import BigNumber from '../components/BigNumber'
 
 export default function Number({
 	from,

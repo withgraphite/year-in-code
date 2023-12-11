@@ -1,6 +1,6 @@
 import {Sequence, useCurrentFrame} from 'remotion'
-import ContributionGraph from '~/components/ContributionGraph'
-import {Week} from '~/types/github'
+import ContributionGraph from '../components/ContributionGraph'
+import {Week} from '../types/github'
 
 export default function Contributions({
 	text,

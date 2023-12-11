@@ -5,27 +5,30 @@ import {
 	staticFile,
 	useVideoConfig
 } from 'remotion'
-import AllStats from '~/scenes/AllStats'
-import Conclusion from '~/scenes/Conclusion'
-import Contributions from '~/scenes/Contributions'
-import Flashback from '~/scenes/Flashback'
-import Intro from '~/scenes/Intro'
-import Languages from '~/scenes/Languages'
-import Months from '~/scenes/Months'
-import Number from '~/scenes/Number'
-import People from '~/scenes/People'
-import Repos from '~/scenes/Repos'
-import Stars from '~/scenes/Stars'
-import Times from '~/scenes/Times'
-import {Stats} from '~/types/github'
-import {Manifest} from '~/types/video'
+import AllStats from '../scenes/AllStats'
+import Conclusion from '../scenes/Conclusion'
+import Contributions from '../scenes/Contributions'
+import Flashback from '../scenes/Flashback'
+import Intro from '../scenes/Intro'
+import Languages from '../scenes/Languages'
+import Months from '../scenes/Months'
+import Number from '../scenes/Number'
+import People from '../scenes/People'
+import Repos from '../scenes/Repos'
+import Stars from '../scenes/Stars'
+import Times from '../scenes/Times'
+import {Stats} from '../types/github'
+import {Manifest} from '../types/video'
 
 export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 	const {fps} = useVideoConfig()
 
 	return (
 		<AbsoluteFill className='font-mono'>
-			<Audio src={staticFile('/music/Autohacker.mp3')} />
+			<Audio
+				src={staticFile('/music/Autohacker.mp3')}
+				placeholder={null}
+			/>
 			{video.scenes.map(({text, animation}, i) => {
 				switch (animation?.type) {
 					case 'intro':

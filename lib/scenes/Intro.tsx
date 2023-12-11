@@ -1,7 +1,7 @@
 import {ThreeCanvas} from '@remotion/three'
 import {useMemo} from 'react'
 import {Sequence, useCurrentFrame, useVideoConfig} from 'remotion'
-import Blob from '~/components/Blob'
+import Blob from '../components/Blob'
 
 export default function Intro({name, from}) {
 	const frame = useCurrentFrame() - from

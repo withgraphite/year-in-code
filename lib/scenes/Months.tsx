@@ -1,6 +1,6 @@
 import {Sequence, useCurrentFrame} from 'remotion'
-import MonthsChart from '~/components/MonthsChart'
-import {Week} from '~/types/github'
+import MonthsChart from '../components/MonthsChart'
+import {Week} from '../types/github'
 
 export default function Months({
 	from,
