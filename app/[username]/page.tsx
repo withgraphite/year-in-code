@@ -67,7 +67,10 @@ export default async function Profile({params}: {params: {username: string}}) {
 								className='h-10 w-10 hover:opacity-100'
 							/>
 						</div>
-						<Toolbar session={session} />
+						<Toolbar
+							profile={profile}
+							session={session}
+						/>
 					</div>
 					{profile && (
 						<Player
@@ -85,7 +88,10 @@ export default async function Profile({params}: {params: {username: string}}) {
 						Oops! <span className='italic text-black'>{params.username}</span> does
 						not exist in our database.
 					</h2>
-					<Toolbar session={session} />
+					<Toolbar
+						profile={profile}
+						session={session}
+					/>
 				</div>
 			)}
 		</div>

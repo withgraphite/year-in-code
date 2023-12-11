@@ -1,9 +1,13 @@
 import {Metadata} from 'next'
 
+export const DOMAIN = {
+	PROD: 'https://graphite-wrapped.vercel.app/'
+}
+
 export const META = {
-	desc: 'A partnership between Graphite x Rubric.',
+	title: 'Year in Code | Graphite',
+	desc: 'End 2023 with a video for your GitHub stats.',
 	siteURL: 'http://localhost:3000',
-	title: 'Graphite Wrapped',
 	twitter: '@withgraphite'
 }
 
