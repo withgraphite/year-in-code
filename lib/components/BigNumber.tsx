@@ -47,8 +47,8 @@ export default function BigNumber({
 	count: number
 	number: number
 	gradient: {
-		col1: string
-		col2: string
+		c1: string
+		c2: string
 	}
 }) {
 	const font = new FontLoader().parse(
@@ -95,8 +95,8 @@ export default function BigNumber({
 					]}
 				/>
 				<GradientShaderMaterial
-					color1={gradient.col1}
-					color2={gradient.col2}
+					color1={gradient.c1}
+					color2={gradient.c2}
 				/>
 			</mesh>
 			<EffectComposer>
