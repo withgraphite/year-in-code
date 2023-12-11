@@ -12,8 +12,8 @@ export default function Number({
 	text: string
 	number: number
 	gradient: {
-		col1: string
-		col2: string
+		c1: string
+		c2: string
 	}
 }) {
 	const {width, height} = useVideoConfig()

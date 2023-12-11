@@ -88,7 +88,10 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								key={i}
 								from={i * fps * 5}
 								text={text}
-								repos={animation.repos}
+								repos={animation.repos.map(repo => ({
+									name: repo.name,
+									color: repo.color
+								}))}
 							/>
 						)
 					case 'times':
@@ -114,7 +117,7 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								from={i * fps * 5}
 								text={text}
 								number={animation.number}
-								gradient={{col1: animation.col1, col2: animation.col2}}
+								gradient={{c1: animation.gradient.c1, c2: animation.gradient.c2}}
 							/>
 						)
 					case 'allStats':
