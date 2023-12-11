@@ -58,6 +58,25 @@ export default async function generateScenes(stats: Stats, session: Session) {
 	// Init chain
 	const chain = prompt.pipe(functionCallingModel).pipe(outputParser)
 
+	// get first contribution week where there is a day with contributionCount > 0
+	const firstContributionWeek = stats.contributionsHistory.find(week =>
+		week.contributionDays.some(day => day.contributionCount > 0)
+	)
+
+	// From the first contribution week, find the first day where contributionCount > 0
+	const firstContributionDay = firstContributionWeek
+		? firstContributionWeek.contributionDays.find(
+				day => day.contributionCount > 0
+		  )
+		: null
+
+	// Extract the date of the first contribution
+	const firstContributionDate = firstContributionDay
+		? firstContributionDay.date
+		: null
+
+	stats.firstContributionDate = firstContributionDate
+
 	// Strip out contributions history
 	if (stats.contributionsHistory) delete stats.contributionsHistory
 

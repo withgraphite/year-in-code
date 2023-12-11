@@ -16,6 +16,7 @@ export interface Stats {
 	topRepos?: Repo[]
 	topLanguages?: Language[]
 	topFollows?: Follows
+	firstContributionDate?: string
 }
 export interface Repo {
 	name: string
