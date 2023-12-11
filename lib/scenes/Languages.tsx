@@ -1,4 +1,4 @@
-import {Sequence} from 'remotion'
+import {Sequence, useCurrentFrame} from 'remotion'
 
 export default function Languages({
 	text,
@@ -9,6 +9,8 @@ export default function Languages({
 	from: number
 	languages: string[]
 }) {
+	const frame = useCurrentFrame() - from
+
 	return (
 		<>
 			<link
@@ -21,8 +23,9 @@ export default function Languages({
 				<div className='absolute flex h-full w-full flex-col items-center justify-center gap-5 bg-black'>
 					<h2 className='mx-48 text-center text-white'>{text}</h2>
 					<div className='flex gap-5'>
-						{languages.map(language => (
+						{languages.map((language, i) => (
 							<div
+								style={{opacity: frame > i * 30 ? frame / 30 - i : 0}}
 								className={`text-5xl text-white devicon-${language.toLowerCase()}-plain colored`}
 								key={language}
 							/>
