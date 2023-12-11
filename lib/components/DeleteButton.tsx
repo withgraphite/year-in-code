@@ -38,7 +38,7 @@ export default function DeleteButton({session}: {session: Session}) {
 			setTimeout(async () => {
 				await supabase.auth.signOut()
 				router.push('/')
-			}, 2 * 1000)
+			}, 3 * 1000)
 		}
 	}
 	return (
