@@ -33,12 +33,6 @@ export const videoSchema = z.object({
 							.describe('Star animation'),
 						z
 							.object({
-								type: z.enum(['prs']),
-								pullReqs: z.number()
-							})
-							.describe('Pull request animation'),
-						z
-							.object({
 								type: z.enum(['people']),
 								people: z.array(z.string().url())
 							})
@@ -61,14 +55,15 @@ export const videoSchema = z.object({
 								text: z.string()
 							})
 							.describe('Displays a chart of monthly contributions'),
-
 						z
 							.object({
 								type: z.enum(['number']),
 								text: z.string(),
 								number: z.number(),
-								col1: z.string().describe('hex gradient 1'),
-								col2: z.string().describe('hex gradient 2')
+								gradient: z.object({
+									c1: z.string().describe('hex gradient 1'),
+									c2: z.string().describe('hex gradient 2')
+								})
 							})
 							.describe(
 								'Displays a large 3D number. Useful for highlighting a specific stat'
@@ -77,7 +72,12 @@ export const videoSchema = z.object({
 							.object({
 								type: z.enum(['repos']),
 								text: z.string(),
-								repos: z.array(z.string())
+								repos: z.array(
+									z.object({
+										name: z.string(),
+										color: z.string().describe('hex color')
+									})
+								)
 							})
 							.describe('Displays a list of repos'),
 
@@ -101,7 +101,6 @@ export const videoSchema = z.object({
 							})
 							.describe('Displays a conclusion')
 					])
-					.optional()
 					.describe('Animation to be used to display alongside the text')
 			})
 		)
