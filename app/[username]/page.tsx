@@ -41,17 +41,20 @@ export default async function Profile({params}: {params: {username: string}}) {
 		data: {session}
 	} = await supabase.auth.getSession()
 	const profile = await getProfile(params.username)
-	if (profile) {
-		const rendered = await render({
-			id: 'wrapped',
-			inputProps: {
-				video: profile.video_manifest as Manifest,
-				stats: profile.github_stats as unknown as Stats
-			},
-			title: `${params.username}`
-		})
-		console.log(rendered)
-	}
+	if (profile)
+		try {
+			const rendered = await render({
+				id: 'wrapped',
+				inputProps: {
+					video: profile.video_manifest as Manifest,
+					stats: profile.github_stats as unknown as Stats
+				},
+				title: `${params.username}`
+			})
+			console.log(rendered)
+		} catch (e) {
+			console.error(e)
+		}
 
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-5'>
