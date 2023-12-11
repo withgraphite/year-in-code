@@ -7,7 +7,7 @@ export default async function deploy() {
 		await deployFunction({
 			createCloudWatchLogGroup: true,
 			memorySizeInMb: RAM,
-			region: 'us-east-1',
+			region: REGION,
 			timeoutInSeconds: TIMEOUT
 		})
 	console.log(
@@ -28,7 +28,7 @@ export default async function deploy() {
 	process.stdout.write('Deploying site... ')
 	const {siteName} = await deploySite({
 		bucketName,
-		entryPoint: path.join(process.cwd(), 'lambda', 'index.ts'),
+		entryPoint: path.join(process.cwd(), 'lambda', 'root.ts'),
 		siteName: SITE_NAME,
 		region: REGION
 	})
