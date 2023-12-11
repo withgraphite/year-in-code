@@ -3,8 +3,9 @@ import {createClientComponentClient} from '@supabase/auth-helpers-nextjs'
 import {ArrowRight} from 'lucide-react'
 import {toast} from 'sonner'
 import {Database} from '~/types/supabase'
+import cn from '~/utils/cn'
 
-export default function SignInButton() {
+export default function SignInButton({className}: {className?: string}) {
 	const supabase = createClientComponentClient<Database>()
 
 	// Login - also handles sign ups
@@ -21,7 +22,7 @@ export default function SignInButton() {
 	return (
 		<button
 			onClick={handleLogin}
-			className='group w-fit text-lg lg:w-fit'>
+			className={cn('group w-fit text-lg lg:w-fit', className)}>
 			<span>Get started</span>
 			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
 		</button>

@@ -2,7 +2,7 @@
 import {Session} from '@supabase/supabase-js'
 import {motion} from 'framer-motion'
 import Link from 'next/link'
-import Auth from './Auth'
+import SignInButton from './SignInButton'
 
 export default function Hero({session}: {session: Session}) {
 	return (
@@ -21,7 +21,7 @@ export default function Hero({session}: {session: Session}) {
 					className='flex items-center gap-2 rounded-md border-2 border-black bg-transparent px-6 py-2 text-lg text-black no-underline transition-all hover:bg-black hover:text-white hover:opacity-100'>
 					See leaderboard
 				</Link>
-				<Auth session={session} />
+				<SignInButton className='w-full' />
 			</div>
 		</motion.div>
 	)
