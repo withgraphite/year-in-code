@@ -28,7 +28,7 @@ export default async function deploy() {
 	process.stdout.write('Deploying site... ')
 	const {siteName} = await deploySite({
 		bucketName,
-		entryPoint: path.join(process.cwd(), 'remotion', 'index.ts'),
+		entryPoint: path.join(process.cwd(), 'lambda', 'index.ts'),
 		siteName: SITE_NAME,
 		region: REGION
 	})
