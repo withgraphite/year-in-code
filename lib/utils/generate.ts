@@ -46,7 +46,7 @@ export default async function generateScenes(stats: Stats, session: Session) {
 				hone in on and focus on the key elements that made this year special.
 				Make sure there is a story arch that builds over time, and that the video has a clear beginning, middle and end.
 				When choosing colors, make sure to hone in on a definitive and aesthetically pleasing color palette, chosing complimentary colors that aren't aggressively different.'
-				Videos must always have 12 scenes.
+				Videos must always have exactly 12 scenes.
 				Today's date (UTC) is ${new Date().toLocaleDateString()}.`
 			),
 			HumanMessagePromptTemplate.fromTemplate(
