@@ -6,7 +6,7 @@ import {DOMAIN} from '~/constants/metadata'
 import {Profile} from '~/types/profile'
 
 export default function TwitterButton({profile}: {profile: Profile}) {
-	const body = 'Year in Code by Graphite'
+	const body = 'Check my Year in Code by Graphite'
 	const url = DOMAIN.PROD + profile.user_name
 	return (
 		<Link
