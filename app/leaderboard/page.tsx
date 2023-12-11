@@ -23,6 +23,7 @@ export default async function LeaderBoard() {
 		.from('profile')
 		.select('user_name, company, avatar_url, pull_requests_opened')
 		.order('pull_requests_opened', {ascending: false})
+		.eq('is_public', true)
 		.limit(50)
 	if (error) console.error(error.message)
 
