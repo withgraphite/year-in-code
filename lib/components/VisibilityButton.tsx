@@ -7,6 +7,7 @@ import {EyeIcon, EyeOffIcon} from 'lucide-react'
 import {useState} from 'react'
 import {toast} from 'sonner'
 import {Profile} from '~/types/profile'
+import Tooltip from './Tooltip'
 
 export default function VisibilityButton({
 	session,
@@ -31,14 +32,16 @@ export default function VisibilityButton({
 	}
 
 	return (
-		<button
-			className='group bg-white p-2 text-lg text-black hover:bg-black hover:text-white'
-			onClick={handleVisibility}>
-			{isPublic ? (
-				<EyeIcon className='h-5 w-5' />
-			) : (
-				<EyeOffIcon className='h-5 w-5' />
-			)}
-		</button>
+		<Tooltip body={isPublic ? 'Make private' : 'Make public'}>
+			<button
+				className='group bg-white p-2 text-lg text-black hover:bg-black hover:text-white'
+				onClick={handleVisibility}>
+				{isPublic ? (
+					<EyeIcon className='h-5 w-5' />
+				) : (
+					<EyeOffIcon className='h-5 w-5' />
+				)}
+			</button>
+		</Tooltip>
 	)
 }

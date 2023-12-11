@@ -18,6 +18,7 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger
 } from './Dialog'
+import Tooltip from './Tooltip'
 
 export default function DeleteButton({session}: {session: Session}) {
 	const supabase = createClientComponentClient()
@@ -42,28 +43,30 @@ export default function DeleteButton({session}: {session: Session}) {
 		}
 	}
 	return (
-		<AlertDialog>
-			<AlertDialogTrigger className='group p-2 hover:border-red-500 hover:bg-red-200 dark:bg-white'>
-				<TrashIcon className='h-5 w-5 text-black group-hover:text-red-500' />
-			</AlertDialogTrigger>
-			<AlertDialogContent className='bg-white'>
-				<AlertDialogHeader>
-					<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-					<AlertDialogDescription>
-						This will permanently delete your video.
-					</AlertDialogDescription>
-				</AlertDialogHeader>
-				<AlertDialogFooter>
-					<AlertDialogCancel className='text-black hover:text-white dark:bg-white hover:dark:bg-black'>
-						Cancel
-					</AlertDialogCancel>
-					<AlertDialogAction
-						className='dark:bg-black'
-						onClick={handleDelete}>
-						Delete
-					</AlertDialogAction>
-				</AlertDialogFooter>
-			</AlertDialogContent>
-		</AlertDialog>
+		<Tooltip body='Delete'>
+			<AlertDialog>
+				<AlertDialogTrigger className='group p-2 hover:border-red-500 hover:bg-red-200 dark:bg-white'>
+					<TrashIcon className='h-5 w-5 text-black group-hover:text-red-500' />
+				</AlertDialogTrigger>
+				<AlertDialogContent className='bg-white'>
+					<AlertDialogHeader>
+						<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+						<AlertDialogDescription>
+							This will permanently delete your video.
+						</AlertDialogDescription>
+					</AlertDialogHeader>
+					<AlertDialogFooter>
+						<AlertDialogCancel className='text-black hover:text-white dark:bg-white hover:dark:bg-black'>
+							Cancel
+						</AlertDialogCancel>
+						<AlertDialogAction
+							className='dark:bg-black'
+							onClick={handleDelete}>
+							Delete
+						</AlertDialogAction>
+					</AlertDialogFooter>
+				</AlertDialogContent>
+			</AlertDialog>
+		</Tooltip>
 	)
 }
