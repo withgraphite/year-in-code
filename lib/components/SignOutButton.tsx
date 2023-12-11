@@ -5,6 +5,7 @@ import {LogOutIcon} from 'lucide-react'
 import {useRouter} from 'next/navigation'
 import {toast} from 'sonner'
 import {Database} from '~/types/supabase'
+import Tooltip from './Tooltip'
 
 export default function SignOutButton() {
 	const supabase = createClientComponentClient<Database>()
@@ -18,10 +19,12 @@ export default function SignOutButton() {
 	}
 
 	return (
-		<button
-			onClick={handleSignOut}
-			className='group bg-white p-2 text-lg text-black hover:bg-black hover:text-white'>
-			<LogOutIcon className='h-5 w-5' />
-		</button>
+		<Tooltip body='Sign out'>
+			<button
+				onClick={handleSignOut}
+				className='group bg-white p-2 text-lg text-black hover:bg-black hover:text-white'>
+				<LogOutIcon className='h-5 w-5' />
+			</button>
+		</Tooltip>
 	)
 }

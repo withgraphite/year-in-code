@@ -4,6 +4,7 @@ import {LinkIcon} from 'lucide-react'
 import {toast} from 'sonner'
 import {DOMAIN} from '~/constants/metadata'
 import {Profile} from '~/types/profile'
+import Tooltip from './Tooltip'
 
 export default function CopyLinkButton({profile}: {profile: Profile}) {
 	const handleCopy = () => {
@@ -12,10 +13,12 @@ export default function CopyLinkButton({profile}: {profile: Profile}) {
 	}
 
 	return (
-		<button
-			className='p-2'
-			onClick={handleCopy}>
-			<LinkIcon className='h-5 w-5' />
-		</button>
+		<Tooltip body='Copy link'>
+			<button
+				className='p-2'
+				onClick={handleCopy}>
+				<LinkIcon className='h-5 w-5' />
+			</button>
+		</Tooltip>
 	)
 }
