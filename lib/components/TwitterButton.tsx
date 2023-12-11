@@ -14,8 +14,8 @@ export default function TwitterButton({profile}: {profile: Profile}) {
 			<Link
 				href={`https://twitter.com/intent/tweet?text=${body}&url=${url}`}
 				target='_blank'>
-				<button className='p-2'>
-					<TwitterIcon className='h-5 w-5' />
+				<button className='group p-2'>
+					<TwitterIcon className='h-5 w-5 transition-transform duration-300 group-hover:-rotate-12' />
 				</button>
 			</Link>
 		</Tooltip>
