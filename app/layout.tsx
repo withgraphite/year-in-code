@@ -4,7 +4,6 @@ import {Toaster} from 'sonner'
 import BackgroundGradient from '~/components/BackgroundGradient'
 import Footer from '~/components/Footer'
 import Nav from '~/components/Nav'
-import {TooltipProvider} from '~/components/Tooltip'
 import './styles.css'
 
 const font = localFont({
@@ -42,11 +41,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				<BackgroundGradient />
 				<Nav />
 				<Toaster />
-				<TooltipProvider>
-					<div className='flex w-full max-w-3xl items-center justify-center'>
-						{children}
-					</div>
-				</TooltipProvider>
+				<div className='flex w-full max-w-3xl items-center justify-center'>
+					{children}
+				</div>
 				<Footer />
 			</body>
 		</html>

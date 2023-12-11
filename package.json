@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.0.5",
-    "@radix-ui/react-tooltip": "^1.0.7",
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.15.11",
     "@remotion/lambda": "^4.0.77",
