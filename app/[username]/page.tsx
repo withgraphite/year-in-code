@@ -8,7 +8,6 @@ import {Stats} from '~/types/github'
 import {Database} from '~/types/supabase'
 import {Manifest} from '~/types/video'
 import {default as getProfile} from '~/utils/profile'
-import render from '~/utils/render'
 
 export const dynamic = 'force-dynamic'
 
@@ -41,16 +40,15 @@ export default async function Profile({params}: {params: {username: string}}) {
 		data: {session}
 	} = await supabase.auth.getSession()
 	const profile = await getProfile(params.username)
-	const rendered = await render({
-		id: 'github-wrapped',
-		inputProps: {
-			video: profile.video_manifest as Manifest,
-			stats: profile.github_stats as unknown as Stats
-		},
-		title: `${params.username}`
-	})
-
-	console.log(rendered)
+	// if (profile)
+	// 	const rendered = await render({
+	// 		id: 'github-wrapped',
+	// 		inputProps: {
+	// 			video: profile.video_manifest as Manifest,
+	// 			stats: profile.github_stats as unknown as Stats
+	// 		},
+	// 		title: `${params.username}`
+	// 	})
 
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-5'>
@@ -84,10 +82,10 @@ export default async function Profile({params}: {params: {username: string}}) {
 			{/* User does not exist */}
 			{!profile && (
 				<div className='flex flex-col items-center justify-center gap-5'>
-					<h2>
-						Oops! <span className='italic text-black'>{params.username}</span> does
-						not exist in our database.
-					</h2>
+					<h3 className='text-center'>
+						Oops! <span className='font-semibold'>{params.username}</span> either does
+						not exist or has a private video.
+					</h3>
 					<Toolbar
 						profile={profile}
 						session={session}
