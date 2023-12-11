@@ -52,7 +52,8 @@ export const videoSchema = z.object({
 						z
 							.object({
 								type: z.enum(['months']),
-								text: z.string()
+								text: z.string(),
+								color: z.string().describe('hex color for the bar chart')
 							})
 							.describe('Displays a chart of monthly contributions'),
 						z

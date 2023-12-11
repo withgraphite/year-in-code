@@ -108,6 +108,8 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								key={i}
 								from={i * fps * 5}
 								text={text}
+								contributions={stats.contributionsHistory}
+								color={animation.color}
 							/>
 						)
 					case 'number':
