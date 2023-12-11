@@ -35,7 +35,7 @@ export default function Loading({stats}: {stats: Stats}) {
 		// Start the interval
 		const intervalId = setInterval(() => {
 			if (count < slidesLength - 1) setCount(prevCount => prevCount + 1)
-		}, 2 * 1000)
+		}, 3 * 1000)
 
 		// Clear the interval on component unmount
 		return () => clearInterval(intervalId)
@@ -50,7 +50,7 @@ export default function Loading({stats}: {stats: Stats}) {
 					initial={{opacity: 0, y: 0}} // Start from below
 					animate={{opacity: 1, y: 0}} // Slide and fade in
 					exit={{opacity: 0, y: 0}} // Slide up and fade out
-					transition={{duration: 0.6, ease: 'easeInOut'}}
+					transition={{duration: 1, ease: 'easeInOut'}}
 					layout>
 					<h3 className={count === slides.length - 1 ? 'animate-pulse' : ''}>
 						{slides[count]}
