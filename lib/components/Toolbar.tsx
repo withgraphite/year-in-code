@@ -8,6 +8,7 @@ import LinkedInButton from './LinkedInButton'
 import SignInButton from './SignInButton'
 import SignOutButton from './SignOutButton'
 import TwitterButton from './TwitterButton'
+import VisibilityButton from './VisibilityButton'
 
 export default function Toolbar({
 	session,
@@ -22,6 +23,10 @@ export default function Toolbar({
 				<div className='flex h-full items-center gap-2'>
 					<SignOutButton />
 					<DeleteButton session={session} />
+					<VisibilityButton
+						session={session}
+						profile={profile}
+					/>
 					<CopyLinkButton profile={profile} />
 					<LinkedInButton profile={profile} />
 					<TwitterButton profile={profile} />
