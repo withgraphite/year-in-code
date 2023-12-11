@@ -14,7 +14,7 @@ export default function Loading({stats}: {stats: Stats}) {
 		'Welcome to your Year in Code.',
 		'We are generating your video right now...',
 		<span key='2'>
-			This usually takes <b>45 seconds</b>.
+			This usually takes <b>60 seconds</b>.
 		</span>,
 		'Hang tight...',
 		`In the meantime, let's reflect on your year.`,
