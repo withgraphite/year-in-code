@@ -22,9 +22,9 @@ export default function Toolbar({
 				<div className='flex h-full items-center gap-2'>
 					<SignOutButton />
 					<DeleteButton session={session} />
-					<CopyLinkButton />
+					<CopyLinkButton profile={profile} />
 					<LinkedInButton />
-					<TwitterButton />
+					<TwitterButton profile={profile} />
 				</div>
 			)}
 			{!session && <SignInButton />}
