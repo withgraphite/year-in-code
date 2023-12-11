@@ -46,7 +46,7 @@ export default async function generateScenes(stats: Stats, session: Session) {
 				hone in on and focus on the key elements that made this year special.
 				Make sure there is a story arch that builds over time, and that the video has a clear beginning, middle and end.
 				When choosing colors, make sure to hone in on a definitive and aesthetically pleasing color palette, chosing complimentary colors that aren't aggressively different.'
-				Ideally videos have 10-12 scenes, but you can have more or less if you feel it is necessary.
+				Videos must always have 12 scenes.
 				Today's date (UTC) is ${new Date().toLocaleDateString()}.`
 			),
 			HumanMessagePromptTemplate.fromTemplate(
@@ -69,7 +69,7 @@ export default async function generateScenes(stats: Stats, session: Session) {
 	const firstContributionDay = firstContributionWeek
 		? firstContributionWeek.contributionDays.find(
 				day => day.contributionCount > 0
-		  )
+			)
 		: null
 
 	// Extract the date of the first contribution
