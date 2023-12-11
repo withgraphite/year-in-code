@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@radix-ui/react-alert-dialog": "^1.0.5",
     "@react-three/fiber": "^8.15.12",
     "@react-three/postprocessing": "^2.15.11",
     "@remotion/lambda": "^4.0.76",
@@ -9,6 +10,7 @@
     "@supabase/auth-helpers-nextjs": "latest",
     "@supabase/supabase-js": "latest",
     "@types/three": "^0.159.0",
+    "clsx": "^2.0.0",
     "framer-motion": "^10.16.14",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
@@ -20,6 +22,7 @@
     "react-dom": "^18.2.0",
     "remotion": "^4.0.76",
     "sonner": "^1.2.4",
+    "tailwind-merge": "^2.1.0",
     "three": "^0.159.0",
     "zod-to-json-schema": "^3.22.1"
   },
