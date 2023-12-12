@@ -35,7 +35,6 @@ export default async function deploy() {
 
 	console.log(siteName)
 
-	console.log()
 	console.log('You now have everything you need to render videos!')
 }
 

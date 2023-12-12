@@ -3,7 +3,6 @@ import {Profile} from '~/types/profile'
 
 // Checks if the user is engaging with their own information
 export default function checkIfSelf(session: Session, profile: Profile) {
-	console.log(session)
 	// No session
 	if (!session || !profile) return false
 

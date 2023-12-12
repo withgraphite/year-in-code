@@ -87,8 +87,6 @@ export async function getHighlights(token: string) {
 
 	if (!payload || !payload || !payload.viewer) return null
 
-	console.log(payload.viewer)
-
 	const collection = payload.viewer.contributionsCollection
 	const highlights: Stats = {
 		username: payload.viewer.login,
