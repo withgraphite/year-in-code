@@ -39,7 +39,7 @@ export default async function LeaderBoard() {
 						Close more pull requests with <GraphiteCTA className='text-stone-600' />
 					</h3>
 				</div>
-				{!session && <SignInButton />}
+				{!session && <SignInButton className='w-full sm:w-fit' />}
 			</div>
 			<div className='group/table grid w-full gap-3'>
 				<div className='grid w-full grid-cols-6 items-center justify-between border-b border-stone-300 font-thin text-stone-500 opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>

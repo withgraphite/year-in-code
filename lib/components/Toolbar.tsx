@@ -18,7 +18,7 @@ export default function Toolbar({
 	session: Session
 	profile: Profile
 }) {
-	const isOwn = checkIfSelf(session, profile.user_name)
+	const isOwn = checkIfSelf(session, profile)
 	return (
 		<div className='flex h-full items-center gap-5'>
 			{session && (
