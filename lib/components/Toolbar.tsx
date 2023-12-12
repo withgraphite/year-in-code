@@ -4,7 +4,7 @@ import {Session} from '@supabase/supabase-js'
 import {Profile} from '~/types/profile'
 import checkIfSelf from '~/utils/self'
 import CopyLinkButton from './CopyLinkButton'
-import DeleteButton from './DeleteButton'
+import DeleteDialog from './DeleteDialog'
 import LinkedInButton from './LinkedInButton'
 import SignInButton from './SignInButton'
 import SignOutButton from './SignOutButton'
@@ -24,7 +24,7 @@ export default function Toolbar({
 			{session && (
 				<div className='flex h-full w-full items-center justify-between gap-2 sm:w-fit sm:justify-end'>
 					<SignOutButton />
-					{isOwn && <DeleteButton session={session} />}
+					{isOwn && <DeleteDialog session={session} />}
 					{isOwn && (
 						<VisibilityButton
 							session={session}
