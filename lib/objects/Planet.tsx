@@ -1,6 +1,6 @@
 import {useLoader} from '@react-three/fiber'
 import {TextureLoader} from 'three'
-import Lighting from '~/effects/Lighting'
+import Lighting from '../effects/Lighting'
 
 export default function Planet({
 	planet,

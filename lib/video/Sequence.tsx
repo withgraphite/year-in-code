@@ -1,6 +1,6 @@
 import {ReactNode} from 'react'
 import {Sequence as RemotionSequence, useCurrentFrame} from 'remotion'
-import FadeIn from '~/transitions/FadeIn'
+import FadeIn from '../transitions/FadeIn'
 
 interface SequenceProps {
 	from: number

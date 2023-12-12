@@ -1,6 +1,6 @@
 import {useLoader} from '@react-three/fiber'
 import {Color, TextureLoader} from 'three'
-import Lighting from '~/effects/Lighting'
+import Lighting from './../effects/Lighting'
 
 export default function Star({tick, planet}: {tick: number; planet: 'sun'}) {
 	const texture = useLoader(

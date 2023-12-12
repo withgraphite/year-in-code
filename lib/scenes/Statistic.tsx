@@ -1,11 +1,11 @@
 import {useCurrentFrame} from 'remotion'
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import Lighting from '~/effects/Lighting'
-import Space from '~/environment/Space'
-import Number from '~/objects/Number'
-import FadeIn from '~/transitions/FadeIn'
-import Sequence from '~/video/Sequence'
+import Canvas from '../3d/Canvas'
+import Camera from '../camera/Camera'
+import Lighting from '../effects/Lighting'
+import Space from '../environment/Space'
+import Number from '../objects/Number'
+import FadeIn from '../transitions/FadeIn'
+import Sequence from '../video/Sequence'
 
 export default function Statistic({
 	from,

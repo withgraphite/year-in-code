@@ -1,7 +1,7 @@
 import {useFrame, useLoader} from '@react-three/fiber'
 import {useRef} from 'react'
 import {ShaderMaterial, TextureLoader} from 'three'
-import Lighting from '~/effects/Lighting'
+import Lighting from '../effects/Lighting'
 
 const vertexShader = `
 varying vec2 vUv;

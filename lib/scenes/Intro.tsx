@@ -1,11 +1,10 @@
 import {useCurrentFrame} from 'remotion'
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import Space from '~/environment/Space'
-import Planet from '~/objects/Planet'
-import FadeIn from '~/transitions/FadeIn'
-
-import Sequence from '~/video/Sequence'
+import Canvas from './../3d/Canvas'
+import Camera from './../camera/Camera'
+import Space from './../environment/Space'
+import Planet from './../objects/Planet'
+import FadeIn from './../transitions/FadeIn'
+import Sequence from './../video/Sequence'
 
 export default function Intro({title, from, planet}) {
 	const frame = useCurrentFrame() - from

@@ -1,7 +1,7 @@
 'use client'
 
 import {Composition as RemotionComposition} from 'remotion'
-import Video from '../lib/components/Video'
+import Video from './../lib/components/Video'
 
 export default function Composition() {
 	return (

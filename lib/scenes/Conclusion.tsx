@@ -1,9 +1,9 @@
 import {useCurrentFrame} from 'remotion'
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import Space from '~/environment/Space'
-import Earth from '~/objects/Earth'
-import Sequence from '~/video/Sequence'
+import Canvas from '../3d/Canvas'
+import Camera from '../camera/Camera'
+import Space from '../environment/Space'
+import Earth from '../objects/Earth'
+import Sequence from '../video/Sequence'
 
 export default function Conclusion({text, from}: {text: string; from: number}) {
 	const frame = useCurrentFrame() - from

@@ -1,10 +1,9 @@
 import Image from 'next/image'
 import {useCurrentFrame} from 'remotion'
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import Space from '~/environment/Space'
-
-import Sequence from '~/video/Sequence'
+import Canvas from '../3d/Canvas'
+import Camera from '../camera/Camera'
+import Space from '../environment/Space'
+import Sequence from '../video/Sequence'
 
 export default function People({
 	text,

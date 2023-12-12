@@ -1,11 +1,10 @@
 import {useCurrentFrame} from 'remotion'
-
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import WormHole from '~/environment/WarpDrive'
-import useRamp from '~/keyframes/useRamp'
-import FadeIn from '~/transitions/FadeIn'
-import Sequence from '~/video/Sequence'
+import Canvas from '../3d/Canvas'
+import Camera from '../camera/Camera'
+import WormHole from '../environment/WarpDrive'
+import useRamp from '../keyframes/useRamp'
+import FadeIn from '../transitions/FadeIn'
+import Sequence from '../video/Sequence'
 
 export default function Flashback({dateFrom, dateTo, text, from}) {
 	const frame = useCurrentFrame() - from
