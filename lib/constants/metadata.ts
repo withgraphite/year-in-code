@@ -1,7 +1,8 @@
 import {Metadata} from 'next'
 
 export const DOMAIN = {
-	PROD: 'https://graphite-wrapped.vercel.app/'
+	PROD: 'https://graphite-wrapped.vercel.app/',
+	GRAPHITE: 'https://graphite.dev/'
 }
 
 export const META = {

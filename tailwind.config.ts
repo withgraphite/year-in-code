@@ -8,7 +8,11 @@ const tailwindConfig = {
 		colors: {
 			...config.theme.colors
 		},
-		extend: {}
+		extend: {
+			animation: {
+				'spin-slow': 'rotate 6s linear infinite'
+			}
+		}
 	}
 } satisfies Config
 

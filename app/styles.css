@@ -51,15 +51,17 @@ html {
 	}
 }
 
-@keyframes zoomEffect {
-	from {
-		transform: scale(1);
-	}
-	to {
-		transform: scale(3);
+@layer utilities {
+	.smooth-stop {
+		transition: animation-play-state 1s ease;
 	}
 }
 
-.zoom-in {
-	animation: zoomEffect 9s ease-out;
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }

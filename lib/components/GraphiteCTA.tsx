@@ -1,10 +1,11 @@
 import {ArrowUpRight} from 'lucide-react'
 import Link from 'next/link'
+import {DOMAIN} from '~/constants/metadata'
 
 export default function Graphite({className}: {className?: string}) {
 	return (
 		<Link
-			href='https://graphite.dev'
+			href={DOMAIN.GRAPHITE}
 			target='_blank'
 			className={`${className} group flex items-center no-underline`}>
 			Graphite
