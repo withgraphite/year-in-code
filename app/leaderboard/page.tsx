@@ -28,7 +28,7 @@ export default async function LeaderBoard() {
 	if (error) console.error(error.message)
 
 	return (
-		<div className='flex h-screen w-full flex-col items-center gap-5 p-5 pt-20'>
+		<div className='flex min-h-screen w-full flex-col items-center gap-5 p-5 pb-[50%] pt-20'>
 			<div className='flex w-full flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0'>
 				<div>
 					<h1>Leaderboard</h1>
@@ -49,7 +49,7 @@ export default async function LeaderBoard() {
 						key={item.user_name}
 						className='grid w-full grid-cols-6 items-center justify-between'>
 						<span>{i + 1}</span>
-						<div className='group/item col-span-3 col-start-2 flex items-center gap-2'>
+						<div className='group/item  col-span-3 col-start-2 flex items-center gap-2 '>
 							{item.avatar_url && (
 								<Image
 									src={item.avatar_url}
@@ -64,9 +64,7 @@ export default async function LeaderBoard() {
 								className='no-underline hover:underline'>
 								<p>{item.user_name}</p>
 							</Link>
-							<p className='hidden text-stone-500 dark:text-stone-600 sm:flex'>
-								{item.company}
-							</p>
+							<p className='hidden text-stone-500 sm:flex'>{item.company}</p>
 							<GitHubButton
 								username={item.user_name}
 								className='h-[30px] w-[30px] opacity-0 group-hover/item:opacity-100'

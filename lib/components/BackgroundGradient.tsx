@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function BackgroundGradient() {
 	return (
-		<div className='absolute z-[-2] h-screen w-screen'>
+		<div className='fixed z-[-2] h-screen w-screen'>
 			<Image
 				src='/images/bg.jpg'
 				fill
