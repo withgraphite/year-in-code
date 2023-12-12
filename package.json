@@ -10,6 +10,7 @@
     "@supabase/auth-helpers-nextjs": "latest",
     "@supabase/supabase-js": "latest",
     "@types/three": "^0.159.0",
+    "canvas-confetti": "^1.9.2",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.16",
     "graphql": "^16.8.1",

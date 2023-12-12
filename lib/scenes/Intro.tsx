@@ -50,9 +50,6 @@ export default function Intro({name, from}) {
 							orthographic={false}
 							width={width}
 							height={height}
-							// style={{
-							// 	backgroundColor: 'black'
-							// }}
 							camera={{fov: 75, position: [0, 0, 470]}}>
 							<Blob count={frame} />
 						</ThreeCanvas>

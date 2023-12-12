@@ -1,4 +1,5 @@
 import {Sequence, useCurrentFrame} from 'remotion'
+import Confetti from '~/components/Confetti'
 
 export default function Flashback({dateFrom, dateTo, text, from}) {
 	const frame = useCurrentFrame() - from
@@ -12,8 +13,13 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 		frame < 30
 			? dateFrom
 			: frame < 90
-			  ? new Date(dateFrom).getTime() - (frame - 30) * secondsPerFrame
-			  : dateTo
+				? new Date(dateFrom).getTime() - (frame - 30) * secondsPerFrame
+				: dateTo
+
+	// Add a condition to apply the zoom effect at a certain frame
+	const zoomClass = frame >= 10 ? 'zoom-in' : ''
+	// Set the frame to trigger confetti
+	const showConfetti = frame === 95
 
 	return (
 		<>
@@ -21,8 +27,8 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 				from={from}
 				durationInFrames={30 * 5}>
 				<div className='absolute flex h-full w-full flex-col items-center justify-center gap-10 bg-black'>
-					<p className='z-10 mx-48 text-center text-white'>{text}</p>
-					<h1 className='z-10 mx-48 text-center text-white'>
+					<h2 className='z-10 mx-48 text-center text-white/80'>{text}</h2>
+					<h1 className={`z-10 mx-48 text-center text-white ${zoomClass}`}>
 						{/* date as 0x/0x/xxxx where single digit is prefixed with 0 */}
 						{new Date(date).toLocaleDateString('en-US', {
 							year: 'numeric',
@@ -31,6 +37,7 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 						})}
 					</h1>
 				</div>
+				{showConfetti && <Confetti />}
 			</Sequence>
 		</>
 	)

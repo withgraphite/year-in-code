@@ -52,3 +52,16 @@ html {
 		@apply text-neutral-600 dark:text-neutral-400;
 	}
 }
+
+@keyframes zoomEffect {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(3);
+	}
+}
+
+.zoom-in {
+	animation: zoomEffect 9s ease-out;
+}

@@ -10,7 +10,6 @@ varying float vDisplacement;
 
 // Classic Perlin 3D Noise 
 // by Stefan Gustavson
-//
 vec4 permute(vec4 x) {
     return mod(((x*34.0)+1.0)*x, 289.0);
 }
@@ -92,7 +91,6 @@ float cnoise(vec3 P) {
 }
 
 // End of Perlin Noise Code
-
 
 void main() {
     vUv = uv;
