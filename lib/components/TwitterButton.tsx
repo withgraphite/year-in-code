@@ -6,8 +6,16 @@ import {DOMAIN} from '~/constants/metadata'
 import {Profile} from '~/types/profile'
 import Tooltip from './Tooltip'
 
-export default function TwitterButton({profile}: {profile: Profile}) {
-	const body = 'Check my Year in Code by Graphite'
+export default function TwitterButton({
+	isOwn,
+	profile
+}: {
+	isOwn: boolean
+	profile: Profile
+}) {
+	const body = `Check ${
+		isOwn ? 'my' : `${profile.user_name}'s`
+	} Year in Code by Graphite`
 	const url = DOMAIN.PROD + profile.user_name
 	return (
 		<Tooltip body='Twitter'>
