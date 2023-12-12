@@ -10,9 +10,22 @@ export const videoSchema = z.object({
 						z
 							.object({
 								type: z.enum(['intro']),
-								name: z.string()
+								planet: z
+									.enum([
+										'mars',
+										'jupiter',
+										'saturn',
+										'mercury',
+										'neptune',
+										'uranus',
+										'venus',
+										'moon'
+									])
+									.describe('Please pick a random planet!')
 							})
-							.describe('Shows "Github Wrapped" in space, zooms to user name'),
+							.describe(
+								'Shows the text (use as a title) in front of a planet in space'
+							),
 						z
 							.object({
 								type: z.enum(['flashback']),
@@ -21,8 +34,7 @@ export const videoSchema = z.object({
 									.describe("Date to tick backwards from. Should be today's date"),
 								dateTo: z
 									.date()
-									.describe('Date to tick backwards to, could be first commit date'),
-								text: z.string()
+									.describe('Date to tick backwards to, could be first commit date')
 							})
 							.describe('Ticks backwards from dateFrom to dateTo then shows text'),
 						z
@@ -45,21 +57,18 @@ export const videoSchema = z.object({
 							.describe('The languages to be displayed'),
 						z
 							.object({
-								type: z.enum(['contributions']),
-								text: z.string()
+								type: z.enum(['contributions'])
 							})
 							.describe('Displays a contribution graph'),
 						z
 							.object({
 								type: z.enum(['months']),
-								text: z.string(),
 								color: z.string().describe('hex color for the bar chart')
 							})
 							.describe('Displays a chart of monthly contributions'),
 						z
 							.object({
 								type: z.enum(['number']),
-								text: z.string(),
 								number: z.number(),
 								gradient: z.object({
 									c1: z.string().describe('hex gradient 1'),
@@ -72,7 +81,6 @@ export const videoSchema = z.object({
 						z
 							.object({
 								type: z.enum(['repos']),
-								text: z.string(),
 								repos: z.array(
 									z.object({
 										name: z.string(),
@@ -84,8 +92,7 @@ export const videoSchema = z.object({
 
 						z
 							.object({
-								type: z.enum(['times']),
-								text: z.string()
+								type: z.enum(['times'])
 							})
 							.describe('Displays a list of times of day with average commits'),
 
@@ -97,8 +104,7 @@ export const videoSchema = z.object({
 
 						z
 							.object({
-								type: z.enum(['conclusion']),
-								text: z.string()
+								type: z.enum(['conclusion'])
 							})
 							.describe('Displays a conclusion')
 					])

@@ -1,3 +1,4 @@
+import 'devicon'
 import BackgroundGrid from 'lib/components/BackgroundGrid'
 import localFont from 'next/font/local'
 import {Toaster} from 'sonner'

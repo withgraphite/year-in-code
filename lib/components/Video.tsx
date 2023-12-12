@@ -12,10 +12,10 @@ import Flashback from '../scenes/Flashback'
 import Intro from '../scenes/Intro'
 import Languages from '../scenes/Languages'
 import Months from '../scenes/Months'
-import Number from '../scenes/Number'
 import People from '../scenes/People'
 import Repos from '../scenes/Repos'
 import Stars from '../scenes/Stars'
+import Number from '../scenes/Statistic'
 import Times from '../scenes/Times'
 import {Stats} from '../types/github'
 import {Manifest} from '../types/video'
@@ -25,8 +25,9 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 
 	return (
 		<AbsoluteFill className='font-mono'>
+			<div className='absolute h-full w-full items-center justify-center bg-black' />
 			<Audio
-				src={staticFile('/music/Autohacker.mp3')}
+				src={staticFile('/music/BlackOutDays.mp3')}
 				placeholder={null}
 			/>
 			{video.scenes.map(({text, animation}, i) => {
@@ -35,8 +36,9 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 						return (
 							<Intro
 								key={i}
+								planet={animation.planet}
 								from={i * fps * 5}
-								name={animation.name}
+								title={text}
 							/>
 						)
 					case 'flashback':
@@ -122,7 +124,6 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								from={i * fps * 5}
 								text={text}
 								number={animation.number}
-								gradient={{c1: animation.gradient.c1, c2: animation.gradient.c2}}
 							/>
 						)
 					case 'allStats':
@@ -130,6 +131,7 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 							<AllStats
 								key={i}
 								from={i * fps * 5}
+								text={text}
 							/>
 						)
 					case 'conclusion':

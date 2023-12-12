@@ -61,25 +61,19 @@ export default function ContributionGraph({
 		else if (rounded === 1) colors[value] = 'bg-green-300/90'
 	})
 
+	const frameDelay = 2 // Number of frames to delay between each fade-in
+
 	return (
 		<div className='group relative mb-3 flex max-w-6xl flex-col items-start p-5'>
-			<div className='flex w-full flex-col items-baseline text-gray-400 sm:flex-row sm:justify-between'>
-				<div
-					className='mb-4 space-x-1 sm:mb-0'
-					style={{display: frame > 52 ? 'block' : 'none'}}>
-					{maxDate && max > 10 && (
-						<span>
-							Top day: {max} on {maxDate}
-						</span>
-					)}
-				</div>
-			</div>
-			{/* Horizontal layout for weeks */}
+			{/* ... other divs ... */}
 			<div className='flex w-full flex-wrap'>
 				{weeks.map((week, i) => (
 					<div
 						key={i}
-						style={{display: frame > i ? 'block' : 'none'}}
+						style={{
+							opacity: frame >= i * frameDelay + 2 ? 1 : 0,
+							transition: 'opacity 0.5s ease-in-out'
+						}}
 						className='mr-1 flex flex-col'>
 						{/* Each day is now a row in the week's column */}
 						{week.contributionDays.map((day, j) => (

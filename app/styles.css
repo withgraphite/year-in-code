@@ -2,8 +2,6 @@
 @tailwind base;
 @tailwind components;
 
-@import url('https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css');
-
 html {
 	@apply text-stone-800;
 }

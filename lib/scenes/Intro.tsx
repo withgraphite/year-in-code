@@ -1,67 +1,61 @@
-import {ThreeCanvas} from '@remotion/three'
-import {useMemo} from 'react'
-import {Sequence, useCurrentFrame, useVideoConfig} from 'remotion'
-import Blob from '../components/Blob'
+import {useCurrentFrame} from 'remotion'
+import Canvas from '~/3d/Canvas'
+import Camera from '~/camera/Camera'
+import Space from '~/environment/Space'
+import Planet from '~/objects/Planet'
+import FadeIn from '~/transitions/FadeIn'
 
-export default function Intro({name, from}) {
+import Sequence from '~/video/Sequence'
+
+export default function Intro({title, from, planet}) {
 	const frame = useCurrentFrame() - from
-	const {width, height} = useVideoConfig()
-	const starOpacity = Math.min(1, frame / 60)
-	const titleOpacity = frame > 120 ? 1 : Math.min(1, frame / 60 - 1)
-	const frameScale = frame < 120 ? 1 : Math.min(3, 1 + (frame - 120) / 30)
 
-	const starList = useMemo(
-		() =>
-			Array.from({length: 500}, _ => ({
-				top: Math.random() * 100,
-				left: Math.random() * 100,
-				width: Math.random() * 3,
-				height: Math.random() * 3
-			})),
-		[]
-	)
+	const linearFov = 50 + frame / 15
+	const exponentialFovStart = 50 + 4 * 2 // The starting value of exponential FOV after 4 seconds
+	const exponentialRate = 5 // Adjust this to control the exponential curve
+	const transitionDuration = 15 // Duration of the transition period in frames
+
+	const fov =
+		frame < 3.5 * 30
+			? linearFov
+			: frame < 3.5 * 30 + transitionDuration
+				? linearFov +
+					(exponentialFovStart - linearFov) *
+						((frame - 3.5 * 30) / transitionDuration)
+				: exponentialFovStart +
+					Math.pow((frame - 3.5 * 30 - transitionDuration) / exponentialRate, 2.7)
 
 	return (
-		<>
-			<Sequence
-				from={from}
-				durationInFrames={30 * 5}>
-				{/* stars */}
-				<div
-					className='absolute flex h-full w-full flex-col items-center justify-center gap-5 bg-black'
-					style={{scale: frameScale}}>
-					<div
-						className='absolute h-full w-full'
-						style={{opacity: starOpacity}}>
-						{starList.map((star, i) => (
-							<div
-								key={i}
-								className='absolute rounded-full bg-white'
-								style={{
-									width: star.width,
-									height: star.height,
-									top: `${star.top}%`,
-									left: `${star.left}%`,
-									opacity: Math.random() * 0.5 + 0.5
-								}}
-							/>
-						))}
-						<ThreeCanvas
-							orthographic={false}
-							width={width}
-							height={height}
-							camera={{fov: 75, position: [0, 0, 470]}}>
-							<Blob count={frame} />
-						</ThreeCanvas>
-					</div>
-					<div
-						style={{opacity: titleOpacity}}
-						className='z-10'>
-						<h1 className='text-4xl text-white'>Github Wrapped 2023</h1>
-						<h2 className='text-center text-2xl text-white'>by Graphite</h2>
-					</div>
-				</div>
-			</Sequence>
-		</>
+		<Sequence
+			from={from}
+			transitionIn='fade'
+			transitionOut='fade'
+			background={
+				<Canvas
+					frame={frame}
+					camera={
+						<Camera
+							position={[0, 0, (300 / (50 + fov / 3)) * 2 * 50]}
+							fov={fov}
+						/>
+					}>
+					<Space tick={frame} />
+					<Planet
+						tick={frame}
+						planet={planet}
+					/>
+				</Canvas>
+			}
+			content={
+				<>
+					<FadeIn
+						frame={frame}
+						delay={60}>
+						<h1 className='text-4xl'>{title}</h1>
+						<h2 className='text-center text-2xl'>by Graphite</h2>
+					</FadeIn>
+				</>
+			}
+		/>
 	)
 }

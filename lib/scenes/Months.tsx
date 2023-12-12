@@ -26,6 +26,7 @@ export default function Months({
 						frame={frame}
 						color={color}
 					/>
+					{/* <FastTravel tick={frame} /> */}
 				</div>
 			</div>
 		</Sequence>

@@ -8,7 +8,7 @@ import {Stats} from '~/types/github'
 import {Database} from '~/types/supabase'
 import {Manifest} from '~/types/video'
 import {default as getProfile} from '~/utils/profile'
-import render from '~/utils/render'
+// import render from '~/utils/render'
 
 export const dynamic = 'force-dynamic'
 
@@ -43,15 +43,15 @@ export default async function Profile({params}: {params: {username: string}}) {
 	const profile = await getProfile(params.username)
 	if (profile)
 		try {
-			const rendered = await render({
-				id: 'wrapped',
-				inputProps: {
-					video: profile.video_manifest as Manifest,
-					stats: profile.github_stats as unknown as Stats
-				},
-				title: `${params.username}`
-			})
-			console.log(rendered)
+			// const rendered = await render({
+			// 	id: 'wrapped',
+			// 	inputProps: {
+			// 		video: profile.video_manifest as Manifest,
+			// 		stats: profile.github_stats as unknown as Stats
+			// 	},
+			// 	title: `${params.username}`
+			// })
+			// console.log(rendered)
 		} catch (e) {
 			console.error(e)
 		}

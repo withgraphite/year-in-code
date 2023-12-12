@@ -1,10 +1,14 @@
-import {Sequence, useCurrentFrame} from 'remotion'
-import Confetti from '~/components/Confetti'
+import {useCurrentFrame} from 'remotion'
+
+import Canvas from '~/3d/Canvas'
+import Camera from '~/camera/Camera'
+import WormHole from '~/environment/WarpDrive'
+import useRamp from '~/keyframes/useRamp'
+import FadeIn from '~/transitions/FadeIn'
+import Sequence from '~/video/Sequence'
 
 export default function Flashback({dateFrom, dateTo, text, from}) {
 	const frame = useCurrentFrame() - from
-
-	// count backwards from dateFrom to dateTo where the initial date shows, and after 60 frames, the final date shows
 
 	const secondsPerFrame =
 		(new Date(dateFrom).getTime() - new Date(dateTo).getTime()) / 60
@@ -16,29 +20,44 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 				? new Date(dateFrom).getTime() - (frame - 30) * secondsPerFrame
 				: dateTo
 
-	// Add a condition to apply the zoom effect at a certain frame
-	const zoomClass = frame >= 10 ? 'zoom-in' : ''
-	// Set the frame to trigger confetti
-	const showConfetti = frame === 95
+	const speed = useRamp(2, -2, 150, frame)
 
 	return (
-		<>
-			<Sequence
-				from={from}
-				durationInFrames={30 * 5}>
-				<div className='absolute flex h-full w-full flex-col items-center justify-center gap-10 bg-black'>
-					<h2 className='z-10 mx-48 text-center text-white/80'>{text}</h2>
-					<h1 className={`z-10 mx-48 text-center text-white ${zoomClass}`}>
-						{/* date as 0x/0x/xxxx where single digit is prefixed with 0 */}
-						{new Date(date).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: '2-digit',
-							day: '2-digit'
-						})}
-					</h1>
-				</div>
-				{showConfetti && <Confetti />}
-			</Sequence>
-		</>
+		<Sequence
+			from={from}
+			transitionIn='fade'
+			transitionOut='warp'
+			background={
+				<Canvas
+					frame={frame}
+					camera={
+						<Camera
+							position={[0, 0, 400]}
+							fov={50 + frame / 30}
+						/>
+					}>
+					<WormHole
+						tick={frame}
+						speed={speed}
+					/>
+				</Canvas>
+			}
+			content={
+				<>
+					<FadeIn
+						frame={frame}
+						delay={30}>
+						<h2 className='text-white/80'>{text}</h2>
+						<h1 className='text-center'>
+							{new Date(date).toLocaleDateString('en-US', {
+								year: 'numeric',
+								month: '2-digit',
+								day: '2-digit'
+							})}
+						</h1>
+					</FadeIn>
+				</>
+			}
+		/>
 	)
 }
