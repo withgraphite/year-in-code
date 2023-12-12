@@ -15,7 +15,7 @@ export default function Hero({session}: {session: Session}) {
 			<p className='text-stone-100 lg:text-xl'>
 				End the year with a video for your GitHub stats.
 			</p>
-			<div className='flex flex-col items-center gap-3 lg:flex-row'>
+			<div className='flex flex-col-reverse items-center gap-3 lg:flex-row'>
 				<Link
 					href='/leaderboard'
 					className='flex items-center gap-2 rounded-md border-2 border-black bg-transparent px-6 py-2 text-lg text-black no-underline transition-all hover:bg-black hover:text-white hover:opacity-100'>
