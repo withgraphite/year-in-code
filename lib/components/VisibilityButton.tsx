@@ -34,7 +34,7 @@ export default function VisibilityButton({
 	return (
 		<Tooltip body={isPublic ? 'Make private' : 'Make public'}>
 			<button
-				className='group bg-white p-2 text-lg text-black hover:bg-black hover:text-white'
+				className='group bg-transparent p-2 text-lg text-black hover:bg-black hover:text-white'
 				onClick={handleVisibility}>
 				{isPublic ? (
 					<EyeIcon className='h-5 w-5' />
