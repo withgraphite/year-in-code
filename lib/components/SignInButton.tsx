@@ -22,8 +22,8 @@ export default function SignInButton({className}: {className?: string}) {
 	return (
 		<button
 			onClick={handleLogin}
-			className={cn('group w-fit text-lg lg:w-fit', className)}>
-			<span>Get started</span>
+			className={cn('group w-fit  lg:w-fit', className)}>
+			<span className='text-base sm:text-lg'>Get started with GitHub</span>
 			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
 		</button>
 	)

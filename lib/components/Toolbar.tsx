@@ -42,7 +42,7 @@ export default function Toolbar({
 					/>
 				</div>
 			)}
-			{!session && <SignInButton />}
+			{!session && <SignInButton className='w-full sm:w-fit' />}
 		</div>
 	)
 }
