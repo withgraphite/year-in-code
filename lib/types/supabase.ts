@@ -17,9 +17,10 @@ export interface Database {
           email: string | null
           github_stats: Json | null
           id: string
-          is_public: boolean | null
+          is_graphite_user: boolean
+          is_public: boolean
           pull_requests_opened: number | null
-          user_name: string | null
+          user_name: string
           video_manifest: Json | null
         }
         Insert: {
@@ -29,9 +30,10 @@ export interface Database {
           email?: string | null
           github_stats?: Json | null
           id?: string
-          is_public?: boolean | null
+          is_graphite_user?: boolean
+          is_public?: boolean
           pull_requests_opened?: number | null
-          user_name?: string | null
+          user_name: string
           video_manifest?: Json | null
         }
         Update: {
@@ -41,16 +43,17 @@ export interface Database {
           email?: string | null
           github_stats?: Json | null
           id?: string
-          is_public?: boolean | null
+          is_graphite_user?: boolean
+          is_public?: boolean
           pull_requests_opened?: number | null
-          user_name?: string | null
+          user_name?: string
           video_manifest?: Json | null
         }
         Relationships: [
           {
             foreignKeyName: "profile_id_fkey"
             columns: ["id"]
-            isOneToOne: true
+            isOneToOne: false
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
