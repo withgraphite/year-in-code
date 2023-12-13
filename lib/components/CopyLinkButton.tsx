@@ -2,13 +2,13 @@
 
 import {LinkIcon} from 'lucide-react'
 import {toast} from 'sonner'
-import {DOMAIN} from '~/constants/metadata'
+import {META} from '~/constants/metadata'
 import {Profile} from '~/types/profile'
 import Tooltip from './Tooltip'
 
 export default function CopyLinkButton({profile}: {profile: Profile}) {
 	const handleCopy = () => {
-		window.navigator.clipboard.writeText(DOMAIN.PROD + profile.user_name)
+		window.navigator.clipboard.writeText(META.domain.prod + profile.user_name)
 		toast.success('Link copied to clipboard')
 	}
 

@@ -1,10 +1,12 @@
 import 'devicon'
 import BackgroundGrid from 'lib/components/BackgroundGrid'
+import {Metadata} from 'next'
 import localFont from 'next/font/local'
 import {Toaster} from 'sonner'
 import BackgroundGradient from '~/components/BackgroundGradient'
 import Footer from '~/components/Footer'
 import Nav from '~/components/Nav'
+import {DEFAULT_META} from '~/constants/metadata'
 import './styles.css'
 
 const font = localFont({
@@ -24,7 +26,8 @@ const font = localFont({
 	]
 })
 
-export const metadata = {
+export const metadata: Metadata = {
+	...DEFAULT_META,
 	alternates: {
 		canonical: '/',
 		languages: {

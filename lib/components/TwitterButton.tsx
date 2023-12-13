@@ -2,7 +2,7 @@
 
 import {TwitterIcon} from 'lucide-react'
 import Link from 'next/link'
-import {DOMAIN} from '~/constants/metadata'
+import {META} from '~/constants/metadata'
 import {Profile} from '~/types/profile'
 import Tooltip from './Tooltip'
 
@@ -16,7 +16,7 @@ export default function TwitterButton({
 	const body = `Check ${
 		isOwn ? 'my' : `${profile.user_name}'s`
 	} Year in Code by Graphite`
-	const url = DOMAIN.PROD + profile.user_name
+	const url = META.domain.prod + profile.user_name
 	return (
 		<Tooltip body='Twitter'>
 			<Link

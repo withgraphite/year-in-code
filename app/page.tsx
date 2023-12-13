@@ -3,13 +3,13 @@ import {cookies} from 'next/headers'
 import {redirect} from 'next/navigation'
 import Hero from '~/components/Hero'
 import Year from '~/components/Year'
+import {DEFAULT_META} from '~/constants/metadata'
 import {Database} from '~/types/supabase'
 
 export const dynamic = 'force-dynamic'
 
 export const metadata = {
-	title: 'Year in Code | Graphite',
-	description: 'End 2023 with a video for your GitHub stats.'
+	...DEFAULT_META
 }
 
 export default async function Page() {

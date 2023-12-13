@@ -1,28 +1,31 @@
 import {Metadata} from 'next'
 
-export const DOMAIN = {
-	PROD: 'https://graphite-wrapped.vercel.app/',
-	GRAPHITE: 'https://graphite.dev/'
-}
-
 export const META = {
 	title: 'Year in Code | Graphite',
 	desc: 'End 2023 with a video for your GitHub stats.',
-	siteURL: 'http://localhost:3000',
-	twitter: '@withgraphite'
+	twitter: '@withgraphite',
+	domain: {
+		prod: 'https://graphite-wrapped.vercel.app/',
+		web: 'https://graphite.dev/'
+	}
 }
 
 export const DEFAULT_META: Metadata = {
+	metadataBase: new URL(META.domain.prod),
+	title: META.title,
 	description: META.desc,
 	openGraph: {
+		title: META.title,
 		description: META.desc,
-		title: META.title
+		url: META.domain.prod,
+		siteName: META.title,
+		locale: 'en_US',
+		type: 'website'
 	},
-	title: META.title,
 	twitter: {
-		card: 'summary_large_image',
-		creator: META.twitter,
+		title: META.title,
 		description: META.desc,
-		title: META.title
+		card: 'summary_large_image',
+		creator: META.twitter
 	}
 }
