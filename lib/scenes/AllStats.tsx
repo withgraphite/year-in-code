@@ -36,7 +36,7 @@ export default function AllStats({
 			}
 			content={
 				<>
-					<h2>{text}</h2>
+					{/* <h2>{text}</h2> */}
 					<Summary stats={stats} />
 				</>
 			}

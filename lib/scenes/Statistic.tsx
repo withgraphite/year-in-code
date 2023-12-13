@@ -46,7 +46,7 @@ export default function Statistic({
 					</FadeIn>
 				</div>
 			}
-			content={<h1 className='mb-52 text-4xl text-white'>{text}</h1>}
+			content={<h2 className='mb-52'>{text}</h2>}
 		/>
 	)
 }

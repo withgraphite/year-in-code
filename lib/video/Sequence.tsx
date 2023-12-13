@@ -29,7 +29,7 @@ export default function Sequence({
 						<div className='absolute'>{background}</div>
 						<div className='absolute z-10 h-full w-full text-white'>
 							<div
-								className='flex h-full w-full flex-col items-center justify-center gap-5 p-5
+								className='flex h-full w-full flex-col items-center justify-center gap-10 p-24 text-center
 							'>
 								{content}
 							</div>
