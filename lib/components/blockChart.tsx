@@ -1,4 +1,4 @@
-import {StarIcon} from '@modulz/radix-icons'
+import {StarIcon} from 'lucide-react'
 import Image from 'next/image'
 
 // Repo name with dimmed owner name
