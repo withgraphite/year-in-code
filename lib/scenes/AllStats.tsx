@@ -1,10 +1,20 @@
 import {useCurrentFrame} from 'remotion'
+import Summary from '~/components/summary'
+import {Stats} from '~/types/github'
 import Canvas from '../3d/Canvas'
 import Camera from '../camera/Camera'
 import Space from '../environment/Space'
 import Sequence from '../video/Sequence'
 
-export default function AllStats({from, text}: {from: number; text: string}) {
+export default function AllStats({
+	from,
+	text,
+	stats
+}: {
+	from: number
+	text: string
+	stats: Stats
+}) {
 	const frame = useCurrentFrame() - from
 
 	return (
@@ -24,7 +34,12 @@ export default function AllStats({from, text}: {from: number; text: string}) {
 					<Space tick={frame} />
 				</Canvas>
 			}
-			content={<h2>{text}</h2>}
+			content={
+				<>
+					<h2>{text}</h2>
+					<Summary stats={stats} />
+				</>
+			}
 		/>
 	)
 }

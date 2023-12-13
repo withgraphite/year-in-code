@@ -43,7 +43,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 	const profile = await getProfile(params.username)
 	if (profile)
 		try {
-			// const rendered = await render({
+			// cwwonst rendered = await render({
 			// 	id: 'wrapped',
 			// 	inputProps: {
 			// 		video: profile.video_manifest as Manifest,

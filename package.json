@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+		"@modulz/radix-icons": "^4.0.0",
 		"@radix-ui/react-alert-dialog": "^1.0.5",
 		"@react-three/fiber": "^8.15.12",
 		"@react-three/postprocessing": "^2.15.11",

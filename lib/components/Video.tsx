@@ -132,6 +132,7 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								key={i}
 								from={i * fps * 5}
 								text={text}
+								stats={stats}
 							/>
 						)
 					case 'conclusion':
