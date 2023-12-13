@@ -1,4 +1,9 @@
-import {Sequence, useCurrentFrame} from 'remotion'
+import {useCurrentFrame} from 'remotion'
+import Sequence from '../video/Sequence'
+
+import Canvas from '~/3d/Canvas'
+import Camera from '~/camera/Camera'
+import Space from '~/environment/Space'
 import ContributionGraph from '../components/ContributionGraph'
 import {Week} from '../types/github'
 
@@ -15,14 +20,29 @@ export default function Contributions({
 	return (
 		<Sequence
 			from={from}
-			durationInFrames={30 * 5}>
-			<div className='absolute flex h-full w-full flex-col items-center justify-center gap-5 bg-black'>
-				<h2 className='mx-48 text-center text-white'>{text}</h2>
-				<ContributionGraph
-					weeks={weeks}
+			transitionIn='fade'
+			transitionOut='warp'
+			background={
+				<Canvas
 					frame={frame}
-				/>
-			</div>
-		</Sequence>
+					camera={
+						<Camera
+							position={[0, 0, 400]}
+							fov={50}
+						/>
+					}>
+					<Space tick={frame} />
+				</Canvas>
+			}
+			content={
+				<>
+					<h2>{text}</h2>
+					<ContributionGraph
+						weeks={weeks}
+						frame={frame}
+					/>
+				</>
+			}
+		/>
 	)
 }
