@@ -1,7 +1,7 @@
 import {useCurrentFrame} from 'remotion'
 import Canvas from '~/3d/Canvas'
 import Camera from '~/camera/Camera'
-import Space from '~/environment/Space'
+import FastTravel from '~/environment/FastTravel'
 import Sequence from '../video/Sequence'
 
 export default function Stars({
@@ -29,7 +29,7 @@ export default function Stars({
 							fov={50}
 						/>
 					}>
-					<Space tick={frame} />
+					<FastTravel tick={frame} />
 				</Canvas>
 			}
 			content={
