@@ -34,7 +34,7 @@ export default function Stars({
 			}
 			content={
 				<>
-					{[...Array(stars)].map((_, i) => (
+					{ /* {[...Array(stars)].map((_, i) => (
 						<div
 							key={i}
 							className='absolute h-[2px] w-[2px] rounded-full bg-white'
@@ -44,7 +44,7 @@ export default function Stars({
 								animation: `stars ${Math.random() * 5 + 5}s infinite`
 							}}
 						/>
-					))}
+					))} */ }
 					<h2>{text}</h2>
 				</>
 			}
