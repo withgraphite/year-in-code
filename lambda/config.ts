@@ -4,4 +4,4 @@ export const RAM = 3008
 export const DISK = 2048
 export const TIMEOUT = 900
 export const COMP_NAME = 'wrapped'
-export const FRAMES_PER_LAMBDA = 300
+export const FRAMES_PER_LAMBDA = 150
