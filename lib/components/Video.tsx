@@ -5,6 +5,7 @@ import {
 	staticFile,
 	useVideoConfig
 } from 'remotion'
+import {injectFont} from '~/utils/fonts'
 import AllStats from '../scenes/AllStats'
 import Conclusion from '../scenes/Conclusion'
 import Contributions from '../scenes/Contributions'
@@ -20,11 +21,12 @@ import Times from '../scenes/Times'
 import {Stats} from '../types/github'
 import {Manifest} from '../types/video'
 
+injectFont()
+
 export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 	const {fps} = useVideoConfig()
-
 	return (
-		<AbsoluteFill className='font-mono'>
+		<AbsoluteFill>
 			<div className='absolute h-full w-full items-center justify-center bg-black' />
 			<Audio
 				src={staticFile('/music/BlackOutDays.mp3')}

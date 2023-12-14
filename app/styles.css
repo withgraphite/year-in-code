@@ -2,6 +2,10 @@
 @tailwind base;
 @tailwind components;
 
+* {
+	font-family: 'MatterSQ';
+}
+
 html {
 	@apply text-stone-800;
 }
