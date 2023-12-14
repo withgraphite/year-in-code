@@ -49,6 +49,8 @@ export const POST = executeApi<RenderMediaOnLambdaOutput, typeof RenderRequest>(
 			}
 		})
 
+		console.log(result)
+
 		return result
 	}
 )
