@@ -32,10 +32,6 @@ export default function Number({
 		}
 	})
 
-	useEffect(() => {
-		console.log('Mesh ref:', meshRef.current) // Debugging: Check if mesh ref is set
-	})
-
 	return (
 		<mesh
 			ref={meshRef}
