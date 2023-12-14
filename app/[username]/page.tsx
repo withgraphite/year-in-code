@@ -68,7 +68,10 @@ export default async function Profile({params}: {params: {username: string}}) {
 							stats={profile.github_stats as unknown as Stats}
 						/>
 					)}
-					<DownloadButton />
+					<DownloadButton
+						profile={profile}
+						session={session}
+					/>
 				</div>
 			)}
 
