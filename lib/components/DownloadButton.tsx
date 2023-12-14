@@ -25,17 +25,24 @@ export default function DownloadButton({
 
 	if (state.status === 'invoking')
 		return <p className='text-white'>Loading...</p>
-	if (state.status === 'done')
+
+	// If already rendered or just finished rendering
+	if (state.status === 'done' || (profile.is_rendered && profile.download_url)) {
+		const url = profile.download_url
+			? profile.download_url
+			: state.status === 'done'
+				? state.url
+				: ''
 		return (
-			<Link href={state.url}>
-				<button
-					className='group px-6 py-2 text-xl'
-					onClick={renderMedia}>
+			<Link href={url}>
+				<button className='group px-6 py-2 text-xl'>
 					<DownloadIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5' />
 					Download
 				</button>
 			</Link>
 		)
+	}
+
 	if (state.status === 'error')
 		return <p className='text-white'>{state.error.message}</p>
 	if (state.status === 'rendering')
