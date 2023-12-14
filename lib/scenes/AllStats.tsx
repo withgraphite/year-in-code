@@ -1,9 +1,9 @@
 import {useCurrentFrame} from 'remotion'
-import Summary from '~/components/summary'
-import {Stats} from '~/types/github'
 import Canvas from '../3d/Canvas'
 import Camera from '../camera/Camera'
+import Summary from '../components/summary'
 import Space from '../environment/Space'
+import {Stats} from '../types/github'
 import Sequence from '../video/Sequence'
 
 export default function AllStats({

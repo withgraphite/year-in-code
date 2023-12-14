@@ -1,4 +1,4 @@
-import {Stats} from '~/types/github'
+import {Stats} from '../types/github'
 import BlockChart from './blockChart'
 
 /**

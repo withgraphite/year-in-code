@@ -1,10 +1,10 @@
 import {useCurrentFrame} from 'remotion'
 import Sequence from '../video/Sequence'
 
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import Space from '~/environment/Space'
+import Canvas from '../3d/Canvas'
+import Camera from '../camera/Camera'
 import ContributionGraph from '../components/ContributionGraph'
+import Space from '../environment/Space'
 import {Week} from '../types/github'
 
 export default function Contributions({

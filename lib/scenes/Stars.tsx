@@ -1,7 +1,7 @@
 import {useCurrentFrame} from 'remotion'
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import FastTravel from '~/environment/FastTravel'
+import Canvas from '../3d/Canvas'
+import Camera from '../camera/Camera'
+import FastTravel from '../environment/FastTravel'
 import Sequence from '../video/Sequence'
 
 export default function Stars({
@@ -34,7 +34,7 @@ export default function Stars({
 			}
 			content={
 				<>
-					{ /* {[...Array(stars)].map((_, i) => (
+					{/* {[...Array(stars)].map((_, i) => (
 						<div
 							key={i}
 							className='absolute h-[2px] w-[2px] rounded-full bg-white'
@@ -44,7 +44,7 @@ export default function Stars({
 								animation: `stars ${Math.random() * 5 + 5}s infinite`
 							}}
 						/>
-					))} */ }
+					))} */}
 					<h2>{text}</h2>
 				</>
 			}

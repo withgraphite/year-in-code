@@ -1,8 +1,8 @@
 import {useCurrentFrame} from 'remotion'
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import Space from '~/environment/Space'
+import Canvas from '../3d/Canvas'
+import Camera from '../camera/Camera'
 import MonthsChart from '../components/MonthsChart'
+import Space from '../environment/Space'
 import {Week} from '../types/github'
 import Sequence from '../video/Sequence'
 

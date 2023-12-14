@@ -1,4 +1,4 @@
-import {Stats} from '~/types/github'
+import {Stats} from '../types/github'
 import Contributions from './contributions'
 import Follows from './follows'
 import Highlights from './highlights'

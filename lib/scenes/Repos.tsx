@@ -1,7 +1,7 @@
 import {useCurrentFrame} from 'remotion'
-import Canvas from '~/3d/Canvas'
-import Camera from '~/camera/Camera'
-import Space from '~/environment/Space'
+import Canvas from '../3d/Canvas'
+import Camera from '../camera/Camera'
+import Space from '../environment/Space'
 import Sequence from '../video/Sequence'
 
 export default function Repos({

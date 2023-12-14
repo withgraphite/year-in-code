@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import {Stats} from '~/types/github'
+import {Stats} from '../types/github'
 
 const imageClass = 'w-7 h-7 rounded-full hover:scale-[1.5] transition-transform'
 

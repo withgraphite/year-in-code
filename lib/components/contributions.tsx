@@ -1,4 +1,4 @@
-import {Stats} from '~/types/github'
+import {Stats} from '../types/github'
 
 // Format a date as Mmm dd, yyyy
 const formatDate = (date: string): string => {

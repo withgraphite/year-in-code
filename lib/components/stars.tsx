@@ -1,4 +1,4 @@
-import {Stats} from '~/types/github'
+import {Stats} from '../types/github'
 
 function Stars({stats}: {stats: Stats}) {
 	if (!stats || !stats.stars) return <></>

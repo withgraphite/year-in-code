@@ -1,4 +1,4 @@
-import {Week} from '~/types/github'
+import {Week} from '../types/github'
 
 // Format a date as Mmm dd, yyyy
 const formatDate = (date: string): string => {
