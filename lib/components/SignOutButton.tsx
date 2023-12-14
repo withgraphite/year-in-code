@@ -23,7 +23,7 @@ export default function SignOutButton() {
 			<button
 				onClick={handleSignOut}
 				className='group bg-transparent p-2 text-lg text-black hover:bg-black hover:text-white'>
-				<LogOutIcon className='h-5 w-5' />
+				<LogOutIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5' />
 			</button>
 		</Tooltip>
 	)
