@@ -1,7 +1,9 @@
 'use client'
 
 import {Composition as RemotionComposition} from 'remotion'
-import Video from './../lib/components/Video'
+import Video from '../lib/components/Video'
+import {Stats} from '../lib/types/github'
+import {Manifest} from '../lib/types/video'
 
 export default function Composition() {
 	return (
@@ -13,11 +15,8 @@ export default function Composition() {
 			height={720}
 			width={1280}
 			defaultProps={{
-				video: {},
-				stats: {
-					username: '',
-					year: 2023
-				}
+				video: {} as Manifest,
+				stats: {} as Stats
 			}}
 		/>
 	)

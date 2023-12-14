@@ -71,7 +71,11 @@ export default async function Profile({params}: {params: {username: string}}) {
 					<DownloadButton
 						profile={profile}
 						session={session}
-						inputProps={{title: profile.user_name}}
+						inputProps={{
+							title: profile.user_name,
+							video: profile.video_manifest as Manifest,
+							stats: profile.github_stats as unknown as Stats
+						}}
 					/>
 				</div>
 			)}

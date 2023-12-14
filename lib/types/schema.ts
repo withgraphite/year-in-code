@@ -1,7 +1,9 @@
 import {z} from 'zod'
 
 export const CompositionProps = z.object({
-	title: z.string()
+	title: z.string(),
+	video: z.any(), // TODO FIX!!!!
+	stats: z.any() // TODO FIX!!!!
 })
 
 export const RenderRequest = z.object({
