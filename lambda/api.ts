@@ -42,14 +42,17 @@ export const renderVideo = async ({
 
 export const getProgress = async ({
 	id,
-	bucketName
+	bucketName,
+	userId
 }: {
 	id: string
 	bucketName: string
+	userId: string
 }) => {
 	const body: z.infer<typeof ProgressRequest> = {
 		id,
-		bucketName
+		bucketName,
+		userId
 	}
 
 	return makeRequest<ProgressResponse>('/api/lambda/progress', body)

@@ -58,7 +58,8 @@ export default function useRendering(
 			while (pending) {
 				const result = await getProgress({
 					id: renderId,
-					bucketName: bucketName
+					bucketName: bucketName,
+					userId: inputProps.userId
 				})
 				console.log(result)
 				switch (result.type) {

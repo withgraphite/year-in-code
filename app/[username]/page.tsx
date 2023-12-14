@@ -73,6 +73,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 						session={session}
 						inputProps={{
 							title: profile.user_name,
+							userId: profile.id,
 							video: profile.video_manifest as Manifest,
 							stats: profile.github_stats as unknown as Stats
 						}}
