@@ -6,7 +6,7 @@ import env from '../env.mjs'
 export default function FastTravel({tick}: {tick: number}) {
 	const texture = useLoader(
 		THREE.TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/sky.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/sky.jpg`
 	)
 	const meshRef = useRef()
 

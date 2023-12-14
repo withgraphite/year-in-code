@@ -20,7 +20,7 @@ export default function Number({
 	)
 	const texture = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/uranus.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/uranus.jpg`
 	)
 	const meshRef = useRef<Mesh>()
 

@@ -6,7 +6,7 @@ import Lighting from './../effects/Lighting'
 export default function Star({tick, planet}: {tick: number; planet: 'sun'}) {
 	const texture = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/${planet}.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/${planet}.jpg`
 	) as THREE.Texture
 
 	return (

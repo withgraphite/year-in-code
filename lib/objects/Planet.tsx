@@ -20,7 +20,7 @@ export default function Planet({
 }) {
 	const texture = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/${planet}.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/${planet}.jpg`
 	)
 	return (
 		<>

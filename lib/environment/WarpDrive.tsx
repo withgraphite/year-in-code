@@ -6,7 +6,7 @@ import env from '../env.mjs'
 export default function WormHole({tick, speed}: {tick: number; speed: number}) {
 	const texture = useLoader(
 		THREE.TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/galaxy.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/galaxy.jpg`
 	)
 	const meshRef = useRef()
 

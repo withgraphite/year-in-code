@@ -5,7 +5,7 @@ import env from '../env.mjs'
 export default function Space({tick}: {tick: number}) {
 	const textureSphereBg = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/sky.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/sky.jpg`
 	)
 	return (
 		<mesh

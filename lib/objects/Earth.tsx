@@ -40,15 +40,15 @@ void main() {
 export default function Earth({tick, rotation}) {
 	const nightTexture = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/earth_night.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/earth_night.jpg`
 	)
 	const dayTexture = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/earth_day.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/earth_day.jpg`
 	)
 	const cloudTexture = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/earth_clouds.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/earth_clouds.jpg`
 	)
 	const shaderMaterial = useRef(
 		new ShaderMaterial({

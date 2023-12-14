@@ -266,11 +266,11 @@ export default function BlackHole() {
 	// Load textures
 	const starTexture = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/sky.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/sky.jpg`
 	)
 	const diskTexture = useLoader(
 		TextureLoader,
-		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/milkyway.jpg`
+		`${env.NEXT_PUBLIC_WEBSITE ? '/' : 'public/'}assets/milkyway.jpg`
 	)
 
 	// Create shader material
