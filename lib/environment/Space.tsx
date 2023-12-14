@@ -1,8 +1,12 @@
 import {useLoader} from '@react-three/fiber'
 import {BackSide, TextureLoader} from 'three'
+import env from '../env.mjs'
 
 export default function Space({tick}: {tick: number}) {
-	const textureSphereBg = useLoader(TextureLoader, 'assets/sky.jpg')
+	const textureSphereBg = useLoader(
+		TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/sky.jpg`
+	)
 	return (
 		<mesh
 			scale={[150, 150, 150]}

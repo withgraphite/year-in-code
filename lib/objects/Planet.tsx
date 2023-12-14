@@ -1,6 +1,7 @@
 import {useLoader} from '@react-three/fiber'
 import {TextureLoader} from 'three'
 import Lighting from '../effects/Lighting'
+import env from '../env.mjs'
 
 export default function Planet({
 	planet,
@@ -17,7 +18,10 @@ export default function Planet({
 		| 'moon'
 	tick: number
 }) {
-	const texture = useLoader(TextureLoader, `assets/${planet}.jpg`)
+	const texture = useLoader(
+		TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/${planet}.jpg`
+	)
 	return (
 		<>
 			<mesh

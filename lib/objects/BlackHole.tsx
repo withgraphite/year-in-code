@@ -1,5 +1,6 @@
 import {useFrame, useLoader} from '@react-three/fiber'
 import {ShaderMaterial, TextureLoader} from 'three'
+import env from '../env.mjs'
 
 const vertexShader = `
 void main() {
@@ -263,8 +264,14 @@ void main()	{
 
 export default function BlackHole() {
 	// Load textures
-	const starTexture = useLoader(TextureLoader, 'assets/sky.jpg')
-	const diskTexture = useLoader(TextureLoader, 'assets/milkyway.jpg')
+	const starTexture = useLoader(
+		TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/sky.jpg`
+	)
+	const diskTexture = useLoader(
+		TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/milkyway.jpg`
+	)
 
 	// Create shader material
 	const blackHoleMaterial = new ShaderMaterial({

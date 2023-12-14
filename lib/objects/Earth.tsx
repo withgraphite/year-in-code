@@ -2,6 +2,7 @@ import {useFrame, useLoader} from '@react-three/fiber'
 import {useRef} from 'react'
 import {ShaderMaterial, TextureLoader} from 'three'
 import Lighting from '../effects/Lighting'
+import env from '../env.mjs'
 
 const vertexShader = `
 varying vec2 vUv;
@@ -37,9 +38,18 @@ void main() {
 `
 
 export default function Earth({tick, rotation}) {
-	const nightTexture = useLoader(TextureLoader, `assets/earth_night.jpg`)
-	const dayTexture = useLoader(TextureLoader, `assets/earth_day.jpg`)
-	const cloudTexture = useLoader(TextureLoader, `assets/earth_clouds.jpg`)
+	const nightTexture = useLoader(
+		TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/earth_night.jpg`
+	)
+	const dayTexture = useLoader(
+		TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/earth_day.jpg`
+	)
+	const cloudTexture = useLoader(
+		TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/earth_clouds.jpg`
+	)
 	const shaderMaterial = useRef(
 		new ShaderMaterial({
 			uniforms: {

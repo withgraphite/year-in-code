@@ -1,9 +1,13 @@
 import {useLoader} from '@react-three/fiber'
 import {useMemo, useRef} from 'react'
 import * as THREE from 'three'
+import env from '../env.mjs'
 
 export default function FastTravel({tick}: {tick: number}) {
-	const texture = useLoader(THREE.TextureLoader, '/assets/sky.jpg')
+	const texture = useLoader(
+		THREE.TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/sky.jpg`
+	)
 	const meshRef = useRef()
 
 	texture.wrapS = THREE.RepeatWrapping

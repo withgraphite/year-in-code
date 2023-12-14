@@ -30,6 +30,9 @@ export default async function deploy() {
 		bucketName,
 		entryPoint: path.join(process.cwd(), 'lambda', 'root.ts'),
 		siteName: SITE_NAME,
+		options: {
+			publicDir: path.join(process.cwd(), 'public')
+		},
 		region: REGION
 	})
 

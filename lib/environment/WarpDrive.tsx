@@ -1,9 +1,13 @@
 import {useLoader} from '@react-three/fiber'
 import {useMemo, useRef} from 'react'
 import * as THREE from 'three'
+import env from '../env.mjs'
 
 export default function WormHole({tick, speed}: {tick: number; speed: number}) {
-	const texture = useLoader(THREE.TextureLoader, '/assets/galaxy.jpg')
+	const texture = useLoader(
+		THREE.TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/galaxy.jpg`
+	)
 	const meshRef = useRef()
 
 	texture.wrapS = THREE.RepeatWrapping

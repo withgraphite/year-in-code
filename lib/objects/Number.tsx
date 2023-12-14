@@ -3,6 +3,7 @@ import {useEffect, useRef} from 'react'
 import {Mesh, TextureLoader} from 'three'
 import {TextGeometry} from 'three/examples/jsm/geometries/TextGeometry'
 import {FontLoader} from 'three/examples/jsm/loaders/FontLoader'
+import env from '../env.mjs'
 
 // Extend with TextGeometry
 extend({TextGeometry})
@@ -17,7 +18,10 @@ export default function Number({
 	const font = new FontLoader().parse(
 		require('../../public/fonts/Silkscreen.json')
 	)
-	const texture = useLoader(TextureLoader, 'assets/uranus.jpg')
+	const texture = useLoader(
+		TextureLoader,
+		`${!env.NEXT_PUBLIC_WEBSITE ? 'public/' : '/'}assets/uranus.jpg`
+	)
 	const meshRef = useRef<Mesh>()
 
 	useEffect(() => {
