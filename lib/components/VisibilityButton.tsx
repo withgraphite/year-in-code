@@ -37,9 +37,23 @@ export default function VisibilityButton({
 				className='group bg-transparent p-2 text-lg text-black hover:bg-black hover:text-white'
 				onClick={handleVisibility}>
 				{isPublic ? (
-					<EyeIcon className='h-5 w-5' />
+					<div className='group relative h-5 w-5'>
+						<EyeIcon
+							className={`absolute left-0 top-0 h-5 w-5 transition-opacity duration-150 group-hover:opacity-0`}
+						/>
+						<EyeOffIcon
+							className={`absolute left-0 top-0 h-5 w-5 opacity-0 transition-opacity duration-150 group-hover:opacity-100`}
+						/>
+					</div>
 				) : (
-					<EyeOffIcon className='h-5 w-5' />
+					<div className='group relative h-5 w-5'>
+						<EyeOffIcon
+							className={`absolute left-0 top-0 h-5 w-5 transition-opacity duration-150 group-hover:opacity-0`}
+						/>
+						<EyeIcon
+							className={`absolute left-0 top-0 h-5 w-5 opacity-0 transition-opacity duration-150 group-hover:opacity-100`}
+						/>
+					</div>
 				)}
 			</button>
 		</Tooltip>

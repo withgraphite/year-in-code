@@ -6,10 +6,12 @@ import GitHubButton from '~/components/GitHubButton'
 import GraphiteBadge from '~/components/GraphiteBadge'
 import GraphiteCTA from '~/components/GraphiteCTA'
 import SignInButton from '~/components/SignInButton'
+import {DEFAULT_META} from '~/constants/metadata'
 
 export const dynamic = 'force-dynamic'
 
 export const metadata = {
+	...DEFAULT_META,
 	title: 'Leaderboard | Year in Code | Graphite',
 	description: 'See who opened the most pull requests in 2023.'
 }
