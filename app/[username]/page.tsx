@@ -71,6 +71,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 					<DownloadButton
 						profile={profile}
 						session={session}
+						inputProps={{title: profile.user_name}}
 					/>
 				</div>
 			)}
