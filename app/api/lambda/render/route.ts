@@ -4,7 +4,14 @@ import {
 	renderMediaOnLambda,
 	speculateFunctionName
 } from '@remotion/lambda/client'
-import {DISK, RAM, REGION, SITE_NAME, TIMEOUT} from 'lambda/config'
+import {
+	DISK,
+	FRAMES_PER_LAMBDA,
+	RAM,
+	REGION,
+	SITE_NAME,
+	TIMEOUT
+} from 'lambda/config'
 import {RenderRequest} from '~/types/schema'
 import {executeApi} from '~/utils/helpers'
 
@@ -35,7 +42,7 @@ export const POST = executeApi<RenderMediaOnLambdaOutput, typeof RenderRequest>(
 			serveUrl: SITE_NAME,
 			composition: body.id,
 			inputProps: body.inputProps,
-			framesPerLambda: 10,
+			framesPerLambda: FRAMES_PER_LAMBDA,
 			downloadBehavior: {
 				type: 'download',
 				fileName: 'video.mp4'
