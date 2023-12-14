@@ -34,7 +34,9 @@ export default function DownloadButton({
 				? state.url
 				: ''
 		return (
-			<Link href={url}>
+			<Link
+				href={url}
+				className='no-underline'>
 				<button className='group px-6 py-2 text-xl'>
 					<DownloadIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5' />
 					Download
