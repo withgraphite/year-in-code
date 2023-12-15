@@ -5,7 +5,6 @@ import {
 	staticFile,
 	useVideoConfig
 } from 'remotion'
-import {injectFont} from '~/utils/fonts'
 import AllStats from '../scenes/AllStats'
 import Conclusion from '../scenes/Conclusion'
 import Contributions from '../scenes/Contributions'
@@ -20,6 +19,7 @@ import Number from '../scenes/Statistic'
 import Times from '../scenes/Times'
 import {Stats} from '../types/github'
 import {Manifest} from '../types/video'
+import {injectFont} from '../utils/fonts'
 
 injectFont()
 
