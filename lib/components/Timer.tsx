@@ -29,7 +29,7 @@ export default function Timer() {
 	}, [])
 
 	return (
-		<div className='absolute top-20 h-10 text-2xl font-extrabold 2xl:text-4xl'>
+		<div className='absolute top-12 h-10 text-2xl font-extralight text-black/50 2xl:text-4xl'>
 			{formatTime(seconds)}
 		</div>
 	)

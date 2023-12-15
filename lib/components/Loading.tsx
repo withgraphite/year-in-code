@@ -42,7 +42,7 @@ export default function Loading({stats}: {stats: Stats}) {
 	}, [count])
 
 	return (
-		<div className='relative flex w-full flex-col items-center gap-5'>
+		<div className='relative flex w-full flex-col items-center'>
 			<AnimatePresence>
 				<motion.div
 					className='absolute left-0 right-0 flex h-10 w-full items-center justify-center text-center'
@@ -52,9 +52,12 @@ export default function Loading({stats}: {stats: Stats}) {
 					exit={{opacity: 0, y: 0}} // Slide up and fade out
 					transition={{duration: 0.6, ease: 'easeInOut'}}
 					layout>
-					<h3 className={count === slides.length - 1 ? 'animate-pulse' : ''}>
+					<h2
+						className={`${
+							count === slides.length - 1 ? 'animate-pulse' : ''
+						} font-thin`}>
 						{slides[count]}
-					</h3>
+					</h2>
 				</motion.div>
 			</AnimatePresence>
 
