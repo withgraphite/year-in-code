@@ -18,7 +18,7 @@ export default async function Loading() {
 	if (!session) redirect('/')
 
 	// Profile already generated, redirect to profile page
-	const profile = await getProfile(session.user.user_metadata.user_name)
+	const profile = await getProfile(session.user.user_metadata.user_name, session)
 	if (profile && profile.github_stats && profile.video_manifest)
 		redirect(`/${session.user.user_metadata.user_name}`)
 
