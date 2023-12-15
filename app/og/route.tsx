@@ -1,5 +1,6 @@
 import {ImageResponse} from 'next/og'
 import {NextRequest} from 'next/server'
+import {META} from '~/constants/metadata'
 
 export const runtime = 'edge'
 
@@ -27,8 +28,7 @@ export async function GET(req: NextRequest) {
 					justifyContent: 'center',
 					position: 'relative',
 					overflowY: 'hidden',
-					backgroundImage:
-						'url(https://graphite-wrapped.vercel.app/images/og-bg-text.png)'
+					backgroundImage: `url(${META.domain.prod}images/og-bg-text.png)`
 				}}>
 				{/* <BackgroundGrid
 					style={{

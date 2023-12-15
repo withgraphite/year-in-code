@@ -5,6 +5,7 @@ import DownloadButton from '~/components/DownloadButton'
 import Player from '~/components/Player'
 import SignInButton from '~/components/SignInButton'
 import Toolbar from '~/components/Toolbar'
+import {META} from '~/constants/metadata'
 import {Stats} from '~/types/github'
 import {Database} from '~/types/supabase'
 import {Manifest} from '~/types/video'
@@ -18,14 +19,14 @@ export async function generateMetadata({
 	params: {username: string}
 }): Promise<Metadata | undefined> {
 	if (!params.username) return
-	let ogImage = `https://graphite-wrapped.vercel.app/og?title=${params.username}`
+	let ogImage = META.domain.prod + `og?title=${params.username}`
 
 	return {
 		title: `${params.username} | Year in Code | Graphite`,
 		description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
 		openGraph: {
 			title: params.username,
-			url: `https://graphite-wrapped.vercel.app/${params.username}`,
+			url: META.domain.prod + params.username,
 			images: [
 				{
 					url: ogImage

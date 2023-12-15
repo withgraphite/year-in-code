@@ -40,7 +40,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 	return (
 		<html lang='en'>
 			<head>
-				<PlausibleProvider domain='graphite-wrapped.vercel.app' />
+				<PlausibleProvider domain='year-in-code.vercel.app' />
 			</head>
 			<body
 				className={`${font.className} relative flex h-full min-h-screen w-full flex-col items-center bg-white dark:bg-black`}>

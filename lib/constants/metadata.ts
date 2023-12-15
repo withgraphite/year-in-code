@@ -5,7 +5,7 @@ export const META = {
 	desc: 'End 2023 with a video for your GitHub stats.',
 	twitter: '@withgraphite',
 	domain: {
-		prod: 'https://graphite-wrapped.vercel.app/',
+		prod: 'https://year-in-code.vercel.app/',
 		web: 'https://graphite.dev/'
 	}
 }
