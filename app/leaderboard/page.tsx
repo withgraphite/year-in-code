@@ -22,13 +22,9 @@ export default async function LeaderBoard() {
 	} = await supabase.auth.getSession()
 
 	const {data, error} = await supabase
-		.from('profile')
-		.select(
-			'user_name, company, avatar_url, pull_requests_opened, is_graphite_user'
-		)
+		.from('leaderboard')
+		.select('*')
 		.order('pull_requests_opened', {ascending: false})
-		.eq('is_public', true)
-		.limit(50)
 	if (error) console.error(error.message)
 
 	return (

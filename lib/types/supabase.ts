@@ -70,7 +70,16 @@ export interface Database {
       }
     }
     Views: {
-      [_ in never]: never
+      leaderboard: {
+        Row: {
+          avatar_url: string | null
+          company: string | null
+          is_graphite_user: boolean | null
+          pull_requests_opened: number | null
+          user_name: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
