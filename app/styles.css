@@ -17,16 +17,16 @@ html {
 		@apply text-xl;
 	}
 	input {
-		@apply border-primary bg-primary w-full rounded-md px-3 py-2 focus:outline-none;
+		@apply border-primary bg-primary w-full rounded-xl px-3 py-2 focus:outline-none;
 	}
 	input[type='checkbox'] {
 		@apply h-6 w-6 shrink-0 appearance-none bg-white bg-opacity-60 p-0 checked:bg-blue-600/60;
 	}
 	select {
-		@apply border-primary bg-primary w-full appearance-none rounded-md px-3 py-2 focus:outline-none;
+		@apply border-primary bg-primary w-full appearance-none rounded-xl px-3 py-2 focus:outline-none;
 	}
 	button {
-		@apply flex items-center justify-center gap-2 rounded-md border-2 border-black bg-black px-6 py-2 text-white transition-all hover:bg-white hover:text-black disabled:cursor-not-allowed;
+		@apply flex items-center justify-center gap-2 rounded-xl border-2 border-black bg-black px-6 py-2 font-thin text-white transition-all hover:bg-white hover:text-black disabled:cursor-not-allowed;
 	}
 	code {
 		@apply border-primary rounded-sm bg-neutral-200 bg-opacity-60 p-2 text-sm;

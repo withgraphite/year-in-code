@@ -62,7 +62,7 @@ export default function DeleteButton({session}: {session: Session}) {
 						<AlertDialogAction
 							className='border-none p-0'
 							onClick={handleDelete}>
-							<span className='h-full w-full rounded-md border-2 border-red-500 bg-red-200 px-6 py-2 text-red-500 transition-colors duration-300 hover:bg-red-300 hover:text-red-600'>
+							<span className='h-full w-full rounded-xl border-2 border-red-500 bg-red-200 px-6 py-2 text-red-500 transition-colors duration-300 hover:bg-red-300 hover:text-red-600'>
 								Delete
 							</span>
 						</AlertDialogAction>
