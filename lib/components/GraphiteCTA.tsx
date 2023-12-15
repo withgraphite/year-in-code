@@ -6,7 +6,7 @@ export default function GraphiteCTA({className}: {className?: string}) {
 		<Link
 			href={META.domain.web}
 			target='_blank'
-			className={`${className} group flex items-center text-2xl no-underline`}>
+			className={`${className} group flex items-center text-2xl font-semibold no-underline`}>
 			Graphite
 		</Link>
 	)

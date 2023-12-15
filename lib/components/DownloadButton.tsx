@@ -50,5 +50,5 @@ export default function DownloadButton({
 	if (state.status === 'rendering')
 		return <p className='text-white'>Rendering...</p>
 	if (state.status === 'init')
-		return <button onClick={renderMedia}>Render</button>
+		return <button onClick={renderMedia}>Render video</button>
 }

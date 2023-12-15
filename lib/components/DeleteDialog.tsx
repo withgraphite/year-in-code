@@ -45,7 +45,7 @@ export default function DeleteButton({session}: {session: Session}) {
 	return (
 		<Tooltip body='Delete'>
 			<AlertDialog>
-				<AlertDialogTrigger className='group p-2 hover:border-red-500 hover:bg-red-200'>
+				<AlertDialogTrigger className='group rounded-md p-2 hover:border-red-500 hover:bg-red-200'>
 					<TrashIcon className='h-5 w-5 text-black group-hover:text-red-500' />
 				</AlertDialogTrigger>
 				<AlertDialogContent className='bg-white'>
