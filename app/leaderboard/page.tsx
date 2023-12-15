@@ -32,9 +32,9 @@ export default async function LeaderBoard() {
 	if (error) console.error(error.message)
 
 	return (
-		<div className='flex min-h-screen w-full flex-col items-center gap-5 p-5 py-10'>
+		<div className='mt-32 flex min-h-screen w-full flex-col items-center gap-5 sm:mb-32'>
 			<div className='w-full max-w-3xl rounded-xl bg-white/60 p-5'>
-				<div className='flex w-full flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0'>
+				<div className='flex w-full flex-col items-center justify-between gap-5 sm:flex-row sm:gap-0'>
 					<div>
 						<h1 className='font-extralight'>Leaderboard</h1>
 						<h3 className='flex flex-wrap gap-1 font-thin'>

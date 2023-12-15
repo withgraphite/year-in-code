@@ -9,28 +9,30 @@ export default function Nav() {
 	if (pathname === '/loading') return
 
 	return (
-		<nav className='flex w-full flex-col items-center justify-center gap-3 p-5'>
-			<GraphiteCTA className='text-2xl' />
-			{pathname !== '/' && (
-				<div className='flex w-full max-w-3xl items-center justify-center'>
-					<Link
-						className={`border-r border-black px-3 text-xl no-underline ${
-							pathname !== '/leaderboard' ? 'font-bold' : ''
-						}`}
-						href='/'>
-						Year in Code
-					</Link>
-					<p></p>
+		<nav className='absolute left-0 top-0 z-50 flex w-full items-center justify-center p-5'>
+			<div className='flex w-full max-w-3xl flex-col items-center justify-center gap-3'>
+				<GraphiteCTA className='text-2xl' />
+				{pathname !== '/' && (
+					<div className='flex w-full max-w-3xl items-center justify-center'>
+						<Link
+							className={`border-r border-black px-3 text-xl no-underline ${
+								pathname !== '/leaderboard' ? 'font-bold' : ''
+							}`}
+							href='/'>
+							Year in Code
+						</Link>
+						<p></p>
 
-					<Link
-						className={`px-3 text-xl no-underline ${
-							pathname === '/leaderboard' ? 'font-bold' : ''
-						}`}
-						href='/leaderboard'>
-						Leaderboard
-					</Link>
-				</div>
-			)}
+						<Link
+							className={`px-3 text-xl no-underline ${
+								pathname === '/leaderboard' ? 'font-bold' : ''
+							}`}
+							href='/leaderboard'>
+							Leaderboard
+						</Link>
+					</div>
+				)}
+			</div>
 		</nav>
 	)
 }
