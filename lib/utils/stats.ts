@@ -54,9 +54,13 @@ export async function getStats(token: string): Promise<Stats | null> {
 		location: location
 	}
 
+	// Prevent email from being stores with the stats
+	const email = userStats.email ? userStats.email : ''
+	if (userStats.email) delete userStats.email
+
 	// Save to database
 	const {data, error} = await supabase.from('profile').insert({
-		email: highlights.email ?? '',
+		email: email,
 		user_name: highlights.username,
 		avatar_url: highlights.avatarUrl ?? '',
 		company: highlights.company ?? '',
