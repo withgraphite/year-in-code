@@ -19,9 +19,9 @@ import Number from '../scenes/Statistic'
 import Times from '../scenes/Times'
 import {Stats} from '../types/github'
 import {Manifest} from '../types/video'
-import {injectFont} from '../utils/fonts'
+// import {injectFont} from '../utils/fonts'
 
-injectFont()
+// injectFont()
 
 export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 	const {fps} = useVideoConfig()

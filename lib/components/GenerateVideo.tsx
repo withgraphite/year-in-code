@@ -30,5 +30,5 @@ export default function GenerateVideo({session}: {session: Session}) {
 
 	if (stats && scenes) router.push(`/${session.user.user_metadata.user_name}`)
 	if (stats && !scenes) return <Loading stats={stats} />
-	else return <p>Loading...</p>
+	else return <h2 className='font-thin'>Loading...</h2>
 }
