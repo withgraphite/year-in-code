@@ -23,8 +23,8 @@ export default function SignInButton({className}: {className?: string}) {
 		<button
 			onClick={handleLogin}
 			className={cn('group w-fit  lg:w-fit', className)}>
-			<span className='text-base sm:text-lg'>Get started with GitHub</span>
-			<ArrowRight className='h-6 w-6 transition-transform duration-300 group-hover:translate-x-1' />
+			<span className='text-base sm:text-lg'>Unlock your year in code</span>
+			<ArrowRight className='h-4 w-4 transition-transform duration-300 group-hover:translate-x-1' />
 		</button>
 	)
 }

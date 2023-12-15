@@ -21,7 +21,7 @@ export default function Hero({session}: {session: Session}) {
 				<Link
 					href='/leaderboard'
 					className='flex w-fit items-center justify-center gap-2 rounded-xl border-2 border-black bg-transparent px-6 py-2 text-base font-thin text-black no-underline transition-all hover:bg-black hover:text-white hover:opacity-100 sm:w-full sm:text-lg'>
-					See Leaderboard
+					See leaderboard
 				</Link>
 			</div>
 		</motion.div>
