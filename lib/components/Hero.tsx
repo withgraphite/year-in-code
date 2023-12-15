@@ -10,12 +10,15 @@ export default function Hero({session}: {session: Session}) {
 			initial={{opacity: 0, scale: 1}}
 			animate={{opacity: 1, scale: 1}}
 			transition={{delay: 0.3, duration: 0.5}}
-			className='z-10 flex h-[450px] w-[450px] flex-col items-center justify-center gap-2 rounded-full bg-gradient-radial from-[#5BDCF9] to-[#2C6FFC] p-10 text-center transition-all duration-300'>
-			<h1 className='text-black'>Year in Code</h1>
-			<div className='flex flex-col text-xl text-black'>
-				<span>End the year with a video</span>
-				<span>for your GitHub stats</span>
+			className='z-10 flex h-[450px] w-[450px] flex-col items-center justify-center gap-6 rounded-full bg-gradient-radial from-[#5BDCF9] to-[#2C6FFC] p-10 text-center transition-all duration-300'>
+			<div className='flex flex-col gap-3'>
+				<h1 className='text-black'>Year in Code</h1>
+				<div className='flex flex-col text-xl text-black'>
+					<span>End the year with a video</span>
+					<span>for your GitHub stats</span>
+				</div>
 			</div>
+
 			<div className='flex flex-col items-center gap-3'>
 				<SignInButton className='w-full' />
 				<Link
