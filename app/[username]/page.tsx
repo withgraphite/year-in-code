@@ -3,6 +3,7 @@ import {Metadata} from 'next'
 import {cookies} from 'next/headers'
 import DownloadButton from '~/components/DownloadButton'
 import Player from '~/components/Player'
+import SignInButton from '~/components/SignInButton'
 import Toolbar from '~/components/Toolbar'
 import {Stats} from '~/types/github'
 import {Database} from '~/types/supabase'
@@ -39,11 +40,11 @@ export default async function Profile({params}: {params: {username: string}}) {
 	const {
 		data: {session}
 	} = await supabase.auth.getSession()
-	const profile = await getProfile(params.username, session)
+	const {data: profile, error} = await getProfile(params.username, session)
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-5'>
 			{/* User exists */}
-			{profile && (
+			{profile && !error && (
 				<div
 					id='videoContainer'
 					className='flex w-full max-w-3xl flex-col justify-center gap-5 sm:items-center'>
@@ -75,17 +76,18 @@ export default async function Profile({params}: {params: {username: string}}) {
 				</div>
 			)}
 
-			{/* User does not exist */}
-			{!profile && (
+			{/* Error handling */}
+			{error && (
 				<div className='flex flex-col items-center justify-center gap-5'>
-					<h3 className='text-center'>
-						Oops! <span className='font-semibold'>{params.username}</span> either does
-						not exist or has a private video.
-					</h3>
-					<Toolbar
-						profile={profile}
-						session={session}
-					/>
+					<h2 className='text-center font-thin'>
+						Oops! <span className='font-semibold'>{params.username}</span>{' '}
+						{error === 'Incomplete profile' ? (
+							<span>has an incomplete video. Try again.</span>
+						) : (
+							<span>either does not exist, or has a private video.</span>
+						)}
+					</h2>
+					{!session && <SignInButton />}
 				</div>
 			)}
 		</div>

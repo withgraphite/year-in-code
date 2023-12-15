@@ -18,9 +18,11 @@ export default async function Loading() {
 	if (!session) redirect('/')
 
 	// Profile already generated, redirect to profile page
-	const profile = await getProfile(session.user.user_metadata.user_name, session)
-	if (profile && profile.github_stats && profile.video_manifest)
-		redirect(`/${session.user.user_metadata.user_name}`)
+	const {data: profile, error} = await getProfile(
+		session.user.user_metadata.user_name,
+		session
+	)
+	if (profile && !error) redirect(`/${session.user.user_metadata.user_name}`)
 
 	// GitHub provider_token is null if a user revisits the page after the token has expired
 	// Sign out user and redirect back to home page. Reference: https://github.com/supabase/gotrue-js/issues/806
