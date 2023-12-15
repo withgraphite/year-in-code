@@ -2,7 +2,6 @@ import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {Metadata} from 'next'
 import {cookies} from 'next/headers'
 import DownloadButton from '~/components/DownloadButton'
-import GitHubButton from '~/components/GitHubButton'
 import Player from '~/components/Player'
 import Toolbar from '~/components/Toolbar'
 import {Stats} from '~/types/github'
@@ -52,10 +51,6 @@ export default async function Profile({params}: {params: {username: string}}) {
 					<div className='flex w-full flex-col justify-between gap-5 sm:flex-row sm:gap-0'>
 						<div className='flex items-center gap-3'>
 							<h1 className='text-black'>{`${params.username}`}</h1>
-							<GitHubButton
-								username={params.username}
-								className='h-10 w-10 hover:opacity-100'
-							/>
 						</div>
 						<Toolbar
 							profile={profile}
