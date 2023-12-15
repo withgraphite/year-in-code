@@ -44,10 +44,10 @@ export default async function LeaderBoard() {
 					{!session && <SignInButton className='w-full sm:w-fit' />}
 				</div>
 				<div className='group/table grid w-full gap-3'>
-					<div className='grid w-full grid-cols-6 items-center justify-between border-b border-stone-300 font-thin opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
+					<div className='grid w-full grid-cols-8 items-center justify-between border-b border-stone-300 font-thin opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
 						<p>Rank</p>
-						<p className='col-span-3 col-start-2'>Username</p>
-						<p className='col-span-2 col-start-5 text-right'>Pull requests opened</p>
+						<p className='col-span-5 col-start-2'>Username</p>
+						<p className='col-span-2 col-start-7 text-right'>Pull requests opened</p>
 					</div>
 					{data.map((item, i) => (
 						<div
@@ -66,11 +66,13 @@ export default async function LeaderBoard() {
 								)}
 								<Link
 									href={`/${item.user_name}`}
-									className='no-underline hover:underline'>
+									className='font-light no-underline hover:underline'>
 									<p>{item.user_name}</p>
 								</Link>
 								{item.company && (
-									<p className='hidden text-black/50 sm:flex'>{item.company}</p>
+									<p className='hidden font-light text-black/50 sm:flex'>
+										{item.company}
+									</p>
 								)}
 								{item.is_graphite_user && <GraphiteBadge />}
 							</div>

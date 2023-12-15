@@ -3,7 +3,7 @@
 @tailwind components;
 
 html {
-	@apply text-stone-800;
+	@apply text-black;
 }
 
 @layer base {
@@ -48,20 +48,5 @@ html {
 	}
 	.text-secondary {
 		@apply text-neutral-600 dark:text-neutral-400;
-	}
-}
-
-@layer utilities {
-	.smooth-stop {
-		transition: animation-play-state 1s ease;
-	}
-}
-
-@keyframes rotate {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
 	}
 }

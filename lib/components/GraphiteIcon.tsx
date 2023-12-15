@@ -5,7 +5,6 @@ export default function GraphiteIcon({className}: {className?: string}) {
 		<svg
 			id='a'
 			xmlns='http://www.w3.org/2000/svg'
-			fill='black'
 			className={cn('flex items-center justify-center', className)}
 			viewBox='0 0 20 20'>
 			<path
