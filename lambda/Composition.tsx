@@ -1,6 +1,7 @@
 'use client'
 
 import {Composition as RemotionComposition} from 'remotion'
+import '../app/styles.css'
 import Video from '../lib/components/Video'
 import {Stats} from '../lib/types/github'
 import {Manifest} from '../lib/types/video'

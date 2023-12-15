@@ -1,6 +1,7 @@
 import {deployFunction, deploySite, getOrCreateBucket} from '@remotion/lambda'
 import path from 'path'
 import {RAM, REGION, SITE_NAME, TIMEOUT} from './config'
+import {webpackOverride} from './webpack-override'
 
 export default async function deploy() {
 	const {functionName, alreadyExisted: functionAlreadyExisted} =
@@ -31,7 +32,8 @@ export default async function deploy() {
 		entryPoint: path.join(process.cwd(), 'lambda', 'root.ts'),
 		siteName: SITE_NAME,
 		options: {
-			publicDir: path.join(process.cwd(), 'public')
+			publicDir: path.join(process.cwd(), 'public'),
+			webpackOverride: webpackOverride
 		},
 		region: REGION
 	})
