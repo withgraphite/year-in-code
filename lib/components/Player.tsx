@@ -1,7 +1,8 @@
 'use client'
 
-import {Player as RemotionPlayer} from '@remotion/player'
-import {useEffect, useState} from 'react'
+import {Player as RemotionPlayer, RenderPlayPauseButton} from '@remotion/player'
+import {PauseIcon, PlayIcon} from 'lucide-react'
+import {useCallback, useEffect, useState} from 'react'
 import {Stats} from '~/types/github'
 import {Manifest} from '~/types/video'
 import Video from './Video'
@@ -33,6 +34,14 @@ export default function Player({
 		}
 	}, [])
 
+	const renderPlayPauseButton: RenderPlayPauseButton = useCallback(
+		({playing}) => {
+			if (playing) return <PauseIcon className='text-white' />
+			return <PlayIcon className='text-white' />
+		},
+		[]
+	)
+
 	return (
 		<RemotionPlayer
 			style={{
@@ -47,6 +56,7 @@ export default function Player({
 			controls
 			className='rounded-md'
 			loop
+			renderPlayPauseButton={renderPlayPauseButton}
 		/>
 	)
 }
