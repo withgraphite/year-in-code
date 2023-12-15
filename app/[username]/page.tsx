@@ -39,8 +39,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 	const {
 		data: {session}
 	} = await supabase.auth.getSession()
-	const profile = await getProfile(params.username)
-
+	const profile = await getProfile(params.username, session)
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-5'>
 			{/* User exists */}

@@ -82,7 +82,28 @@ export interface Database {
       }
     }
     Functions: {
-      [_ in never]: never
+      get_profile: {
+        Args: {
+          user_name_input?: string
+          id_input?: string
+        }
+        Returns: {
+          avatar_url: string | null
+          company: string | null
+          created_at: string
+          download_size: number | null
+          download_url: string | null
+          email: string | null
+          github_stats: Json | null
+          id: string
+          is_graphite_user: boolean
+          is_public: boolean
+          is_rendered: boolean | null
+          pull_requests_opened: number | null
+          user_name: string
+          video_manifest: Json | null
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
