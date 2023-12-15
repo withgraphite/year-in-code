@@ -33,7 +33,7 @@ export default async function LeaderBoard() {
 
 	return (
 		<div className='flex min-h-screen w-full flex-col items-center gap-5 p-5 py-10'>
-			<div className='rounded-xl bg-white/60 p-5'>
+			<div className='w-full max-w-3xl rounded-xl bg-white/60 p-5'>
 				<div className='flex w-full flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0'>
 					<div>
 						<h1 className='font-extralight'>Leaderboard</h1>
@@ -47,7 +47,7 @@ export default async function LeaderBoard() {
 					</div>
 					{!session && <SignInButton className='w-full sm:w-fit' />}
 				</div>
-				<div className='group/table grid w-full gap-3'>
+				<div className='group/table grid w-full'>
 					<div className='grid w-full grid-cols-8 items-center justify-between border-b border-stone-300 font-thin opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
 						<p>Rank</p>
 						<p className='col-span-5 col-start-2'>Username</p>
@@ -56,7 +56,7 @@ export default async function LeaderBoard() {
 					{data.map((item, i) => (
 						<div
 							key={item.user_name}
-							className='grid w-full grid-cols-8 items-center justify-between'>
+							className='grid w-full grid-cols-8 items-center justify-between border-t border-black/50 py-2'>
 							<span className='text-xl font-light'>{i + 1}</span>
 							<div className='group/item relative col-span-6 col-start-2 flex items-center gap-2 text-black'>
 								{item.avatar_url && (
