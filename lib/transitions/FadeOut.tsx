@@ -1,16 +1,18 @@
 export default function FadeOut({
 	children,
 	frame,
-	delay = 0
+	delay = 0,
+	duration = 30
 }: {
 	children: React.ReactNode
 	frame: number
-	delay: number
+	delay?: number
+	duration?: number
 }) {
 	return (
 		<div
 			style={{
-				opacity: frame >= delay + 30 ? 0 : 1 - (frame - delay) / 30
+				opacity: frame >= delay + duration ? 0 : 1 - (frame - delay) / duration
 			}}>
 			{children}
 		</div>
