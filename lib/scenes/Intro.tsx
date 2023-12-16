@@ -1,6 +1,6 @@
 import {useCurrentFrame} from 'remotion'
-import FadeOut from '~/transitions/FadeOut'
 import FastTravel from '../environment/FastTravel'
+import FadeOut from '../transitions/FadeOut'
 import Canvas from './../3d/Canvas'
 import Camera from './../camera/Camera'
 import Space from './../environment/Space'
