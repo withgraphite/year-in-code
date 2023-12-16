@@ -4,15 +4,7 @@ import Camera from '../camera/Camera'
 import FastTravel from '../environment/FastTravel'
 import Sequence from '../video/Sequence'
 
-export default function Stars({
-	text,
-	from,
-	stars
-}: {
-	text: string
-	from: number
-	stars: number
-}) {
+export default function Stars({text, from}: {text: string; from: number}) {
 	const frame = useCurrentFrame() - from
 
 	return (
