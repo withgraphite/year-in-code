@@ -35,6 +35,7 @@ export default function Number({
 	return (
 		<mesh
 			ref={meshRef}
+			position={[0, -30, 0]}
 			rotation={[0, -0.75 + frame / 30 / 5, 0]}
 			scale={[10, 10, 10]}>
 			<textGeometry

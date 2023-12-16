@@ -23,28 +23,26 @@ export default function Statistic({
 			transitionIn='fade'
 			transitionOut='warp'
 			background={
-				<div className='mt-16'>
-					<FadeIn
+				<FadeIn
+					frame={frame}
+					delay={30}>
+					<Canvas
 						frame={frame}
-						delay={30}>
-						<Canvas
-							frame={frame}
-							camera={
-								<Camera
-									position={[0, 0, 400]}
-									fov={50}
-								/>
-							}>
-							<Space tick={frame} />
-
-							<Number
-								frame={frame}
-								number={number}
+						camera={
+							<Camera
+								position={[0, 0, 400]}
+								fov={50}
 							/>
-							<Lighting ambient={{intensity: 0.5}} />
-						</Canvas>
-					</FadeIn>
-				</div>
+						}>
+						<Space tick={frame} />
+
+						<Number
+							frame={frame}
+							number={number}
+						/>
+						<Lighting ambient={{intensity: 0.5}} />
+					</Canvas>
+				</FadeIn>
 			}
 			content={<h2 className='mb-52'>{text}</h2>}
 		/>
