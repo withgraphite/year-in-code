@@ -1,10 +1,5 @@
-import {
-	AbsoluteFill,
-	Audio,
-	Sequence,
-	staticFile,
-	useVideoConfig
-} from 'remotion'
+import {AbsoluteFill, Audio, staticFile, useVideoConfig} from 'remotion'
+import Stars from '~/scenes/Stars'
 import AllStats from '../scenes/AllStats'
 import Conclusion from '../scenes/Conclusion'
 import Contributions from '../scenes/Contributions'
@@ -14,7 +9,6 @@ import Languages from '../scenes/Languages'
 import Months from '../scenes/Months'
 import People from '../scenes/People'
 import Repos from '../scenes/Repos'
-import Stars from '../scenes/Stars'
 import Number from '../scenes/Statistic'
 import Times from '../scenes/Times'
 import {Stats} from '../types/github'
@@ -51,15 +45,6 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 								dateFrom={animation.dateFrom}
 								dateTo={animation.dateTo}
 								text={text}
-							/>
-						)
-					case 'stars':
-						return (
-							<Stars
-								key={i}
-								from={i * fps * 5}
-								text={text}
-								stars={animation.numStars}
 							/>
 						)
 					case 'languages':
@@ -148,14 +133,11 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 
 					default:
 						return (
-							<Sequence
+							<Stars
 								key={i}
 								from={i * fps * 5}
-								durationInFrames={fps * 5}>
-								<div className='absolute flex h-full w-full items-center justify-center bg-black'>
-									<h2 className='mx-48 text-center text-white'>{text}</h2>
-								</div>
-							</Sequence>
+								text={text}
+							/>
 						)
 				}
 			})}

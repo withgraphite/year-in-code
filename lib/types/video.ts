@@ -39,12 +39,6 @@ export const videoSchema = z.object({
 							.describe('Ticks backwards from dateFrom to dateTo then shows text'),
 						z
 							.object({
-								type: z.enum(['stars']),
-								numStars: z.number()
-							})
-							.describe('Star animation'),
-						z
-							.object({
 								type: z.enum(['people']),
 								people: z.array(z.string().url())
 							})
@@ -108,6 +102,7 @@ export const videoSchema = z.object({
 							})
 							.describe('Displays a conclusion')
 					])
+					.optional()
 					.describe('Animation to be used to display alongside the text')
 			})
 		)
