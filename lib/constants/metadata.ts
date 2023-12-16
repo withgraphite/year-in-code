@@ -7,7 +7,9 @@ export const META = {
 	domain: {
 		prod: 'https://year-in-code.vercel.app/',
 		web: 'https://graphite.dev/'
-	}
+	},
+	blog: 'https://rubriclabs.com/blog/year-in-code',
+	github: 'https://github.com/withgraphite/year-in-code'
 }
 
 export const DEFAULT_META: Metadata = {

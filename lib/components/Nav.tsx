@@ -21,8 +21,6 @@ export default function Nav() {
 							href='/'>
 							Year in Code
 						</Link>
-						<p></p>
-
 						<Link
 							className={`px-3 text-xl no-underline ${
 								pathname === '/leaderboard' ? 'font-bold' : ''

@@ -5,6 +5,7 @@ import PlausibleProvider from 'next-plausible'
 import localFont from 'next/font/local'
 import {Toaster} from 'sonner'
 import BackgroundGradient from '~/components/BackgroundGradient'
+import Footer from '~/components/Footer'
 import Nav from '~/components/Nav'
 import {DEFAULT_META} from '~/constants/metadata'
 import './styles.css'
@@ -50,6 +51,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				<Toaster />
 				<div className='flex w-full max-w-3xl items-center justify-center'>
 					{children}
+					<Footer />
 				</div>
 			</body>
 		</html>

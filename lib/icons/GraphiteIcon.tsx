@@ -3,7 +3,6 @@ import cn from '~/utils/cn'
 export default function GraphiteIcon({className}: {className?: string}) {
 	return (
 		<svg
-			id='a'
 			xmlns='http://www.w3.org/2000/svg'
 			className={cn('flex items-center justify-center', className)}
 			viewBox='0 0 20 20'>

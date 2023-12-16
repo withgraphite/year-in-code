@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import {META} from '~/constants/metadata'
-import GraphiteIcon from './GraphiteIcon'
+import GraphiteIcon from '../icons/GraphiteIcon'
 
 export default function GraphiteBadge() {
 	return (
