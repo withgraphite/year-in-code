@@ -8,7 +8,7 @@ export default function Stopwatch() {
 		const minutes = Math.floor(totalSeconds / 60)
 		const seconds = totalSeconds % 60
 		return (
-			<div className='flex w-20 items-center justify-between text-stone-500 2xl:w-40'>
+			<div className='flex w-20 items-center justify-between 2xl:w-40'>
 				<span className='flex w-2/5 justify-end'>
 					{minutes.toString().padStart(2, '0')}
 				</span>
