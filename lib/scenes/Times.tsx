@@ -21,7 +21,10 @@ export default function Times({from, text}: {from: number; text: string}) {
 							fov={50}
 						/>
 					}>
-					<FastTravel tick={frame} />
+					<FastTravel
+						tick={frame}
+						speed={1}
+					/>
 				</Canvas>
 			}
 			content={<h2>{text}</h2>}

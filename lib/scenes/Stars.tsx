@@ -29,7 +29,10 @@ export default function Stars({
 							fov={50}
 						/>
 					}>
-					<FastTravel tick={frame} />
+					<FastTravel
+						tick={frame}
+						speed={1}
+					/>
 				</Canvas>
 			}
 			content={
