@@ -62,11 +62,11 @@ function Contributions({stats}: {stats: Stats}) {
 
 	return (
 		<div className='group relative flex max-w-6xl flex-col items-start p-5'>
-			<div className='flex w-full flex-col items-baseline text-gray-400 sm:flex-row sm:justify-between'>
+			<div className='flex w-full flex-row items-baseline justify-between text-gray-400'>
 				<h1 className='mb-2 whitespace-nowrap text-left text-xl font-medium text-gray-200'>
 					Contributions
 				</h1>
-				<div className='mb-4 space-x-1 sm:mb-0'>
+				<div className='mb-0 space-x-1'>
 					{maxDate && max > 10 && (
 						<span>
 							Top day: {max} on {maxDate}

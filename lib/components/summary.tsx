@@ -12,7 +12,7 @@ import TopRepos from './topRepos'
 function Summary({stats}: {stats: Stats}) {
 	return (
 		<div className='relative flex flex-col items-center justify-center'>
-			<div className='flex flex-col sm:flex-row'>
+			<div className='flex flex-row'>
 				<div className='flex flex-col'>
 					<Highlights stats={stats} />
 					<TopRepos stats={stats} />
