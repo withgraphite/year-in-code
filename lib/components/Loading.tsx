@@ -2,7 +2,7 @@
 import {AnimatePresence, motion} from 'framer-motion'
 import {useEffect, useState} from 'react'
 import {Stats} from '~/types/github'
-import Timer from './Timer'
+import Stopwatch from './Stopwatch'
 
 export default function Loading({stats}: {stats: Stats}) {
 	const [count, setCount] = useState(0)
@@ -60,8 +60,7 @@ export default function Loading({stats}: {stats: Stats}) {
 					</h2>
 				</motion.div>
 			</AnimatePresence>
-
-			<Timer />
+			<Stopwatch />
 		</div>
 	)
 }

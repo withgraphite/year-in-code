@@ -1,36 +1,60 @@
 'use client'
-
 import {useEffect, useState} from 'react'
 
-export default function Timer() {
-	const [seconds, setSeconds] = useState(0)
+export default function Timer({targetDateTime}: {targetDateTime: Date}) {
+	const [timeLeft, setTimeLeft] = useState(0)
 
-	const formatTime = (totalSeconds: number) => {
-		const minutes = Math.floor(totalSeconds / 60)
+	const calculateTimeLeft = () => {
+		const now = new Date()
+		const difference = targetDateTime.getTime() - now.getTime()
+		return difference > 0 ? difference : 0 // Avoid negative time
+	}
+
+	const formatTime = totalMilliseconds => {
+		const totalSeconds = Math.floor(totalMilliseconds / 1000)
+		const days = Math.floor(totalSeconds / (3600 * 24))
+		const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600)
+		const minutes = Math.floor((totalSeconds % 3600) / 60)
 		const seconds = totalSeconds % 60
 		return (
-			<div className='flex w-20 items-center justify-between text-stone-500 2xl:w-40'>
-				<span className='flex w-2/5 justify-end'>
-					{minutes.toString().padStart(2, '0')}
-				</span>
-				<span className='flex w-1/5 items-center justify-center'>:</span>
-				<span className='flex w-2/5'>{seconds.toString().padStart(2, '0')}</span>
+			<div className='flex w-full items-center justify-between gap-1'>
+				<p className='flex w-1/4 items-end gap-1 text-center'>
+					<span className='w-1/2'>{days.toString().padStart(2, '0')}</span>
+					<span className='w-1/2 pb-0.5 text-left text-base'>days</span>
+				</p>
+				<span>:</span>
+				<p className='flex w-1/4 items-end gap-1 text-center'>
+					<span className='w-1/2'>{hours.toString().padStart(2, '0')}</span>
+					<span className='w-1/2 pb-0.5 text-left text-base'>hrs</span>
+				</p>
+				<span>:</span>
+				<p className='flex w-1/4 items-end gap-1 text-center'>
+					<span className='w-1/2'>{minutes.toString().padStart(2, '0')}</span>
+					<span className='w-1/2 pb-0.5 text-left text-base'>min</span>
+				</p>
+				<span>:</span>
+				<p className='flex w-1/4 items-end gap-1 text-center'>
+					<span className='w-1/2'>{seconds.toString().padStart(2, '0')}</span>
+					<span className='w-1/2 pb-0.5 text-left text-base'>sec</span>
+				</p>
 			</div>
 		)
 	}
 
 	useEffect(() => {
+		setTimeLeft(calculateTimeLeft())
+
 		const timerInterval = setInterval(() => {
-			setSeconds(prev => prev + 1)
-		}, 1 * 1000)
+			setTimeLeft(calculateTimeLeft())
+		}, 1000) // Update every second
 
 		// Clear the interval on component unmount
 		return () => clearInterval(timerInterval)
-	}, [])
+	}, [targetDateTime])
 
 	return (
-		<div className='absolute top-12 h-10 text-2xl font-extralight text-black/50 2xl:text-4xl'>
-			{formatTime(seconds)}
+		<div className='flex w-full flex-col gap-1 font-extralight text-black/50 sm:px-5'>
+			<p className='text-3xl 2xl:text-4xl'>{formatTime(timeLeft)}</p>
 		</div>
 	)
 }
