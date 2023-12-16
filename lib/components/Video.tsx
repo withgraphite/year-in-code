@@ -1,5 +1,4 @@
 import {AbsoluteFill, Audio, staticFile, useVideoConfig} from 'remotion'
-import Stars from '~/scenes/Stars'
 import AllStats from '../scenes/AllStats'
 import Conclusion from '../scenes/Conclusion'
 import Contributions from '../scenes/Contributions'
@@ -9,13 +8,11 @@ import Languages from '../scenes/Languages'
 import Months from '../scenes/Months'
 import People from '../scenes/People'
 import Repos from '../scenes/Repos'
+import Stars from '../scenes/Stars'
 import Number from '../scenes/Statistic'
 import Times from '../scenes/Times'
 import {Stats} from '../types/github'
 import {Manifest} from '../types/video'
-// import {injectFont} from '../utils/fonts'
-
-// injectFont()
 
 export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 	const {fps} = useVideoConfig()
