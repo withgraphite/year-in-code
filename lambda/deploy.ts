@@ -1,6 +1,6 @@
 import {deployFunction, deploySite, getOrCreateBucket} from '@remotion/lambda'
 import path from 'path'
-import {RAM, REGION, SITE_NAME, TIMEOUT} from './config'
+import {DISK, RAM, REGION, SITE_NAME, TIMEOUT} from './config'
 import {webpackOverride} from './webpack-override'
 
 export default async function deploy() {
@@ -8,6 +8,7 @@ export default async function deploy() {
 		await deployFunction({
 			createCloudWatchLogGroup: true,
 			memorySizeInMb: RAM,
+			diskSizeInMb: DISK,
 			region: REGION,
 			timeoutInSeconds: TIMEOUT
 		})
