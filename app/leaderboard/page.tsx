@@ -15,6 +15,49 @@ export const metadata = {
 	description: 'See who opened the most pull requests in 2023.'
 }
 
+function LineItem({
+	index,
+	userName,
+	avatarUrl,
+	company,
+	isGraphiteUser,
+	pullRequestsOpened
+}: {
+	index: number
+	userName: string
+	avatarUrl: string
+	company: string
+	isGraphiteUser: boolean
+	pullRequestsOpened: number
+}) {
+	return (
+		<div className='grid w-full grid-cols-8 items-center justify-between border-t border-black/50 py-2'>
+			<span className='text-xl font-light'>{index + 1}</span>
+			<div className='group/item relative col-span-6 col-start-2 flex items-center gap-2 text-black'>
+				{avatarUrl && (
+					<Image
+						src={avatarUrl}
+						width={30}
+						height={30}
+						className='rounded-full transition-transform duration-300 hover:scale-125'
+						alt={`Profile picture`}
+					/>
+				)}
+				<Link
+					href={`/${userName}`}
+					className='font-light no-underline hover:underline'>
+					<p>{userName}</p>
+				</Link>
+				{company && (
+					<p className='hidden font-light text-black/50 sm:flex'>{company}</p>
+				)}
+				{isGraphiteUser && <GraphiteBadge />}
+			</div>
+			<p className='text-right text-xl font-light'>{pullRequestsOpened}</p>
+		</div>
+	)
+}
+
 export default async function LeaderBoard() {
 	const supabase = createServerComponentClient({cookies})
 	const {
@@ -28,7 +71,7 @@ export default async function LeaderBoard() {
 	if (error) console.error(error.message)
 
 	return (
-		<div className='mt-32 flex min-h-screen w-full flex-col items-center gap-5 sm:mb-32'>
+		<div className='my-32 flex min-h-screen w-full flex-col items-center gap-5'>
 			<div className='flex w-full max-w-3xl flex-col gap-3 rounded-xl bg-white/60 p-5'>
 				<div className='flex w-full flex-col items-center justify-between gap-5 sm:flex-row sm:gap-0'>
 					<div>
@@ -46,40 +89,21 @@ export default async function LeaderBoard() {
 				<div className='group/table grid w-full'>
 					<div className='grid w-full grid-cols-8 items-center justify-between border-b border-stone-300 font-thin opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
 						<p>Rank</p>
-						<p className='col-span-5 col-start-2'>Username</p>
-						<p className='col-span-2 col-start-7 text-right'>Pull requests opened</p>
+						<p className='col-span-4 col-start-2 sm:col-span-5'>Username</p>
+						<p className='col-span-3 col-start-6 text-right sm:col-span-2 sm:col-start-7'>
+							Pull requests opened
+						</p>
 					</div>
 					{data.map((item, i) => (
-						<div
-							key={item.user_name}
-							className='grid w-full grid-cols-8 items-center justify-between border-t border-black/50 py-2'>
-							<span className='text-xl font-light'>{i + 1}</span>
-							<div className='group/item relative col-span-6 col-start-2 flex items-center gap-2 text-black'>
-								{item.avatar_url && (
-									<Image
-										src={item.avatar_url}
-										width={30}
-										height={30}
-										className='rounded-full transition-transform duration-300 hover:scale-125'
-										alt={`Profile picture`}
-									/>
-								)}
-								<Link
-									href={`/${item.user_name}`}
-									className='font-light no-underline hover:underline'>
-									<p>{item.user_name}</p>
-								</Link>
-								{item.company && (
-									<p className='hidden font-light text-black/50 sm:flex'>
-										{item.company}
-									</p>
-								)}
-								{item.is_graphite_user && <GraphiteBadge />}
-							</div>
-							<p className='text-right text-xl font-light'>
-								{item.pull_requests_opened}
-							</p>
-						</div>
+						<LineItem
+							key={item.user}
+							index={i}
+							userName={item.user_name}
+							avatarUrl={item.avatar_url}
+							company={item.company}
+							isGraphiteUser={item.is_graphite_user}
+							pullRequestsOpened={item.pull_requests_opened}
+						/>
 					))}
 				</div>
 			</div>

@@ -20,12 +20,12 @@ export default function Timer({targetDateTime}: {targetDateTime: Date}) {
 			<div className='flex w-full items-center justify-between gap-1'>
 				<p className='flex w-1/4 items-end gap-1 text-center'>
 					<span className='w-1/2'>{days.toString().padStart(2, '0')}</span>
-					<span className='w-1/2 pb-0.5 text-left text-base'>days</span>
+					<span className='w-1/2 pb-0.5 text-left text-base'>day</span>
 				</p>
 				<span>:</span>
 				<p className='flex w-1/4 items-end gap-1 text-center'>
 					<span className='w-1/2'>{hours.toString().padStart(2, '0')}</span>
-					<span className='w-1/2 pb-0.5 text-left text-base'>hrs</span>
+					<span className='w-1/2 pb-0.5 text-left text-base'>hr</span>
 				</p>
 				<span>:</span>
 				<p className='flex w-1/4 items-end gap-1 text-center'>
