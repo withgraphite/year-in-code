@@ -1,10 +1,8 @@
 import {useCurrentFrame} from 'remotion'
-import Canvas from '../3d/Canvas'
 import Camera from '../camera/Camera'
 import Summary from '../components/summary'
 import Space from '../environment/Space'
 import {Stats} from '../types/github'
-import Sequence from '../video/Sequence'
 
 export default function AllStats({
 	from,
@@ -17,28 +15,15 @@ export default function AllStats({
 }) {
 	const frame = useCurrentFrame() - from
 
-	return (
-		<Sequence
-			from={from}
-			transitionIn='fade'
-			transitionOut='warp'
-			background={
-				<Canvas
-					frame={frame}
-					camera={
-						<Camera
-							position={[0, 0, 400]}
-							fov={50}
-						/>
-					}>
-					<Space tick={frame} />
-				</Canvas>
-			}
-			content={
-				<>
-					<Summary stats={stats} />
-				</>
-			}
-		/>
-	)
+	return {
+		from,
+		background: <Space tick={frame} />,
+		camera: (
+			<Camera
+				position={[0, 0, 400]}
+				fov={50}
+			/>
+		),
+		content: <Summary stats={stats} />
+	}
 }

@@ -1,11 +1,8 @@
 import {useCurrentFrame} from 'remotion'
-import Canvas from '../3d/Canvas'
 import Camera from '../camera/Camera'
 import Lighting from '../effects/Lighting'
 import Space from '../environment/Space'
 import Number from '../objects/Number'
-import FadeIn from '../transitions/FadeIn'
-import Sequence from '../video/Sequence'
 
 export default function Statistic({
 	from,
@@ -17,34 +14,25 @@ export default function Statistic({
 	number: number
 }) {
 	const frame = useCurrentFrame() - from
-	return (
-		<Sequence
-			from={from}
-			transitionIn='fade'
-			transitionOut='warp'
-			background={
-				<FadeIn
-					frame={frame}
-					delay={30}>
-					<Canvas
-						frame={frame}
-						camera={
-							<Camera
-								position={[0, 0, 400]}
-								fov={50}
-							/>
-						}>
-						<Space tick={frame} />
+	return {
+		from,
+		background: (
+			<>
+				<Space tick={frame} />
 
-						<Number
-							frame={frame}
-							number={number}
-						/>
-						<Lighting ambient={{intensity: 0.5}} />
-					</Canvas>
-				</FadeIn>
-			}
-			content={<h2 className='mb-52'>{text}</h2>}
-		/>
-	)
+				<Number
+					frame={frame}
+					number={number}
+				/>
+				<Lighting ambient={{intensity: 0.5}} />
+			</>
+		),
+		camera: (
+			<Camera
+				position={[0, 0, 400]}
+				fov={50}
+			/>
+		),
+		content: <h2 className='mb-52'>{text}</h2>
+	}
 }
