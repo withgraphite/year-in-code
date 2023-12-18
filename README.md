@@ -23,4 +23,4 @@ The `PROJECT_REF` is accessible via Supabase project URL. [Learn more here](http
 
 ## Learn more
 
-Refer to this [blog post](https://rubriclabs.com/blog/year-in-code).
+Check this [blog post](https://rubriclabs.com/blog/year-in-code).
