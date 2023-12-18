@@ -13,7 +13,7 @@ export default function Hero({session}: {session: Session}) {
 			transition={{delay: 0.3, duration: 0.5}}
 			className='z-10 flex h-[95vw] w-[95vw] flex-col items-center justify-center gap-6 rounded-full bg-gradient-radial from-[#5BDCF9] to-[#2C6FFC] p-10 text-center transition-all duration-300 sm:h-[450px] sm:w-[450px]'>
 			<div className='flex flex-col gap-3'>
-				<h1 className='text-black'>Year in Code</h1>
+				<h1 className='text-black'>Year in code</h1>
 				<div className='flex flex-col text-xl text-black'>
 					<span>End the year with a video</span>
 					<span>for your GitHub stats</span>

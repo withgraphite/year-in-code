@@ -22,10 +22,10 @@ export async function generateMetadata({
 	let ogImage = META.domain.prod + `og?title=${params.username}`
 
 	return {
-		title: `${params.username} | Year in Code | Graphite`,
+		title: `${params.username} | Year in code | Graphite`,
 		description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
 		openGraph: {
-			title: `${params.username} | Year in Code | Graphite`,
+			title: `${params.username} | Year in code | Graphite`,
 			url: META.domain.prod + params.username,
 			description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
 			images: [
@@ -35,7 +35,7 @@ export async function generateMetadata({
 			]
 		},
 		twitter: {
-			title: `${params.username} | Year in Code | Graphite`,
+			title: `${params.username} | Year in code | Graphite`,
 			description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
 			images: [
 				{

@@ -19,7 +19,7 @@ export default function Nav() {
 								pathname !== '/leaderboard' ? 'font-bold' : ''
 							}`}
 							href='/'>
-							Year in Code
+							Year in code
 						</Link>
 						<Link
 							className={`px-3 text-xl no-underline ${

@@ -11,7 +11,7 @@ export default function Loading({stats}: {stats: Stats}) {
 		<span key='1'>
 			Hi <b>{stats.username}</b>!
 		</span>,
-		'Welcome to your Year in Code.',
+		'Welcome to your Year in code.',
 		'We are generating your video right now...',
 		<span key='2'>
 			This usually takes <b>60 to 90 seconds</b>.

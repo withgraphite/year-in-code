@@ -1,7 +1,7 @@
 import {Metadata} from 'next'
 
 export const META = {
-	title: 'Year in Code | Graphite',
+	title: 'Year in code | Graphite',
 	desc: 'End 2023 with a video for your GitHub stats.',
 	twitter: '@withgraphite',
 	domain: {

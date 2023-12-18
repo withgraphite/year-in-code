@@ -1,4 +1,4 @@
-# Year in Code
+# Year in code
 
 This project is bootstrapped with [`create-rubric-app`](https://github.com/RubricLab/create-rubric-app). Built in partnership between [Graphite](https://graphite.dev/) x [Rubric Labs](https://rubriclabs.com/).
 

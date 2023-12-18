@@ -15,7 +15,7 @@ export default function TwitterButton({
 }) {
 	const body = `Check ${
 		isOwn ? 'my' : `${profile.user_name}'s`
-	} Year in Code by Graphite`
+	} Year in code by Graphite`
 	const url = META.domain.prod + profile.user_name
 	return (
 		<Tooltip body='Twitter'>
