@@ -31,52 +31,32 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 					<Canvas
 						frame={frame}
 						camera={
-							<Camera
-								position={[0, 0, 400]}
-								fov={100}
-							/>
-						}>
-						<FastTravel
-							tick={frame}
-							speed={10 + frame / 3}
-						/>
-					</Canvas>
-					<FadeIn
-						frame={frame}
-						duration={60}
-						delay={15}>
-						<Canvas
-							frame={frame}
-							camera={
+							frame < 30 ? (
+								<Camera
+									position={[0, 0, 400]}
+									fov={100}
+								/>
+							) : (
 								<Camera
 									position={[0, 0.01, 400]}
 									fov={30 + frame / 4}
 								/>
-							}>
-							<WormHole
-								tick={frame}
-								speed={0.15 - frame * 0.0001}
-							/>
-						</Canvas>
-					</FadeIn>
-					{/* <FadeIn
-						frame={frame}
-						duration={30}
-						delay={10}>
-						<Canvas
-							frame={frame}
-							camera={
-								<Camera
-									position={[0, 0.5 - frame / 130, 300 - frame / 1]}
-									fov={50 - frame / 3}
+							)
+						}>
+						{frame < 30 ? (
+							<>
+								<FastTravel
+									tick={frame}
+									speed={10 + frame / 2}
 								/>
-							}>
+							</>
+						) : (
 							<WormHole
 								tick={frame}
-								speed={0.25 - frame * 0.0005}
+								speed={0.2 - frame * 0.0001}
 							/>
-						</Canvas>
-					</FadeIn> */}
+						)}
+					</Canvas>
 				</>
 			}
 			content={
@@ -93,16 +73,27 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 							})}
 						</h1>
 					</FadeIn>
+
 					<div
-						className='absolute z-10 h-full w-full bg-white/30'
+						className='absolute z-10 h-full w-full bg-white/50'
+						style={{display: frame === 30 ? 'block' : 'none'}}
+					/>
+
+					<div
+						className='absolute z-10 h-full w-full bg-white/80'
+						style={{display: frame === 35 ? 'block' : 'none'}}
+					/>
+
+					<div
+						className='absolute z-10 h-full w-full bg-white/80'
 						style={{display: frame === 140 ? 'block' : 'none'}}
 					/>
 					<div
-						className='absolute z-10 h-full w-full bg-white/50'
+						className='absolute z-10 h-full w-full bg-white/80'
 						style={{display: frame === 145 ? 'block' : 'none'}}
 					/>
 					<div
-						className='absolute z-10 h-full w-full bg-white/50'
+						className='absolute z-10 h-full w-full bg-white/80'
 						style={{display: frame === 149 ? 'block' : 'none'}}
 					/>
 				</>

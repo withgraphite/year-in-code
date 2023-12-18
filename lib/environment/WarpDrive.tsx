@@ -34,6 +34,7 @@ export default function WormHole({tick, speed}: {tick: number; speed: number}) {
 			ref={meshRef}
 			geometry={tubeGeometry}>
 			<meshBasicMaterial
+				opacity={0.01}
 				attach='material'
 				side={THREE.BackSide}
 				map={texture}

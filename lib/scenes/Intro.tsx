@@ -33,71 +33,36 @@ export default function Intro({title, from, planet}) {
 			transitionOut='warp'
 			background={
 				<>
-					<div style={{opacity: frame < 120 ? 1 : 0}}>
-						<Canvas
-							frame={frame}
-							camera={
+					<Canvas
+						frame={frame}
+						camera={
+							frame < 120 ? (
 								<Camera
 									position={[0, 0, (300 / (30 + fov * 1.1)) * 2 * 50]}
 									fov={fov}
 								/>
-							}>
-							<Space tick={frame} />
-							<Planet
-								tick={frame}
-								planet={planet}
-							/>
-						</Canvas>
-					</div>
-					<div
-						style={{
-							opacity: frame < 120 || frame > 160 ? 0 : 1,
-							display: frame < 120 || frame > 160 ? 'none' : 'block'
-						}}>
-						<Canvas
-							frame={frame}
-							camera={
+							) : (
 								<Camera
 									position={[0, 0, 100]}
 									fov={1 + 6 * (frame - 120)}
 								/>
-							}>
+							)
+						}>
+						{frame < 120 ? (
+							<>
+								<Space tick={frame} />
+								<Planet
+									tick={frame}
+									planet={planet}
+								/>
+							</>
+						) : (
 							<FastTravel
 								tick={frame}
 								speed={-2.5 + 0.02 * (frame - 125)}
 							/>
-						</Canvas>
-					</div>
-					<div
-						style={{
-							opacity: frame < 135 ? 0 : 1,
-							display: frame < 135 ? 'none' : 'block'
-						}}>
-						{/* <Canvas
-							frame={frame}
-							camera={
-								<Camera
-									position={[0, 0, 1000]}
-									fov={90}
-								/>
-							}>
-							
-							<Space tick={frame * frame} />
-						</Canvas> */}
-						{/* <Canvas
-							frame={frame}
-							camera={
-								<Camera
-									position={[0, 0, 1300]}
-									fov={0.1}
-								/>
-							}>
-							<FastTravel
-								tick={frame}
-								speed={-0.5 + 0.01 * (frame - 135)}
-							/>
-						</Canvas> */}
-					</div>
+						)}
+					</Canvas>
 				</>
 			}
 			content={
