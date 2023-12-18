@@ -21,7 +21,7 @@ export const videoSchema = z.object({
 										'venus',
 										'moon'
 									])
-									.describe('Please pick a random planet!')
+									.describe('Please pick a planet/moon!')
 							})
 							.describe(
 								'Shows the text (use as a title) in front of a planet in space'
