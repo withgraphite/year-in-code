@@ -11,7 +11,7 @@ export default function Hero({session}: {session: Session}) {
 			initial={{opacity: 0, scale: 1}}
 			animate={{opacity: 1, scale: 1}}
 			transition={{delay: 0.3, duration: 0.5}}
-			className='z-10 flex h-[380px] w-[380px] flex-col items-center justify-center gap-6 rounded-full bg-gradient-radial from-[#5BDCF9] to-[#2C6FFC] p-10 text-center transition-all duration-300 sm:h-[450px] sm:w-[450px]'>
+			className='z-10 flex h-[95vw] w-[95vw] flex-col items-center justify-center gap-6 rounded-full bg-gradient-radial from-[#5BDCF9] to-[#2C6FFC] p-10 text-center transition-all duration-300 sm:h-[450px] sm:w-[450px]'>
 			<div className='flex flex-col gap-3'>
 				<h1 className='text-black'>Year in Code</h1>
 				<div className='flex flex-col text-xl text-black'>
