@@ -20,7 +20,7 @@ export interface Stats {
 }
 export interface Repo {
 	name: string
-	owner: string
+	owner?: string
 	avatarUrl?: string
 	isPrivate?: boolean
 	nameWithOwner?: string

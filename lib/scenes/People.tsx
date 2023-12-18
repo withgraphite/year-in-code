@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import {useCurrentFrame} from 'remotion'
 import Canvas from '../3d/Canvas'
 import Camera from '../camera/Camera'
@@ -40,12 +39,12 @@ export default function People({
 							<div
 								key={i}
 								style={{opacity: frame > i * 30 ? frame / 30 - i : 0}}>
-								<Image
+								<img
 									className='rounded-full'
 									src={person}
 									width={80}
 									height={80}
-									alt='person'
+									alt={`${person} avatar`}
 								/>
 							</div>
 						))}

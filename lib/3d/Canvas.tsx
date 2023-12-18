@@ -24,9 +24,7 @@ export default function Canvas({
 						fov={50 + frame / 15}
 					/>
 				)}
-
 				{children}
-
 				<Grain />
 			</ThreeCanvas>
 		</div>

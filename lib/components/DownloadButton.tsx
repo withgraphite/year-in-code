@@ -1,6 +1,6 @@
 'use client'
 import {Session} from '@supabase/supabase-js'
-import {COMP_NAME} from 'lambda/config'
+import {COMPOSITION_NAME} from 'lambda/config'
 import {DownloadIcon} from 'lucide-react'
 import Link from 'next/link'
 import {z} from 'zod'
@@ -19,7 +19,7 @@ export default function DownloadButton({
 	inputProps: z.infer<typeof CompositionProps>
 }) {
 	const isOwn = checkIfSelf(session, profile)
-	const {renderMedia, state, undo} = useRendering(COMP_NAME, inputProps)
+	const {renderMedia, state, undo} = useRendering(COMPOSITION_NAME, inputProps)
 
 	if (!isOwn) return
 

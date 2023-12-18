@@ -6,7 +6,7 @@
  */
 
 import {Config} from '@remotion/cli/config'
-import {webpackOverride} from 'lambda/webpack-override'
+import {webpackOverride} from './lambda/webpack-override'
 
 Config.setVideoImageFormat('jpeg')
 Config.setOverwriteOutput(true)
