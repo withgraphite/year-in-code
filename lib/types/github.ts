@@ -17,6 +17,7 @@ export interface Stats {
 	topLanguages?: Language[]
 	topFollows?: Follows
 	firstContributionDate?: string
+	codingStreakInDays?: number
 }
 export interface Repo {
 	name: string

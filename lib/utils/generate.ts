@@ -79,6 +79,31 @@ export default async function generateScenes(stats: Stats, session: Session) {
 
 	stats.firstContributionDate = firstContributionDate
 
+	function findLongestStreak(contributionsHistory) {
+		let currentStreak = 0
+		let longestStreak = 0
+
+		for (const week of contributionsHistory)
+			for (const day of week.contributionDays)
+				if (day.contributionCount > 0)
+					// Increment current streak as we found a day with contributions
+					currentStreak++
+				else {
+					// No contributions on this day, check if current streak is the longest
+					if (currentStreak > longestStreak) longestStreak = currentStreak
+
+					// Reset current streak
+					currentStreak = 0
+				}
+
+		// Check at the end in case the longest streak is at the end of the array
+		if (currentStreak > longestStreak) longestStreak = currentStreak
+
+		return longestStreak
+	}
+
+	stats.codingStreakInDays = findLongestStreak(stats.contributionsHistory)
+
 	// Strip out contributions history
 	if (stats.contributionsHistory) delete stats.contributionsHistory
 
