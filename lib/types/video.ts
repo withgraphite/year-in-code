@@ -83,19 +83,11 @@ export const videoSchema = z.object({
 								)
 							})
 							.describe('Displays a list of repos'),
-
-						z
-							.object({
-								type: z.enum(['times'])
-							})
-							.describe('Displays a list of times of day with average commits'),
-
 						z
 							.object({
 								type: z.enum(['allStats'])
 							})
 							.describe('Displays all stats - useful pre-conclusion'),
-
 						z
 							.object({
 								type: z.enum(['conclusion'])
@@ -103,7 +95,7 @@ export const videoSchema = z.object({
 							.describe('Displays a conclusion')
 					])
 					.optional()
-					.describe('Animation to be used to display alongside the text')
+					.describe('Optional animation to be used to display alongside the text')
 			})
 		)
 		.describe('An array of scenes in the video')
