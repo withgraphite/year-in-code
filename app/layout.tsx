@@ -2,7 +2,6 @@ import {Analytics} from '@vercel/analytics/react'
 import 'devicon'
 import BackgroundGrid from 'lib/components/BackgroundGrid'
 import {Metadata} from 'next'
-import PlausibleProvider from 'next-plausible'
 import localFont from 'next/font/local'
 import {Toaster} from 'sonner'
 import BackgroundGradient from '~/components/BackgroundGradient'
@@ -41,9 +40,6 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
 	return (
 		<html lang='en'>
-			<head>
-				<PlausibleProvider domain='year-in-code.vercel.app' />
-			</head>
 			<body
 				className={`${font.className} relative flex h-full min-h-screen w-full flex-col items-center bg-white dark:bg-black`}>
 				<BackgroundGrid className='fixed z-[-1] h-full w-full opacity-30 dark:opacity-40' />
