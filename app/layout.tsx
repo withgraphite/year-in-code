@@ -1,3 +1,4 @@
+import {Analytics} from '@vercel/analytics/react'
 import 'devicon'
 import BackgroundGrid from 'lib/components/BackgroundGrid'
 import {Metadata} from 'next'
@@ -52,6 +53,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 				<div className='flex w-full max-w-3xl items-center justify-center'>
 					{children}
 					<Footer />
+					<Analytics />
 				</div>
 			</body>
 		</html>
