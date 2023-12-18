@@ -25,8 +25,18 @@ export async function generateMetadata({
 		title: `${params.username} | Year in Code | Graphite`,
 		description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
 		openGraph: {
-			title: params.username,
+			title: `${params.username} | Year in Code | Graphite`,
 			url: META.domain.prod + params.username,
+			description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
+			images: [
+				{
+					url: ogImage
+				}
+			]
+		},
+		twitter: {
+			title: `${params.username} | Year in Code | Graphite`,
+			description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
 			images: [
 				{
 					url: ogImage
