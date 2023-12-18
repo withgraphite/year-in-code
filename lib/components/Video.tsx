@@ -18,7 +18,10 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 	const {fps} = useVideoConfig()
 	return (
 		<AbsoluteFill>
-			<div className='absolute h-full w-full items-center justify-center bg-black' />
+			<div
+				// style={{fontFamily: 'Matter'}}
+				className='absolute h-full w-full items-center justify-center bg-black font-bold'
+			/>
 			<Audio
 				src={staticFile('/music/BlackOutDays.mp3')}
 				placeholder={null}
