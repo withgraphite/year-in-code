@@ -74,18 +74,18 @@ export default async function Profile({params}: {params: {username: string}}) {
 							stats={profile.github_stats as unknown as Stats}
 						/>
 					)}
-					{process.env.NODE_ENV === 'development' && (
-						<DownloadButton
-							profile={profile}
-							session={session}
-							inputProps={{
-								title: profile.user_name,
-								userId: profile.id,
-								video: profile.video_manifest as Manifest,
-								stats: profile.github_stats as unknown as Stats
-							}}
-						/>
-					)}
+					{/* {process.env.NODE_ENV === 'development' && ( */}
+					<DownloadButton
+						profile={profile}
+						session={session}
+						inputProps={{
+							title: profile.user_name,
+							userId: profile.id,
+							video: profile.video_manifest as Manifest,
+							stats: profile.github_stats as unknown as Stats
+						}}
+					/>
+					{/* )} */}
 				</div>
 			)}
 
