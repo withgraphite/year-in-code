@@ -1,5 +1,4 @@
 import {StarIcon} from 'lucide-react'
-import Image from 'next/image'
 
 // Repo name with dimmed owner name
 const StyledRepoName = (nameWithOwner: string) => {
@@ -56,7 +55,7 @@ const BlockChart = ({chartData}) => {
 					</div>
 					<div className='mt-2 flex flex-row items-center text-sm font-medium text-gray-200'>
 						{chartData.avatarUrl[i] && (
-							<Image
+							<img
 								className='mr-1 h-7 w-7 rounded-full'
 								src={chartData.avatarUrl[i]}
 								alt={chartData.names[i] + ' logo'}

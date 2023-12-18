@@ -17,14 +17,13 @@ function Summary({stats}: {stats: Stats}) {
 					<Highlights stats={stats} />
 					<TopRepos stats={stats} />
 				</div>
-
 				<div className='flex flex-col'>
 					<TopLanguages stats={stats} />
 					<Stars stats={stats} />
 				</div>
 				<Follows stats={stats} />
 			</div>
-			<div className='flex justify-start justify-center text-left'>
+			<div className='flex justify-center text-left'>
 				<Contributions stats={stats} />
 			</div>
 		</div>

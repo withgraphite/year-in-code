@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import {Stats} from '../types/github'
 
 const imageClass = 'w-7 h-7 rounded-full hover:scale-[1.5] transition-transform'
@@ -37,14 +36,13 @@ function Follows({stats}: {stats: Stats}) {
 							<div
 								key={i}
 								className='flex items-center space-x-2'>
-								<Image
+								<img
 									width={28}
 									height={28}
 									className={imageClass}
 									src={person.avatarUrl}
 									alt={person.login + ' logo'}
 								/>
-								{/* ... */}
 							</div>
 							<a
 								href={person.url}
@@ -67,7 +65,7 @@ function Follows({stats}: {stats: Stats}) {
 							<div
 								key={i}
 								className='flex items-center space-x-2'>
-								<Image
+								<img
 									width={28}
 									height={28}
 									className={imageClass}
