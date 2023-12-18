@@ -1,5 +1,4 @@
 import {useCurrentFrame} from 'remotion'
-import Camera from '../camera/Camera'
 import FastTravel from '../environment/FastTravel'
 
 export default function Stars({text, from}: {text: string; from: number}) {
@@ -13,12 +12,7 @@ export default function Stars({text, from}: {text: string; from: number}) {
 				speed={1}
 			/>
 		),
-		camera: (
-			<Camera
-				position={[0, 0, 400]}
-				fov={50}
-			/>
-		),
+		camera: undefined,
 		content: <h2>{text}</h2>
 	}
 }

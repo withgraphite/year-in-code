@@ -1,8 +1,6 @@
 import {useCurrentFrame} from 'remotion'
 
-import Camera from '../camera/Camera'
 import ContributionGraph from '../components/ContributionGraph'
-import Space from '../environment/Space'
 import {Week} from '../types/github'
 
 export default function Contributions({
@@ -18,13 +16,8 @@ export default function Contributions({
 
 	return {
 		from,
-		background: <Space tick={frame} />,
-		camera: (
-			<Camera
-				position={[0, 0, 400]}
-				fov={50}
-			/>
-		),
+		background: undefined,
+		camera: undefined,
 		content: (
 			<>
 				<h2>{text}</h2>

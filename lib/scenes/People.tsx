@@ -1,6 +1,4 @@
 import {useCurrentFrame} from 'remotion'
-import Camera from '../camera/Camera'
-import Space from '../environment/Space'
 
 export default function People({
 	text,
@@ -15,13 +13,8 @@ export default function People({
 
 	return {
 		from,
-		background: <Space tick={frame} />,
-		camera: (
-			<Camera
-				position={[0, 0, 400]}
-				fov={50}
-			/>
-		),
+		background: undefined,
+		camera: undefined,
 		content: (
 			<>
 				<h2>{text}</h2>

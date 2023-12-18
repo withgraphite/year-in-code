@@ -7,6 +7,7 @@ import {
 	useVideoConfig
 } from 'remotion'
 import Canvas from '../3d/Canvas'
+import Space from '../environment/Space'
 import AllStats from '../scenes/AllStats'
 import Conclusion from '../scenes/Conclusion'
 import Contributions from '../scenes/Contributions'
@@ -116,8 +117,10 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 			/>
 			<Sequence>
 				<Canvas
+					key={sceneNum}
 					frame={frame}
 					camera={scene.camera}>
+					<Space tick={frame} />
 					{scene.background}
 				</Canvas>
 				<FadeIn

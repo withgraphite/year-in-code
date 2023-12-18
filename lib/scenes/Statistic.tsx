@@ -1,7 +1,5 @@
 import {useCurrentFrame} from 'remotion'
-import Camera from '../camera/Camera'
 import Lighting from '../effects/Lighting'
-import Space from '../environment/Space'
 import Number from '../objects/Number'
 
 export default function Statistic({
@@ -18,8 +16,6 @@ export default function Statistic({
 		from,
 		background: (
 			<>
-				<Space tick={frame} />
-
 				<Number
 					frame={frame}
 					number={number}
@@ -27,12 +23,7 @@ export default function Statistic({
 				<Lighting ambient={{intensity: 0.5}} />
 			</>
 		),
-		camera: (
-			<Camera
-				position={[0, 0, 400]}
-				fov={50}
-			/>
-		),
+		camera: undefined,
 		content: <h2 className='mb-52'>{text}</h2>
 	}
 }

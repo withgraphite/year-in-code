@@ -2,7 +2,6 @@ import {useCurrentFrame} from 'remotion'
 import FastTravel from '../environment/FastTravel'
 import FadeOut from '../transitions/FadeOut'
 import Camera from './../camera/Camera'
-import Space from './../environment/Space'
 import Planet from './../objects/Planet'
 import FadeIn from './../transitions/FadeIn'
 
@@ -29,7 +28,6 @@ export default function Intro({title, from, planet}) {
 		background:
 			frame < 120 ? (
 				<>
-					<Space tick={frame} />
 					<Planet
 						tick={frame}
 						planet={planet}

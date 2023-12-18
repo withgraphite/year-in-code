@@ -8,7 +8,7 @@ export default function Canvas({
 	camera,
 	frame
 }: {
-	children: React.ReactNode
+	children?: React.ReactNode
 	camera?: React.ReactNode
 	frame: number
 }) {
@@ -20,8 +20,8 @@ export default function Canvas({
 				height={height}>
 				{camera ?? (
 					<Camera
-						position={[0, 0, 300]}
-						fov={50 + frame / 15}
+						position={[0, 0, 400]}
+						fov={50}
 					/>
 				)}
 				{children}

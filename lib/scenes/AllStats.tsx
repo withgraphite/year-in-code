@@ -1,7 +1,5 @@
 import {useCurrentFrame} from 'remotion'
-import Camera from '../camera/Camera'
 import Summary from '../components/summary'
-import Space from '../environment/Space'
 import {Stats} from '../types/github'
 
 export default function AllStats({
@@ -17,13 +15,8 @@ export default function AllStats({
 
 	return {
 		from,
-		background: <Space tick={frame} />,
-		camera: (
-			<Camera
-				position={[0, 0, 400]}
-				fov={50}
-			/>
-		),
+		background: undefined,
+		camera: undefined,
 		content: <Summary stats={stats} />
 	}
 }

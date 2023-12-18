@@ -1,7 +1,5 @@
 import {useCurrentFrame} from 'remotion'
-import Camera from '../camera/Camera'
 import MonthsChart from '../components/MonthsChart'
-import Space from '../environment/Space'
 import {Week} from '../types/github'
 
 export default function Months({
@@ -19,13 +17,8 @@ export default function Months({
 
 	return {
 		from,
-		background: <Space tick={frame} />,
-		camera: (
-			<Camera
-				position={[0, 0, 400]}
-				fov={50}
-			/>
-		),
+		background: undefined,
+		camera: undefined,
 		content: (
 			<>
 				<h2>{text}</h2>
