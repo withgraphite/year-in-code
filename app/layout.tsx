@@ -1,4 +1,5 @@
 import {Analytics} from '@vercel/analytics/react'
+import {SpeedInsights} from '@vercel/speed-insights/next'
 import 'devicon'
 import BackgroundGrid from 'lib/components/BackgroundGrid'
 import {Metadata} from 'next'
@@ -50,6 +51,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 					{children}
 					<Footer />
 					<Analytics />
+					<SpeedInsights />
 				</div>
 			</body>
 		</html>
