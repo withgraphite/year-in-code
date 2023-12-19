@@ -1,5 +1,6 @@
 'use client'
 
+import {track} from '@vercel/analytics'
 import {LinkedinIcon} from 'lucide-react'
 import Link from 'next/link'
 import {META} from '~/constants/metadata'
@@ -22,7 +23,9 @@ export default function LinkedInButton({
 			<Link
 				target='_blank'
 				href={`https://www.linkedin.com/feed/?shareActive=true&text=${body} ${url} %23YearInCode %23Graphite %232023`}>
-				<button className='group rounded-md p-2'>
+				<button
+					className='group rounded-md p-2'
+					onClick={() => track('Share: LinkedIn')}>
 					<LinkedinIcon className='h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5' />
 				</button>
 			</Link>

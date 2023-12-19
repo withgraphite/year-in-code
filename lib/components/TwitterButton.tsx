@@ -1,5 +1,6 @@
 'use client'
 
+import {track} from '@vercel/analytics'
 import {TwitterIcon} from 'lucide-react'
 import Link from 'next/link'
 import {META} from '~/constants/metadata'
@@ -22,7 +23,9 @@ export default function TwitterButton({
 			<Link
 				href={`https://twitter.com/intent/tweet?text=${body}&url=${url}`}
 				target='_blank'>
-				<button className='group rounded-md p-2'>
+				<button
+					className='group rounded-md p-2'
+					onClick={() => track('Share: Twitter')}>
 					<TwitterIcon className='h-5 w-5 transition-transform duration-300 group-hover:-rotate-12' />
 				</button>
 			</Link>

@@ -1,5 +1,5 @@
 'use client'
-
+import {track} from '@vercel/analytics'
 import {LinkIcon} from 'lucide-react'
 import {toast} from 'sonner'
 import {META} from '~/constants/metadata'
@@ -10,6 +10,7 @@ export default function CopyLinkButton({profile}: {profile: Profile}) {
 	const handleCopy = () => {
 		window.navigator.clipboard.writeText(META.domain.prod + profile.user_name)
 		toast.success('Link copied to clipboard')
+		track('Copy link')
 	}
 
 	return (

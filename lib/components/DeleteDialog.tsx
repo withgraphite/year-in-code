@@ -4,6 +4,7 @@ import {
 	Session,
 	createClientComponentClient
 } from '@supabase/auth-helpers-nextjs'
+import {track} from '@vercel/analytics'
 import {TrashIcon} from 'lucide-react'
 import {useRouter} from 'next/navigation'
 import {toast} from 'sonner'
@@ -30,8 +31,10 @@ export default function DeleteButton({session}: {session: Session}) {
 			.from('profile')
 			.delete()
 			.eq('id', session.user.id)
-		if (error) toast.error(error.message)
-		else {
+		if (error) {
+			toast.error(error.message)
+			track('Delete', {success: false, error: error.message})
+		} else {
 			toast.success('Video deleted')
 			setTimeout(() => {
 				toast.loading('Redirecting now...')
@@ -40,6 +43,7 @@ export default function DeleteButton({session}: {session: Session}) {
 				await supabase.auth.signOut()
 				router.push('/')
 			}, 3 * 1000)
+			track('Delete', {success: true})
 		}
 	}
 	return (

@@ -3,6 +3,7 @@ import {
 	Session,
 	createClientComponentClient
 } from '@supabase/auth-helpers-nextjs'
+import {track} from '@vercel/analytics'
 import {EyeIcon, EyeOffIcon} from 'lucide-react'
 import {useState} from 'react'
 import {toast} from 'sonner'
@@ -28,7 +29,11 @@ export default function VisibilityButton({
 		if (!error) {
 			setIsPublic(prev => !prev)
 			toast.success(isPublic ? 'Video is now private' : 'Video is now public')
-		} else toast.error(error.message)
+			track('Update visibility', {success: true})
+		} else {
+			toast.error(error.message)
+			track('Update visibility', {success: false, error: error.message})
+		}
 	}
 
 	return (
