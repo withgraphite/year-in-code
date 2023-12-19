@@ -24,6 +24,7 @@ export default function Statistic({
 			</>
 		),
 		camera: undefined,
-		content: <h2 className='mb-52'>{text}</h2>
+		content: <h2 className='mb-52'>{text}</h2>,
+		number: number
 	}
 }

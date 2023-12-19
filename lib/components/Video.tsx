@@ -86,7 +86,6 @@ export default function Video({
 					contributions: stats.contributionsHistory,
 					color: animation.color
 				})
-
 			case 'number':
 				return Statistic({
 					from: i * fps * 5,
@@ -125,10 +124,19 @@ export default function Video({
 			/>
 			<Sequence>
 				{isMobile ? (
-					<img
-						className='absolute h-full w-full'
-						src={`/assets/sky.jpg`}
-					/>
+					<>
+						<img
+							className='absolute h-full w-full'
+							src={`/assets/sky.jpg`}
+						/>
+						{(scene as any).number && (
+							<div className='absolute flex h-full w-full items-center justify-center'>
+								<div className='z-10 text-[100px] font-bold text-cyan-100'>
+									{(scene as any).number}
+								</div>
+							</div>
+						)}
+					</>
 				) : (
 					<Canvas
 						key={sceneNum}
