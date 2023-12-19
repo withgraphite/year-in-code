@@ -74,6 +74,9 @@ export default async function Profile({params}: {params: {username: string}}) {
 							stats={profile.github_stats as unknown as Stats}
 						/>
 					)}
+					<p className='w-full text-center text-white sm:hidden'>
+						For the complete experience, play on desktop.
+					</p>
 					<DownloadControls
 						profile={profile}
 						session={session}
