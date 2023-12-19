@@ -16,7 +16,7 @@ export default function GenerateVideo({session}: {session: Session}) {
 
 	const fetch = async () => {
 		// Stats
-		const statsResponse = await getStats(session.provider_token)
+		const statsResponse = await getStats(session)
 		setStats(statsResponse)
 
 		// Scenes
