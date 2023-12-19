@@ -23,11 +23,11 @@ export async function generateMetadata({
 
 	return {
 		title: `${params.username} | Year in code | Graphite`,
-		description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
+		description: `Check out ${params.username}'s 2023 year in code!`,
 		openGraph: {
 			title: `${params.username} | Year in code | Graphite`,
 			url: META.domain.prod + params.username,
-			description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
+			description: `Check out ${params.username}'s 2023 year in code!`,
 			images: [
 				{
 					url: ogImage
@@ -36,7 +36,7 @@ export async function generateMetadata({
 		},
 		twitter: {
 			title: `${params.username} | Year in code | Graphite`,
-			description: `End 2023 with a video of ${params.username}'s GitHub stats.`,
+			description: `Check out ${params.username}'s 2023 year in code!`,
 			images: [
 				{
 					url: ogImage
