@@ -3,6 +3,7 @@
 import {Player as RemotionPlayer, RenderPlayPauseButton} from '@remotion/player'
 import {PauseIcon, PlayIcon} from 'lucide-react'
 import {useCallback, useEffect, useState} from 'react'
+import {isMobile} from 'react-device-detect'
 import {Stats} from '~/types/github'
 import {Manifest} from '~/types/video'
 import Video from './Video'
@@ -50,7 +51,7 @@ export default function Player({
 			component={Video}
 			durationInFrames={video.scenes.length * 30 * 5}
 			fps={30}
-			inputProps={{video, stats}}
+			inputProps={{video, stats, isMobile}}
 			compositionHeight={720}
 			compositionWidth={1280}
 			controls

@@ -23,7 +23,15 @@ import FadeIn from '../transitions/FadeIn'
 import {Stats} from '../types/github'
 import {Manifest} from '../types/video'
 
-export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
+export default function Video({
+	video,
+	stats,
+	isMobile
+}: {
+	video: Manifest
+	stats: Stats
+	isMobile?: boolean
+}) {
 	const {fps} = useVideoConfig()
 	const frame = useCurrentFrame()
 
@@ -116,13 +124,20 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 				placeholder={null}
 			/>
 			<Sequence>
-				<Canvas
-					key={sceneNum}
-					frame={frame}
-					camera={scene.camera}>
-					<Space tick={frame} />
-					{scene.background}
-				</Canvas>
+				{isMobile ? (
+					<img
+						className='absolute h-full w-full'
+						src={`/assets/sky.jpg`}
+					/>
+				) : (
+					<Canvas
+						key={sceneNum}
+						frame={frame}
+						camera={scene.camera}>
+						<Space tick={frame} />
+						{scene.background}
+					</Canvas>
+				)}
 				<FadeIn
 					frame={frame}
 					delay={scene.from}>
