@@ -58,7 +58,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 			{profile && !error && (
 				<div
 					id='videoContainer'
-					className='flex w-full max-w-3xl flex-col justify-center gap-5 sm:items-center'>
+					className='flex w-full max-w-3xl flex-col justify-center gap-5 sm:items-center lg:mt-10 2xl:mt-0'>
 					<div className='flex w-full flex-col justify-between gap-5 sm:flex-row sm:gap-0'>
 						<div className='flex items-center gap-3'>
 							<h1 className='text-black'>{`${params.username}`}</h1>
