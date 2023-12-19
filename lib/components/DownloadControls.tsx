@@ -1,5 +1,6 @@
 'use client'
 import {Session} from '@supabase/supabase-js'
+import {track} from '@vercel/analytics'
 import {COMPOSITION_NAME} from 'lambda/config'
 import {DownloadIcon} from 'lucide-react'
 import Link from 'next/link'
@@ -50,7 +51,9 @@ export default function DownloadControls({
 			<Link
 				href={url}
 				className='no-underline'>
-				<button className='group px-6 py-2 text-xl'>
+				<button
+					className='group px-6 py-2 text-xl'
+					onClick={() => track('Downloaded')}>
 					<DownloadIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5' />
 					Download
 				</button>
@@ -71,7 +74,9 @@ export default function DownloadControls({
 	if (state.status === 'init')
 		return (
 			<AlertDialog>
-				<AlertDialogTrigger className='border-none p-0'>
+				<AlertDialogTrigger
+					className='border-none p-0'
+					onClick={() => track('Download intent')}>
 					<span className='rounded-xl border-2 border-black bg-black px-6 py-2 text-white transition-colors duration-300 hover:bg-white hover:text-black'>
 						Download video
 					</span>
@@ -92,7 +97,10 @@ export default function DownloadControls({
 						</AlertDialogCancel>
 						<AlertDialogAction
 							className='border-none p-0'
-							onClick={renderMedia}>
+							onClick={() => {
+								track('Rendering initiated')
+								renderMedia()
+							}}>
 							<span className='h-full w-full rounded-xl border-2 border-black bg-black px-6 py-2 text-white transition-colors duration-300 hover:bg-white hover:text-black'>
 								Start rendering
 							</span>
