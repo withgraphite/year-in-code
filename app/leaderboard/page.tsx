@@ -85,7 +85,7 @@ export default async function LeaderBoard() {
 					<div>
 						<h1 className='font-extralight'>Leaderboard</h1>
 						<h3 className='flex flex-wrap gap-1 font-thin'>
-							Close more pull requests with{' '}
+							Merge more pull requests with{' '}
 							<GraphiteCTA
 								showArrow
 								className='font-thin'
@@ -94,12 +94,12 @@ export default async function LeaderBoard() {
 					</div>
 					{!session && <SignInButton className='w-full sm:w-fit' />}
 				</div>
-				<div className='group/table grid w-full'>
-					<div className='grid w-full grid-cols-8 items-center justify-between border-b border-stone-300 font-thin opacity-0 transition-opacity duration-300 group-hover/table:opacity-100'>
+				<div className='grid w-full'>
+					<div className='grid w-full grid-cols-8 items-center justify-between border-b border-stone-300 font-thin'>
 						<p>Rank</p>
 						<p className='col-span-4 col-start-2 sm:col-span-5'>Username</p>
 						<p className='col-span-3 col-start-6 text-right sm:col-span-2 sm:col-start-7'>
-							Pull requests opened
+							Pull requests created
 						</p>
 					</div>
 					{data.map((item, i) => (
