@@ -59,7 +59,7 @@ export default function MonthsChart({
 								'Sep',
 								'Oct',
 								'Nov',
-								'Dev'
+								'Dec'
 							][index]
 						}
 					</span>{' '}
