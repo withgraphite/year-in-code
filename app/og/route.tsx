@@ -28,7 +28,7 @@ export async function GET(req: NextRequest) {
 					justifyContent: 'center',
 					position: 'relative',
 					overflowY: 'hidden',
-					color: 'white',
+					color: 'white !important',
 					backgroundImage: `url(${META.domain.prod}images/og-bg-text.png)`
 				}}>
 				{/* <BackgroundGrid
