@@ -1,6 +1,7 @@
 'use client'
 
 import {createClientComponentClient} from '@supabase/auth-helpers-nextjs'
+import {track} from '@vercel/analytics'
 import {LogOutIcon} from 'lucide-react'
 import {useRouter} from 'next/navigation'
 import {toast} from 'sonner'
@@ -13,6 +14,7 @@ export default function SignOutButton() {
 
 	// Sign out
 	async function handleSignOut() {
+		track('Signout')
 		const {error} = await supabase.auth.signOut()
 		if (error) toast.error(error.message)
 		else router.push('/')

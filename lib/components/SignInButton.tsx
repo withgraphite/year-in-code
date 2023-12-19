@@ -1,5 +1,6 @@
 'use client'
 import {createClientComponentClient} from '@supabase/auth-helpers-nextjs'
+import {track} from '@vercel/analytics'
 import {ArrowRight} from 'lucide-react'
 import {toast} from 'sonner'
 import {Database} from '~/types/supabase'
@@ -9,7 +10,8 @@ export default function SignInButton({className}: {className?: string}) {
 	const supabase = createClientComponentClient<Database>()
 
 	// Login - also handles sign ups
-	async function handleLogin() {
+	async function handleSignIn() {
+		track('Signin')
 		const {error} = await supabase.auth.signInWithOAuth({
 			provider: 'github',
 			options: {
@@ -21,7 +23,7 @@ export default function SignInButton({className}: {className?: string}) {
 	}
 	return (
 		<button
-			onClick={handleLogin}
+			onClick={handleSignIn}
 			className={cn('group w-fit  lg:w-fit', className)}>
 			<span className='text-base sm:text-lg'>Unlock your year in code</span>
 			<ArrowRight className='h-4 w-4 transition-transform duration-300 group-hover:translate-x-1' />

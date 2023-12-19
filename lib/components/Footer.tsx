@@ -1,4 +1,5 @@
 'use client'
+import {track} from '@vercel/analytics'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {META} from '~/constants/metadata'
@@ -11,13 +12,15 @@ export default function Footer() {
 				<Link
 					href={META.github}
 					target='_blank'
-					className='group border-r border-white pr-3 no-underline'>
+					className='group border-r border-white pr-3 no-underline'
+					onClick={() => track('See code')}>
 					<span className='text-lg font-thin'>See code</span>
 				</Link>
 				<Link
 					href={META.blog}
 					target='_blank'
-					className='group relative flex items-center pl-3 no-underline'>
+					className='group relative flex items-center pl-3 no-underline'
+					onClick={() => track('See blog')}>
 					<span className='text-lg font-thin'>Learn more</span>
 				</Link>
 			</footer>

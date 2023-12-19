@@ -1,3 +1,4 @@
+import {track} from '@vercel/analytics'
 import {ArrowUpRightIcon} from 'lucide-react'
 import Link from 'next/link'
 import {META} from '~/constants/metadata'
@@ -14,6 +15,7 @@ export default function GraphiteCTA({
 		<Link
 			href={META.domain.web}
 			target='_blank'
+			onClick={() => track('See Graphite website')}
 			className={cn(
 				'group flex items-center gap-1 text-xl font-medium no-underline',
 				className
