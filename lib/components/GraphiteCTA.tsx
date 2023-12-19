@@ -15,7 +15,7 @@ export default function GraphiteCTA({
 		<Link
 			href={META.domain.web}
 			target='_blank'
-			onClick={() => track('See Graphite website')}
+			onClick={() => track('Visit Graphite website')}
 			className={cn(
 				'group flex items-center gap-1 text-xl font-medium no-underline',
 				className
