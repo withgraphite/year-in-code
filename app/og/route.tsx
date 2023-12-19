@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
 						fontFamily: 'MatterSQ',
 						letterSpacing: '-0.05em',
 						fontStyle: 'normal',
-						color: 'white',
+						color: 'white !important',
 						lineHeight: '120px',
 						whiteSpace: 'pre-wrap'
 					}}>
