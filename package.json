@@ -27,6 +27,7 @@
     "next": "^14.0.4",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "remotion": "4.0.77",
     "sonner": "^1.2.4",
