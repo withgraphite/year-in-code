@@ -1,7 +1,7 @@
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {Metadata} from 'next'
 import {cookies} from 'next/headers'
-import DownloadButton from '~/components/DownloadButton'
+import DownloadControls from '~/components/DownloadControls'
 import Player from '~/components/Player'
 import SignInButton from '~/components/SignInButton'
 import Toolbar from '~/components/Toolbar'
@@ -74,8 +74,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 							stats={profile.github_stats as unknown as Stats}
 						/>
 					)}
-					{/* {process.env.NODE_ENV === 'development' && ( */}
-					<DownloadButton
+					<DownloadControls
 						profile={profile}
 						session={session}
 						inputProps={{
@@ -85,7 +84,6 @@ export default async function Profile({params}: {params: {username: string}}) {
 							stats: profile.github_stats as unknown as Stats
 						}}
 					/>
-					{/* )} */}
 				</div>
 			)}
 

@@ -49,8 +49,6 @@ export const POST = executeApi<RenderMediaOnLambdaOutput, typeof RenderRequest>(
 				fileName: `${body.inputProps.title}-year-in-code.mp4`
 			}
 		})
-
-		console.log(result)
 		return result
 	}
 )
