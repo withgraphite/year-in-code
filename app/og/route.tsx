@@ -28,6 +28,7 @@ export async function GET(req: NextRequest) {
 					justifyContent: 'center',
 					position: 'relative',
 					overflowY: 'hidden',
+					color: 'white',
 					backgroundImage: `url(${META.domain.prod}images/og-bg-text.png)`
 				}}>
 				{/* <BackgroundGrid
@@ -47,7 +48,7 @@ export async function GET(req: NextRequest) {
 						fontFamily: 'MatterSQ',
 						letterSpacing: '-0.05em',
 						fontStyle: 'normal',
-						color: 'black',
+						color: 'white',
 						lineHeight: '120px',
 						whiteSpace: 'pre-wrap'
 					}}>
