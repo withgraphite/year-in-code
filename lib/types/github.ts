@@ -9,7 +9,6 @@ export interface Stats {
 	pulls?: number
 	contributions?: number
 	contributionsHistory?: Week[]
-	linkPreviewURL?: string
 	repos?: number
 	reviews?: number
 	stars?: Star
