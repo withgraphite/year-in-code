@@ -17,7 +17,7 @@ export default function LinkedInButton({
 	const text = `Check out ${
 		isOwn ? 'my' : `${profile.user_name}'s`
 	} 2023 year in code! Get yours now.`
-	const hashtags = '%23yearInCode2023'
+	const hashtags = '%23YearInCode2023'
 	const url = META.domain.prod + profile.user_name
 	return (
 		<Tooltip body='LinkedIn'>
