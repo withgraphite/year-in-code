@@ -14,15 +14,16 @@ export default function LinkedInButton({
 	isOwn: boolean
 	profile: Profile
 }) {
-	const body = `Check ${
+	const text = `Check out ${
 		isOwn ? 'my' : `${profile.user_name}'s`
-	} Year in code by Graphite`
+	} 2023 year in code! Get yours now.`
+	const hashtags = '%23yearInCode2023'
 	const url = META.domain.prod + profile.user_name
 	return (
 		<Tooltip body='LinkedIn'>
 			<Link
 				target='_blank'
-				href={`https://www.linkedin.com/feed/?shareActive=true&text=${body} ${url} %23YearInCode %23Graphite %232023`}>
+				href={`https://www.linkedin.com/feed/?shareActive=true&text=${text} ${hashtags} ${url}`}>
 				<button
 					className='group rounded-md p-2'
 					onClick={() => track('Share: LinkedIn')}>

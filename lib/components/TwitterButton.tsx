@@ -14,14 +14,15 @@ export default function TwitterButton({
 	isOwn: boolean
 	profile: Profile
 }) {
-	const body = `Check ${
+	const text = `Check out ${
 		isOwn ? 'my' : `${profile.user_name}'s`
-	} Year in code by Graphite`
+	} 2023 year in code! Get yours now.`
+	const hashtags = 'yearInCode2023'
 	const url = META.domain.prod + profile.user_name
 	return (
 		<Tooltip body='Twitter'>
 			<Link
-				href={`https://twitter.com/intent/tweet?text=${body}&url=${url}`}
+				href={`https://twitter.com/intent/tweet?text=${text}&hashtags=${hashtags}&url=${url}`}
 				target='_blank'>
 				<button
 					className='group rounded-md p-2'
