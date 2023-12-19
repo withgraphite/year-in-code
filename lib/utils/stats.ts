@@ -7,7 +7,8 @@ import {GITHUB_GRAPHQL_API} from 'lib/constants/urls'
 import {Language, Repo, Stats} from 'lib/types/github'
 import {cookies} from 'next/headers'
 
-import {createServerActionClient} from '@supabase/auth-helpers-nextjs'
+import {Session, createServerActionClient} from '@supabase/auth-helpers-nextjs'
+import getGraphiteUser from './graphite'
 import {
 	CONTRIBUTIONS,
 	FOLLOWS,
@@ -22,7 +23,7 @@ import {
  * Gets and serializes all user stats
  * @returns username, commits, top repos, etc
  */
-export async function getStats(token: string): Promise<Stats | null> {
+export async function getStats(session: Session): Promise<Stats | null> {
 	const supabase = createServerActionClient({cookies})
 	console.log('Fetching stats...')
 	const [
@@ -32,15 +33,17 @@ export async function getStats(token: string): Promise<Stats | null> {
 		follows,
 		stars,
 		contributions,
-		location
+		location,
+		isGraphiteUser
 	] = await Promise.all([
-		getHighlights(token),
-		getTopLanguages(token),
-		getTopRepsitories(token),
-		getTopFollows(token),
-		getStars(token),
-		getContributionHistory(token),
-		getLocation(token)
+		getHighlights(session.provider_token),
+		getTopLanguages(session.provider_token),
+		getTopRepsitories(session.provider_token),
+		getTopFollows(session.provider_token),
+		getStars(session.provider_token),
+		getContributionHistory(session.provider_token),
+		getLocation(session.provider_token),
+		getGraphiteUser(session.user.user_metadata.user_name)
 	])
 
 	// Combine objects
@@ -65,10 +68,10 @@ export async function getStats(token: string): Promise<Stats | null> {
 		avatar_url: highlights.avatarUrl ?? '',
 		company: highlights.company ?? '',
 		pull_requests_opened: highlights.pulls ?? 0,
-		github_stats: userStats
+		github_stats: userStats,
+		is_graphite_user: isGraphiteUser
 	})
 	if (error) console.error(error.message)
-
 	return userStats
 }
 
