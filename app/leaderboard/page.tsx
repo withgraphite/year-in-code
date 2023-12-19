@@ -87,7 +87,7 @@ export default async function LeaderBoard() {
 						<h3 className='flex flex-wrap gap-1 font-thin'>
 							Close more pull requests with{' '}
 							<GraphiteCTA
-								showIcon
+								showArrow
 								className='font-thin'
 							/>
 						</h3>
