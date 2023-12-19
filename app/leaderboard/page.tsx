@@ -104,7 +104,7 @@ export default async function LeaderBoard() {
 					</div>
 					{data.map((item, i) => (
 						<LineItem
-							key={item.user}
+							key={item.user_name}
 							index={i}
 							userName={item.user_name}
 							avatarUrl={item.avatar_url}
