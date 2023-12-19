@@ -4,11 +4,9 @@ interface GraphiteUserResponse {
 }
 
 // Check if GitHub user is also a Graphite user
-export default async function getGraphiteUser({
-	username
-}: {
+export default async function getGraphiteUser(
 	username: string
-}): Promise<GraphiteUserResponse> {
+): Promise<GraphiteUserResponse> {
 	try {
 		const response = await fetch(
 			`https://app.graphite.dev/api/v1/year-in-code/user/${username}`,
