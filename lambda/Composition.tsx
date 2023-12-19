@@ -30,8 +30,8 @@ export default function Composition() {
 			component={Video}
 			durationInFrames={12 * 30 * 5}
 			fps={30}
-			height={1080}
-			width={1920}
+			height={720}
+			width={1280}
 			defaultProps={{
 				video: {} as Manifest,
 				stats: {} as Stats
