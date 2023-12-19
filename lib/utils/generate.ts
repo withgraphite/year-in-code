@@ -109,9 +109,23 @@ export default async function generateScenes(stats: Stats, session: Session) {
 
 	// Run chain
 	console.log('Creating frames...')
-	const scenes = await chain.invoke({
+	const scenes = (await chain.invoke({
 		stats: JSON.stringify(stats)
-	})
+	})) as Manifest
+
+	scenes.song = ['Armageddon', 'Extinguisher', 'RewindThat', 'WontBackDown'][
+		Math.floor(Math.random() * 4)
+	] as Manifest['song']
+	scenes.planet = [
+		'mars',
+		'jupiter',
+		'saturn',
+		'mercury',
+		'neptune',
+		'uranus',
+		'venus',
+		'moon'
+	][Math.floor(Math.random() * 8)] as Manifest['planet']
 
 	// Save to database
 	const {data, error} = await supabase

@@ -31,7 +31,7 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 		switch (animation?.type) {
 			case 'intro':
 				return Intro({
-					planet: animation.planet,
+					planet: video.planet || animation.planet,
 					from: i * fps * 5,
 					title: text
 				})
@@ -112,7 +112,7 @@ export default function Video({video, stats}: {video: Manifest; stats: Stats}) {
 		<AbsoluteFill>
 			<div className='absolute h-full w-full items-center justify-center bg-black font-bold' />
 			<Audio
-				src={staticFile('/music/BlackOutDays.mp3')}
+				src={staticFile(`/music/${video.song || 'BlackOutDays'}.mp3`)}
 				placeholder={null}
 			/>
 			<Sequence>

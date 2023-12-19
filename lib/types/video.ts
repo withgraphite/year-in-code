@@ -101,4 +101,15 @@ export const videoSchema = z.object({
 		.describe('An array of scenes in the video')
 })
 
-export type Manifest = z.infer<typeof videoSchema>
+export type Manifest = z.infer<typeof videoSchema> & {
+	song?: 'Armageddon' | 'Extinguisher' | 'RewindThat' | 'WontBackDown'
+	planet?:
+		| 'mars'
+		| 'jupiter'
+		| 'saturn'
+		| 'mercury'
+		| 'neptune'
+		| 'uranus'
+		| 'venus'
+		| 'moon'
+}
