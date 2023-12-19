@@ -66,7 +66,10 @@ export default function DownloadControls({
 	if (state.status === 'rendering')
 		return (
 			<div className='flex w-full flex-col gap-2'>
-				<p className='animate-pulse font-thin text-white'>Rendering...</p>
+				<div className='flex w-full items-center justify-between font-thin text-white'>
+					<p className='animate-pulse'>Rendering...</p>
+					<p>{`${Math.round(state.progress * 100)}%`}</p>
+				</div>
 				<Progress value={state.progress * 100} />
 			</div>
 		)
