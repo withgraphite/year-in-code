@@ -1,6 +1,5 @@
 'use client'
 import {Session} from '@supabase/supabase-js'
-import {track} from '@vercel/analytics'
 import {motion} from 'framer-motion'
 import Link from 'next/link'
 import SignInButton from './SignInButton'
@@ -24,7 +23,6 @@ export default function Hero({session}: {session: Session}) {
 				<SignInButton className='w-full' />
 				<Link
 					href='/leaderboard'
-					onClick={() => track('Visit leaderboard')}
 					className='flex w-full items-center justify-center gap-2 rounded-xl border-2 border-black bg-transparent px-6 py-2 text-base font-thin text-black no-underline transition-all hover:bg-black hover:text-white hover:opacity-100 sm:w-full sm:text-lg'>
 					See leaderboard
 				</Link>
