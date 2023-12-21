@@ -19,6 +19,8 @@
     "canvas-confetti": "^1.9.2",
     "clsx": "^2.0.0",
     "devicon": "^2.15.1",
+    "dom-to-image": "^2.6.0",
+    "file-saver": "^2.0.5",
     "framer-motion": "^10.16.16",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
