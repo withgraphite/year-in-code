@@ -87,7 +87,7 @@ export default function DownloadControls({
 
 				<AlertDialogContent className='bg-white'>
 					<AlertDialogHeader>
-						<AlertDialogTitle>Download takes 2 to 3 minutes!</AlertDialogTitle>
+						<AlertDialogTitle>Download takes 60-90 seconds!</AlertDialogTitle>
 						<AlertDialogDescription>
 							Before you can download, you need to render the video. This takes time.
 							You only need to render the video once. Please do not navigate away from
