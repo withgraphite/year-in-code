@@ -2,7 +2,6 @@ import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import {Metadata} from 'next'
 import {cookies} from 'next/headers'
 import DownloadControls from '~/components/DownloadControls'
-import DownloadImage from '~/components/DownloadImage'
 import Player from '~/components/Player'
 import SignInButton from '~/components/SignInButton'
 import Toolbar from '~/components/Toolbar'
@@ -78,23 +77,16 @@ export default async function Profile({params}: {params: {username: string}}) {
 					<p className='w-full text-center text-white sm:hidden'>
 						For the complete experience, play on desktop.
 					</p>
-					<div className='flex w-full justify-center gap-5'>
-						<DownloadControls
-							profile={profile}
-							session={session}
-							inputProps={{
-								title: profile.user_name,
-								userId: profile.id,
-								video: profile.video_manifest as Manifest,
-								stats: profile.github_stats as unknown as Stats
-							}}
-						/>
-						<DownloadImage
-							stats={profile.github_stats as unknown as Stats}
-							profile={profile}
-							session={session}
-						/>
-					</div>
+					<DownloadControls
+						profile={profile}
+						session={session}
+						inputProps={{
+							title: profile.user_name,
+							userId: profile.id,
+							video: profile.video_manifest as Manifest,
+							stats: profile.github_stats as unknown as Stats
+						}}
+					/>
 				</div>
 			)}
 

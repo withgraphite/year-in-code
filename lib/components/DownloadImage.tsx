@@ -1,7 +1,7 @@
 'use client'
 
 import {Session} from '@supabase/supabase-js'
-import {DownloadIcon} from 'lucide-react'
+import {ImageIcon} from 'lucide-react'
 import {Stats} from '~/types/github'
 import {Profile} from '~/types/profile'
 import download from '~/utils/save'
@@ -24,11 +24,9 @@ export default function DownloadImage({
 	return (
 		<>
 			<button
-				className={`group px-6 py-2 text-sm hover:opacity-80 sm:text-xl`}
-				onClick={() => {
-					download(stats)
-				}}>
-				<DownloadIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5' />
+				className='px-6 py-2 text-sm hover:opacity-80 sm:text-xl'
+				onClick={() => download(stats)}>
+				<ImageIcon className='h-5 w-5' />
 				Download image
 			</button>
 			<div className='fixed z-[-100] h-[820px] w-[1280px] scale-[10%]'>
