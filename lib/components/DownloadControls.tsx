@@ -78,9 +78,10 @@ export default function DownloadControls({
 		return (
 			<AlertDialog>
 				<AlertDialogTrigger
-					className='border-none p-0'
+					className='border-none p-0 hover:opacity-80'
 					onClick={() => track('Download intent')}>
-					<span className='rounded-xl border-2 border-black bg-black px-6 py-2 text-white transition-colors duration-300 hover:bg-white hover:text-black'>
+					<span className='flex items-center gap-2 rounded-xl border-2 border-black bg-black px-6 py-2 text-sm text-white transition-colors duration-300 hover:bg-white hover:text-black sm:text-xl'>
+						<DownloadIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5' />
 						Download video
 					</span>
 				</AlertDialogTrigger>

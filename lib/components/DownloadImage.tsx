@@ -14,7 +14,7 @@ export default function DownloadImage({stats}: {stats: Stats}) {
 					download(stats)
 				}}>
 				<DownloadIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5' />
-				Download Image
+				Download image
 			</button>
 			<div className='fixed z-[-100] h-[820px] w-[1280px] scale-[10%]'>
 				<div
