@@ -6,9 +6,15 @@ import {LogOutIcon} from 'lucide-react'
 import {useRouter} from 'next/navigation'
 import {toast} from 'sonner'
 import {Database} from '~/types/supabase'
-import Tooltip from './Tooltip'
+import cn from '~/utils/cn'
 
-export default function SignOutButton() {
+export default function SignOutButton({
+	className,
+	expand
+}: {
+	className?: string
+	expand?: boolean
+}) {
 	const supabase = createClientComponentClient<Database>()
 	const router = useRouter()
 
@@ -21,12 +27,14 @@ export default function SignOutButton() {
 	}
 
 	return (
-		<Tooltip body='Sign out'>
-			<button
-				onClick={handleSignOut}
-				className='group rounded-md bg-transparent p-2 text-lg text-black hover:bg-black hover:text-white'>
-				<LogOutIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5' />
-			</button>
-		</Tooltip>
+		<button
+			onClick={handleSignOut}
+			className={cn(
+				'group rounded-md bg-transparent p-2 text-lg text-black hover:bg-black hover:text-white',
+				className
+			)}>
+			<LogOutIcon className='h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5' />
+			{expand && <span>Sign out</span>}
+		</button>
 	)
 }
