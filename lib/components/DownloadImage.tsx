@@ -1,11 +1,26 @@
 'use client'
 
+import {Session} from '@supabase/supabase-js'
 import {DownloadIcon} from 'lucide-react'
 import {Stats} from '~/types/github'
+import {Profile} from '~/types/profile'
 import download from '~/utils/save'
+import checkIfSelf from '~/utils/self'
 import Summary from './summary'
 
-export default function DownloadImage({stats}: {stats: Stats}) {
+export default function DownloadImage({
+	stats,
+	session,
+	profile
+}: {
+	stats: Stats
+	session: Session
+	profile: Profile
+}) {
+	const isOwn = checkIfSelf(session, profile)
+
+	if (!isOwn) return
+
 	return (
 		<>
 			<button

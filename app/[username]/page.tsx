@@ -89,7 +89,11 @@ export default async function Profile({params}: {params: {username: string}}) {
 								stats: profile.github_stats as unknown as Stats
 							}}
 						/>
-						<DownloadImage stats={profile.github_stats as unknown as Stats} />
+						<DownloadImage
+							stats={profile.github_stats as unknown as Stats}
+							profile={profile}
+							session={session}
+						/>
 					</div>
 				</div>
 			)}
