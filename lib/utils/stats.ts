@@ -1,7 +1,7 @@
 'use server'
 
 import {request} from 'graphql-request'
-import {DEC2023, JAN2023} from 'lib/constants/dates'
+import {DEC2024, JAN2024} from 'lib/constants/dates'
 import {COMMON_LANGUAGES} from 'lib/constants/misc'
 import {GITHUB_GRAPHQL_API} from 'lib/constants/urls'
 import {Language, Repo, Stats} from 'lib/types/github'
@@ -84,8 +84,8 @@ export async function getHighlights(token: string) {
 		GITHUB_GRAPHQL_API,
 		USER_HIGHLIGHTS,
 		{
-			start: JAN2023,
-			end: DEC2023
+			start: JAN2024,
+			end: DEC2024
 		},
 		{
 			Authorization: `Bearer ${token}`
@@ -97,7 +97,7 @@ export async function getHighlights(token: string) {
 	const collection = payload.viewer.contributionsCollection
 	const highlights: Stats = {
 		username: payload.viewer.login,
-		year: 2023,
+		year: 2024,
 		email: payload.viewer.email,
 		company: payload.viewer.company,
 		fullName: payload.viewer.name,
@@ -121,8 +121,8 @@ export async function getTopLanguages(token: string): Promise<Language[]> {
 		GITHUB_GRAPHQL_API,
 		TOP_LANGUAGES,
 		{
-			start: JAN2023,
-			end: DEC2023
+			start: JAN2024,
+			end: DEC2024
 		},
 		{
 			Authorization: `Bearer ${token}`
@@ -240,8 +240,8 @@ export async function getContributionHistory(token: string) {
 		GITHUB_GRAPHQL_API,
 		CONTRIBUTIONS,
 		{
-			start: JAN2023,
-			end: DEC2023
+			start: JAN2024,
+			end: DEC2024
 		},
 		{
 			Authorization: `Bearer ${token}`
