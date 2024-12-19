@@ -15,7 +15,7 @@ export default function Year() {
 				</div>
 				<div className='flex gap-5 md:gap-10 lg:gap-0'>
 					<span>2</span>
-					<span>3</span>
+					<span>4</span>
 				</div>
 			</motion.div>
 		</div>
