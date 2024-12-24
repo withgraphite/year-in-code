@@ -31,14 +31,6 @@ export async function GET(req: NextRequest) {
 					color: '#FFFFFF',
 					backgroundImage: `url(${META.domain.prod}images/og-bg-text.png)`
 				}}>
-				{/* <BackgroundGrid
-					style={{
-						position: 'absolute',
-						width: size.width,
-						height: size.height,
-						zIndex: -1
-					}}
-				/> */}
 				<div
 					style={{
 						marginLeft: 190,

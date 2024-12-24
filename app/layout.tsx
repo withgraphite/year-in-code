@@ -1,11 +1,11 @@
 import {Analytics} from '@vercel/analytics/react'
 import {SpeedInsights} from '@vercel/speed-insights/next'
 import 'devicon'
-import BackgroundGrid from 'lib/components/BackgroundGrid'
 import {Metadata} from 'next'
 import localFont from 'next/font/local'
 import {Toaster} from 'sonner'
-import BackgroundGradient from '~/components/BackgroundGradient'
+
+import {Background} from '~/3d/Background'
 import Nav from '~/components/Nav'
 import {DEFAULT_META} from '~/constants/metadata'
 import './styles.css'
@@ -42,13 +42,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 		<html lang='en'>
 			<body
 				className={`${font.className} relative flex h-full min-h-screen w-full flex-col items-center bg-white dark:bg-black`}>
-				<BackgroundGrid className='fixed z-[-1] h-full w-full opacity-30 dark:opacity-40' />
-				<BackgroundGradient />
+				<Background />
 				<Nav />
 				<Toaster />
 				<div className='flex w-full max-w-3xl items-center justify-center'>
 					{children}
-
 					<Analytics />
 					<SpeedInsights />
 				</div>
