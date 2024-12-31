@@ -27,37 +27,34 @@ const Socials = () => {
 
 export default function Footer() {
 	const pathname = usePathname()
+
+	let inner
 	if (pathname === '/loading')
-		return (
-			<footer className='absolute bottom-0 flex w-full items-center justify-center p-5 text-white'>
-				<SignOutButton
-					className='text-white'
-					expand
-				/>
-			</footer>
+		inner = (
+			<SignOutButton
+				className='pointer-events-auto text-white'
+				expand
+			/>
 		)
+	else
+		inner = (
+			<>
+				<Socials />
+				<div className='pointer-events-auto flex gap-2'>
+					<Link
+						href={META.github}
+						target='_blank'
+						className='group no-underline hover:text-white'
+						onClick={() => track('Visit GitHub')}>
+						See code
+					</Link>
+				</div>
+			</>
+		)
+
 	return (
-		<footer className='absolute bottom-0 flex w-full items-center justify-center p-5 text-white'>
-			<Link
-				href={META.github}
-				target='_blank'
-				className='group border-r border-white pr-3 no-underline'>
-				<button
-					className='border-none bg-transparent p-0 text-lg font-thin text-white hover:bg-transparent hover:text-white'
-					onClick={() => track('Visit GitHub')}>
-					See code
-				</button>
-			</Link>
-			<Link
-				href={META.blog}
-				target='_blank'
-				className='group relative flex items-center pl-3 no-underline'>
-				<button
-					onClick={() => track('Visit blog')}
-					className='border-none bg-transparent p-0 text-lg font-thin text-white hover:bg-transparent hover:text-white'>
-					Learn more
-				</button>
-			</Link>
+		<footer className='pointer-events-none fixed bottom-0 z-10 flex w-full items-center justify-between p-8 text-sm text-white/50 '>
+			{inner}
 		</footer>
 	)
 }

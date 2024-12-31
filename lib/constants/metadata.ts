@@ -8,7 +8,7 @@ export const META = {
 		prod: 'https://year-in-code.com/',
 		web: 'https://graphite.dev/'
 	},
-	blog: 'https://rubriclabs.com/blog/year-in-code',
+
 	github: 'https://github.com/withgraphite/year-in-code'
 }
 
