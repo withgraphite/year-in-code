@@ -13,22 +13,39 @@ export default function Hero({session}: {session: Session}) {
 			initial={{opacity: 0, scale: 1}}
 			animate={{opacity: 1, scale: 1}}
 			transition={{delay: 0.3, duration: 0.5}}
-			className='z-10 flex h-[95vw] w-[95vw] flex-col items-center justify-center gap-6 rounded-full bg-gradient-radial from-[#5BDCF9] to-[#2C6FFC] p-10 text-center transition-all duration-300 sm:h-[450px] sm:w-[450px]'>
-			<div className='flex flex-col gap-3'>
-				<h1 className='text-black'>Year in code</h1>
-				<div className='flex flex-col text-xl text-black'>
-					<span>End the year with a video</span>
-					<span>for your GitHub stats</span>
+			className='z-10 flex flex-col items-center justify-center overflow-hidden rounded-lg border border-white/20 bg-black transition-all duration-300 sm:w-[450px]'>
+			<div className='flex w-full flex-col'>
+				<img
+					src='/assets/title.webp'
+					alt='Year in code 2024 title'
+					className='border-b border-white/20'
+				/>
+				<h1 className='flex flex-row items-center p-4 pb-2 text-[32px] text-white/30'>
+					<span className='headline w-fit font-bold'>Year in code</span>
+					<div className=''>
+						&nbsp;by&nbsp;
+						<Link
+							className='no-underline hover:text-white'
+							href={META.domain.web}
+							target='_blank'
+							onClick={() => track(TRACKING.VISIT_GRAPHITE)}>
+							Graphite
+						</Link>
+					</div>
+				</h1>
+				<div className='flex flex-col p-4 pt-0 text-lg text-white/50 [text-wrap:pretty]'>
+					Look back on your 2024 coding journey. Explore your contributions and
+					impact over the year with a generative video.
 				</div>
 			</div>
 
-			<div className='flex flex-col items-center gap-3'>
-				<SignInButton className='w-full' />
+			<div className='flex w-full flex-row items-center border-t border-white/20'>
 				<Link
 					href='/leaderboard'
-					className='flex w-full items-center justify-center gap-2 rounded-xl border-2 border-black bg-transparent px-6 py-2 text-base font-thin text-black no-underline transition-all hover:bg-black hover:text-white hover:opacity-100 sm:w-full sm:text-lg'>
-					See leaderboard
+					className='flex w-full items-center justify-center gap-2 rounded-xl border-2 border-black bg-transparent p-4 font-thin no-underline transition-all hover:bg-black hover:text-white sm:w-full'>
+					<ChartNoAxesColumn /> Leaderboard
 				</Link>
+				<SignInButton className='h-full w-full' />
 			</div>
 		</motion.div>
 	)
