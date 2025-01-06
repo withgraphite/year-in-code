@@ -4,6 +4,26 @@ import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import {META} from '~/constants/metadata'
 import SignOutButton from './SignOutButton'
+import {IconLinkedIn} from './icons/LinkedIn'
+import {IconTwitter} from './icons/Twitter'
+
+const Socials = () => {
+	const commonClassName = 'hover:text-white'
+	return (
+		<div className='pointer-events-auto flex gap-2'>
+			<Link
+				href='https://www.linkedin.com/company/withgraphite'
+				className={commonClassName}>
+				<IconLinkedIn />
+			</Link>
+			<Link
+				href='https://x.com/withgraphite/'
+				className={commonClassName}>
+				<IconTwitter />
+			</Link>
+		</div>
+	)
+}
 
 export default function Footer() {
 	const pathname = usePathname()

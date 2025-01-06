@@ -1,7 +1,10 @@
 'use client'
 import {Session} from '@supabase/supabase-js'
+import {track} from '@vercel/analytics/react'
 import {motion} from 'framer-motion'
 import Link from 'next/link'
+import {META} from '~/constants/metadata'
+import {TRACKING} from '~/constants/tracking'
 import SignInButton from './SignInButton'
 
 export default function Hero({session}: {session: Session}) {
