@@ -15,6 +15,6 @@ export default function Conclusion({text, from}: {text: string; from: number}) {
 			</>
 		),
 		camera: undefined,
-		content: <h2>{text}</h2>
+		content: <h2 className='headline'>{text}</h2>
 	}
 }

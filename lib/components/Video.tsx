@@ -8,6 +8,7 @@ import {
 } from 'remotion'
 import Canvas from '../3d/Canvas'
 import Space from '../environment/Space'
+
 import AllStats from '../scenes/AllStats'
 import Conclusion from '../scenes/Conclusion'
 import Contributions from '../scenes/Contributions'
@@ -22,6 +23,7 @@ import Statistic from '../scenes/Statistic'
 import FadeIn from '../transitions/FadeIn'
 import {Stats} from '../types/github'
 import {Manifest} from '../types/video'
+import {GraphiteLogo} from './icons/Graphite'
 
 export default function Video({
 	video,
@@ -67,7 +69,7 @@ export default function Video({
 				return Contributions({
 					from: i * fps * 5,
 					text,
-					weeks: stats.contributionsHistory
+					stats
 				})
 			case 'repos':
 				return Repos({
@@ -117,7 +119,7 @@ export default function Video({
 
 	return (
 		<AbsoluteFill>
-			<div className='absolute h-full w-full items-center justify-center bg-black font-bold' />
+			<div className='absolute h-full w-full bg-black' />
 			<Audio
 				src={staticFile(`/music/${video.song || 'BlackOutDays'}.mp3`)}
 				placeholder={null}
@@ -150,12 +152,21 @@ export default function Video({
 					frame={frame}
 					delay={scene.from}>
 					<div className='absolute z-10 h-full w-full text-white'>
-						<div className='flex h-full w-full flex-col items-center justify-center gap-10 p-24 text-center'>
+						<div className='flex h-full w-full flex-col items-center justify-center gap-8 p-16 text-center'>
 							{scene.content}
 						</div>
 					</div>
 				</FadeIn>
 			</Sequence>
+
+			{scene.content.type?.name !== 'Summary' && (
+				<div
+					className='absolute left-0 top-0 flex h-full w-full flex-col 
+			items-center justify-between p-6 text-white/50'>
+					<div className='font-mono text-sm'>@{stats.username}</div>
+					<GraphiteLogo />
+				</div>
+			)}
 		</AbsoluteFill>
 	)
 }

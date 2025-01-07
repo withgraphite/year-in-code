@@ -1,7 +1,7 @@
 import {ThreeCanvas} from '@remotion/three'
 import {useVideoConfig} from 'remotion'
+import Effects from '../effects/Effects'
 import Camera from './../camera/Camera'
-import Grain from './../effects/Grain'
 
 export default function Canvas({
 	children,
@@ -25,7 +25,7 @@ export default function Canvas({
 					/>
 				)}
 				{children}
-				<Grain />
+				<Effects />
 			</ThreeCanvas>
 		</div>
 	)

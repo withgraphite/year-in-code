@@ -3,6 +3,10 @@ import {Config} from 'tailwindcss'
 const tailwindConfig = {
 	content: ['**/*.tsx'],
 	theme: {
+		fontFamily: {
+			sans: ['Geist', 'ui-sans-serif', 'system-ui'],
+			mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular']
+		},
 		extend: {
 			animation: {
 				'spin-slow': 'rotate 6s linear infinite'

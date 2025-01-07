@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
 	const {searchParams} = req.nextUrl
 	const postTitle = searchParams.get('title')
 	const font = fetch(
-		new URL('../../public/fonts/MatterSQ-Regular.otf', import.meta.url)
+		new URL('../../public/fonts/Geist-Regular.woff2', import.meta.url)
 	).then(res => res.arrayBuffer())
 	const fontData = await font
 	const size = {
@@ -37,7 +37,7 @@ export async function GET(req: NextRequest) {
 						marginRight: 190,
 						display: 'flex',
 						fontSize: 130,
-						fontFamily: 'MatterSQ',
+						fontFamily: 'Geist',
 						letterSpacing: '-0.05em',
 						fontStyle: 'normal',
 						color: '#FFFFFF',
@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
 			...size,
 			fonts: [
 				{
-					name: 'MatterSQ',
+					name: 'Geist',
 					data: fontData,
 					style: 'normal'
 				}

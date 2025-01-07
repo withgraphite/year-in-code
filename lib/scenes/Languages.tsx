@@ -16,7 +16,7 @@ export default function Languages({
 		camera: undefined,
 		content: (
 			<>
-				<h2>{text}</h2>
+				<h2 className='headline'>{text}</h2>
 				<div className='flex gap-5'>
 					{languages.map((language, i) => (
 						<div

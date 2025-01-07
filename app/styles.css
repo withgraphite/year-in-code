@@ -3,16 +3,22 @@
 @tailwind components;
 
 html {
-	@apply text-white;
+	@apply font-sans text-white;
 	color-scheme: dark;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 @layer base {
 	h1 {
-		@apply text-5xl font-bold;
+		@apply text-4xl leading-snug;
+		letter-spacing: -0.02em;
 	}
 	h2 {
-		@apply text-3xl font-bold;
+		@apply text-4xl font-bold leading-snug;
+		letter-spacing: -0.02em;
 	}
 	h3 {
 		@apply text-xl;
@@ -33,7 +39,7 @@ html {
 		@apply border-primary rounded-sm bg-neutral-200 bg-opacity-60 p-2 text-sm;
 	}
 	a {
-		@apply underline underline-offset-4 hover:opacity-80;
+		@apply underline underline-offset-4;
 	}
 	blockquote {
 		@apply border-primary;
@@ -49,5 +55,60 @@ html {
 	}
 	.text-secondary {
 		@apply text-neutral-600 dark:text-neutral-400;
+	}
+
+	.text-pretty {
+		text-wrap: pretty;
+	}
+
+	.gradient {
+		background: linear-gradient(90deg, white 60%, rgb(180, 180, 180));
+		background-clip: text;
+		color: transparent;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.color-gradient {
+		background: radial-gradient(#f8fadc, #770dff);
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.stat {
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: currentColor;
+	}
+
+	/* VIDEO */
+	.headline {
+		max-width: 500px;
+		text-wrap: pretty;
+		@apply gradient;
+	}
+
+	.label {
+		@apply text-sm leading-tight tracking-wide text-white/50;
+	}
+
+	.inset-shadow {
+		box-shadow: 0 0 16px 4px currentColor inset;
+	}
+
+	.gridded {
+		background-size: var(--grid-cell-size) var(--grid-cell-size);
+		background-image: linear-gradient(
+				to right,
+				var(--grid-color) 1px,
+				transparent 1px
+			),
+			linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+	}
+
+	.ellipsis {
+		text-overflow: ellipsis;
+		max-width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
 	}
 }

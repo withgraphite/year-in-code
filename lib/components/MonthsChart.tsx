@@ -23,29 +23,28 @@ export default function MonthsChart({
 	const maxValue = Math.max(...monthlyContributions)
 
 	return (
-		<div className='flex items-end justify-center space-x-4 p-4'>
+		<div className='flex items-end justify-center space-x-4 p-4 font-mono text-sm '>
 			{monthlyContributions.map((value, index) => (
 				<div
 					key={index}
 					className='flex flex-col items-center'>
 					<div className='flex flex-col'>
 						<div
-							className='text-white'
+							className='mb-1 text-white'
 							style={{visibility: frame / 10 - index > 0 ? 'visible' : 'hidden'}}>
 							{value}
 						</div>
 						<div
 							style={{
-								width: '30px',
-								// height: `${(value / maxValue) * 200}px`,
-								// height should rise from min to max over 10 frames each delayed to be one at a time
+								width: '40px',
 								height: `${Math.min(value / maxValue, frame / 10 - index) * 200}px`,
-								minHeight: '10px', // Ensure that even 0 values are visible,
-								backgroundColor: color
+								minHeight: '10px' // Ensure that even 0 values are visible,
+								// backgroundColor: color
 							}}
+							className='inset-shadow border border-white/20 bg-white/20 text-white/50'
 						/>
 					</div>
-					<span className='mt-2 text-xs text-white'>
+					<span className='mt-2 font-bold uppercase text-white'>
 						{
 							[
 								'Jan',

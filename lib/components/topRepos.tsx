@@ -1,29 +1,35 @@
+import {FolderIcon} from 'lucide-react'
 import {Stats} from '../types/github'
-import BlockChart from './blockChart'
 
 /**
  * Display the user's top repositories
  * @returns {element} div with text
  */
 function TopRepos({stats}: {stats: Stats}) {
-	if (!stats || !stats.topRepos) return <></>
-
-	// Formatting data in chart-friendly format
-	const chartData = {
-		names: stats.topRepos.map(repo => repo.name),
-		namesWithOwner: stats.topRepos.map(repo => repo.nameWithOwner),
-		isPrivate: stats.topRepos.map(repo => repo.isPrivate),
-		url: stats.topRepos.map(repo => repo.url),
-		avatarUrl: stats.topRepos.map(repo => repo.avatarUrl),
-		stars: stats.topRepos.map(repo => repo.stars),
-		values: stats.topRepos.map(repo => repo.contributions),
-		colors: ['bg-orange-600/80', 'bg-green-600/80', 'bg-purple-600/80']
-	}
+	if (!stats?.topRepos?.length) return null
 
 	return (
-		<div className='group relative p-5 text-left text-white'>
-			<h1 className='mb-2 text-xl font-medium text-gray-200'>Repos</h1>
-			<BlockChart chartData={chartData} />
+		<div className='group relative flex flex-col text-left text-white'>
+			<h1 className='label mb-2'>Top Repositories</h1>
+			<div className='flex flex-col gap-1'>
+				{stats.topRepos.map(({name, contributions}, i) => {
+					return (
+						<div
+							className='flex items-center gap-2'
+							key={i}>
+							<FolderIcon className='h-auto w-[16px] text-gray-600' />
+							<div
+								className='ellipsis font-mono text-sm text-gray-300'
+								style={{maxWidth: 150}}>
+								{name}
+							</div>
+							<div className='rounded-full border border-gray-800 bg-[#0a0a0a] px-2 py-0.5 text-xs text-gray-400'>
+								{contributions.toString()} commit{Number(contributions) > 0 ? 's' : ''}
+							</div>
+						</div>
+					)
+				})}
+			</div>
 		</div>
 	)
 }

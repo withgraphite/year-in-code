@@ -1,3 +1,12 @@
+import {useMemo} from 'react'
+
+import {
+	ChartLine,
+	Eye,
+	FolderOpen,
+	GitCommitHorizontal,
+	GitPullRequest
+} from 'lucide-react'
 import {Stats} from '../types/github'
 
 /**
@@ -5,78 +14,65 @@ import {Stats} from '../types/github'
  * @returns {element} div with text
  */
 export default function Highlights({stats}: {stats: Stats}) {
-	// Size the text according to the number
-	const numberToFontSize = (count: number): string => {
-		let order = Math.floor(Math.log(count))
+	const other = useMemo(() => {
+		const arr = [
+			{
+				label: 'Pull requests',
 
-		// Medium to 9xl (maximum in Tailwind)
-		if (!order || order === 0) return 'text-lg'
-		else if (order <= 2) return 'text-xl'
-		else if (order <= 3) return 'text-2xl'
-		else if (order <= 4) return 'text-3xl'
-		else if (order <= 5) return 'text-4xl'
-		else if (order <= 6) return 'text-5xl'
-		else return 'text-7xl'
-	}
+				icon: <GitPullRequest className='w-[16px]' />,
+				value: stats.pulls
+			},
+			{
+				label: 'Pull reviews',
+				value: stats.reviews,
+				icon: <Eye className='w-[16px]' />
+			},
+			{
+				label: 'Commits',
 
-	// Stats to render
-	let stat = [
-		{
-			count: stats.commits,
-			fontSize: 'text-lg',
-			tagline: 'You have no commitment issues',
-			title: 'Total commits',
-			colour: 'text-blue-600'
-		},
-		{
-			count: stats.contributions,
-			fontSize: 'text-lg',
-			tagline: 'You put in the work',
-			title: 'Total contributions',
-			colour: 'text-yellow-600'
-		},
-		{
-			count: stats.repos,
-			fontSize: 'text-lg',
-			tagline: 'You code far and wide',
-			title: 'Repositories',
-			colour: 'text-orange-600'
-		},
-		{
-			count: stats.pulls,
-			fontSize: 'text-lg',
-			tagline: 'You pull your own weight',
-			title: 'Pull requests',
-			colour: 'text-indigo-600'
-		},
-		{
-			count: stats.reviews,
-			fontSize: 'text-lg',
-			tagline: "You're a good friend",
-			title: 'Pull reviews',
-			colour: 'text-green-600'
-		}
-	]
+				value: stats.commits,
+				icon: <GitCommitHorizontal className='w-[16px]' />
+			},
+			{
+				label: 'Repositories',
 
-	// Get font size for each stat
-	stat.map(stat => (stat.fontSize = numberToFontSize(stat.count)))
+				value: stats.repos,
+				icon: <FolderOpen className='w-[16px]' />
+			}
+		].sort((a, b) => b.value - a.value)
+
+		return arr
+	}, [stats])
 
 	return (
-		<div className='group relative p-5 text-left'>
-			<h1 className='mb-2 text-xl font-medium text-gray-200'>Overview</h1>
-
-			<div className='grid grid-cols-3 items-end gap-5 text-white'>
-				{stat.map(
-					stat =>
-						stat.count > 0 && (
-							<div key={stat.title}>
-								<p className={`${stat.fontSize} ${stat.colour} font-mono`}>
-									{stat.count}
-								</p>
-								<p className='leading-none text-gray-400'>{stat.title}</p>
+		<div className='group relative grid grid-cols-2 gap-4 text-left'>
+			<div className='rounded border border-gray-800 bg-[#0a0a0a] p-2'>
+				<div className='label text-md flex items-center gap-2 text-gray-500'>
+					<ChartLine className='w-[18px] text-green-500' />{' '}
+					<div>Total Contributions</div>
+				</div>
+				<div className='relative text-center font-mono text-[72px] font-bold'>
+					<div className=''>{stats.contributions}</div>
+					<div
+						className={`color-gradient absolute left-0 top-0 h-full w-full mix-blend-screen blur-[6px] `}>
+						{stats.contributions}
+					</div>
+				</div>
+			</div>
+			<div className='flex flex-col gap-2 rounded-lg  '>
+				{other.map((d, i) => {
+					return (
+						<div
+							key={i}
+							className='flex flex-1 items-center justify-between gap-2 rounded border border-gray-800 bg-[#0a0a0a] px-2 text-gray-300'>
+							<div className='flex items-center gap-2'>
+								{d.icon}
+								<span className='text-sm text-gray-500'>{d.label}</span>
 							</div>
-						)
-				)}
+							<div className='font-mono font-bold text-gray-300'>{d.value}</div>
+						</div>
+					)
+				})}
 			</div>
 		</div>
 	)
