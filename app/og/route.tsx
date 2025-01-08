@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
 					position: 'relative',
 					overflowY: 'hidden',
 					color: '#FFFFFF',
-					backgroundImage: `url(${META.domain.prod}images/og-bg-text.png)`
+					backgroundImage: `url(${META.domain.prod}images/og-bg-text.jpg)`
 				}}>
 				<div
 					style={{
