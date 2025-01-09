@@ -16,7 +16,7 @@ export default function CopyLinkButton({profile}: {profile: Profile}) {
 	return (
 		<Tooltip body='Copy link'>
 			<button
-				className='rounded-md p-2'
+				className='p-2'
 				onClick={handleCopy}>
 				<LinkIcon className='h-5 w-5' />
 			</button>

@@ -1,7 +1,7 @@
 'use client'
 import {createClientComponentClient} from '@supabase/auth-helpers-nextjs'
 import {track} from '@vercel/analytics'
-import {ArrowRight} from 'lucide-react'
+import {ArrowRight, Eye} from 'lucide-react'
 import {toast} from 'sonner'
 import {Database} from '~/types/supabase'
 import cn from '~/utils/cn'

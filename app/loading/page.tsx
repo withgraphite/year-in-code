@@ -32,7 +32,7 @@ export default async function Loading() {
 	}
 
 	return (
-		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-5'>
+		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-8'>
 			<GenerateVideo session={session} />
 		</div>
 	)

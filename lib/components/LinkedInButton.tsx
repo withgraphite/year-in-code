@@ -1,11 +1,11 @@
 'use client'
 
 import {track} from '@vercel/analytics'
-import {LinkedinIcon} from 'lucide-react'
 import Link from 'next/link'
 import {META} from '~/constants/metadata'
 import {Profile} from '~/types/profile'
 import Tooltip from './Tooltip'
+import {IconLinkedIn} from './icons/LinkedIn'
 
 export default function LinkedInButton({
 	isOwn,
@@ -27,7 +27,7 @@ export default function LinkedInButton({
 				<button
 					className='group rounded-md p-2'
 					onClick={() => track('Share: LinkedIn')}>
-					<LinkedinIcon className='h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5' />
+					<IconLinkedIn className='h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5' />
 				</button>
 			</Link>
 		</Tooltip>

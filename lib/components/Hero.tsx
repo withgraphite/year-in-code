@@ -2,6 +2,7 @@
 import {Session} from '@supabase/supabase-js'
 import {track} from '@vercel/analytics/react'
 import {motion} from 'framer-motion'
+import {ChartNoAxesColumn} from 'lucide-react'
 import Link from 'next/link'
 import {META} from '~/constants/metadata'
 import {TRACKING} from '~/constants/tracking'
