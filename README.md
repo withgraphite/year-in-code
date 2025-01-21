@@ -20,7 +20,3 @@ npx supabase gen types typescript --project-id "$PROJECT_REF" --schema public > 
 ```
 
 The `PROJECT_REF` is accessible via Supabase project URL. [Learn more here](https://supabase.com/docs/guides/api/rest/generating-types#generating-types-using-supabase-cli).
-
-## Learn more
-
-Check this [blog post](https://rubriclabs.com/blog/year-in-code).
