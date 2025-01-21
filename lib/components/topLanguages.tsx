@@ -1,4 +1,5 @@
 import {Stats} from '../types/github'
+import {getLanguage} from '../utils/language'
 
 /**
  * Render the user's top coding languages
@@ -9,18 +10,25 @@ function TopLanguages({stats}: {stats: Stats}) {
 	if (!languages) return <></>
 
 	return (
-		<div className='group relative p-5 text-left'>
-			<h1 className='mb-3 text-xl font-medium text-gray-200'>Languages</h1>
-			<div className='space-y-2 text-white'>
+		<div className='group relative flex flex-col text-left'>
+			<h1 className='label mb-2'>Top Languages</h1>
+			<div className='flex flex-col gap-y-1 text-sm text-white'>
 				{languages.map((language, i) => (
 					<div
 						key={i}
-						className='flex items-center space-x-3'
-						style={{color: language.color}}>
-						<p
-							className={`devicon-${language.name}-plain text-4xl transition-transform hover:scale-[1.5]`}
-						/>
-						<p className='font-mono text-xl'>{language.commonName}</p>
+						className='flex items-center gap-x-4'>
+						<div className='w-[8px] text-center font-mono text-gray-600'>{i + 1}</div>
+						<div
+							className={`devicon-${getLanguage(
+								language.name
+							)}-plain text-md relative text-gray-300`}>
+							<div
+								className={`devicon-${getLanguage(
+									language.name
+								)}-plain text-md absolute left-0 top-0 h-full w-full text-current blur-[1px]`}
+							/>
+						</div>
+						<p className='font-mono text-gray-300'>{language.commonName}</p>
 					</div>
 				))}
 			</div>
