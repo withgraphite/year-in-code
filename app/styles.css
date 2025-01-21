@@ -3,7 +3,8 @@
 @tailwind components;
 
 html {
-	@apply text-black;
+	@apply text-white;
+	color-scheme: dark;
 }
 
 @layer base {

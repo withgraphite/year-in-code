@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
 import {usePathname, useRouter} from 'next/navigation'
-import GraphiteCTA from './GraphiteCTA'
 
 export default function Nav() {
 	const pathname = usePathname()
@@ -11,10 +10,6 @@ export default function Nav() {
 	return (
 		<nav className='absolute left-0 top-0 z-50 flex w-full items-center justify-center p-5'>
 			<div className='flex w-full max-w-3xl flex-col items-center justify-center gap-3'>
-				<GraphiteCTA
-					showLogo
-					className='text-2xl'
-				/>
 				{pathname !== '/' && (
 					<div className='flex w-full max-w-3xl items-center justify-center'>
 						<Link
