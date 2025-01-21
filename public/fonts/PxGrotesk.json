@@ -1,0 +1,92 @@
+{
+	"ascender": 1299,
+	"boundingBox": { "xMax": 1299, "xMin": 0, "yMax": 1320,"yMin": -354},
+	"cssFontStyle": "normal",
+	"cssFontWeight": "normal",
+	"descender": -381,
+	"familyName": "Px Grotesk Screen",
+	"glyphs": {
+		"0": {
+			"ha": 826,
+			"o": "m 118 118 l 118 827 l 236 827 l 236 118 l 118 118 m 236 0 l 236 118 l 590 118 l 590 0 l 236 0 m 236 827 l 236 945 l 590 945 l 590 827 l 236 827 m 590 118 l 590 827 l 708 827 l 708 118 l 590 118 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"1": {
+			"ha": 826,
+			"o": "m 118 0 l 118 118 l 354 118 l 354 708 l 118 708 l 118 827 l 354 827 l 354 945 l 472 945 l 472 118 l 708 118 l 708 0 l 118 0 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"2": {
+			"ha": 826,
+			"o": "m 118 0 l 118 118 l 236 118 l 236 236 l 354 236 l 354 118 l 708 118 l 708 0 l 118 0 m 118 708 l 118 827 l 236 827 l 236 708 l 118 708 m 236 827 l 236 945 l 590 945 l 590 827 l 236 827 m 354 236 l 354 354 l 472 354 l 472 236 l 354 236 m 472 354 l 472 472 l 590 472 l 590 354 l 472 354 m 590 472 l 590 827 l 708 827 l 708 472 l 590 472 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"3": {
+			"ha": 826,
+			"o": "m 118 118 l 118 236 l 236 236 l 236 118 l 118 118 m 118 708 l 118 827 l 236 827 l 236 708 l 118 708 m 236 0 l 236 118 l 590 118 l 590 0 l 236 0 m 236 472 l 236 590 l 590 590 l 590 472 l 236 472 m 236 827 l 236 945 l 590 945 l 590 827 l 236 827 m 590 118 l 590 472 l 708 472 l 708 118 l 590 118 m 590 590 l 590 827 l 708 827 l 708 590 l 590 590 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"4": {
+			"ha": 826,
+			"o": "m 118 236 l 118 472 l 236 472 l 236 354 l 472 354 l 472 708 l 354 708 l 354 827 l 472 827 l 472 945 l 590 945 l 590 354 l 708 354 l 708 236 l 590 236 l 590 0 l 472 0 l 472 236 l 118 236 m 236 472 l 236 708 l 354 708 l 354 472 l 236 472 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"5": {
+			"ha": 826,
+			"o": "m 118 118 l 118 236 l 236 236 l 236 118 l 118 118 m 118 472 l 118 945 l 708 945 l 708 827 l 236 827 l 236 590 l 590 590 l 590 472 l 118 472 m 236 0 l 236 118 l 590 118 l 590 0 l 236 0 m 590 118 l 590 472 l 708 472 l 708 118 l 590 118 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"6": {
+			"ha": 826,
+			"o": "m 118 118 l 118 827 l 236 827 l 236 590 l 590 590 l 590 472 l 236 472 l 236 118 l 118 118 m 236 0 l 236 118 l 590 118 l 590 0 l 236 0 m 236 827 l 236 945 l 590 945 l 590 827 l 236 827 m 590 118 l 590 472 l 708 472 l 708 118 l 590 118 m 590 708 l 590 827 l 708 827 l 708 708 l 590 708 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"7": {
+			"ha": 826,
+			"o": "m 118 827 l 118 945 l 708 945 l 708 708 l 590 708 l 590 827 l 118 827 m 236 0 l 236 236 l 354 236 l 354 0 l 236 0 m 354 236 l 354 472 l 472 472 l 472 236 l 354 236 m 472 472 l 472 708 l 590 708 l 590 472 l 472 472 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"8": {
+			"ha": 826,
+			"o": "m 118 118 l 118 472 l 236 472 l 236 118 l 118 118 m 118 590 l 118 827 l 236 827 l 236 590 l 118 590 m 236 0 l 236 118 l 590 118 l 590 0 l 236 0 m 236 472 l 236 590 l 590 590 l 590 472 l 236 472 m 236 827 l 236 945 l 590 945 l 590 827 l 236 827 m 590 118 l 590 472 l 708 472 l 708 118 l 590 118 m 590 590 l 590 827 l 708 827 l 708 590 l 590 590 z ",
+			"x_max": 708,
+			"x_min": 118
+		},
+		"9": {
+			"ha": 826,
+			"o": "m 118 118 l 118 236 l 236 236 l 236 118 l 118 118 m 118 472 l 118 827 l 236 827 l 236 472 l 118 472 m 236 0 l 236 118 l 590 118 l 590 0 l 236 0 m 236 354 l 236 472 l 590 472 l 590 827 l 708 827 l 708 118 l 590 118 l 590 354 l 236 354 m 236 827 l 236 945 l 590 945 l 590 827 l 236 827 z ",
+			"x_max": 708,
+			"x_min": 118
+		}
+	},
+	"original_font_information": {
+		"copyright": "©2013 Optimo.",
+		"designer": "Gavillet & Rust",
+		"designerURL": "http://optimo.ch",
+		"fontFamily": "Px Grotesk Screen",
+		"fontSubfamily": "Regular",
+		"format": 0,
+		"fullName": "Px Grotesk Screen",
+		"licence": "http://optimo.ch/license",
+		"licenceURL": "http://optimo.ch/license",
+		"manufacturer": "Optimo",
+		"manufacturerURL": "http://optimo.ch",
+		"postScriptName": "PxGrotesk-Screen",
+		"preferredFamily": "Px Grotesk",
+		"preferredSubfamily": "Screen",
+		"trademark": "Px Grotesk is a trademark of Optimo.",
+		"uniqueID": "Px Grotesk Screen:Version 1.00",
+		"version": "Version 1.00 July 22, 2013, initial release"
+	},
+	"resolution": 1000,
+	"underlinePosition": -104,
+	"underlineThickness": 69
+}

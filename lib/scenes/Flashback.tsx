@@ -17,6 +17,15 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 				? new Date(dateFrom).getTime() - (frame - 30) * secondsPerFrame
 				: dateTo
 
+	const localeDate = new Date(date)
+		.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'short',
+			day: '2-digit'
+		})
+		.split(' ')
+		.map(part => part.replace(',', ''))
+
 	return {
 		from,
 		background:
@@ -50,14 +59,21 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 				<FadeIn
 					frame={frame}
 					delay={30}>
-					<h2 className='text-white/80'>{text}</h2>
-					<h1 className='text-center font-mono'>
-						{new Date(date).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: '2-digit',
-							day: '2-digit'
+					<div className='flex items-center justify-center gap-2 font-mono text-5xl font-bold uppercase'>
+						{localeDate.map((n, i) => {
+							return (
+								<div
+									key={i}
+									className='rounded-lg border border-white bg-white/10 px-8 py-4 text-white/80'
+									style={{
+										boxShadow: 'rgba(255 255 255 / 0.5) 0px 0px 16px 4px inset'
+									}}>
+									{n}
+								</div>
+							)
 						})}
-					</h1>
+					</div>
+					<h2 className='text-pretty headline mt-6 text-white/80'>{text}</h2>
 				</FadeIn>
 
 				<div
@@ -67,20 +83,12 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 
 				<div
 					className='absolute z-10 h-full w-full bg-white/80'
-					style={{display: frame === 35 ? 'block' : 'none'}}
-				/>
-
-				<div
-					className='absolute z-10 h-full w-full bg-white/80'
-					style={{display: frame === 140 ? 'block' : 'none'}}
-				/>
-				<div
-					className='absolute z-10 h-full w-full bg-white/80'
-					style={{display: frame === 145 ? 'block' : 'none'}}
-				/>
-				<div
-					className='absolute z-10 h-full w-full bg-white/80'
-					style={{display: frame === 149 ? 'block' : 'none'}}
+					style={{
+						display:
+							frame === 35 || frame === 140 || frame === 145 || frame === 149
+								? 'block'
+								: 'none'
+					}}
 				/>
 			</>
 		)

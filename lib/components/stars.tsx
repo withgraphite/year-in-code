@@ -5,19 +5,15 @@ function Stars({stats}: {stats: Stats}) {
 
 	return (
 		<div className='group relative p-5 text-left text-white'>
-			<h1 className='mb-2 text-xl font-medium text-gray-200'>Stars</h1>
+			<h1 className='label mb-2'>Stars</h1>
 			<div>
 				<div className='flex items-center space-x-2'>
-					<p className='font-mono text-3xl text-green-600'>
-						+{stats.stars.given.toString()}
-					</p>
-					<p className='text-xl text-gray-400'>starred</p>
+					<p className='font-mono'>{stats.stars.given.toString()}</p>
+					<p className='text-gray-400'>given</p>
 				</div>
 				<div className='flex items-center space-x-2'>
-					<p className='font-mono text-3xl text-orange-600'>
-						+{stats.stars.received.toString()}
-					</p>
-					<p className='text-xl text-gray-400'>stars</p>
+					<p className='font-mono'>{stats.stars.received.toString()}</p>
+					<p className='text-gray-400'>earned</p>
 				</div>
 			</div>
 		</div>

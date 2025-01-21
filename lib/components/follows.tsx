@@ -11,15 +11,15 @@ function Follows({stats}: {stats: Stats}) {
 	return (
 		<div className='group relative p-5 text-left text-white'>
 			<div className='text-gray-400'>
-				<h1 className='mb-2 text-xl font-medium text-gray-200'>People</h1>
+				<h1 className='label'>People</h1>
 				<div className='flex items-center space-x-2'>
-					<span className='font-mono text-3xl text-green-600'>
+					<span className='font-mono text-3xl'>
 						{following.totalCount.toString()}
 					</span>
 					<span className='text-xl text-gray-400'>following</span>
 				</div>
 				<div className='flex items-center space-x-2'>
-					<span className='font-mono text-3xl text-orange-600'>
+					<span className='font-mono text-3xl'>
 						{followers.totalCount.toString()}
 					</span>
 					<span className='text-xl text-gray-400'>followers</span>
@@ -27,7 +27,7 @@ function Follows({stats}: {stats: Stats}) {
 			</div>
 
 			<div className='mt-7'>
-				<h3 className='mb-2 font-medium text-gray-200'>New Friends</h3>
+				<h3 className='label mb-2'>New Friends</h3>
 				<div className='space-y-2'>
 					{following.latest.map((person, i) => (
 						<div

@@ -1,9 +1,8 @@
 import {useCurrentFrame} from 'remotion'
+import {Year} from '../components/icons/svgs'
 import FastTravel from '../environment/FastTravel'
-import FadeOut from '../transitions/FadeOut'
 import Camera from './../camera/Camera'
 import Planet from './../objects/Planet'
-import FadeIn from './../transitions/FadeIn'
 
 export default function Intro({title, from, planet}) {
 	const frame = useCurrentFrame() - from
@@ -52,17 +51,13 @@ export default function Intro({title, from, planet}) {
 				/>
 			),
 		content: (
-			<FadeIn
-				frame={frame}
-				delay={60}>
-				<FadeOut
-					frame={frame}
-					duration={10}
-					delay={100}>
-					<h1 className='text-4xl'>{title}</h1>
-					<h2 className='text-center text-2xl'>by Graphite</h2>
-				</FadeOut>
-			</FadeIn>
+			<div className='relative flex flex-col items-center gap-4'>
+				<Year
+					className='w-[320px] text-white/80'
+					stroke='none'
+				/>
+				<h1 className='headline font-bold'>{title}</h1>
+			</div>
 		)
 	}
 }

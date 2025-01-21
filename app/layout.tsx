@@ -13,15 +13,15 @@ import './styles.css'
 const font = localFont({
 	src: [
 		{
-			path: '../public/fonts/MatterSQ-Light.otf',
+			path: '../public/fonts/Geist-Light.woff2',
 			weight: '100'
 		},
 		{
-			path: '../public/fonts/MatterSQ-Regular.otf',
+			path: '../public/fonts/Geist-Regular.woff2',
 			weight: '400'
 		},
 		{
-			path: '../public/fonts/MatterSQ-Bold.otf',
+			path: '../public/fonts/Geist-Bold.woff2',
 			weight: '700'
 		}
 	]
