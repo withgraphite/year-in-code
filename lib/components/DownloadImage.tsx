@@ -19,7 +19,7 @@ export default function DownloadImage({
 }) {
 	const isOwn = checkIfSelf(session, profile)
 
-	if (!isOwn) return
+	// if (!isOwn) return
 
 	return (
 		<>
@@ -29,15 +29,15 @@ export default function DownloadImage({
 				<ImageIcon className='h-5 w-5' />
 				Download image
 			</button>
-			<div className='fixed z-[-100] h-[820px] w-[1280px] scale-[10%]'>
+			<div className='fixed z-[-100] h-[720px] w-[1280px] scale-[10%]'>
 				<div
 					id='stats'
 					style={{backgroundImage: `url('/assets/sky.jpg')`}}
 					className='flex h-full w-full items-center justify-center bg-black'>
-					<div className='flex flex-col items-center justify-center'>
-						<h1 className='pb-10 text-white'>{stats.username}</h1>
-						<Summary stats={stats} />
-					</div>
+					{/* <div className='flex flex-col items-center justify-center'> */}
+					{/* <h1 className='pb-10 text-white'>{stats.username}</h1> */}
+					<Summary stats={stats} />
+					{/* </div> */}
 				</div>
 			</div>
 		</>

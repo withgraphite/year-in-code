@@ -55,7 +55,7 @@ export default function Player({
 			compositionHeight={720}
 			compositionWidth={1280}
 			controls
-			className='rounded-md'
+			className='rounded-md border border-white/10'
 			loop
 			renderPlayPauseButton={renderPlayPauseButton}
 		/>

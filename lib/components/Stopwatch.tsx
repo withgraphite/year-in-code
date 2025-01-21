@@ -28,7 +28,7 @@ export default function Stopwatch() {
 	}, [])
 
 	return (
-		<div className='absolute top-12 h-10 text-2xl font-extralight text-black/50 2xl:text-4xl'>
+		<div className='absolute top-12 h-10 text-2xl font-extralight text-white/50 2xl:text-4xl'>
 			{formatTime(seconds)}
 		</div>
 	)

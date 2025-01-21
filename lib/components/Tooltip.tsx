@@ -4,19 +4,23 @@ import cn from '~/utils/cn'
 export default function Tooltip({
 	children,
 	body,
-	className
+	className,
+	position = 'top'
 }: {
 	children: ReactNode
-	body: string
+	body: ReactNode
 	className?: string
+	position?: 'top' | 'bottom'
 }) {
 	return (
-		<div className='group relative flex justify-center'>
+		<div className={cn('z-1 group relative flex justify-center', className)}>
 			{children}
 			<span
 				className={cn(
-					'absolute bottom-[100%] w-96 scale-0 rounded-xl px-2 py-1 text-center text-black transition-all delay-200 group-hover:scale-100',
-					className
+					'absolute mb-1 scale-0 whitespace-nowrap rounded-lg border border-white/20 bg-black px-2 py-1 text-center text-white transition-all group-hover:scale-100',
+					position === 'top'
+						? 'bottom-[100%] origin-bottom'
+						: 'top-[100%] origin-top'
 				)}>
 				{body}
 			</span>

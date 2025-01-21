@@ -9,7 +9,7 @@ import {META} from '~/constants/metadata'
 import {Stats} from '~/types/github'
 import {Database} from '~/types/supabase'
 import {Manifest} from '~/types/video'
-import {default as getProfile} from '~/utils/profile'
+import getProfile from '~/utils/profile'
 
 export const dynamic = 'force-dynamic'
 
@@ -52,22 +52,20 @@ export default async function Profile({params}: {params: {username: string}}) {
 		data: {session}
 	} = await supabase.auth.getSession()
 	const {data: profile, error} = await getProfile(params.username, session)
+
 	return (
-		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-5'>
+		<div className='flex h-screen w-full flex-col items-center justify-center gap-5 p-8'>
 			{/* User exists */}
 			{profile && !error && (
 				<div
 					id='videoContainer'
-					className='flex w-full max-w-3xl flex-col justify-center gap-5 sm:items-center lg:mt-10 2xl:mt-0'>
-					<div className='flex w-full flex-col justify-between gap-5 sm:flex-row sm:gap-0'>
-						<div className='flex items-center gap-3'>
-							<h1 className='text-black'>{`${params.username}`}</h1>
-						</div>
-						<Toolbar
-							profile={profile}
-							session={session}
-						/>
-					</div>
+					className='z-1 relative flex w-full max-w-3xl flex-col justify-center gap-5 text-white sm:items-center lg:mt-10 2xl:mt-0'>
+					<Toolbar
+						username={params.username}
+						profile={profile}
+						session={session}
+					/>
+
 					{profile && (
 						<Player
 							video={profile.video_manifest as Manifest}
@@ -77,6 +75,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 					<p className='w-full text-center text-white sm:hidden'>
 						For the complete experience, play on desktop.
 					</p>
+
 					<DownloadControls
 						profile={profile}
 						session={session}
@@ -92,15 +91,18 @@ export default async function Profile({params}: {params: {username: string}}) {
 
 			{/* Error handling */}
 			{error && (
-				<div className='flex flex-col items-center justify-center gap-5'>
-					<h2 className='text-center font-thin'>
-						Oops! <span className='font-semibold'>{params.username}</span>{' '}
+				<div className='z-1 relative flex flex-col items-center justify-center gap-6'>
+					<h3 className='text-pretty text-center font-thin text-gray-300'>
+						Oops!{' '}
+						<span className='font-mono font-bold text-gray-200'>
+							@{params.username}
+						</span>{' '}
 						{error === 'Incomplete profile' ? (
 							<span>has an incomplete video. Try again.</span>
 						) : (
 							<span>either does not exist, or has a private video.</span>
 						)}
-					</h2>
+					</h3>
 					{!session && <SignInButton />}
 				</div>
 			)}
