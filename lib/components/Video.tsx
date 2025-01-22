@@ -117,6 +117,8 @@ export default function Video({
 
 	const scene = scenes[sceneNum]
 
+	console.log(scene.content.type)
+
 	return (
 		<AbsoluteFill>
 			<div className='absolute h-full w-full bg-black' />
@@ -158,15 +160,13 @@ export default function Video({
 					</div>
 				</FadeIn>
 			</Sequence>
-
-			{scene.content.type?.name !== 'Summary' && (
-				<div
-					className='absolute left-0 top-0 flex h-full w-full flex-col 
-			items-center justify-between p-6 text-white/50'>
-					<div className='font-mono text-sm'>@{stats.username}</div>
-					<GraphiteLogo />
-				</div>
-			)}
+			<div
+				className='absolute left-0 top-0 flex h-full w-full flex-col
+		items-center justify-between p-6 text-white/50'>
+				<div className='font-mono text-sm'>@{stats.username}</div>
+				<GraphiteLogo />
+			</div>
+	
 		</AbsoluteFill>
 	)
 }

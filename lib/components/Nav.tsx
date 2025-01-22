@@ -84,7 +84,7 @@ export default function Nav() {
 					2024 Year in code
 				</div>
 
-				<div className='pointer-events-auto relative overflow-hidden rounded-sm border border-white/20 bg-black/80'>
+				<div className='pointer-events-auto relative overflow-hidden rounded-sm border border-neutral-700 bg-black/80'>
 					<div
 						className='pointer-events-none absolute left-0 top-0 h-full w-full bg-white transition-[clip-path]'
 						style={{
@@ -102,7 +102,7 @@ export default function Nav() {
 										commonClassNames,
 										pathname === link.href && activeClassNames,
 										link.hideOnMobile && 'hidden sm:flex',
-										i > 0 && 'border-l border-white/20'
+										i > 0 && 'border-l border-neutral-700'
 									)}
 									href={link.href}
 									onClick={link.onClick}

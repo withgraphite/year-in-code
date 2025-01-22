@@ -64,7 +64,7 @@ export default function Flashback({dateFrom, dateTo, text, from}) {
 							return (
 								<div
 									key={i}
-									className='rounded-lg border border-white bg-white/10 px-8 py-4 text-white/80'
+									className='rounded-lg border border-white bg-neutral-900 px-8 py-4 text-white/80'
 									style={{
 										boxShadow: 'rgba(255 255 255 / 0.5) 0px 0px 16px 4px inset'
 									}}>

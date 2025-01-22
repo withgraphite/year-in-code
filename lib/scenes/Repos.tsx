@@ -28,8 +28,8 @@ const Repo = ({children, style}) => {
 			</div>
 			<div className='flex w-[150px] justify-center'>
 				<div
-					className='w-fit break-all rounded border border-white/20 bg-gray-900 px-2 py-1 font-mono text-lg text-white'
-					// style={{backgroundColor: color}}
+					className='w-fit break-all text-pretty rounded border border-neutral-700 bg-black/80 px-2 py-1 font-mono text-lg text-white'
+	
 				>
 					{children}
 				</div>

@@ -38,7 +38,7 @@ function LineItem({index, data}: {index: number; data: any}) {
 	} = data
 
 	const commonClassNames = clsx(
-		'px-4 py-2 group-hover:bg-[#1a1a1a] flex items-center border-white/10',
+		'px-4 py-2 group-hover:bg-[#1a1a1a] flex items-center border-neutral-800',
 		index % 2 === 0 && 'bg-[#161616]'
 	)
 
@@ -56,7 +56,7 @@ function LineItem({index, data}: {index: number; data: any}) {
 					'flex gap-2 overflow-hidden border-b border-r',
 					commonClassNames
 				)}>
-				<div className='relative h-[24px] w-[24px] flex-shrink-0 overflow-hidden rounded-full border border-white/10'>
+				<div className='relative h-[24px] w-[24px] flex-shrink-0 overflow-hidden rounded-full border border-neutral-800'>
 					{avatarUrl && (
 						<Image
 							src={avatarUrl}
@@ -85,7 +85,7 @@ function LineItem({index, data}: {index: number; data: any}) {
 				)}>
 				{isGraphiteUser && (
 					<div
-						className='h-[12px] w-[12px] rounded-full border border-white/10 bg-current text-green-500'
+						className='h-[12px] w-[12px] rounded-full border border-neutral-800 bg-current text-green-500'
 						style={{
 							boxShadow: '0 0 4px black inset'
 						}}></div>
@@ -105,18 +105,18 @@ function LineItem({index, data}: {index: number; data: any}) {
 
 export const Leaderboard = ({data, session}: {data: any; session: any}) => {
 	const labelClassNames =
-		'relative sticky top-0 z-10 border-b border-white/20 py-2 px-4 text-left backdrop-blur bg-black/60 text-sm text-white/80 flex items-center font-bold'
+		'relative sticky top-0 z-10 border-b border-neutral-700 py-2 px-4 text-left backdrop-blur-lg bg-black/60 text-sm text-white/80 flex items-center font-bold'
 
 	return (
 		<div
-			className='fixed left-1/2 top-1/2 z-10 flex h-[80vh] w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center overflow-hidden rounded-lg border border-white/20 bg-black sm:w-full'
+			className='fixed left-1/2 top-1/2 z-10 flex h-[80vh] w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center overflow-hidden rounded-lg border border-neutral-700 bg-black sm:w-full'
 			style={{
 				maxWidth: 'min(calc(100% - 2rem), 42rem)'
 			}}>
-			<div className='flex w-full flex-col border-b border-white/20'>
-				<LeaderboardHero className='h-full w-full border-b border-white/20 text-white/20' />
+			<div className='flex w-full flex-col border-b border-neutral-700'>
+				<LeaderboardHero className='h-full w-full border-b border-neutral-700 text-neutral-700' />
 				<h1 className='headline w-fit p-4 pb-2 font-bold'>Leaderboard</h1>
-				<div className='flex flex-col border-b border-white/20 p-4 pt-0 text-xl text-white/60 [text-wrap:pretty]'>
+				<div className='flex flex-col border-b border-neutral-700 p-4 pt-0 text-xl text-white/60 [text-wrap:pretty]'>
 					See how you stack up against the developers who shipped the most pull
 					requests in 2024.
 				</div>
@@ -130,7 +130,7 @@ export const Leaderboard = ({data, session}: {data: any; session: any}) => {
 						Merge more PRs with Graphite
 					</Link>
 					{!session && (
-						<SignInButton className='w-full whitespace-nowrap rounded-none border-l border-white/20 bg-black text-white hover:bg-white hover:text-black' />
+						<SignInButton className='w-full whitespace-nowrap rounded-none border-l border-neutral-700 bg-black text-white hover:bg-white hover:text-black' />
 					)}
 				</div>
 			</div>
