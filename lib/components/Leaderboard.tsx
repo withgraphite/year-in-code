@@ -68,7 +68,7 @@ function LineItem({index, data}: {index: number; data: any}) {
 					)}
 				</div>
 				<Link
-					href={`/${userName}`}
+					href={`/user/${userName}`}
 					className='flex-shrink-0 no-underline hover:underline'>
 					<p>{userName}</p>
 				</Link>
