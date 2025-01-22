@@ -1,5 +1,4 @@
 'use client'
-import {Session} from '@supabase/supabase-js'
 import {track} from '@vercel/analytics'
 import {COMPOSITION_NAME} from 'lambda/config'
 import {ArrowDownToLine, ImageIcon, LucideIcon, VideoIcon} from 'lucide-react'
@@ -61,11 +60,9 @@ const DownloadButton = ({
 }
 
 export default function DownloadControls({
-	session,
 	profile,
 	inputProps
 }: {
-	session: Session
 	profile: Profile
 	inputProps: z.infer<typeof CompositionProps>
 }) {

@@ -4,7 +4,9 @@ import {createClientComponentClient} from '@supabase/auth-helpers-nextjs'
 import {track} from '@vercel/analytics'
 import {LogOutIcon} from 'lucide-react'
 import {useRouter} from 'next/navigation'
+import { useContext } from 'react'
 import {toast} from 'sonner'
+import { SessionContext } from '~/context/session'
 import {Database} from '~/types/supabase'
 import cn from '~/utils/cn'
 
@@ -15,7 +17,7 @@ export default function SignOutButton({
 	className?: string
 	expand?: boolean
 }) {
-	const supabase = createClientComponentClient<Database>()
+	const { supabase } = useContext(SessionContext)
 	const router = useRouter()
 
 	// Sign out

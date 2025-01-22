@@ -5,19 +5,18 @@ import {
 } from '@supabase/auth-helpers-nextjs'
 import {track} from '@vercel/analytics'
 import {EyeIcon, EyeOffIcon} from 'lucide-react'
-import {useState} from 'react'
+import {useContext, useState} from 'react'
 import {toast} from 'sonner'
 import {Profile} from '~/types/profile'
 import Tooltip from './Tooltip'
+import { SessionContext } from '~/context/session'
 
 export default function VisibilityButton({
-	session,
 	profile
 }: {
-	session: Session
 	profile: Profile
 }) {
-	const supabase = createClientComponentClient()
+	const { supabase, session } = useContext(SessionContext)
 	const [isPublic, setIsPublic] = useState(profile.is_public)
 
 	const handleVisibility = async () => {
