@@ -12,11 +12,23 @@ export const metadata = {
 }
 
 export default async function Page() {
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
 	const supabase = createServerComponentClient<Database>({cookies})
 	const {
 		data: {session}
 	} = await supabase.auth.getSession()
+<<<<<<< Updated upstream
 	if (session) redirect(`/loading`)
+=======
+
+	if (session) redirect(`/loading`)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-10 p-5'>
 			 <Hero />
