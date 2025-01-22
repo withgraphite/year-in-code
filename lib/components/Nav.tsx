@@ -32,24 +32,23 @@ export default function Nav() {
 	const commonClassNames = 'px-5 py-1 no-underline '
 	const activeClassNames = 'text-black'
 	const [clipPath, setClipPath] = useState({
-		left: '100',
-		right: '0'
+		left: '0%',
+		right: '100%'
 	})
 
 	const setActivePath = useCallback(p => {
 		if (ref.current) {
-			let left = '100',
-				right = '0'
+			let left = '0%',
+				right = '100%'
 			const idx = LINKS.findIndex(elem => elem.href === p)
 			if (idx > -1) {
 				const {offsetLeft, offsetWidth} = ref.current.childNodes[idx]
 				const {offsetWidth: containerWidth} = ref.current
 
-				left = ((offsetLeft * 100) / containerWidth).toFixed()
+				left = offsetLeft + 'px'
 				right = (
-					((containerWidth - (offsetLeft + offsetWidth)) * 100) /
-					containerWidth
-				).toFixed()
+					(containerWidth - (offsetLeft + offsetWidth))
+				).toFixed() + 'px'
 			}
 
 			setClipPath({
@@ -88,7 +87,7 @@ export default function Nav() {
 					<div
 						className='pointer-events-none absolute left-0 top-0 h-full w-full bg-white transition-[clip-path]'
 						style={{
-							clipPath: `inset(0 ${clipPath.right}% 0 ${clipPath.left}%)`
+							clipPath: `inset(0 ${clipPath.right} 0 ${clipPath.left})`
 						}}
 					/>
 					<div
