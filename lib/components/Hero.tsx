@@ -1,5 +1,4 @@
 'use client'
-import {Session} from '@supabase/supabase-js'
 import {track} from '@vercel/analytics/react'
 import {motion} from 'framer-motion'
 import {ChartNoAxesColumn} from 'lucide-react'

@@ -266,7 +266,7 @@ export const Background = () => {
 		GLOBAL_UNIFORMS.uFadeTarget.value = pathname !== '/' ? 1 : 0.2
 
 		setFrameloop(
-			pathname !== '/' && pathname !== '/leaderboard' ? 'never' : 'always'
+			pathname !== '/' && pathname !== '/home' && pathname !== '/leaderboard' ? 'never' : 'always'
 		)
 	}, [pathname])
 

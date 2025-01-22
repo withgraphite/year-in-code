@@ -3,30 +3,36 @@ import {track} from '@vercel/analytics/react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
-import {useCallback, useEffect, useRef, useState} from 'react'
+import {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import {META} from '~/constants/metadata'
 import {TRACKING} from '~/constants/tracking'
 import Footer from './Footer'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
-const LINKS = [
-	{
-		href: '/',
-		label: 'Home'
-	},
-	{
-		href: '/leaderboard',
-		label: 'Leaderboard'
-	},
-	{
-		target: '_blank',
-		href: META.domain.web,
-		label: 'Try Graphite',
-		hideOnMobile: true,
-		onClick: () => track(TRACKING.VISIT_GRAPHITE)
-	}
-]
+
+
 
 export default function Nav() {
+	const [session, setSession] = useState(null)
+	
+	useEffect(() => {
+		const supabase = createClientComponentClient()
+		supabase.auth.getSession().then(({ data: { session } }) => {
+			setSession(session)
+		})
+
+	
+		const {
+			data: { subscription },
+		} = supabase.auth.onAuthStateChange((_event, session) => {
+			setSession(session)
+		})
+
+		return () => subscription.unsubscribe()
+	}, [])
+	
+
+
 	const ref = useRef(null)
 	const pathname = usePathname()
 	const commonClassNames = 'px-5 py-1 no-underline '
@@ -36,11 +42,42 @@ export default function Nav() {
 		right: '100%'
 	})
 
+	const links = useMemo(() => {
+		const arr = [
+			{
+				href: session ? '/home' : '/',
+				label: 'Home'
+			},
+			{
+				href: '/leaderboard',
+				label: 'Leaderboard'
+			},
+			
+			{
+				target: '_blank',
+				href: META.domain.web,
+				label: 'Try Graphite',
+				hideOnMobile: true,
+				onClick: () => track(TRACKING.VISIT_GRAPHITE)
+			}
+		]
+
+		if (session) 
+			arr.splice(2, 0, {
+				href: '/user/' + session.user.user_metadata.user_name,
+				label: 'Profile'
+			})
+		
+
+		return arr;
+
+	}, [session])
+
 	const setActivePath = useCallback(p => {
 		if (ref.current) {
 			let left = '0%',
 				right = '100%'
-			const idx = LINKS.findIndex(elem => elem.href === p)
+			const idx = links.findIndex(elem => elem.href === p)
 			if (idx > -1) {
 				const {offsetLeft, offsetWidth} = ref.current.childNodes[idx]
 				const {offsetWidth: containerWidth} = ref.current
@@ -56,7 +93,7 @@ export default function Nav() {
 				right
 			})
 		}
-	}, [])
+	}, [links])
 
 	useEffect(() => {
 		setActivePath(pathname)
@@ -78,12 +115,12 @@ export default function Nav() {
 
 	return (
 		<>
-			<nav className='pointer-events-none fixed left-0 top-0 z-50 flex w-full items-center justify-between p-8 text-sm'>
-				<div className='headline pointer-events-auto flex w-fit items-center text-lg font-bold'>
+			<nav className='pointer-events-none fixed left-0 top-0 z-50 flex w-full items-center justify-between p-8 '>
+				<div className='headline pointer-events-auto flex w-fit items-center text-sm sm:text-lg font-bold'>
 					2024 Year in code
 				</div>
 
-				<div className='pointer-events-auto relative overflow-hidden rounded-sm border border-neutral-700 bg-black/80'>
+				<div className='pointer-events-auto relative overflow-hidden rounded-sm border border-neutral-700 bg-black/80 text-xs sm:text-sm'>
 					<div
 						className='pointer-events-none absolute left-0 top-0 h-full w-full bg-white transition-[clip-path]'
 						style={{
@@ -93,7 +130,7 @@ export default function Nav() {
 					<div
 						className='relative z-10 flex w-full items-center'
 						ref={ref}>
-						{LINKS.map((link, i) => {
+						{links.map((link, i) => {
 							return (
 								<Link
 									key={i}

@@ -19,6 +19,7 @@ export default async function Page() {
 
 	if (session) redirect(`/loading`)
 
+
 	return (
 		<div className='flex h-screen w-full flex-col items-center justify-center gap-10 p-5'>
 			 <Hero />
