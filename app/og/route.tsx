@@ -8,12 +8,12 @@ export async function GET(req: NextRequest) {
 	const {searchParams} = req.nextUrl
 	const postTitle = searchParams.get('title')
 	const font = fetch(
-		new URL('../../public/fonts/Geist-Regular.woff2', import.meta.url)
+		new URL('../../public/fonts/GeistMono-Regular.otf', import.meta.url)
 	).then(res => res.arrayBuffer())
 	const fontData = await font
 	const size = {
-		width: 1920,
-		height: 1080
+		width: 1200,
+		height: 630
 	}
 
 	return new ImageResponse(
@@ -31,18 +31,16 @@ export async function GET(req: NextRequest) {
 					color: '#FFFFFF',
 					backgroundImage: `url(${META.domain.prod}images/og-bg-text.jpg)`
 				}}>
-				<div
+					<div
 					style={{
-						marginLeft: 190,
-						marginRight: 190,
+						fontFamily: 'Geist Mono',
 						display: 'flex',
-						fontSize: 130,
-						fontFamily: 'Geist',
-						letterSpacing: '-0.05em',
-						fontStyle: 'normal',
+						fontSize: 80,
+						position: 'absolute',
+						right: 133,
+						bottom: 70,
 						color: '#FFFFFF',
-						lineHeight: '120px',
-						whiteSpace: 'pre-wrap'
+						whiteSpace: 'nowrap'
 					}}>
 					{postTitle}
 				</div>
@@ -52,7 +50,7 @@ export async function GET(req: NextRequest) {
 			...size,
 			fonts: [
 				{
-					name: 'Geist',
+					name: 'Geist Mono',
 					data: fontData,
 					style: 'normal'
 				}

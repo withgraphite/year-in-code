@@ -92,7 +92,7 @@ export default async function Profile({params}: {params: {username: string}}) {
 			{/* Error handling */}
 			{error && (
 				<div className='z-1 relative flex flex-col items-center justify-center gap-6'>
-					<h3 className='text-pretty text-center font-thin text-gray-300'>
+					<h3 className='text-pretty text-center text-gray-300'>
 						Oops!{' '}
 						<span className='font-mono font-bold text-gray-200'>
 							@{params.username}

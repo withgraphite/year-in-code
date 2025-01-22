@@ -73,7 +73,7 @@ function LineItem({index, data}: {index: number; data: any}) {
 					<p>{userName}</p>
 				</Link>
 				{company && (
-					<p className='hidden flex-shrink-0 font-light text-white/60 sm:flex'>
+					<p className='hidden flex-shrink-0 text-white/60 sm:flex'>
 						{company}
 					</p>
 				)}
@@ -125,7 +125,7 @@ export const Leaderboard = ({data, session}: {data: any; session: any}) => {
 						href={META.domain.web}
 						onClick={() => track(TRACKING.VISIT_GRAPHITE)}
 						target={'_blank'}
-						className='flex w-full flex-nowrap items-center justify-center gap-2 px-4 py-2 font-thin no-underline hover:bg-white hover:text-black'>
+						className='flex w-full flex-nowrap items-center justify-center gap-2 px-4 py-2 no-underline hover:bg-white hover:text-black'>
 						<GitPullRequest />
 						Merge more PRs with Graphite
 					</Link>
