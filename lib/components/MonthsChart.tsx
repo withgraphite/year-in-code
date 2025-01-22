@@ -41,7 +41,7 @@ export default function MonthsChart({
 								minHeight: '10px' // Ensure that even 0 values are visible,
 								// backgroundColor: color
 							}}
-							className='inset-shadow border border-white/20 bg-white/20 text-white/50'
+							className='inset-shadow border border-neutral-700 bg-neutral-700 text-white/50'
 						/>
 					</div>
 					<span className='mt-2 font-bold uppercase text-white'>

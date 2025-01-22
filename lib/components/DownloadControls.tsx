@@ -51,7 +51,7 @@ const DownloadButton = ({
 			<div className='flex items-center gap-2 whitespace-nowrap text-lg'>
 				{children}
 				{badge && (
-					<div className='rounded-full border border-white/10 bg-[#0d0d0d] px-2 py-0.5 text-xs text-gray-500 group-hover:border-black/20 group-hover:bg-black/10'>
+					<div className='rounded-full border border-neutral-900 bg-[#0d0d0d] px-2 py-0.5 text-xs text-gray-500 group-hover:border-black/20 group-hover:bg-black/10'>
 						{badge}
 					</div>
 				)}
@@ -157,8 +157,8 @@ export default function DownloadControls({
 		)
 
 	return (
-		<div className='flex flex-col items-center justify-center overflow-hidden rounded-lg border border-white/10 backdrop-blur'>
-			<div className='flex w-full items-center justify-center gap-1 border-b border-white/10 p-1 text-gray-400'>
+		<div className='flex flex-col items-center justify-center overflow-hidden rounded-lg border border-neutral-900 backdrop-blur'>
+			<div className='flex w-full items-center justify-center gap-1 border-b border-neutral-900 p-1 text-gray-400'>
 				<ArrowDownToLine className='h-[16px] w-[16px]' /> Download
 			</div>
 			<div className='flex w-full flex-col sm:w-fit sm:flex-row'>
@@ -166,14 +166,14 @@ export default function DownloadControls({
 				<DownloadButton
 					Icon={ImageIcon}
 					badge='PNG'
-					className='border-t border-white/10 sm:border-l sm:border-t-0'
+					className='border-t border-neutral-900 sm:border-l sm:border-t-0'
 					onClick={() => download(stats, false)}>
 					Image
 				</DownloadButton>
 				<DownloadButton
 					badge='PNG'
 					Icon={ImageIcon}
-					className='border-t border-white/10 sm:border-l sm:border-t-0'
+					className='border-t border-neutral-900 sm:border-l sm:border-t-0'
 					onClick={() => download(stats, true)}>
 					Image (Mobile)
 				</DownloadButton>

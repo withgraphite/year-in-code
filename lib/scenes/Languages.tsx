@@ -23,7 +23,7 @@ export default function Languages({
 		content: (
 			<>
 				<h2 className='headline'>{text}</h2>
-				<div className='inset-shadow flex gap-6 rounded-xl border border-white/20 p-6 text-[#313131]'>
+				<div className='inset-shadow flex gap-6 rounded-xl border border-neutral-700 p-6 text-[#313131]'>
 					{languages.map((language, i) => {
 						return (
 							<div

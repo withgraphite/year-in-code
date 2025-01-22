@@ -26,7 +26,7 @@ export default function Toolbar({
 	const isOwn = checkIfSelf(session, profile)
 
 	const labelClassNames =
-		'text-xs flex items-center gap-1 text-gray-400 p-2 h-[32px] border-b border-b-white/10'
+		'text-xs flex items-center gap-1 text-gray-400 p-2 h-[32px] border-b border-b-neutral-900'
 
 	let inner
 	if (session)
@@ -34,10 +34,10 @@ export default function Toolbar({
 			<div className='flex h-full w-full items-center justify-between '>
 				{isOwn && (
 					<div className='flex flex-col'>
-						<div className={cn(labelClassNames, 'border-l border-white/10')}>
+						<div className={cn(labelClassNames, 'border-l border-neutral-900')}>
 							<Settings className='h-[16px] w-[16px]' /> Controls
 						</div>
-						<div className='flex h-[40px] items-center border-l border-white/10'>
+						<div className='flex h-[40px] items-center border-l border-neutral-900'>
 							<Tooltip body='Sign out'>
 								<SignOutButton />
 							</Tooltip>
@@ -50,10 +50,10 @@ export default function Toolbar({
 					</div>
 				)}
 				<div className='flex flex-col'>
-					<div className={cn(labelClassNames, 'border-l border-white/10')}>
+					<div className={cn(labelClassNames, 'border-l border-neutral-900')}>
 						<Share2 className='h-[16px] w-[16px] ' /> Share
 					</div>
-					<div className='flex h-[40px] items-center border-l border-white/10'>
+					<div className='flex h-[40px] items-center border-l border-neutral-900'>
 						<CopyLinkButton profile={profile} />
 						<LinkedInButton
 							isOwn={isOwn}
@@ -76,7 +76,7 @@ export default function Toolbar({
 		)
 
 	return (
-		<div className='flex w-full flex-row items-center justify-between rounded border border-white/10 backdrop-blur'>
+		<div className='flex w-full flex-row items-center justify-between rounded border border-neutral-900 backdrop-blur'>
 			<div className='flex flex-1 flex-col'>
 				<div className={labelClassNames}>
 					<User className='h-[16px] w-[16px]' /> Username
