@@ -2,7 +2,6 @@ import {Analytics} from '@vercel/analytics/react'
 import {SpeedInsights} from '@vercel/speed-insights/next'
 import 'devicon'
 import {Metadata} from 'next'
-import localFont from 'next/font/local'
 import {Toaster} from 'sonner'
 
 import {Background} from '~/3d/Background'
@@ -10,22 +9,9 @@ import Nav from '~/components/Nav'
 import {DEFAULT_META} from '~/constants/metadata'
 import './styles.css'
 
-const font = localFont({
-	src: [
-		{
-			path: '../public/fonts/Geist-Light.woff2',
-			weight: '100'
-		},
-		{
-			path: '../public/fonts/Geist-Regular.woff2',
-			weight: '400'
-		},
-		{
-			path: '../public/fonts/Geist-Bold.woff2',
-			weight: '700'
-		}
-	]
-})
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
+
 
 export const metadata: Metadata = {
 	...DEFAULT_META,
@@ -38,10 +24,11 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
+
 	return (
-		<html lang='en'>
+		<html lang='en' className={`${GeistSans.variable} ${GeistMono.variable}`}>
 			<body
-				className={`${font.className} relative flex h-full min-h-screen w-full flex-col items-center bg-white dark:bg-black`}>
+				className={`relative flex h-full min-h-screen w-full flex-col items-center bg-white dark:bg-black font-sans`}>
 				<Background />
 				<Nav />
 				<Toaster />

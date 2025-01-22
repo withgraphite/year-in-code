@@ -55,7 +55,7 @@ export default function Loading({stats}: {stats: Stats}) {
 					<h2
 						className={`${
 							count === slides.length - 1 ? 'animate-pulse' : ''
-						} text-sm font-thin sm:text-xl`}>
+						} text-sm sm:text-xl`}>
 						{slides[count]}
 					</h2>
 				</motion.div>

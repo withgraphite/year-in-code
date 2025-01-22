@@ -4,8 +4,8 @@ const tailwindConfig = {
 	content: ['**/*.tsx'],
 	theme: {
 		fontFamily: {
-			sans: ['Geist', 'ui-sans-serif', 'system-ui'],
-			mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular']
+			sans: ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui'],
+        	mono: ['var(--font-geist-mono)',  'ui-monospace', 'SFMono-Regular'],
 		},
 		extend: {
 			animation: {

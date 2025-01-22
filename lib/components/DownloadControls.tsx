@@ -83,7 +83,7 @@ export default function DownloadControls({
 		return <p className='w-full animate-pulse text-white'>Loading...</p>
 
 	if (state.status === 'error')
-		return <p className='w-full font-thin text-white'>{state.error.message}</p>
+		return <p className='w-full text-white'>{state.error.message}</p>
 	if (state.status === 'rendering')
 		return (
 			<div className='flex w-full flex-col gap-2'>
@@ -157,7 +157,7 @@ export default function DownloadControls({
 		)
 
 	return (
-		<div className='flex flex-col items-center justify-center overflow-hidden rounded-lg border border-white/10'>
+		<div className='flex flex-col items-center justify-center overflow-hidden rounded-lg border border-white/10 backdrop-blur'>
 			<div className='flex w-full items-center justify-center gap-1 border-b border-white/10 p-1 text-gray-400'>
 				<ArrowDownToLine className='h-[16px] w-[16px]' /> Download
 			</div>

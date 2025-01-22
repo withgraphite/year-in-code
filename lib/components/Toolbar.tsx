@@ -76,7 +76,7 @@ export default function Toolbar({
 		)
 
 	return (
-		<div className='flex w-full flex-row items-center justify-between overflow-hidden rounded border border-white/10'>
+		<div className='flex w-full flex-row items-center justify-between rounded border border-white/10 backdrop-blur'>
 			<div className='flex flex-1 flex-col'>
 				<div className={labelClassNames}>
 					<User className='h-[16px] w-[16px]' /> Username

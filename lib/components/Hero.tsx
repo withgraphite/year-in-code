@@ -43,7 +43,7 @@ export default function Hero({session}: {session: Session}) {
 			<div className='flex w-full flex-row items-center border-t border-white/20'>
 				<Link
 					href='/leaderboard'
-					className='flex w-full items-center justify-center gap-2 rounded-xl border-2 border-black bg-transparent p-4 font-thin no-underline transition-all hover:bg-black hover:text-white sm:w-full'>
+					className='flex w-full items-center justify-center gap-2 rounded-xl border-2 border-black bg-transparent p-4 no-underline transition-all hover:bg-black hover:text-white sm:w-full'>
 					<ChartNoAxesColumn /> Leaderboard
 				</Link>
 				<SignInButton className='h-full w-full' />
