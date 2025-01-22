@@ -105,13 +105,13 @@ function LineItem({index, data}: {index: number; data: any}) {
 
 export const Leaderboard = ({data, session}: {data: any; session: any}) => {
 	const labelClassNames =
-		'relative sticky top-0 z-10 border-b border-neutral-700 py-2 px-4 text-left backdrop-blur-lg bg-black/60 text-sm text-white/80 flex items-center font-bold'
+		'relative sticky top-[-1px] z-10 border-b border-neutral-700 py-2 px-4 text-left backdrop-blur-lg bg-black/60 text-sm text-white/80 flex items-center font-bold'
 
 	return (
 		<div
 			className='fixed left-1/2 top-1/2 z-10 flex h-[80vh] w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center overflow-hidden rounded-lg border border-neutral-700 bg-black sm:w-full'
 			style={{
-				maxWidth: 'min(calc(100% - 2rem), 42rem)'
+				maxWidth: 'min(calc(100% - 4rem), 42rem)'
 			}}>
 			<div className='flex w-full flex-col border-b border-neutral-700'>
 				<LeaderboardHero className='h-full w-full border-b border-neutral-700 text-neutral-700' />
@@ -135,7 +135,7 @@ export const Leaderboard = ({data, session}: {data: any; session: any}) => {
 				</div>
 			</div>
 
-			<div className='flex w-full flex-1 flex-col overflow-y-scroll'>
+			<div className='flex w-full flex-1 flex-col overflow-y-scroll border-b border-neutral-700'>
 				<div className='grid grid-cols-[1fr_auto_1fr_1fr]'>
 					<div className='contents whitespace-nowrap'>
 						<div className={clsx(labelClassNames, 'border-r')}>Rank</div>

@@ -53,7 +53,7 @@ export default function Footer() {
 		)
 
 	return (
-		<footer className='pointer-events-none fixed bottom-0 z-10 flex w-full items-center justify-between p-8 text-sm text-white/50 '>
+		<footer className='pointer-events-none fixed bottom-0 z-10 flex w-full items-center justify-between p-8 text-xs sm:text-sm text-white/50 '>
 			{inner}
 		</footer>
 	)

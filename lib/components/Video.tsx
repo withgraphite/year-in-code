@@ -117,8 +117,6 @@ export default function Video({
 
 	const scene = scenes[sceneNum]
 
-	console.log(scene.content.type)
-
 	return (
 		<AbsoluteFill>
 			<div className='absolute h-full w-full bg-black' />

@@ -19,7 +19,7 @@ export async function generateMetadata({
 	params: {username: string}
 }): Promise<Metadata | undefined> {
 	if (!params.username) return
-	let ogImage = META.domain.prod + `og?title=${params.username}`
+	const ogImage = META.domain.prod + `og?title=@${params.username}`
 
 	return {
 		title: `${params.username} | Year in code | Graphite`,
