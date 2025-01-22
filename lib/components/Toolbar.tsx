@@ -41,11 +41,8 @@ export default function Toolbar({
 							<Tooltip body='Sign out'>
 								<SignOutButton />
 							</Tooltip>
-							<VisibilityButton
-								session={session}
-								profile={profile}
-							/>
-							<DeleteDialog session={session} />
+							<VisibilityButton profile={profile} />
+							<DeleteDialog />
 						</div>
 					</div>
 				)}

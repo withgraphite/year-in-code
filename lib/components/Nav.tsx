@@ -3,35 +3,14 @@ import {track} from '@vercel/analytics/react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
-import {useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
 import {META} from '~/constants/metadata'
 import {TRACKING} from '~/constants/tracking'
 import Footer from './Footer'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-
-
-
+import { SessionContext } from '~/context/session'
 
 export default function Nav() {
-	const [session, setSession] = useState(null)
-	
-	useEffect(() => {
-		const supabase = createClientComponentClient()
-		supabase.auth.getSession().then(({ data: { session } }) => {
-			setSession(session)
-		})
-
-	
-		const {
-			data: { subscription },
-		} = supabase.auth.onAuthStateChange((_event, session) => {
-			setSession(session)
-		})
-
-		return () => subscription.unsubscribe()
-	}, [])
-	
-
+	const { session } = useContext(SessionContext)
 
 	const ref = useRef(null)
 	const pathname = usePathname()
@@ -46,6 +25,7 @@ export default function Nav() {
 		const arr = [
 			{
 				href: session ? '/home' : '/',
+				hrefs: ['/home', '/'],
 				label: 'Home'
 			},
 			{
@@ -77,7 +57,12 @@ export default function Nav() {
 		if (ref.current) {
 			let left = '0%',
 				right = '100%'
-			const idx = links.findIndex(elem => elem.href === p)
+			const idx = links.findIndex(elem => {
+				if (elem.hrefs?.length)
+					return elem.hrefs.includes(p)
+
+				return elem.href === p
+			})
 			if (idx > -1) {
 				const {offsetLeft, offsetWidth} = ref.current.childNodes[idx]
 				const {offsetWidth: containerWidth} = ref.current
@@ -93,11 +78,11 @@ export default function Nav() {
 				right
 			})
 		}
-	}, [links])
+	}, [session, links.length, pathname])
 
 	useEffect(() => {
 		setActivePath(pathname)
-	}, [pathname])
+	}, [pathname, session, links.length])
 
 	useEffect(() => {
 		const handleResize = () => {

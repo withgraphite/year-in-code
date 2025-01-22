@@ -1,26 +1,34 @@
 'use client'
-import {createClientComponentClient} from '@supabase/auth-helpers-nextjs'
 import {track} from '@vercel/analytics'
 import {ArrowRight, Eye} from 'lucide-react'
+import {useRouter} from 'next/navigation'
+import { useCallback, useContext } from 'react'
 import {toast} from 'sonner'
-import {Database} from '~/types/supabase'
+import { SessionContext } from '~/context/session'
 import cn from '~/utils/cn'
 
-export default function SignInButton({className}: {className?: string}) {
-	const supabase = createClientComponentClient<Database>()
 
-	// Login - also handles sign ups
-	async function handleSignIn() {
+export default function SignInButton({className}: {className?: string}) {
+	const { supabase, session } = useContext(SessionContext)
+	const router = useRouter();
+
+	const handleSignIn = useCallback(async() => {
 		track('Signin')
-		const {error} = await supabase.auth.signInWithOAuth({
-			provider: 'github',
-			options: {
-				redirectTo: location.origin + '/auth/callback',
-				scopes: 'repo:status read:user'
-			}
-		})
-		if (error) toast.error(error.message)
-	}
+		if (session)
+			router.push(`/user/${session.user.user_metadata.user_name}`)
+		else {
+			const {error} = await supabase.auth.signInWithOAuth({
+				provider: 'github',
+				options: {
+					redirectTo: location.origin + '/auth/callback',
+					scopes: 'repo:status read:user'
+				}
+			})
+			if (error) toast.error(error.message)
+		}
+
+	}, [session])
+	
 	return (
 		<button
 			onClick={handleSignIn}

@@ -1,9 +1,5 @@
 'use client'
 
-import {
-	Session,
-	createClientComponentClient
-} from '@supabase/auth-helpers-nextjs'
 import {track} from '@vercel/analytics'
 import {TrashIcon} from 'lucide-react'
 import {useRouter} from 'next/navigation'
@@ -20,9 +16,11 @@ import {
 	AlertDialogTrigger
 } from './Dialog'
 import Tooltip from './Tooltip'
+import { useContext } from 'react'
+import { SessionContext } from '~/context/session'
 
-export default function DeleteButton({session}: {session: Session}) {
-	const supabase = createClientComponentClient()
+export default function DeleteButton() {
+	const { supabase, session } = useContext(SessionContext);
 	const router = useRouter()
 
 	// Handle delete

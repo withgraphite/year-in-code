@@ -78,7 +78,6 @@ export default async function Profile({params}: {params: {username: string}}) {
 
 					<DownloadControls
 						profile={profile}
-						session={session}
 						inputProps={{
 							title: profile.user_name,
 							userId: profile.id,

@@ -11,6 +11,7 @@ import './styles.css'
 
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+import { SessionProvider } from '~/context/session'
 
 export const metadata: Metadata = {
 	...DEFAULT_META,
@@ -29,14 +30,16 @@ export default async function RootLayout({children}: {children: React.ReactNode}
 		<html lang='en' className={`${GeistSans.variable} ${GeistMono.variable}`}>
 			<body
 				className={`relative flex h-full min-h-screen w-full flex-col items-center bg-white dark:bg-black font-sans`}>
-				<Background />
-				<Nav  />
-				<Toaster />
-				<div className='flex w-full max-w-3xl items-center justify-center'>
-					{children}
-					<Analytics />
-					<SpeedInsights />
-				</div>
+					<SessionProvider>
+						<Background />
+						<Nav  />
+						<Toaster />
+						<div className='flex w-full max-w-3xl items-center justify-center'>
+							{children}
+							<Analytics />
+							<SpeedInsights />
+						</div>
+				</SessionProvider>
 			</body>
 		</html>
 	)
