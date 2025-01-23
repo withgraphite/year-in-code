@@ -8,7 +8,9 @@ import Tooltip from './Tooltip'
 
 export default function CopyLinkButton({profile}: {profile: Profile}) {
 	const handleCopy = () => {
-		window.navigator.clipboard.writeText(META.domain.prod + profile.user_name)
+		window.navigator.clipboard.writeText(
+			META.domain.prod + 'user/' + profile.user_name
+		)
 		toast.success('Link copied to clipboard')
 		track('Copy link')
 	}
