@@ -1,16 +1,17 @@
 'use client'
 
-import { track } from '@vercel/analytics/react'
+import {track} from '@vercel/analytics/react'
 import clsx from 'clsx'
-import { GitPullRequest } from 'lucide-react'
+import {motion} from 'framer-motion'
+import {GitPullRequest} from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import SignInButton from '~/components/SignInButton'
 import Tooltip from '~/components/Tooltip'
-import { DEFAULT_META, META } from '~/constants/metadata'
-import { TRACKING } from '~/constants/tracking'
+import {DEFAULT_META, META} from '~/constants/metadata'
+import {TRACKING} from '~/constants/tracking'
 import GraphiteIcon from '~/icons/GraphiteIcon'
-import { LeaderboardHero } from './icons/svgs'
+import {LeaderboardHero} from './icons/svgs'
 
 export const dynamic = 'force-dynamic'
 
@@ -28,7 +29,7 @@ export const metadata = {
 	}
 }
 
-function LineItem({ index, data }: { index: number; data: any }) {
+function LineItem({index, data}: {index: number; data: any}) {
 	const {
 		avatar_url: avatarUrl,
 		company,
@@ -73,9 +74,7 @@ function LineItem({ index, data }: { index: number; data: any }) {
 					<p>{userName}</p>
 				</Link>
 				{company && (
-					<p className='hidden flex-shrink-0 text-white/60 sm:flex'>
-						{company}
-					</p>
+					<p className='hidden flex-shrink-0 text-white/60 sm:flex'>{company}</p>
 				)}
 			</div>
 			<div
@@ -103,13 +102,18 @@ function LineItem({ index, data }: { index: number; data: any }) {
 	)
 }
 
-export const Leaderboard = ({ data, session }: { data: any; session: any }) => {
+export const Leaderboard = ({data, session}: {data: any; session: any}) => {
 	const labelClassNames =
 		'relative sticky top-[-1px] z-10 border-b border-neutral-700 py-2 px-4 text-left backdrop-blur-lg bg-black/60 text-sm text-white/80 flex items-center font-bold'
 
 	return (
-		<div
-			className='fixed left-1/2 top-1/2 z-10 flex h-[80vh] w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center overflow-hidden rounded-lg border border-neutral-700 bg-black sm:w-full'
+		<motion.div
+			layoutId='modal'
+			transition={{
+				duration: 0.3,
+				ease: 'easeInOut'
+			}}
+			className='z-10 flex h-[80vh] w-full flex-col items-center overflow-hidden rounded-lg border border-neutral-700 bg-black sm:w-full'
 			style={{
 				maxWidth: 'min(calc(100% - 4rem), 42rem)'
 			}}>
@@ -141,7 +145,7 @@ export const Leaderboard = ({ data, session }: { data: any; session: any }) => {
 						<div className={clsx(labelClassNames, 'border-r')}>User</div>
 						<div
 							className={clsx(labelClassNames, 'relative z-20 border-r')}
-							style={{ padding: 0 }}>
+							style={{padding: 0}}>
 							<Tooltip
 								body='Uses Graphite'
 								position='bottom'
@@ -169,6 +173,6 @@ export const Leaderboard = ({ data, session }: { data: any; session: any }) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	)
 }

@@ -3,14 +3,21 @@ import {track} from '@vercel/analytics/react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
-import {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
+import {
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+	useRef,
+	useState
+} from 'react'
 import {META} from '~/constants/metadata'
 import {TRACKING} from '~/constants/tracking'
+import {SessionContext} from '~/context/session'
 import Footer from './Footer'
-import { SessionContext } from '~/context/session'
 
 export default function Nav() {
-	const { session } = useContext(SessionContext)
+	const {session} = useContext(SessionContext)
 
 	const ref = useRef(null)
 	const pathname = usePathname()
@@ -32,7 +39,6 @@ export default function Nav() {
 				href: '/leaderboard',
 				label: 'Leaderboard'
 			},
-			
 			{
 				target: '_blank',
 				href: META.domain.web,
@@ -42,43 +48,41 @@ export default function Nav() {
 			}
 		]
 
-		if (session) 
+		if (session)
 			arr.splice(2, 0, {
 				href: '/user/' + session.user.user_metadata.user_name,
 				label: 'Profile'
 			})
-		
 
-		return arr;
-
+		return arr
 	}, [session])
 
-	const setActivePath = useCallback(p => {
-		if (ref.current) {
-			let left = '0%',
-				right = '100%'
-			const idx = links.findIndex(elem => {
-				if (elem.hrefs?.length)
-					return elem.hrefs.includes(p)
+	const setActivePath = useCallback(
+		p => {
+			if (ref.current) {
+				let left = '0%',
+					right = '100%'
+				const idx = links.findIndex(elem => {
+					if (elem.hrefs?.length) return elem.hrefs.includes(p)
 
-				return elem.href === p
-			})
-			if (idx > -1) {
-				const {offsetLeft, offsetWidth} = ref.current.childNodes[idx]
-				const {offsetWidth: containerWidth} = ref.current
+					return elem.href === p
+				})
+				if (idx > -1) {
+					const {offsetLeft, offsetWidth} = ref.current.childNodes[idx]
+					const {offsetWidth: containerWidth} = ref.current
 
-				left = offsetLeft + 'px'
-				right = (
-					(containerWidth - (offsetLeft + offsetWidth))
-				).toFixed() + 'px'
+					left = offsetLeft + 'px'
+					right = (containerWidth - (offsetLeft + offsetWidth)).toFixed() + 'px'
+				}
+
+				setClipPath({
+					left,
+					right
+				})
 			}
-
-			setClipPath({
-				left,
-				right
-			})
-		}
-	}, [session, links.length, pathname])
+		},
+		[session, links.length, pathname]
+	)
 
 	useEffect(() => {
 		setActivePath(pathname)
@@ -101,7 +105,7 @@ export default function Nav() {
 	return (
 		<>
 			<nav className='pointer-events-none fixed left-0 top-0 z-50 flex w-full items-center justify-between p-8 '>
-				<div className='headline pointer-events-auto flex w-fit items-center text-sm sm:text-lg font-bold'>
+				<div className='headline pointer-events-auto flex w-fit items-center text-sm font-bold sm:text-lg'>
 					2024 Year in code
 				</div>
 
