@@ -1,16 +1,16 @@
 'use client'
 
-import {track} from '@vercel/analytics/react'
+import { track } from '@vercel/analytics/react'
 import clsx from 'clsx'
-import {GitPullRequest} from 'lucide-react'
+import { GitPullRequest } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import SignInButton from '~/components/SignInButton'
 import Tooltip from '~/components/Tooltip'
-import {DEFAULT_META, META} from '~/constants/metadata'
-import {TRACKING} from '~/constants/tracking'
+import { DEFAULT_META, META } from '~/constants/metadata'
+import { TRACKING } from '~/constants/tracking'
 import GraphiteIcon from '~/icons/GraphiteIcon'
-import {LeaderboardHero} from './icons/svgs'
+import { LeaderboardHero } from './icons/svgs'
 
 export const dynamic = 'force-dynamic'
 
@@ -28,7 +28,7 @@ export const metadata = {
 	}
 }
 
-function LineItem({index, data}: {index: number; data: any}) {
+function LineItem({ index, data }: { index: number; data: any }) {
 	const {
 		avatar_url: avatarUrl,
 		company,
@@ -103,7 +103,7 @@ function LineItem({index, data}: {index: number; data: any}) {
 	)
 }
 
-export const Leaderboard = ({data, session}: {data: any; session: any}) => {
+export const Leaderboard = ({ data, session }: { data: any; session: any }) => {
 	const labelClassNames =
 		'relative sticky top-[-1px] z-10 border-b border-neutral-700 py-2 px-4 text-left backdrop-blur-lg bg-black/60 text-sm text-white/80 flex items-center font-bold'
 
@@ -117,8 +117,7 @@ export const Leaderboard = ({data, session}: {data: any; session: any}) => {
 				<LeaderboardHero className='h-full w-full border-b border-neutral-700 text-neutral-700' />
 				<h1 className='headline w-fit p-4 pb-2 font-bold'>Leaderboard</h1>
 				<div className='flex flex-col border-b border-neutral-700 p-4 pt-0 text-xl text-white/60 [text-wrap:pretty]'>
-					See how you stack up against the developers who shipped the most pull
-					requests in 2024.
+					See the devs who&apos;ve shipped the most pull requests in 2024.
 				</div>
 				<div className='text-md flex w-full flex-row'>
 					<Link
@@ -142,7 +141,7 @@ export const Leaderboard = ({data, session}: {data: any; session: any}) => {
 						<div className={clsx(labelClassNames, 'border-r')}>User</div>
 						<div
 							className={clsx(labelClassNames, 'relative z-20 border-r')}
-							style={{padding: 0}}>
+							style={{ padding: 0 }}>
 							<Tooltip
 								body='Uses Graphite'
 								position='bottom'
