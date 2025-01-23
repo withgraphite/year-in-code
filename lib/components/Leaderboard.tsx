@@ -17,14 +17,14 @@ export const dynamic = 'force-dynamic'
 export const metadata = {
 	...DEFAULT_META,
 	title: 'Leaderboard | ' + META.title,
-	description: 'See who opened the most pull requests. ' + META.desc,
+	description: 'See how you stack up against engineers around the world. '  + META.desc,
 	openGraph: {
 		title: 'Leaderboard | ' + META.title,
-		description: 'See who opened the most pull requests. ' + META.desc
+		description: 'See how you stack up against engineers around the world. ' + META.desc
 	},
 	twitter: {
 		title: 'Leaderboard | ' + META.title,
-		description: 'See who opened the most pull requests. ' + META.desc
+		description: 'See how you stack up against engineers around the world. ' + META.desc
 	}
 }
 
