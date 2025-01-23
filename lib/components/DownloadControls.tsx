@@ -175,7 +175,7 @@ export default function DownloadControls({
 					Image (Mobile)
 				</DownloadButton>
 
-				<div className='fixed z-[-100] h-[720px] w-[1280px] scale-[10%] opacity-0'>
+				<div className='fixed left-1/2 top-1/2 h-[720px] w-[1280px] -translate-x-1/2 -translate-y-1/2 scale-[10%] opacity-0'>
 					<div
 						id={STATS_ID}
 						style={{backgroundImage: `url('/assets/sky.jpg')`}}
@@ -183,7 +183,7 @@ export default function DownloadControls({
 						<Summary stats={stats} />
 					</div>
 				</div>
-				<div className='fixed z-[-100] h-[1440px] w-[810px] scale-[10%] opacity-0'>
+				<div className='fixed left-1/2 top-1/2 h-[1440px] w-[810px] -translate-x-1/2 -translate-y-1/2 scale-[10%] opacity-0'>
 					<div
 						id={STATS_MOBILE_ID}
 						style={{backgroundImage: `url('/assets/sky.jpg')`}}
