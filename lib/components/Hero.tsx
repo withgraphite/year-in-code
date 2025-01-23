@@ -1,19 +1,19 @@
 'use client'
-import { track } from '@vercel/analytics/react'
-import { motion } from 'framer-motion'
-import { ChartNoAxesColumn } from 'lucide-react'
+import {track} from '@vercel/analytics/react'
+import {motion} from 'framer-motion'
+import {ChartNoAxesColumn} from 'lucide-react'
 import Link from 'next/link'
-import { META } from '~/constants/metadata'
-import { TRACKING } from '~/constants/tracking'
+import {META} from '~/constants/metadata'
+import {TRACKING} from '~/constants/tracking'
 import SignInButton from './SignInButton'
 
 export default function Hero() {
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 1 }}
-			animate={{ opacity: 1, scale: 1 }}
-			transition={{ delay: 0.3, duration: 0.5 }}
-			className='z-10 flex flex-col items-center justify-center overflow-hidden rounded-lg border border-neutral-700 bg-black transition-all duration-300 sm:w-[450px]'>
+			initial={{opacity: 0, scale: 1}}
+			animate={{opacity: 1, scale: 1}}
+			transition={{delay: 0.3, duration: 0.5}}
+			className='relative z-10 flex flex-col items-center justify-center rounded-lg border border-neutral-700 bg-black transition-all duration-300 sm:w-[450px]'>
 			<div className='flex w-full flex-col'>
 				<img
 					src='/assets/title.webp'
@@ -22,7 +22,7 @@ export default function Hero() {
 				/>
 				<h1 className='flex flex-row items-center p-4 pb-0 text-[32px] text-white/30'>
 					<span className='headline w-fit font-bold leading-none'>Year in code</span>
-					<div className='font-bold tracking-tight leading-none'>
+					<div className='font-bold leading-none tracking-tight'>
 						&nbsp;by&nbsp;
 						<Link
 							className='no-underline hover:text-white'
@@ -34,7 +34,9 @@ export default function Hero() {
 					</div>
 				</h1>
 				<div className='flex flex-col p-4 text-lg text-white/50 [text-wrap:pretty]'>
-					Look back on your 2024 coding journey with a personalized highlight reel and stats page. Visualize your contributions and see how you stack up against other devs around the world.
+					Look back on your 2024 coding journey with a personalized highlight reel
+					and stats page. Visualize your contributions and see how you stack up
+					against other devs around the world.
 				</div>
 			</div>
 
@@ -45,6 +47,23 @@ export default function Hero() {
 					<ChartNoAxesColumn /> Leaderboard
 				</Link>
 				<SignInButton className='h-full w-full' />
+			</div>
+			<div className='absolute bottom-0 left-1/2 w-[90%] -translate-x-1/2 translate-y-full p-4 text-center text-sm text-white/30'>
+				<b>Note:</b> We request{' '}
+				<Link
+					href='https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes'
+					onClick={() => track('Disclaimer')}
+					target='_blank'>
+					repo:status
+				</Link>{' '}
+				access to count private repository contributions, but this will not grant us
+				access to your actual code.{' '}
+				<Link
+					href={META.github}
+					onClick={() => track('Disclaimer Code')}
+					target='_blank'>
+					View our source code.
+				</Link>
 			</div>
 		</motion.div>
 	)
