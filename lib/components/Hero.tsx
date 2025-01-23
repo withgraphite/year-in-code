@@ -1,18 +1,18 @@
 'use client'
-import {track} from '@vercel/analytics/react'
-import {motion} from 'framer-motion'
-import {ChartNoAxesColumn} from 'lucide-react'
+import { track } from '@vercel/analytics/react'
+import { motion } from 'framer-motion'
+import { ChartNoAxesColumn } from 'lucide-react'
 import Link from 'next/link'
-import {META} from '~/constants/metadata'
-import {TRACKING} from '~/constants/tracking'
+import { META } from '~/constants/metadata'
+import { TRACKING } from '~/constants/tracking'
 import SignInButton from './SignInButton'
 
 export default function Hero() {
 	return (
 		<motion.div
-			initial={{opacity: 0, scale: 1}}
-			animate={{opacity: 1, scale: 1}}
-			transition={{delay: 0.3, duration: 0.5}}
+			initial={{ opacity: 0, scale: 1 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={{ delay: 0.3, duration: 0.5 }}
 			className='z-10 flex flex-col items-center justify-center overflow-hidden rounded-lg border border-neutral-700 bg-black transition-all duration-300 sm:w-[450px]'>
 			<div className='flex w-full flex-col'>
 				<img
@@ -34,8 +34,7 @@ export default function Hero() {
 					</div>
 				</h1>
 				<div className='flex flex-col p-4 text-lg text-white/50 [text-wrap:pretty]'>
-					Look back on your 2024 coding journey. Explore your contributions and
-					impact over the year with a generative video.
+					Look back on your 2024 coding journey with a personalized highlight reel and stats page. Visualize your contributions and see how you stack up against other devs around the world.
 				</div>
 			</div>
 
