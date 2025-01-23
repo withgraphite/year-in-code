@@ -48,10 +48,8 @@ export const findMostActiveTimes = (weeks: Week[]) => {
 
 	weeks.forEach(w => {
 		w.contributionDays.forEach(d => {
-			const date = new Date(d.date)
-
-			const dayOfWeek = date.getDay()
-			const month = date.getMonth()
+			const dayOfWeek = d.weekday as number
+			const month = Number(d.date.split('-')[1]) - 1
 
 			dayOfWeekContributions[dayOfWeek] += d.contributionCount
 
@@ -62,11 +60,8 @@ export const findMostActiveTimes = (weeks: Week[]) => {
 	})
 
 	// Find most active day
-	const avgDayContributions = dayOfWeekContributions.map((count, i) =>
-		dayOfWeekTotals[i] ? Math.round(count / dayOfWeekTotals[i]) : 0
-	)
-	const maxDayIndex = avgDayContributions.indexOf(
-		Math.max(...avgDayContributions)
+	const maxDayIndex = dayOfWeekContributions.indexOf(
+		Math.max(...dayOfWeekContributions)
 	)
 
 	// Find most active month
@@ -86,7 +81,7 @@ export const findMostActiveTimes = (weeks: Week[]) => {
 		{
 			title: 'Most Active Day',
 			value: DAYS[maxDayIndex],
-			subtitle: `Avg. ${avgDayContributions[maxDayIndex]} contributions`,
+			subtitle: `${dayOfWeekContributions[maxDayIndex]} contributions`,
 			icon: <Clock className='w-[16px] text-violet-500' />
 		}
 	]
