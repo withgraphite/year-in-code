@@ -6,7 +6,7 @@ export const META = {
 	twitter: '@withgraphite',
 	domain: {
 		prod: 'https://year-in-code.com/',
-		web: 'https://graphite.dev/'
+		web: 'https://graphite.dev/?utm_source=year_in_code'
 	},
 
 	github: 'https://github.com/withgraphite/year-in-code'
