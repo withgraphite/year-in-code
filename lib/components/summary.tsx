@@ -67,7 +67,7 @@ function Summary({
 						</div>
 					)}
 				</div>
-				<div className='flex justify-center rounded border border-gray-800 bg-black/60 p-2'>
+				<div className='flex w-full justify-center rounded border border-gray-800 bg-black/60 p-2'>
 					<ContributionGraph
 						weeks={weeks}
 						progress={1}

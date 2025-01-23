@@ -1,5 +1,6 @@
 import {Flame, Star} from 'lucide-react'
 import {Week} from '../types/github'
+import cn from '../utils/cn'
 import {findLongestStreak, findMostActiveTimes} from '../utils/records'
 
 // Format a date as Mmm dd, yyyy
@@ -110,7 +111,7 @@ export default function ContributionGraph({
 	progress: number
 }) {
 	return (
-		<div className='flex w-full flex-wrap justify-center'>
+		<div className='flex w-full justify-center'>
 			{weeks.map((week, i) => (
 				<div
 					key={i}
@@ -118,12 +119,12 @@ export default function ContributionGraph({
 						opacity: progress >= i / weeks.length ? 1 : 0,
 						transition: 'opacity 0.5s ease-in-out'
 					}}
-					className='mr-0.5 flex flex-col'>
+					className={cn('mr-0.5 flex flex-1 flex-col', i === 0 && 'justify-end')}>
 					{/* Each day is now a row in the week's column */}
 					{week.contributionDays.map((day, j) => (
 						<div
 							key={j}
-							className={`mb-[2px] h-4 w-4 rounded-[4px] ${day.color}`}
+							className={`min-h-1 min-w-1 mb-0.5 flex aspect-[1/1] w-full rounded-[25%] ${day.color}`}
 						/>
 					))}
 				</div>
