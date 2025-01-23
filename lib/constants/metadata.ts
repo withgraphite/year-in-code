@@ -2,11 +2,11 @@ import {Metadata} from 'next'
 
 export const META = {
 	title: 'Year in code by Graphite',
-	desc: 'End 2024 with a video of your GitHub stats.',
+	desc: 'Reflect on 2024 with a personalized highlight reel of your year in code.',
 	twitter: '@withgraphite',
 	domain: {
 		prod: 'https://year-in-code.com/',
-		web: 'https://graphite.dev/'
+		web: 'https://graphite.dev/?utm_source=year_in_code'
 	},
 
 	github: 'https://github.com/withgraphite/year-in-code'
