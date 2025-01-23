@@ -10,12 +10,20 @@ import SignInButton from './SignInButton'
 export default function Hero() {
 	return (
 		<motion.div
-			initial={{opacity: 0, scale: 1}}
-			animate={{opacity: 1, scale: 1}}
-			transition={{delay: 0.3, duration: 0.5}}
-			className='relative z-10 flex flex-col items-center justify-center rounded-lg border border-neutral-700 bg-black transition-all duration-300 sm:w-[450px]'>
+			layoutId='modal'
+			transition={{
+				duration: 0.3,
+				ease: 'easeInOut'
+			}}
+			className='relative z-10 flex flex-col items-center justify-center rounded-lg border border-neutral-700 bg-black sm:w-[450px] '>
 			<div className='flex w-full flex-col'>
-				<img
+				<motion.img
+					initial={{filter: 'blur(8px)', opacity: 0}}
+					animate={{filter: 'blur(0px)', opacity: 1}}
+					exit={{filter: 'blur(8px)', opacity: 0}}
+					transition={{
+						delay: 0.2
+					}}
 					src='/assets/title.webp'
 					alt='Year in code 2024 title'
 					className='border-b border-neutral-700'
