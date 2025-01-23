@@ -39,7 +39,7 @@ export default function DeleteButton() {
 			}, 1 * 1000)
 			setTimeout(async () => {
 				await supabase.auth.signOut()
-				router.push('/')
+				router.push('/home')
 			}, 3 * 1000)
 			track('Delete', {success: true})
 		}
