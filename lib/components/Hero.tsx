@@ -48,23 +48,6 @@ export default function Hero() {
 				</Link>
 				<SignInButton className='h-full w-full' />
 			</div>
-			<div className='absolute bottom-0 left-1/2 w-[90%] -translate-x-1/2 translate-y-full p-4 text-center text-sm text-white/30'>
-				<b>Note:</b> We request{' '}
-				<Link
-					href='https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes'
-					onClick={() => track('Disclaimer')}
-					target='_blank'>
-					repo:status
-				</Link>{' '}
-				access to count private repository contributions, but this will not grant us
-				access to your actual code.{' '}
-				<Link
-					href={META.github}
-					onClick={() => track('Disclaimer Code')}
-					target='_blank'>
-					View our source code.
-				</Link>
-			</div>
 		</motion.div>
 	)
 }

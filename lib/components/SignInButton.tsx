@@ -2,33 +2,30 @@
 import {track} from '@vercel/analytics'
 import {ArrowRight, Eye} from 'lucide-react'
 import {useRouter} from 'next/navigation'
-import { useCallback, useContext } from 'react'
+import {useCallback, useContext} from 'react'
 import {toast} from 'sonner'
-import { SessionContext } from '~/context/session'
+import {SessionContext} from '~/context/session'
 import cn from '~/utils/cn'
 
-
 export default function SignInButton({className}: {className?: string}) {
-	const { supabase, session } = useContext(SessionContext)
-	const router = useRouter();
+	const {supabase, session} = useContext(SessionContext)
+	const router = useRouter()
 
-	const handleSignIn = useCallback(async() => {
+	const handleSignIn = useCallback(async () => {
 		track('Signin')
-		if (session)
-			router.push(`/user/${session.user.user_metadata.user_name}`)
+		if (session) router.push(`/user/${session.user.user_metadata.user_name}`)
 		else {
 			const {error} = await supabase.auth.signInWithOAuth({
 				provider: 'github',
 				options: {
 					redirectTo: location.origin + '/auth/callback',
-					scopes: 'repo:status read:user'
+					scopes: 'read:user'
 				}
 			})
 			if (error) toast.error(error.message)
 		}
-
 	}, [session])
-	
+
 	return (
 		<button
 			onClick={handleSignIn}
